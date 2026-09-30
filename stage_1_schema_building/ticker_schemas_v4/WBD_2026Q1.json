@@ -1,0 +1,140 @@
+{
+  "ticker": "WBD",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "distribution_revenue": 4886.0,
+    "advertising_revenue": 1980.0,
+    "content_revenue": 1866.0,
+    "other_revenue": 247.0,
+    "cost_of_revenues": 5131.0,
+    "sga": 2194.0,
+    "depreciation_and_amortization": 1547.0,
+    "restructuring_and_other_charges": 54.0,
+    "impairments_and_loss_on_dispositions": 90.0,
+    "interest_expense_net": 468.0,
+    "loss_on_extinguishment_of_debt": 4.0,
+    "loss_from_equity_investees_net": 7.0,
+    "other_income_net": 82.0,
+    "income_taxes": 15.0,
+    "nci": 8.0,
+    "rnci_loss": 4.0,
+    "shares": 2462.0
+  },
+  "formulas": {
+    "other_charges": "restructuring_and_other_charges + impairments_and_loss_on_dispositions",
+    "total_revenue": "distribution_revenue + advertising_revenue + content_revenue + other_revenue",
+    "total_costs_and_expenses": "cost_of_revenues + sga + depreciation_and_amortization + other_charges",
+    "operating_income": "total_revenue - total_costs_and_expenses",
+    "pretax_income": "operating_income - interest_expense_net - loss_on_extinguishment_of_debt - loss_from_equity_investees_net + other_income_net",
+    "net_income": "pretax_income - income_taxes",
+    "earnings_to_common": "net_income - nci + rnci_loss",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "total_revenue",
+      "type": "yoy",
+      "constituents": [
+        "distribution_revenue",
+        "advertising_revenue",
+        "content_revenue",
+        "other_revenue"
+      ],
+      "description": "Total revenue YoY growth rate vs Q-4 (2025Q1)"
+    },
+    "cost_of_revenues_margin_delta_bps": {
+      "variable": "cost_of_revenues",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_revenues"
+      ],
+      "description": "Cost of revenues as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "d_and_a_margin_delta_bps": {
+      "variable": "depreciation_and_amortization",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "depreciation_and_amortization"
+      ],
+      "description": "Depreciation and amortization as % of total revenue, delta vs Q-4"
+    },
+    "other_charges_yoy": {
+      "variable": "other_charges",
+      "type": "yoy",
+      "constituents": [
+        "restructuring_and_other_charges",
+        "impairments_and_loss_on_dispositions"
+      ],
+      "description": "Combined restructuring and impairment charges YoY growth rate vs Q-4"
+    },
+    "interest_expense_net_yoy": {
+      "variable": "interest_expense_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "interest_expense_net YoY growth rate vs Q-4"
+    },
+    "loss_on_extinguishment_of_debt_abs": {
+      "variable": "loss_on_extinguishment_of_debt",
+      "type": "absolute",
+      "description": "loss_on_extinguishment_of_debt absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "loss_from_equity_investees_net_abs": {
+      "variable": "loss_from_equity_investees_net",
+      "type": "absolute",
+      "description": "loss_from_equity_investees_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "income_taxes_abs": {
+      "variable": "income_taxes",
+      "type": "absolute",
+      "default": 15.0,
+      "description": "income_taxes absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 8.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "rnci_loss_abs": {
+      "variable": "rnci_loss",
+      "type": "absolute",
+      "default": 4.0,
+      "description": "rnci_loss absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 2479.0,
+      "references": {
+        "last_q": 2479.0,
+        "ttm": 2479.75,
+        "q4": 2462.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": -0.18,
+    "target_fq_eps": -1.17,
+    "target_fq_pretax": -3120.0
+  }
+}

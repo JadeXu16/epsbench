@@ -1,0 +1,30 @@
+{
+  "ticker": "BA",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 10.520823593546437,
+  "revenue_pred": 22938.015000000003,
+  "operating_pred": 9415.60065113043,
+  "pretax_pred": 9058.35065113043,
+  "eps_p10": 8.2,
+  "eps_p90": 12.8,
+  "eps_gaap_actual": 10.23,
+  "operating_actual": 8777.0,
+  "pretax_actual": 8319.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.62,
+    "services_revenue_yoy": 0.095,
+    "cogs_margin_delta_bps": -2050,
+    "rd_yoy": 0.08,
+    "sga_margin_delta_bps": -260,
+    "operating_investment_income_abs": 15,
+    "gain_on_dispositions_abs": 9500,
+    "other_income_abs": 360,
+    "interest_expense_yoy": -0.05,
+    "nci_loss_abs": 0,
+    "preferred_dividends_abs": 86,
+    "shares_abs": 804,
+    "tax_rate": 0.0567
+  },
+  "model": "gpt-5.5"
+}

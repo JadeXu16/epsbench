@@ -1,0 +1,154 @@
+{
+  "ticker": "COIN",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "net_revenue": 2197.03,
+    "other_revenue": 74.607,
+    "transaction_expense": 317.042,
+    "tech_development": 368.691,
+    "sales_marketing": 225.827,
+    "general_administrative": 362.519,
+    "gains_on_crypto_operations_net": -16.241,
+    "crypto_impairment_net": 0.0,
+    "restructuring": 0.0,
+    "other_operating_expense_net": -20.27,
+    "interest_expense": 20.537,
+    "gains_on_crypto_investment_net": -476.153,
+    "other_income_net": -7.191,
+    "tax_rate": 0.1374,
+    "shares": 267.44
+  },
+  "formulas": {
+    "total_revenue": "net_revenue + other_revenue",
+    "total_operating_expenses": "transaction_expense + tech_development + sales_marketing + general_administrative + restructuring + crypto_impairment_net + other_operating_expense_net + gains_on_crypto_operations_net",
+    "operating_income": "total_revenue - total_operating_expenses",
+    "pretax_income": "operating_income - interest_expense - gains_on_crypto_investment_net - other_income_net",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "net_revenue_yoy": {
+      "variable": "net_revenue",
+      "type": "yoy",
+      "constituents": [
+        "net_revenue"
+      ],
+      "description": "Net revenue YoY growth rate vs Q-4"
+    },
+    "other_revenue_yoy": {
+      "variable": "other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_revenue"
+      ],
+      "description": "Other revenue YoY growth rate vs Q-4"
+    },
+    "transaction_expense_margin_delta_bps": {
+      "variable": "transaction_expense",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "transaction_expense"
+      ],
+      "description": "Transaction expense as % of total revenue, delta vs Q-4"
+    },
+    "tech_development_margin_delta_bps": {
+      "variable": "tech_development",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "tech_development"
+      ],
+      "description": "Tech and development expense as % of total revenue, delta vs Q-4"
+    },
+    "sales_marketing_margin_delta_bps": {
+      "variable": "sales_marketing",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sales_marketing"
+      ],
+      "description": "Sales and marketing expense as % of total revenue, delta vs Q-4"
+    },
+    "general_administrative_margin_delta_bps": {
+      "variable": "general_administrative",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "general_administrative"
+      ],
+      "description": "General and administrative expense as % of total revenue, delta vs Q-4"
+    },
+    "gains_on_crypto_operations_net_abs": {
+      "variable": "gains_on_crypto_operations_net",
+      "type": "absolute",
+      "description": "gains_on_crypto_operations_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "crypto_impairment_net_abs": {
+      "variable": "crypto_impairment_net",
+      "type": "absolute",
+      "description": "crypto_impairment_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "restructuring_abs": {
+      "variable": "restructuring",
+      "type": "absolute",
+      "description": "restructuring absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_operating_expense_net_abs": {
+      "variable": "other_operating_expense_net",
+      "type": "absolute",
+      "description": "other_operating_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "gains_on_crypto_investment_net_abs": {
+      "variable": "gains_on_crypto_investment_net",
+      "type": "absolute",
+      "description": "gains_on_crypto_investment_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.138588,
+      "references": {
+        "last_q": 0.138588,
+        "ttm": 0.175913,
+        "q4": 0.1374
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 277.3905,
+      "references": {
+        "last_q": 291.958,
+        "ttm": 277.3905,
+        "q4": 267.44
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 4.839,
+    "target_fq_eps": -2.484,
+    "target_fq_pretax": -886.307
+  },
+  "revenue_field": "total_revenue"
+}

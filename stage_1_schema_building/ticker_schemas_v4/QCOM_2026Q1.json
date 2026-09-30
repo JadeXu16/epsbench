@@ -1,0 +1,120 @@
+{
+  "ticker": "QCOM",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "equipment_services_revenue": 9942.0,
+    "licensing_revenue": 1727.0,
+    "cost_of_revenues": 5161.0,
+    "rd": 2230.0,
+    "sga": 723.0,
+    "other_income_expense_net": 0.0,
+    "interest_expense": 163.0,
+    "investment_and_other_income_net": 243.0,
+    "shares": 1122.0,
+    "tax_rate": 0.125172
+  },
+  "formulas": {
+    "total_revenue": "equipment_services_revenue + licensing_revenue",
+    "gross_profit": "total_revenue - cost_of_revenues",
+    "total_opex": "rd + sga + other_income_expense_net",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - interest_expense + investment_and_other_income_net",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "equipment_services_revenue_yoy": {
+      "variable": "equipment_services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "equipment_services_revenue"
+      ],
+      "description": "Equipment and services revenue YoY growth rate vs Q-4"
+    },
+    "licensing_revenue_yoy": {
+      "variable": "licensing_revenue",
+      "type": "yoy",
+      "constituents": [
+        "licensing_revenue"
+      ],
+      "description": "Licensing revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_revenues",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_revenues"
+      ],
+      "description": "Cost of revenues as % of total revenue, delta vs Q-4"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "other_income_expense_net_abs": {
+      "variable": "other_income_expense_net",
+      "type": "absolute",
+      "description": "other_income_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "investment_and_other_income_net_abs": {
+      "variable": "investment_and_other_income_net",
+      "type": "absolute",
+      "description": "investment_and_other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1108.75,
+      "references": {
+        "last_q": 1099.0,
+        "ttm": 1108.75,
+        "q4": 1122.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.516149,
+      "references": {
+        "last_q": 2.049142,
+        "ttm": 0.516149,
+        "q4": 0.125172
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 2.83,
+    "target_fq_eps": 2.78,
+    "target_fq_pretax": 3547.0
+  },
+  "revenue_field": "total_revenue"
+}

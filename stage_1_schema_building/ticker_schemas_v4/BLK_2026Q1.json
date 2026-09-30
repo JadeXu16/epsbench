@@ -1,0 +1,146 @@
+{
+  "ticker": "BLK",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "related_party_advisory_fees": 3279.0,
+    "third_party_advisory_fees": 1122.0,
+    "performance_fees": 60.0,
+    "technology_services_revenue": 436.0,
+    "distribution_fees": 321.0,
+    "advisory_other_revenue": 58.0,
+    "compensation_benefits": 1741.0,
+    "distribution_servicing_costs": 570.0,
+    "direct_fund_expense": 392.0,
+    "sub_advisory_other_expense": 47.0,
+    "general_administration_expense": 711.0,
+    "amortization_intangibles": 117.0,
+    "net_gain_investments": 58.0,
+    "interest_dividend_income": 173.0,
+    "interest_expense": 166.0,
+    "income_taxes": 248.0,
+    "nci": 5.0,
+    "shares": 156.6
+  },
+  "formulas": {
+    "investment_advisory_fees_total": "related_party_advisory_fees + third_party_advisory_fees",
+    "other_revenue": "distribution_fees + advisory_other_revenue",
+    "total_revenue": "investment_advisory_fees_total + performance_fees + technology_services_revenue + other_revenue",
+    "total_sales_asset_account_expense": "distribution_servicing_costs + direct_fund_expense + sub_advisory_other_expense",
+    "total_other_operating_expense": "total_sales_asset_account_expense + general_administration_expense + amortization_intangibles",
+    "total_expense": "compensation_benefits + total_other_operating_expense",
+    "operating_income": "total_revenue - total_expense",
+    "total_nonoperating_income": "net_gain_investments + interest_dividend_income - interest_expense",
+    "pretax_income": "operating_income + total_nonoperating_income",
+    "net_income": "pretax_income - income_taxes",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "advisory_fees_yoy": {
+      "variable": "investment_advisory_fees_total",
+      "type": "yoy",
+      "constituents": [
+        "related_party_advisory_fees",
+        "third_party_advisory_fees"
+      ],
+      "description": "Total investment advisory, administration fees and securities lending revenue YoY growth"
+    },
+    "performance_fees_yoy": {
+      "variable": "performance_fees",
+      "type": "yoy",
+      "constituents": [
+        "performance_fees"
+      ],
+      "description": "Investment advisory performance fees YoY growth"
+    },
+    "technology_services_revenue_yoy": {
+      "variable": "technology_services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "technology_services_revenue"
+      ],
+      "description": "Technology services and subscription revenue YoY growth"
+    },
+    "other_revenue_yoy": {
+      "variable": "other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "distribution_fees",
+        "advisory_other_revenue"
+      ],
+      "description": "Distribution fees plus advisory and other revenue YoY growth"
+    },
+    "compensation_margin_delta_bps": {
+      "variable": "compensation_benefits",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "compensation_benefits"
+      ],
+      "description": "Employee compensation and benefits as a percentage of total revenue, change vs Q-4 in bps"
+    },
+    "other_operating_expense_margin_delta_bps": {
+      "variable": "total_other_operating_expense",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "distribution_servicing_costs",
+        "direct_fund_expense",
+        "sub_advisory_other_expense",
+        "general_administration_expense",
+        "amortization_intangibles"
+      ],
+      "description": "All non-compensation operating expenses as a percentage of total revenue, change vs Q-4 in bps"
+    },
+    "net_gain_investments_abs": {
+      "variable": "net_gain_investments",
+      "type": "absolute",
+      "description": "net_gain_investments absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_dividend_income_yoy": {
+      "variable": "interest_dividend_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_dividend_income"
+      ],
+      "description": "interest_dividend_income YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "income_taxes_abs": {
+      "variable": "income_taxes",
+      "type": "absolute",
+      "default": 248.0,
+      "description": "income_taxes absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 5.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 157.3,
+      "references": {
+        "last_q": 157.3,
+        "ttm": 158.85,
+        "q4": 156.6
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 9.64,
+    "target_fq_eps": 14.06,
+    "target_fq_pretax": 2842.0
+  }
+}

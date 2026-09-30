@@ -1,0 +1,29 @@
+{
+  "ticker": "INTU",
+  "fiscal_quarter": "2026Q2",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.002597993391411,
+  "revenue_pred": 4447.139999999999,
+  "operating_pred": 730.3474729674481,
+  "pretax_pred": 710.3474729674481,
+  "eps_p10": 1.75,
+  "eps_p90": 2.25,
+  "eps_gaap_actual": 2.48,
+  "operating_actual": 855.0,
+  "pretax_actual": 869.0,
+  "fundamental_predictions": {
+    "service_revenue_yoy": 0.16,
+    "product_and_other_revenue_yoy": -0.05,
+    "cogs_margin_delta_bps": -20,
+    "selling_and_marketing_margin_delta_bps": -10,
+    "research_and_development_yoy": 0.08,
+    "general_and_administrative_margin_delta_bps": -5,
+    "amortization_of_other_acquired_intangible_assets_yoy": 0,
+    "restructuring_abs": 0,
+    "interest_expense_yoy": 0,
+    "interest_and_other_income_net_abs": 40,
+    "shares_abs": 282,
+    "tax_rate": 0.204991
+  },
+  "model": "glm-4.5-air"
+}

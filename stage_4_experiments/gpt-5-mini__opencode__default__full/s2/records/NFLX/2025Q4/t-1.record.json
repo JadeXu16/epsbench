@@ -1,0 +1,26 @@
+{
+  "ticker": "NFLX",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 5.637890427679448,
+  "revenue_pred": 12090.88534,
+  "operating_pred": 3123.9060748600014,
+  "pretax_pred": 2977.0811648600015,
+  "eps_p10": 4.9,
+  "eps_p90": 6.4,
+  "eps_gaap_actual": 5.57,
+  "operating_actual": 2956.663,
+  "pretax_actual": 2767.741,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.18,
+    "cogs_margin_delta_bps": -250,
+    "marketing_yoy": 0.15,
+    "tech_dev_yoy": 0.1,
+    "ga_margin_delta_bps": -40,
+    "interest_expense_yoy": -0.03,
+    "interest_and_other_income_abs": 40,
+    "tax_rate": 0.18,
+    "shares_abs": 433
+  },
+  "model": "gpt-5-mini"
+}

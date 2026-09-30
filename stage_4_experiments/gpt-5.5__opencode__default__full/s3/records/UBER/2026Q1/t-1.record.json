@@ -1,0 +1,30 @@
+{
+  "ticker": "UBER",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.7593367390248089,
+  "revenue_pred": null,
+  "operating_pred": 1379.5688959999989,
+  "pretax_pred": 1422.468895999999,
+  "eps_p10": 0.55,
+  "eps_p90": 0.98,
+  "eps_gaap_actual": 0.13,
+  "operating_actual": 1923.0,
+  "pretax_actual": 476.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.152,
+    "cost_of_revenue_margin_delta_bps": 80,
+    "operations_and_support_margin_delta_bps": -30,
+    "sales_and_marketing_margin_delta_bps": 45,
+    "rd_yoy": 0.1,
+    "general_and_administrative_margin_delta_bps": -30,
+    "depreciation_and_amortization_yoy": 0.1,
+    "interest_expense_yoy": 0.02,
+    "other_income_net_abs": 150,
+    "loss_from_equity_method_investments_abs": 14,
+    "nci_net_loss_abs": 2,
+    "tax_rate": -0.137457,
+    "shares_abs": 2115
+  },
+  "model": "gpt-5.5"
+}

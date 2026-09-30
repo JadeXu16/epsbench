@@ -1,0 +1,29 @@
+{
+  "ticker": "CCL",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.24436654471037325,
+  "revenue_pred": 6267.616,
+  "operating_pred": 653.1302094146167,
+  "pretax_pred": 340.2802094146167,
+  "eps_p10": 0.16,
+  "eps_p90": 0.34,
+  "eps_gaap_actual": 0.31,
+  "operating_actual": 735.0,
+  "pretax_actual": 404.0,
+  "fundamental_predictions": {
+    "passenger_ticket_yoy": 0.052,
+    "onboard_and_other_yoy": 0.062,
+    "fuel_yoy": -0.1,
+    "cruise_and_tour_operating_expenses_margin_delta_bps": -100,
+    "selling_and_administrative_margin_delta_bps": -30,
+    "depreciation_and_amortization_yoy": 0.085,
+    "interest_income_yoy": -0.1,
+    "interest_expense_net_of_capitalized_interest_yoy": -0.25,
+    "debt_extinguishment_and_modification_costs_abs": 25,
+    "other_income_net_abs": 0,
+    "tax_rate": 0.003231,
+    "shares_abs": 1388
+  },
+  "model": "gpt-5.4"
+}

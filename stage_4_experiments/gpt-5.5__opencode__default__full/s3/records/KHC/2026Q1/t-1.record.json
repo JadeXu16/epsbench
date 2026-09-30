@@ -1,0 +1,25 @@
+{
+  "ticker": "KHC",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.4872683227085521,
+  "revenue_pred": 5909.015,
+  "operating_pred": 994.8805349999999,
+  "pretax_pred": 801.7205349999999,
+  "eps_p10": 0.38,
+  "eps_p90": 0.58,
+  "eps_gaap_actual": 0.67,
+  "operating_actual": 1145.0,
+  "pretax_actual": 1010.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": -0.015,
+    "cogs_margin_delta_bps": 110,
+    "sga_margin_delta_bps": 200,
+    "interest_expense_yoy": 0.04,
+    "other_income_net_abs": 45,
+    "tax_rate": 0.277592,
+    "nci_abs": 2,
+    "shares_abs": 1184.5
+  },
+  "model": "gpt-5.5"
+}

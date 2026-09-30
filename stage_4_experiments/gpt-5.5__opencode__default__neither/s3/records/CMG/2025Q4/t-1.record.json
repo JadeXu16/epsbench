@@ -1,0 +1,30 @@
+{
+  "ticker": "CMG",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.26817145028182754,
+  "revenue_pred": 3058.3251999999998,
+  "operating_pred": 445.70798462972834,
+  "pretax_pred": 467.70798462972834,
+  "eps_p10": 0.22,
+  "eps_p90": 0.32,
+  "eps_gaap_actual": 0.25,
+  "operating_actual": 420.319,
+  "pretax_actual": 433.643,
+  "fundamental_predictions": {
+    "food_and_beverage_revenue_yoy": 0.075,
+    "delivery_service_revenue_yoy": 0.05,
+    "food_beverage_and_packaging_margin_delta_bps": 10,
+    "labor_margin_delta_bps": 30,
+    "occupancy_margin_delta_bps": -20,
+    "general_and_administrative_expenses_margin_delta_bps": -30,
+    "other_operating_costs_abs": 444.4,
+    "depreciation_and_amortization_yoy": 0.1,
+    "pre_opening_costs_yoy": 0.08,
+    "impairment_closure_costs_and_asset_disposals_abs": 0.5,
+    "interest_and_other_income_net_abs": 22,
+    "shares_abs": 1330,
+    "tax_rate": 0.237413
+  },
+  "model": "gpt-5.5"
+}

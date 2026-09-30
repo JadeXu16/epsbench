@@ -1,0 +1,120 @@
+{
+  "ticker": "SPGI",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "revenue": 3777.0,
+    "operating_related_expenses": 1153.0,
+    "selling_and_general_expenses": 764.0,
+    "depreciation": 25.0,
+    "amortization_of_intangibles": 268.0,
+    "equity_income": 11.0,
+    "other_expense_net": 4.0,
+    "interest_expense_net": 78.0,
+    "tax_rate": 0.2172459893,
+    "nci": 81.0,
+    "shares": 307.7
+  },
+  "formulas": {
+    "depreciation_and_amortization": "depreciation + amortization_of_intangibles",
+    "total_expenses": "operating_related_expenses + selling_and_general_expenses + depreciation_and_amortization",
+    "operating_profit": "revenue - total_expenses + equity_income",
+    "pretax_income": "operating_profit - other_expense_net - interest_expense_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Total revenue YoY growth rate vs Q-4 baseline"
+    },
+    "operating_related_expenses_margin_delta_bps": {
+      "variable": "operating_related_expenses",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "operating_related_expenses"
+      ],
+      "description": "Operating-related expenses as % of total revenue, delta vs Q-4"
+    },
+    "selling_and_general_expenses_margin_delta_bps": {
+      "variable": "selling_and_general_expenses",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "selling_and_general_expenses"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "depreciation_and_amortization_margin_delta_bps": {
+      "variable": "depreciation_and_amortization",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "depreciation",
+        "amortization_of_intangibles"
+      ],
+      "description": "Depreciation and amortization as % of total revenue, delta vs Q-4"
+    },
+    "equity_income_abs": {
+      "variable": "equity_income",
+      "type": "absolute",
+      "description": "equity_income absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_expense_net_abs": {
+      "variable": "other_expense_net",
+      "type": "absolute",
+      "description": "other_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_net_yoy": {
+      "variable": "interest_expense_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "interest_expense_net YoY growth rate vs Q-4"
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 81.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.225952,
+      "references": {
+        "last_q": 0.24954,
+        "ttm": 0.225952,
+        "q4": 0.2172459893
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 305.7,
+      "references": {
+        "last_q": 304.5,
+        "ttm": 305.7,
+        "q4": 307.7
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 3.54,
+    "target_fq_eps": 4.69,
+    "target_fq_pretax": 1908.0
+  }
+}

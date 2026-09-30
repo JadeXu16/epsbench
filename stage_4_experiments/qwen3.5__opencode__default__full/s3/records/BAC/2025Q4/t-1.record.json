@@ -1,0 +1,24 @@
+{
+  "ticker": "BAC",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.8925905774850994,
+  "revenue_pred": 27207.152962500004,
+  "operating_pred": null,
+  "pretax_pred": 7660.173617500001,
+  "eps_p10": 0.74,
+  "eps_p90": 1.05,
+  "eps_gaap_actual": 0.95,
+  "operating_actual": null,
+  "pretax_actual": 12435.0,
+  "fundamental_predictions": {
+    "total_revenue_yoy": 0.075,
+    "noninterest_income_margin_delta_bps": -15,
+    "provision_for_credit_losses_margin_delta_bps": -7,
+    "noninterest_expense_margin_delta_bps": -15,
+    "preferred_stock_dividends_abs": 270,
+    "shares_abs": 7550,
+    "tax_rate": 0.085
+  },
+  "model": "qwen3.5-122b-a10b"
+}

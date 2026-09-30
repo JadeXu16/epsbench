@@ -1,0 +1,26 @@
+{
+  "ticker": "UPS",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.2122907774674576,
+  "revenue_pred": 21071.988,
+  "operating_pred": 1462.2710480000023,
+  "pretax_pred": 1330.3710480000022,
+  "eps_p10": 0.85,
+  "eps_p90": 1.58,
+  "eps_gaap_actual": 1.02,
+  "operating_actual": 1267.0,
+  "pretax_actual": 1124.0,
+  "fundamental_predictions": {
+    "revenue_yoy": -0.022,
+    "compensation_and_benefits_yoy": -0.015,
+    "purchased_transportation_margin_delta_bps": 20,
+    "fuel_margin_delta_bps": 50,
+    "other_opex_margin_delta_bps": -30,
+    "investment_income_and_other_abs": 79,
+    "interest_expense_yoy": -0.05,
+    "tax_rate": 0.23,
+    "shares_abs": 845
+  },
+  "model": "glm-4.5-air"
+}

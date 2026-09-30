@@ -1,0 +1,27 @@
+{
+  "ticker": "PG",
+  "fiscal_quarter": "2026Q3",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.535764384426229,
+  "revenue_pred": 20369.28,
+  "operating_pred": 4592.893599999999,
+  "pretax_pred": 4686.043599999999,
+  "eps_p10": 1.4,
+  "eps_p90": 1.65,
+  "eps_gaap_actual": 1.63,
+  "operating_actual": 4575.0,
+  "pretax_actual": 4989.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": 0.03,
+    "cogs_margin_delta_bps": 30,
+    "sga_margin_delta_bps": 20,
+    "intangible_impairment_abs": 0,
+    "interest_expense_yoy": 0.05,
+    "interest_income_yoy": 0,
+    "other_non_operating_income_net_abs": 210,
+    "tax_rate": 0.195,
+    "nci_abs": 25,
+    "shares_abs": 2440
+  },
+  "model": "glm-4.5-air"
+}

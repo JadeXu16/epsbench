@@ -1,0 +1,121 @@
+{
+  "ticker": "AMGN",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "product_sales": 7873.0,
+    "other_revenues": 276.0,
+    "cost_of_sales": 2968.0,
+    "rd": 1486.0,
+    "sga": 1687.0,
+    "other_opex": 830.0,
+    "interest_expense_net": 723.0,
+    "other_income_net": 1518.0,
+    "tax_rate": 0.123163,
+    "shares": 541.0
+  },
+  "formulas": {
+    "total_revenue": "product_sales + other_revenues",
+    "gross_profit": "total_revenue - cost_of_sales",
+    "total_opex": "rd + sga + other_opex",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - interest_expense_net + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "product_sales_yoy": {
+      "variable": "product_sales",
+      "type": "yoy",
+      "constituents": [
+        "product_sales"
+      ],
+      "description": "Product sales YoY growth rate vs 2025Q1"
+    },
+    "other_revenues_yoy": {
+      "variable": "other_revenues",
+      "type": "yoy",
+      "constituents": [
+        "other_revenues"
+      ],
+      "description": "Other revenues YoY growth rate vs 2025Q1"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of total revenue, delta bps vs 2025Q1"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense YoY growth rate vs 2025Q1"
+    },
+    "sga_yoy": {
+      "variable": "sga",
+      "type": "yoy",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A expense YoY growth rate vs 2025Q1"
+    },
+    "other_opex_yoy": {
+      "variable": "other_opex",
+      "type": "yoy",
+      "constituents": [
+        "other_opex"
+      ],
+      "description": "Other operating expense YoY growth rate vs 2025Q1"
+    },
+    "interest_expense_net_yoy": {
+      "variable": "interest_expense_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "interest_expense_net YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.123163,
+      "references": {
+        "last_q": 0.119551,
+        "ttm": 0.140931,
+        "q4": 0.123163
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 541.5,
+      "references": {
+        "last_q": 542.0,
+        "ttm": 541.5,
+        "q4": 541.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 3.2,
+    "target_fq_eps": 3.34,
+    "target_fq_pretax": 2084.0
+  }
+}

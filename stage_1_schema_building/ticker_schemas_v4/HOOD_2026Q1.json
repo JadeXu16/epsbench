@@ -1,0 +1,104 @@
+{
+  "ticker": "HOOD",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "transaction_based_revenues": 583.0,
+    "net_interest_revenues": 290.0,
+    "other_revenues": 54.0,
+    "brokerage_and_transaction": 50.0,
+    "technology_and_development": 214.0,
+    "operations": 31.0,
+    "provision_for_credit_losses": 24.0,
+    "marketing": 105.0,
+    "general_and_administrative": 133.0,
+    "other_income_net": 1.0,
+    "tax_rate": 0.0943409703504043,
+    "shares": 909.241619
+  },
+  "formulas": {
+    "total_revenues": "transaction_based_revenues + net_interest_revenues + other_revenues",
+    "total_operating_expenses": "brokerage_and_transaction + technology_and_development + operations + provision_for_credit_losses + marketing + general_and_administrative",
+    "operating_income": "total_revenues - total_operating_expenses",
+    "pretax_income": "operating_income + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "transaction_based_revenues_yoy": {
+      "variable": "transaction_based_revenues",
+      "type": "yoy",
+      "constituents": [
+        "transaction_based_revenues"
+      ],
+      "description": "Transaction-based revenues YoY growth rate vs Q-4"
+    },
+    "net_interest_revenues_yoy": {
+      "variable": "net_interest_revenues",
+      "type": "yoy",
+      "constituents": [
+        "net_interest_revenues"
+      ],
+      "description": "Net interest revenues YoY growth rate vs Q-4"
+    },
+    "other_revenues_yoy": {
+      "variable": "other_revenues",
+      "type": "yoy",
+      "constituents": [
+        "other_revenues"
+      ],
+      "description": "Other revenues YoY growth rate vs Q-4"
+    },
+    "operating_expenses_margin_delta_bps": {
+      "variable": "total_operating_expenses",
+      "type": "bps",
+      "anchor": "total_revenues",
+      "constituents": [
+        "brokerage_and_transaction",
+        "technology_and_development",
+        "operations",
+        "provision_for_credit_losses",
+        "marketing",
+        "general_and_administrative"
+      ],
+      "description": "Total operating expenses as a percentage of total revenues, delta vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.0943409703504043,
+      "references": {
+        "last_q": 0.08472,
+        "ttm": 0.106736,
+        "q4": 0.0943409703504043
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 913.5626,
+      "references": {
+        "last_q": 917.94066,
+        "ttm": 913.5626,
+        "q4": 909.241619
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.37,
+    "target_fq_eps": 0.38,
+    "target_fq_pretax": 411.0
+  }
+}

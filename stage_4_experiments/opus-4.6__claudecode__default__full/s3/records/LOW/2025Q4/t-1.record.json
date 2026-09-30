@@ -1,0 +1,24 @@
+{
+  "ticker": "LOW",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.8029,
+  "revenue_pred": 20350.588,
+  "operating_pred": 1722.8376479999988,
+  "pretax_pred": 1324.9776479999987,
+  "eps_p10": 1.55,
+  "eps_p90": 2.05,
+  "eps_gaap_actual": 1.77,
+  "operating_actual": 1708.0,
+  "pretax_actual": 1304.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": 0.094,
+    "cost_of_sales_margin_delta_bps": 25,
+    "sga_margin_delta_bps": 15,
+    "depreciation_yoy": 0.19,
+    "interest_net_yoy": 0.14,
+    "tax_rate": 0.238,
+    "shares_abs": 560
+  },
+  "model": "claude-opus-4-6"
+}

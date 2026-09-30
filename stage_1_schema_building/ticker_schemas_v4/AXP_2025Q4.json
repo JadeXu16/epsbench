@@ -1,0 +1,162 @@
+{
+  "ticker": "AXP",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "discount_revenue": 9177.0,
+    "net_card_fees": 2245.0,
+    "service_fees_other_revenue": 1290.0,
+    "processed_revenue": 429.0,
+    "interest_on_loans": 5503.0,
+    "interest_and_dividends_on_investment_securities": 18.0,
+    "deposits_with_banks_and_other": 556.0,
+    "interest_expense_deposits": 1397.0,
+    "interest_expense_long_term_debt_and_other": 642.0,
+    "provisions_card_member_receivables": 182.0,
+    "provisions_card_member_loans": 1011.0,
+    "provisions_other": 99.0,
+    "card_member_rewards": 4430.0,
+    "business_development": 1637.0,
+    "card_member_services": 1278.0,
+    "marketing": 1614.0,
+    "salaries_and_employee_benefits": 2102.0,
+    "other_expenses_net": 2070.0,
+    "shares": 709.0,
+    "tax_rate": 0.212627
+  },
+  "formulas": {
+    "total_non_interest_revenues": "discount_revenue + net_card_fees + service_fees_other_revenue + processed_revenue",
+    "total_interest_income": "interest_on_loans + interest_and_dividends_on_investment_securities + deposits_with_banks_and_other",
+    "total_interest_expense": "interest_expense_deposits + interest_expense_long_term_debt_and_other",
+    "net_interest_income": "total_interest_income - total_interest_expense",
+    "total_revenue_net_of_interest_expense": "total_non_interest_revenues + net_interest_income",
+    "total_provisions_for_credit_losses": "provisions_card_member_receivables + provisions_card_member_loans + provisions_other",
+    "revenue_after_provisions": "total_revenue_net_of_interest_expense - total_provisions_for_credit_losses",
+    "total_expenses": "card_member_rewards + business_development + card_member_services + marketing + salaries_and_employee_benefits + other_expenses_net",
+    "pretax_income": "revenue_after_provisions - total_expenses",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "discount_revenue_yoy": {
+      "variable": "discount_revenue",
+      "type": "yoy",
+      "constituents": [
+        "discount_revenue"
+      ],
+      "description": "Discount revenue YoY growth rate vs Q-4"
+    },
+    "net_card_fees_yoy": {
+      "variable": "net_card_fees",
+      "type": "yoy",
+      "constituents": [
+        "net_card_fees"
+      ],
+      "description": "Net card fees YoY growth rate vs Q-4"
+    },
+    "service_fees_other_revenue_yoy": {
+      "variable": "service_fees_other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "service_fees_other_revenue"
+      ],
+      "description": "Service fees and other revenue YoY growth rate vs Q-4"
+    },
+    "total_non_interest_revenues_margin_delta_bps": {
+      "variable": "total_non_interest_revenues",
+      "type": "bps",
+      "anchor": "total_revenue_net_of_interest_expense",
+      "constituents": [
+        "discount_revenue",
+        "net_card_fees",
+        "service_fees_other_revenue",
+        "processed_revenue"
+      ],
+      "description": "Non-interest revenues as % of net revenue, delta vs Q-4"
+    },
+    "total_expenses_margin_delta_bps": {
+      "variable": "total_expenses",
+      "type": "bps",
+      "anchor": "total_revenue_net_of_interest_expense",
+      "constituents": [
+        "card_member_rewards",
+        "business_development",
+        "card_member_services",
+        "marketing",
+        "salaries_and_employee_benefits",
+        "other_expenses_net"
+      ],
+      "description": "Operating expenses as % of net revenue, delta vs Q-4"
+    },
+    "provisions_margin_delta_bps": {
+      "variable": "total_provisions_for_credit_losses",
+      "type": "bps",
+      "anchor": "total_revenue_net_of_interest_expense",
+      "constituents": [
+        "provisions_card_member_receivables",
+        "provisions_card_member_loans",
+        "provisions_other"
+      ],
+      "description": "Provision for credit losses as % of net revenue, delta vs Q-4"
+    },
+    "total_interest_income_yoy": {
+      "variable": "total_interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_on_loans",
+        "interest_and_dividends_on_investment_securities",
+        "deposits_with_banks_and_other"
+      ],
+      "description": "Total interest income YoY growth rate vs Q-4"
+    },
+    "interest_expense_deposits_yoy": {
+      "variable": "interest_expense_deposits",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_deposits"
+      ],
+      "description": "interest_expense_deposits YoY growth rate vs Q-4"
+    },
+    "interest_expense_long_term_debt_and_other_yoy": {
+      "variable": "interest_expense_long_term_debt_and_other",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_long_term_debt_and_other"
+      ],
+      "description": "interest_expense_long_term_debt_and_other YoY growth rate vs Q-4"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 700.75,
+      "references": {
+        "last_q": 693.0,
+        "ttm": 700.75,
+        "q4": 709.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.216923,
+      "references": {
+        "last_q": 0.241307,
+        "ttm": 0.216923,
+        "q4": 0.212627
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 3.06,
+    "target_fq_eps": 3.53,
+    "target_fq_pretax": 3090.0
+  },
+  "revenue_field": "total_revenue_net_of_interest_expense"
+}

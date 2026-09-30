@@ -1,0 +1,28 @@
+{
+  "ticker": "PYPL",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.2811,
+  "revenue_pred": 8784.3,
+  "operating_pred": 1476.765699999999,
+  "pretax_pred": 1486.765699999999,
+  "eps_p10": 1.12,
+  "eps_p90": 1.42,
+  "eps_gaap_actual": 1.532,
+  "operating_actual": 1511.0,
+  "pretax_actual": 1627.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.05,
+    "transaction_expense_margin_delta_bps": 20,
+    "transaction_credit_losses_margin_delta_bps": 50,
+    "customer_support_margin_delta_bps": -30,
+    "sales_marketing_margin_delta_bps": 40,
+    "technology_development_margin_delta_bps": 10,
+    "general_administrative_margin_delta_bps": -80,
+    "restructuring_and_other_abs": 80,
+    "other_income_net_abs": 10,
+    "tax_rate": 0.19,
+    "shares_abs": 940
+  },
+  "model": "claude-opus-4-6"
+}

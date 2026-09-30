@@ -1,0 +1,151 @@
+{
+  "ticker": "UAL",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "passenger_revenue": 11860.0,
+    "cargo_revenue": 429.0,
+    "other_operating_revenue": 923.0,
+    "salaries_and_related_costs": 4155.0,
+    "aircraft_fuel": 2701.0,
+    "landing_fees_and_other_rent": 873.0,
+    "aircraft_maintenance_materials_and_outside_repairs": 731.0,
+    "depreciation_and_amortization": 727.0,
+    "regional_capacity_purchase": 650.0,
+    "distribution_expenses": 496.0,
+    "aircraft_rent": 51.0,
+    "special_charges_credits": 108.0,
+    "other_operating_expenses": 2326.0,
+    "interest_expense": 356.0,
+    "interest_income": 164.0,
+    "interest_capitalized": 48.0,
+    "unrealized_losses_on_investments_net": 21.0,
+    "miscellaneous_net": 36.0,
+    "income_taxes": 91.0,
+    "shares": 333.6206896551724
+  },
+  "formulas": {
+    "total_revenue": "passenger_revenue + cargo_revenue + other_operating_revenue",
+    "nonfuel_operating_expense": "salaries_and_related_costs + landing_fees_and_other_rent + aircraft_maintenance_materials_and_outside_repairs + depreciation_and_amortization + regional_capacity_purchase + distribution_expenses + aircraft_rent - special_charges_credits + other_operating_expenses",
+    "total_operating_expense": "nonfuel_operating_expense + aircraft_fuel",
+    "operating_income": "total_revenue - total_operating_expense",
+    "pretax_income": "operating_income - interest_expense + interest_income + interest_capitalized - unrealized_losses_on_investments_net + miscellaneous_net",
+    "net_income": "pretax_income - income_taxes",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "passenger_revenue_yoy": {
+      "variable": "passenger_revenue",
+      "type": "yoy",
+      "constituents": [
+        "passenger_revenue"
+      ],
+      "description": "Passenger revenue YoY growth rate vs 2025Q1"
+    },
+    "cargo_revenue_yoy": {
+      "variable": "cargo_revenue",
+      "type": "yoy",
+      "constituents": [
+        "cargo_revenue"
+      ],
+      "description": "Cargo revenue YoY growth rate vs 2025Q1"
+    },
+    "other_operating_revenue_yoy": {
+      "variable": "other_operating_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_operating_revenue"
+      ],
+      "description": "Other operating revenue YoY growth rate vs 2025Q1"
+    },
+    "fuel_margin_delta_bps": {
+      "variable": "aircraft_fuel",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "aircraft_fuel"
+      ],
+      "description": "Aircraft fuel expense as a percentage of total revenue, delta vs 2025Q1"
+    },
+    "nonfuel_opex_margin_delta_bps": {
+      "variable": "nonfuel_operating_expense",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "salaries_and_related_costs",
+        "landing_fees_and_other_rent",
+        "aircraft_maintenance_materials_and_outside_repairs",
+        "depreciation_and_amortization",
+        "regional_capacity_purchase",
+        "distribution_expenses",
+        "aircraft_rent",
+        "other_operating_expenses"
+      ],
+      "description": "Non-fuel operating expenses as a percentage of total revenue, delta vs 2025Q1"
+    },
+    "special_charges_credits_abs": {
+      "variable": "special_charges_credits",
+      "type": "absolute",
+      "description": "special_charges_credits absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "interest_capitalized_yoy": {
+      "variable": "interest_capitalized",
+      "type": "yoy",
+      "constituents": [
+        "interest_capitalized"
+      ],
+      "description": "interest_capitalized YoY growth rate vs Q-4"
+    },
+    "unrealized_losses_on_investments_net_abs": {
+      "variable": "unrealized_losses_on_investments_net",
+      "type": "absolute",
+      "description": "unrealized_losses_on_investments_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "miscellaneous_net_yoy": {
+      "variable": "miscellaneous_net",
+      "type": "yoy",
+      "constituents": [
+        "miscellaneous_net"
+      ],
+      "description": "miscellaneous_net YoY growth rate vs Q-4"
+    },
+    "income_taxes_abs": {
+      "variable": "income_taxes",
+      "type": "absolute",
+      "default": 91.0,
+      "description": "income_taxes absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 328.8652,
+      "references": {
+        "last_q": 327.0,
+        "ttm": 328.8652,
+        "q4": 333.6206896551724
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.16,
+    "target_fq_eps": 2.14,
+    "target_fq_pretax": 870.0
+  }
+}

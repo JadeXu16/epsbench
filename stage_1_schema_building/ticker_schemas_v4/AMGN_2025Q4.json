@@ -1,0 +1,117 @@
+{
+  "ticker": "AMGN",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "product_sales": 8716.0,
+    "other_revenues": 370.0,
+    "cost_of_sales": 3112.0,
+    "research_and_development": 1724.0,
+    "selling_general_and_administrative": 1878.0,
+    "other_operating_expenses": 61.0,
+    "interest_expense_net": -747.0,
+    "other_income_net": -782.0,
+    "tax_rate": 0.1982,
+    "shares": 542.0
+  },
+  "formulas": {
+    "total_revenue": "product_sales + other_revenues",
+    "gross_profit": "total_revenue - cost_of_sales",
+    "total_opex": "research_and_development + selling_general_and_administrative + other_operating_expenses",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income + interest_expense_net + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "product_sales_yoy": {
+      "variable": "product_sales",
+      "type": "yoy",
+      "constituents": [
+        "product_sales"
+      ],
+      "description": "Product sales YoY growth rate vs Q-4"
+    },
+    "other_revenues_yoy": {
+      "variable": "other_revenues",
+      "type": "yoy",
+      "constituents": [
+        "other_revenues"
+      ],
+      "description": "Other revenues YoY growth rate vs Q-4"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "COGS as % of total revenue, delta vs Q-4"
+    },
+    "research_and_development_yoy": {
+      "variable": "research_and_development",
+      "type": "yoy",
+      "constituents": [
+        "research_and_development"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "selling_general_and_administrative_margin_delta_bps": {
+      "variable": "selling_general_and_administrative",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "selling_general_and_administrative"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "other_operating_expenses_abs": {
+      "variable": "other_operating_expenses",
+      "type": "absolute",
+      "description": "other_operating_expenses absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_net_abs": {
+      "variable": "interest_expense_net",
+      "type": "absolute",
+      "description": "interest_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 542.0,
+      "references": {
+        "last_q": 542.0,
+        "ttm": 541.5,
+        "q4": 542.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.179801,
+      "references": {
+        "last_q": 0.179801,
+        "ttm": 0.15029,
+        "q4": 0.1982
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.16,
+    "target_fq_eps": 2.46,
+    "target_fq_pretax": 1514.0
+  },
+  "revenue_field": "total_revenue"
+}

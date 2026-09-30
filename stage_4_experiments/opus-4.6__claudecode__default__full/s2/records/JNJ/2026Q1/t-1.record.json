@@ -1,0 +1,27 @@
+{
+  "ticker": "JNJ",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.3194,
+  "revenue_pred": 23469.296,
+  "operating_pred": 6640.735888000001,
+  "pretax_pred": 6859.935888000001,
+  "eps_p10": 1.9,
+  "eps_p90": 2.7,
+  "eps_gaap_actual": 2.14,
+  "operating_actual": 6327.0,
+  "pretax_actual": 5990.0,
+  "fundamental_predictions": {
+    "sales_yoy": 0.072,
+    "cogs_margin_delta_bps": -80,
+    "sga_margin_delta_bps": 20,
+    "rd_margin_delta_bps": 30,
+    "restructuring_abs": 75,
+    "interest_income_yoy": -0.4,
+    "interest_expense_net_yoy": 0.25,
+    "other_income_net_abs": 275,
+    "tax_rate": 0.175,
+    "shares_abs": 2440
+  },
+  "model": "claude-opus-4-6"
+}

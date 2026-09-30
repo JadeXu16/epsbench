@@ -1,0 +1,131 @@
+{
+  "ticker": "PYPL",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "net_revenues": 8366.0,
+    "transaction_expense": 3997.0,
+    "transaction_and_credit_losses": 434.0,
+    "customer_support_and_operations": 451.0,
+    "sales_and_marketing": 626.0,
+    "technology_and_development": 773.0,
+    "general_and_administrative": 594.0,
+    "restructuring_and_other": 50.0,
+    "other_income_net": -31.0,
+    "tax_rate": 0.205,
+    "shares": 1024.0
+  },
+  "formulas": {
+    "total_opex": "transaction_expense + transaction_and_credit_losses + customer_support_and_operations + sales_and_marketing + technology_and_development + general_and_administrative + restructuring_and_other",
+    "operating_income": "net_revenues - total_opex",
+    "pretax_income": "operating_income + other_income_net",
+    "income_tax_expense": "pretax_income * tax_rate",
+    "net_income": "pretax_income - income_tax_expense",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "net_revenues",
+      "type": "yoy",
+      "constituents": [
+        "net_revenues"
+      ],
+      "description": "Net revenue YoY growth rate vs Q-4"
+    },
+    "transaction_expense_margin_delta_bps": {
+      "variable": "transaction_expense",
+      "type": "bps",
+      "anchor": "net_revenues",
+      "constituents": [
+        "transaction_expense"
+      ],
+      "description": "Transaction expense as % of net revenue, delta vs Q-4"
+    },
+    "transaction_credit_losses_margin_delta_bps": {
+      "variable": "transaction_and_credit_losses",
+      "type": "bps",
+      "anchor": "net_revenues",
+      "constituents": [
+        "transaction_and_credit_losses"
+      ],
+      "description": "Transaction and credit losses as % of net revenue, delta vs Q-4"
+    },
+    "customer_support_margin_delta_bps": {
+      "variable": "customer_support_and_operations",
+      "type": "bps",
+      "anchor": "net_revenues",
+      "constituents": [
+        "customer_support_and_operations"
+      ],
+      "description": "Customer support and operations as % of net revenue, delta vs Q-4"
+    },
+    "sales_marketing_margin_delta_bps": {
+      "variable": "sales_and_marketing",
+      "type": "bps",
+      "anchor": "net_revenues",
+      "constituents": [
+        "sales_and_marketing"
+      ],
+      "description": "Sales and marketing as % of net revenue, delta vs Q-4"
+    },
+    "technology_development_margin_delta_bps": {
+      "variable": "technology_and_development",
+      "type": "bps",
+      "anchor": "net_revenues",
+      "constituents": [
+        "technology_and_development"
+      ],
+      "description": "Technology and development as % of net revenue, delta vs Q-4"
+    },
+    "general_administrative_margin_delta_bps": {
+      "variable": "general_and_administrative",
+      "type": "bps",
+      "anchor": "net_revenues",
+      "constituents": [
+        "general_and_administrative"
+      ],
+      "description": "General and administrative as % of net revenue, delta vs Q-4"
+    },
+    "restructuring_and_other_abs": {
+      "variable": "restructuring_and_other",
+      "type": "absolute",
+      "description": "restructuring_and_other absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.186281,
+      "references": {
+        "last_q": 0.18591,
+        "ttm": 0.186281,
+        "q4": 0.205
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 990.0,
+      "references": {
+        "last_q": 960.0,
+        "ttm": 990.0,
+        "q4": 1024.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.09,
+    "target_fq_eps": 1.532,
+    "target_fq_pretax": 1627.0
+  },
+  "revenue_field": "net_revenues"
+}

@@ -1,0 +1,28 @@
+{
+  "ticker": "CRM",
+  "fiscal_quarter": "2027Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.033661240767809,
+  "revenue_pred": 11062.029999999999,
+  "operating_pred": 2413.324996448264,
+  "pretax_pred": 2313.324996448264,
+  "eps_p10": 1.84,
+  "eps_p90": 2.25,
+  "eps_gaap_actual": 2.42,
+  "operating_actual": 2347.0,
+  "pretax_actual": 2721.0,
+  "fundamental_predictions": {
+    "subscription_revenue_yoy": 0.134,
+    "services_revenue_yoy": -0.024,
+    "cost_of_revenue_margin_delta_bps": -70,
+    "rd_yoy": 0.04,
+    "sales_and_marketing_margin_delta_bps": 20,
+    "g_and_a_margin_delta_bps": -20,
+    "restructuring_abs": 15,
+    "strategic_investment_losses_abs": 0,
+    "other_income_abs": -100,
+    "tax_rate": 0.21935258358662613,
+    "shares_abs": 888
+  },
+  "model": "gpt-5.4"
+}

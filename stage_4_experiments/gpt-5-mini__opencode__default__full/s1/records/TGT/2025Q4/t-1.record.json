@@ -1,0 +1,25 @@
+{
+  "ticker": "TGT",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.8232396594330913,
+  "revenue_pred": 30296.7,
+  "operating_pred": 1162.9863999999998,
+  "pretax_pred": 1034.4863999999998,
+  "eps_p10": 1.55,
+  "eps_p90": 2.1,
+  "eps_gaap_actual": 2.3,
+  "operating_actual": 1380.0,
+  "pretax_actual": 1308.0,
+  "fundamental_predictions": {
+    "revenue_yoy": -0.02,
+    "cogs_margin_delta_bps": 20,
+    "sga_margin_delta_bps": 60,
+    "depreciation_yoy": 0.03,
+    "net_interest_expense_yoy": 0.15,
+    "net_other_income_abs": -25,
+    "tax_rate": 0.197905,
+    "shares_abs": 455.1
+  },
+  "model": "gpt-5-mini"
+}

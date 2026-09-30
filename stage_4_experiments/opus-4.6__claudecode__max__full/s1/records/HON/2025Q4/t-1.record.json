@@ -1,0 +1,29 @@
+{
+  "ticker": "HON",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.5973,
+  "revenue_pred": 9850.415,
+  "operating_pred": null,
+  "pretax_pred": 1226.6902574952437,
+  "eps_p10": 1.25,
+  "eps_p90": 1.95,
+  "eps_gaap_actual": -0.18,
+  "operating_actual": null,
+  "pretax_actual": -501.0,
+  "fundamental_predictions": {
+    "product_sales_yoy": -0.05,
+    "service_sales_yoy": 0.035,
+    "cogs_margin_delta_bps": 136,
+    "rd_yoy": 0.127,
+    "sga_margin_delta_bps": 133,
+    "impairment_of_assets_held_for_sale_abs": 0,
+    "other_income_net_abs": -100,
+    "interest_and_other_financial_charges_yoy": 0.168,
+    "income_before_taxes_abs": 0,
+    "net_income_noncontrolling_interest_abs": 10,
+    "shares_abs": 635,
+    "tax_rate": 0.165
+  },
+  "model": "claude-opus-4-6"
+}

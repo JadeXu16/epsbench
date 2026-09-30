@@ -1,0 +1,106 @@
+{
+  "ticker": "AMAT",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "net_revenue": 7166.0,
+    "cost_of_products_sold": 3670.0,
+    "research_development_engineering": 859.0,
+    "marketing_and_selling": 206.0,
+    "general_and_administrative": 256.0,
+    "interest_expense": 64.0,
+    "interest_and_other_income_net": 8.0,
+    "tax_rate": 0.4408,
+    "shares": 819.0
+  },
+  "formulas": {
+    "gross_profit": "net_revenue - cost_of_products_sold",
+    "total_sga": "marketing_and_selling + general_and_administrative",
+    "total_opex": "research_development_engineering + total_sga",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - interest_expense + interest_and_other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "net_revenue_yoy": {
+      "variable": "net_revenue",
+      "type": "yoy",
+      "constituents": [
+        "net_revenue"
+      ],
+      "description": "Net revenue YoY growth rate vs Q-4"
+    },
+    "cost_of_products_sold_margin_delta_bps": {
+      "variable": "cost_of_products_sold",
+      "type": "bps",
+      "anchor": "net_revenue",
+      "constituents": [
+        "cost_of_products_sold"
+      ],
+      "description": "Cost of products sold as % of net revenue, delta vs Q-4"
+    },
+    "research_development_engineering_yoy": {
+      "variable": "research_development_engineering",
+      "type": "yoy",
+      "constituents": [
+        "research_development_engineering"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "total_sga_yoy": {
+      "variable": "total_sga",
+      "type": "yoy",
+      "constituents": [
+        "marketing_and_selling",
+        "general_and_administrative"
+      ],
+      "description": "Combined selling and general admin expense YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "interest_and_other_income_net_abs": {
+      "variable": "interest_and_other_income_net",
+      "type": "absolute",
+      "description": "interest_and_other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 808.75,
+      "references": {
+        "last_q": 802.0,
+        "ttm": 808.75,
+        "q4": 819.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.245179,
+      "references": {
+        "last_q": 0.163211,
+        "ttm": 0.245179,
+        "q4": 0.4408
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.45,
+    "target_fq_eps": 2.54,
+    "target_fq_pretax": 2328.0
+  },
+  "revenue_field": "net_revenue"
+}

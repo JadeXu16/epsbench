@@ -1,0 +1,24 @@
+{
+  "ticker": "HOOD",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.45294835827096447,
+  "revenue_pred": 1055.82,
+  "operating_pred": 458.3705284789644,
+  "pretax_pred": 459.3705284789644,
+  "eps_p10": 0.31,
+  "eps_p90": 0.61,
+  "eps_gaap_actual": 0.38,
+  "operating_actual": 410.0,
+  "pretax_actual": 411.0,
+  "fundamental_predictions": {
+    "transaction_based_revenues_yoy": 0.18,
+    "net_interest_revenues_yoy": 0.06,
+    "other_revenues_yoy": 0.12,
+    "operating_expenses_margin_delta_bps": -350,
+    "other_income_net_abs": 1,
+    "tax_rate": 0.0943409703504043,
+    "shares_abs": 918.5
+  },
+  "model": "gpt-5.5"
+}

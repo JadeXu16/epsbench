@@ -1,0 +1,28 @@
+{
+  "ticker": "JNJ",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.5184219530284304,
+  "revenue_pred": 23983.8,
+  "operating_pred": 4349.472600000001,
+  "pretax_pred": 4606.512600000001,
+  "eps_p10": 1.25,
+  "eps_p90": 1.8,
+  "eps_gaap_actual": 2.09,
+  "operating_actual": 5442.0,
+  "pretax_actual": 4966.0,
+  "fundamental_predictions": {
+    "sales_to_customers_yoy": 0.065,
+    "cost_of_products_sold_margin_delta_bps": -20,
+    "research_and_development_expense_yoy": -0.015,
+    "selling_marketing_administrative_expenses_yoy": 0.065,
+    "in_process_research_and_development_impairments_abs": 0,
+    "interest_income_abs": -250,
+    "interest_expense_yoy": 0.08,
+    "other_income_expense_net_abs": -200,
+    "restructuring_abs": 45,
+    "shares_abs": 2427,
+    "tax_rate": 0.2
+  },
+  "model": "glm-4.5-air"
+}

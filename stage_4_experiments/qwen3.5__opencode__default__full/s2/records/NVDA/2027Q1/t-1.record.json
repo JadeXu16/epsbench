@@ -1,0 +1,26 @@
+{
+  "ticker": "NVDA",
+  "fiscal_quarter": "2027Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.4287086072609014,
+  "revenue_pred": 77989.74,
+  "operating_pred": 40709.276620000004,
+  "pretax_pred": 41097.276620000004,
+  "eps_p10": 1.15,
+  "eps_p90": 1.8,
+  "eps_gaap_actual": 2.39,
+  "operating_actual": 53536.0,
+  "pretax_actual": 69903.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.77,
+    "cogs_margin_delta_bps": -100,
+    "rd_yoy": 0.42,
+    "sga_margin_delta_bps": -30,
+    "interest_income_yoy": 0.4,
+    "interest_expense_yoy": 0,
+    "other_net_expense_yoy": 0.5,
+    "tax_rate": 0.147585,
+    "shares_abs": 24520
+  },
+  "model": "qwen3.5-122b-a10b"
+}

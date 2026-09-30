@@ -1,0 +1,29 @@
+{
+  "ticker": "KO",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.7895636693735496,
+  "revenue_pred": 11629.805,
+  "operating_pred": 3861.829414999999,
+  "pretax_pred": 4202.219414999999,
+  "eps_p10": 0.72,
+  "eps_p90": 0.86,
+  "eps_gaap_actual": 0.91,
+  "operating_actual": 4359.0,
+  "pretax_actual": 4611.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.045,
+    "cogs_margin_delta_bps": -20,
+    "sga_margin_delta_bps": -10,
+    "other_operating_charges_yoy": 0,
+    "income_taxes_yoy": 0.1,
+    "interest_income_yoy": 0.05,
+    "interest_expense_yoy": 0.03,
+    "equity_income_net_abs": 300,
+    "other_income_net_abs": 250,
+    "noncontrolling_interests_abs": 5,
+    "tax_rate": 0.209,
+    "shares_abs": 4310
+  },
+  "model": "glm-4.5-air"
+}

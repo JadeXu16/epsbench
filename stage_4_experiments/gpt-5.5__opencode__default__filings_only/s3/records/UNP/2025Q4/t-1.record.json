@@ -1,0 +1,24 @@
+{
+  "ticker": "UNP",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.8283247529317204,
+  "revenue_pred": 5959.674999999999,
+  "operating_pred": 2407.793893851087,
+  "pretax_pred": 2176.184429821517,
+  "eps_p10": 2.55,
+  "eps_p90": 3.1,
+  "eps_gaap_actual": 3.11,
+  "operating_actual": 2401.0,
+  "pretax_actual": 2408.0,
+  "fundamental_predictions": {
+    "freight_revenues_yoy": -0.025,
+    "other_revenues_yoy": -0.05,
+    "opex_margin_delta_bps": 85,
+    "other_income_margin_delta_bps": 35,
+    "interest_margin_delta_bps": 25,
+    "shares_abs": 593.5,
+    "tax_rate": 0.228645
+  },
+  "model": "gpt-5.5"
+}

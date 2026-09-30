@@ -1,0 +1,116 @@
+{
+  "ticker": "MSFT",
+  "target_fq": "2026Q2",
+  "baseline_fq": "2025Q2",
+  "variables_baseline": {
+    "product_revenue": 16219.0,
+    "service_and_other_revenue": 53413.0,
+    "product_cogs": 3856.0,
+    "service_and_other_cogs": 17943.0,
+    "research_and_development": 7917.0,
+    "sales_and_marketing": 6440.0,
+    "general_and_administrative": 1823.0,
+    "other_expense_net": 2288.0,
+    "shares": 7468.0,
+    "tax_rate": 0.179023
+  },
+  "formulas": {
+    "total_revenue": "product_revenue + service_and_other_revenue",
+    "total_cogs": "product_cogs + service_and_other_cogs",
+    "gross_profit": "total_revenue - total_cogs",
+    "total_opex": "research_and_development + sales_and_marketing + general_and_administrative",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - other_expense_net",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "product_revenue_yoy": {
+      "variable": "product_revenue",
+      "type": "yoy",
+      "constituents": [
+        "product_revenue"
+      ],
+      "description": "Product revenue YoY growth rate vs Q-4"
+    },
+    "service_and_other_revenue_yoy": {
+      "variable": "service_and_other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "service_and_other_revenue"
+      ],
+      "description": "Service and other revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "product_cogs",
+        "service_and_other_cogs"
+      ],
+      "description": "Total COGS as % of total revenue, delta vs Q-4"
+    },
+    "research_and_development_yoy": {
+      "variable": "research_and_development",
+      "type": "yoy",
+      "constituents": [
+        "research_and_development"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "sales_and_marketing_yoy": {
+      "variable": "sales_and_marketing",
+      "type": "yoy",
+      "constituents": [
+        "sales_and_marketing"
+      ],
+      "description": "Sales and marketing expense YoY growth rate vs Q-4"
+    },
+    "general_and_administrative_yoy": {
+      "variable": "general_and_administrative",
+      "type": "yoy",
+      "constituents": [
+        "general_and_administrative"
+      ],
+      "description": "General and administrative expense YoY growth rate vs Q-4"
+    },
+    "other_expense_net_abs": {
+      "variable": "other_expense_net",
+      "type": "absolute",
+      "description": "other_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 7466.0,
+      "references": {
+        "last_q": 7466.0,
+        "ttm": 7464.0,
+        "q4": 7468.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.179023,
+      "references": {
+        "last_q": 0.191073,
+        "ttm": 0.178579,
+        "q4": 0.179023
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 3.23,
+    "target_fq_eps": 5.16,
+    "target_fq_pretax": 48246.0
+  },
+  "revenue_field": "total_revenue"
+}

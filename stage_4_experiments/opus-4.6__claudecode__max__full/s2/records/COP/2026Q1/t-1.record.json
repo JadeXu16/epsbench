@@ -1,0 +1,31 @@
+{
+  "ticker": "COP",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.8774,
+  "revenue_pred": 15561.91,
+  "operating_pred": null,
+  "pretax_pred": 3578.7599999999966,
+  "eps_p10": 1.4,
+  "eps_p90": 2.35,
+  "eps_gaap_actual": 1.78,
+  "operating_actual": null,
+  "pretax_actual": 3363.0,
+  "fundamental_predictions": {
+    "total_revenues_yoy": -0.09,
+    "purchased_commodities_margin_delta_bps": -100,
+    "production_and_operating_expenses_margin_delta_bps": 100,
+    "depreciation_depletion_amortization_yoy": 0.06,
+    "sga_yoy": 0.0,
+    "exploration_expenses_yoy": 0.12,
+    "impairments_abs": 5,
+    "taxes_other_than_income_taxes_yoy": -0.04,
+    "accretion_on_discounted_liabilities_abs": 96,
+    "interest_and_debt_expense_yoy": -0.03,
+    "foreign_currency_transaction_loss_abs": 5,
+    "other_expenses_abs": 5,
+    "tax_rate": 0.36,
+    "shares_abs": 1220
+  },
+  "model": "claude-opus-4-6"
+}

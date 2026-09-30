@@ -1,0 +1,132 @@
+{
+  "ticker": "GM",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "automotive_revenue": 43598.0,
+    "gm_financial_revenue": 4104.0,
+    "automotive_cos": 39447.0,
+    "gm_financial_expenses": 3404.0,
+    "automotive_sga": 3329.0,
+    "automotive_interest_expense": 215.0,
+    "interest_income_net": 501.0,
+    "equity_loss": 4364.0,
+    "nci_income": 87.0,
+    "preferred_redemption_gain": 1236.0,
+    "tax_rate": -0.1244,
+    "shares": 1131.0
+  },
+  "formulas": {
+    "total_revenue": "automotive_revenue + gm_financial_revenue",
+    "total_cogs": "automotive_cos + gm_financial_expenses",
+    "gross_profit": "total_revenue - total_cogs",
+    "total_costs": "automotive_cos + gm_financial_expenses + automotive_sga",
+    "operating_income": "total_revenue - total_costs",
+    "pretax_income": "operating_income + interest_income_net - automotive_interest_expense - equity_loss",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci_income + preferred_redemption_gain",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "automotive_revenue_yoy": {
+      "variable": "automotive_revenue",
+      "type": "yoy",
+      "constituents": [
+        "automotive_revenue"
+      ],
+      "description": "Automotive revenue YoY growth rate vs Q-4"
+    },
+    "gm_financial_revenue_yoy": {
+      "variable": "gm_financial_revenue",
+      "type": "yoy",
+      "constituents": [
+        "gm_financial_revenue"
+      ],
+      "description": "GM Financial revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "automotive_cos",
+        "gm_financial_expenses"
+      ],
+      "description": "Combined COGS as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "automotive_sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "automotive_sga"
+      ],
+      "description": "Automotive SG&A as % of total revenue, delta vs Q-4"
+    },
+    "automotive_interest_expense_yoy": {
+      "variable": "automotive_interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "automotive_interest_expense"
+      ],
+      "description": "automotive_interest_expense YoY growth rate vs Q-4"
+    },
+    "interest_income_net_yoy": {
+      "variable": "interest_income_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_income_net"
+      ],
+      "description": "interest_income_net YoY growth rate vs Q-4"
+    },
+    "equity_loss_abs": {
+      "variable": "equity_loss",
+      "type": "absolute",
+      "description": "equity_loss absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "nci_income_abs": {
+      "variable": "nci_income",
+      "type": "absolute",
+      "default": 87.0,
+      "description": "nci_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "preferred_redemption_gain_abs": {
+      "variable": "preferred_redemption_gain",
+      "type": "absolute",
+      "default": 1236.0,
+      "description": "preferred_redemption_gain absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.0895,
+      "references": {
+        "last_q": 0.0895,
+        "ttm": 0.341989,
+        "q4": -0.1244
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1018.25,
+      "references": {
+        "last_q": 964.0,
+        "ttm": 1018.25,
+        "q4": 1131.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": -1.53,
+    "target_fq_eps": -3.6,
+    "target_fq_pretax": -4249.0
+  },
+  "revenue_field": "total_revenue"
+}

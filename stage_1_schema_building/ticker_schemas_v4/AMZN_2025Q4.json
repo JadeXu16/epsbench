@@ -1,0 +1,156 @@
+{
+  "ticker": "AMZN",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "products_revenue": 82226.0,
+    "services_revenue": 105566.0,
+    "cost_of_sales": 98893.0,
+    "fulfillment": 27962.0,
+    "technology_infrastructure": 23571.0,
+    "sales_and_marketing": 13124.0,
+    "general_and_administrative": 2863.0,
+    "other_operating_expense_net": 176.0,
+    "interest_income": 1248.0,
+    "interest_expense": 570.0,
+    "other_income_expense_net": 468.0,
+    "equity_method_investment_activity_net": 20.0,
+    "tax_rate": 0.1041,
+    "shares": 10735.0
+  },
+  "formulas": {
+    "total_revenue": "products_revenue + services_revenue",
+    "gross_profit": "total_revenue - cost_of_sales",
+    "total_opex": "fulfillment + technology_infrastructure + sales_and_marketing + general_and_administrative + other_operating_expense_net",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income + interest_income - interest_expense + other_income_expense_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision + equity_method_investment_activity_net",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "products_revenue_yoy": {
+      "variable": "products_revenue",
+      "type": "yoy",
+      "constituents": [
+        "products_revenue"
+      ],
+      "description": "Product sales YoY growth rate vs Q-4"
+    },
+    "services_revenue_yoy": {
+      "variable": "services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "services_revenue"
+      ],
+      "description": "Service sales YoY growth rate vs Q-4"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of total revenue, delta vs Q-4"
+    },
+    "fulfillment_margin_delta_bps": {
+      "variable": "fulfillment",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "fulfillment"
+      ],
+      "description": "Fulfillment expense as % of total revenue, delta vs Q-4"
+    },
+    "technology_infrastructure_margin_delta_bps": {
+      "variable": "technology_infrastructure",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "technology_infrastructure"
+      ],
+      "description": "Technology and infrastructure expense as % of total revenue, delta vs Q-4"
+    },
+    "sales_and_marketing_margin_delta_bps": {
+      "variable": "sales_and_marketing",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sales_and_marketing"
+      ],
+      "description": "Sales and marketing expense as % of total revenue, delta vs Q-4"
+    },
+    "general_and_administrative_yoy": {
+      "variable": "general_and_administrative",
+      "type": "yoy",
+      "constituents": [
+        "general_and_administrative"
+      ],
+      "description": "general_and_administrative YoY growth rate vs Q-4"
+    },
+    "other_operating_expense_net_abs": {
+      "variable": "other_operating_expense_net",
+      "type": "absolute",
+      "description": "other_operating_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "other_income_expense_net_abs": {
+      "variable": "other_income_expense_net",
+      "type": "absolute",
+      "description": "other_income_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "equity_method_investment_activity_net_abs": {
+      "variable": "equity_method_investment_activity_net",
+      "type": "absolute",
+      "default": 20.0,
+      "description": "equity_method_investment_activity_net absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 10735.0,
+      "references": {
+        "last_q": 10845.0,
+        "ttm": 8099.1675,
+        "q4": 10735.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.166861,
+      "references": {
+        "last_q": 0.245296,
+        "ttm": 0.166861,
+        "q4": 0.1041
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.86,
+    "target_fq_eps": 1.95,
+    "target_fq_pretax": 26605.0
+  },
+  "revenue_field": "total_revenue"
+}

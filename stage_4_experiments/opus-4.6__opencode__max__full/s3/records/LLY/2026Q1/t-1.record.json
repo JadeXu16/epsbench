@@ -1,0 +1,26 @@
+{
+  "ticker": "LLY",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 6.011215505016724,
+  "revenue_pred": 17692.615,
+  "operating_pred": null,
+  "pretax_pred": 6740.075385000002,
+  "eps_p10": 4.5,
+  "eps_p90": 8.0,
+  "eps_gaap_actual": 8.26,
+  "operating_actual": null,
+  "pretax_actual": 8850.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.39,
+    "cogs_margin_delta_bps": 10,
+    "rd_yoy": 0.25,
+    "msa_yoy": 0.18,
+    "acquired_in_process_rd_abs": 1200,
+    "asset_impairment_restructuring_and_other_special_charges_abs": 50,
+    "other_net_expense_yoy": 0.1,
+    "tax_rate": 0.2,
+    "shares_abs": 897
+  },
+  "model": "claude-opus-4-6"
+}

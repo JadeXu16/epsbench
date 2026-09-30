@@ -1,0 +1,143 @@
+{
+  "ticker": "CRWD",
+  "target_fq": "2026Q3",
+  "baseline_fq": "2025Q3",
+  "variables_baseline": {
+    "subscription_revenue": 962.735,
+    "professional_services_revenue": 47.443,
+    "subscription_cost": 216.301,
+    "professional_services_cost": 38.786,
+    "sales_and_marketing": 408.267,
+    "research_and_development": 275.602,
+    "general_and_administrative": 126.945,
+    "interest_expense": 6.587,
+    "interest_income": 52.201,
+    "other_income_expense_net": 0.429,
+    "noncontrolling_interest": 0.003,
+    "shares": 245.536,
+    "tax_rate": -0.596033
+  },
+  "formulas": {
+    "total_revenue": "subscription_revenue + professional_services_revenue",
+    "total_cogs": "subscription_cost + professional_services_cost",
+    "gross_profit": "total_revenue - total_cogs",
+    "total_opex": "sales_and_marketing + research_and_development + general_and_administrative",
+    "operating_income": "gross_profit - total_opex",
+    "other_net": "interest_income - interest_expense - other_income_expense_net",
+    "pretax_income": "operating_income + other_net",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - noncontrolling_interest",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "subscription_revenue_yoy": {
+      "variable": "subscription_revenue",
+      "type": "yoy",
+      "constituents": [
+        "subscription_revenue"
+      ],
+      "description": "Subscription revenue YoY growth rate vs Q-4"
+    },
+    "professional_services_revenue_yoy": {
+      "variable": "professional_services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "professional_services_revenue"
+      ],
+      "description": "Professional services revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "subscription_cost",
+        "professional_services_cost"
+      ],
+      "description": "Combined COGS as % of total revenue, delta vs Q-4"
+    },
+    "sales_and_marketing_yoy": {
+      "variable": "sales_and_marketing",
+      "type": "yoy",
+      "constituents": [
+        "sales_and_marketing"
+      ],
+      "description": "Sales and marketing expense YoY growth rate vs Q-4"
+    },
+    "research_and_development_yoy": {
+      "variable": "research_and_development",
+      "type": "yoy",
+      "constituents": [
+        "research_and_development"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "general_and_administrative_yoy": {
+      "variable": "general_and_administrative",
+      "type": "yoy",
+      "constituents": [
+        "general_and_administrative"
+      ],
+      "description": "G&A expense YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "other_income_expense_net_abs": {
+      "variable": "other_income_expense_net",
+      "type": "absolute",
+      "description": "other_income_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "noncontrolling_interest_abs": {
+      "variable": "noncontrolling_interest",
+      "type": "absolute",
+      "default": 0.003,
+      "description": "noncontrolling_interest absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 247.1567,
+      "references": {
+        "last_q": 249.909,
+        "ttm": 247.1567,
+        "q4": 245.536
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": -0.364318,
+      "references": {
+        "last_q": -0.083308,
+        "ttm": -0.364318,
+        "q4": -0.596033
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": -0.07,
+    "target_fq_eps": -0.14,
+    "target_fq_pretax": -23.268
+  },
+  "revenue_field": "total_revenue"
+}

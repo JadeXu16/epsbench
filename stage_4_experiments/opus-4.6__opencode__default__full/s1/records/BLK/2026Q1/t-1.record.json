@@ -1,0 +1,29 @@
+{
+  "ticker": "BLK",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 10.62805191600178,
+  "revenue_pred": 6568.095,
+  "operating_pred": 2192.65817677028,
+  "pretax_pred": 2248.9181767702803,
+  "eps_p10": 9.0,
+  "eps_p90": 12.3,
+  "eps_gaap_actual": 14.06,
+  "operating_actual": 2814.0,
+  "pretax_actual": 2842.0,
+  "fundamental_predictions": {
+    "advisory_fees_yoy": 0.215,
+    "performance_fees_yoy": 2.83,
+    "technology_services_revenue_yoy": 0.23,
+    "other_revenue_yoy": 0.2,
+    "compensation_margin_delta_bps": -50,
+    "other_operating_expense_margin_delta_bps": -70,
+    "net_gain_investments_abs": 40,
+    "interest_dividend_income_yoy": -0.1,
+    "interest_expense_yoy": -0.16,
+    "income_taxes_abs": 480,
+    "nci_abs": 95,
+    "shares_abs": 157.5
+  },
+  "model": "claude-opus-4-6"
+}

@@ -1,0 +1,30 @@
+{
+  "ticker": "CMCSA",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.6164,
+  "revenue_pred": 32137.398,
+  "operating_pred": 4209.454351,
+  "pretax_pred": 2965.6243510000004,
+  "eps_p10": 0.45,
+  "eps_p90": 0.78,
+  "eps_gaap_actual": 0.6,
+  "operating_actual": 3488.0,
+  "pretax_actual": 2159.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.007,
+    "programming_and_production_margin_delta_bps": 40,
+    "marketing_and_promotion_margin_delta_bps": 50,
+    "other_operating_and_administrative_margin_delta_bps": 120,
+    "depreciation_margin_delta_bps": 40,
+    "amortization_margin_delta_bps": 5,
+    "goodwill_and_longlived_asset_impairments_abs": 0,
+    "interest_expense_yoy": 0.07,
+    "investment_and_other_income_net_abs": -100,
+    "tax_rate": 0.27,
+    "shares_abs": 3650,
+    "net_income_abs": 0,
+    "net_income_attributable_to_noncontrolling_interests_abs": -85
+  },
+  "model": "claude-opus-4-6"
+}

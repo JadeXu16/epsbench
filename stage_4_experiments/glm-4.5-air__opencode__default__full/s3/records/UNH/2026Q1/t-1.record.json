@@ -1,0 +1,29 @@
+{
+  "ticker": "UNH",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 6.986665767420957,
+  "revenue_pred": 109809.762,
+  "operating_pred": 9292.271700501035,
+  "pretax_pred": 8229.371700501035,
+  "eps_p10": 6.2,
+  "eps_p90": 7.6,
+  "eps_gaap_actual": 6.9,
+  "operating_actual": 8990.0,
+  "pretax_actual": 7963.0,
+  "fundamental_predictions": {
+    "premiums_yoy": -0.007,
+    "products_yoy": 0.038,
+    "services_yoy": 0.031,
+    "medical_cost_ratio_delta_bps": 50,
+    "products_cogs_margin_delta_bps": -20,
+    "opex_margin_delta_bps": -30,
+    "investment_other_income_abs": 1100,
+    "interest_expense_yoy": 0.05,
+    "loss_on_sale_subsidiary_yoy": 0,
+    "tax_rate": 0.2013,
+    "noncontrolling_interests_abs": 180,
+    "shares_abs": 915
+  },
+  "model": "glm-4.5-air"
+}

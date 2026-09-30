@@ -1,0 +1,14 @@
+The data produced for EPSBench (the accounting schemas and their verification
+results, instance definitions, ground-truth and price tables, forecast records,
+scores, trajectory statistics, trajectories with third-party text removed, and the
+news article list) is released under the Creative Commons Attribution 4.0
+International License (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+Third-party content keeps its own terms and is not covered by this license:
+  - SEC filings are public records obtained from EDGAR.
+  - Earnings-call transcripts are not included; the transcript index lists metadata only.
+  - News article text is not included; articles are identified by their Common Crawl
+    WARC record IDs and URLs and can be retrieved from CC-NEWS under Common Crawl's terms.
+  - Analyst consensus (IBES) is not included; data/scores.csv reports only whether each
+    forecast outperformed it.
+  - Share prices are closing prices from Yahoo Finance.

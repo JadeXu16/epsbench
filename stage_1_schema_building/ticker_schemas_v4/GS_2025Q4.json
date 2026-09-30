@@ -1,0 +1,201 @@
+{
+  "ticker": "GS",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "investment_banking": 2056.0,
+    "investment_management": 2923.0,
+    "commissions_and_fees": 1085.0,
+    "market_making": 4168.0,
+    "other_principal_transactions": 2054.0,
+    "interest_income": 19954.0,
+    "interest_expense": 18371.0,
+    "provision_for_credit_losses": 351.0,
+    "compensation_and_benefits": 3759.0,
+    "transaction_based": 1872.0,
+    "market_development": 181.0,
+    "communications_and_technology": 523.0,
+    "depreciation_and_amortization": 498.0,
+    "occupancy": 240.0,
+    "professional_fees": 475.0,
+    "other_expenses": 713.0,
+    "preferred_stock_dividends": 188.0,
+    "shares": 330.8,
+    "tax_rate": 0.217995
+  },
+  "formulas": {
+    "non_interest_revenues": "investment_banking + investment_management + commissions_and_fees + market_making + other_principal_transactions",
+    "net_interest_income": "interest_income - interest_expense",
+    "total_net_revenues": "non_interest_revenues + net_interest_income",
+    "total_operating_expenses": "compensation_and_benefits + transaction_based + market_development + communications_and_technology + depreciation_and_amortization + occupancy + professional_fees + other_expenses",
+    "pretax_income": "total_net_revenues - provision_for_credit_losses - total_operating_expenses",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - preferred_stock_dividends",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "investment_banking_yoy": {
+      "variable": "investment_banking",
+      "type": "yoy",
+      "constituents": [
+        "investment_banking"
+      ],
+      "description": "Investment banking revenue YoY growth rate vs Q-4"
+    },
+    "investment_management_yoy": {
+      "variable": "investment_management",
+      "type": "yoy",
+      "constituents": [
+        "investment_management"
+      ],
+      "description": "Investment management revenue YoY growth rate vs Q-4"
+    },
+    "commissions_and_fees_yoy": {
+      "variable": "commissions_and_fees",
+      "type": "yoy",
+      "constituents": [
+        "commissions_and_fees"
+      ],
+      "description": "Commissions and fees revenue YoY growth rate vs Q-4"
+    },
+    "market_making_yoy": {
+      "variable": "market_making",
+      "type": "yoy",
+      "constituents": [
+        "market_making"
+      ],
+      "description": "Market making revenue YoY growth rate vs Q-4"
+    },
+    "other_principal_transactions_yoy": {
+      "variable": "other_principal_transactions",
+      "type": "yoy",
+      "constituents": [
+        "other_principal_transactions"
+      ],
+      "description": "Other principal transactions revenue YoY growth rate vs Q-4"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "provision_for_credit_losses_yoy": {
+      "variable": "provision_for_credit_losses",
+      "type": "yoy",
+      "constituents": [
+        "provision_for_credit_losses"
+      ],
+      "description": "provision_for_credit_losses YoY growth rate vs Q-4"
+    },
+    "compensation_and_benefits_yoy": {
+      "variable": "compensation_and_benefits",
+      "type": "yoy",
+      "constituents": [
+        "compensation_and_benefits"
+      ],
+      "description": "compensation_and_benefits YoY growth rate vs Q-4"
+    },
+    "transaction_based_yoy": {
+      "variable": "transaction_based",
+      "type": "yoy",
+      "constituents": [
+        "transaction_based"
+      ],
+      "description": "transaction_based YoY growth rate vs Q-4"
+    },
+    "market_development_yoy": {
+      "variable": "market_development",
+      "type": "yoy",
+      "constituents": [
+        "market_development"
+      ],
+      "description": "market_development YoY growth rate vs Q-4"
+    },
+    "communications_and_technology_yoy": {
+      "variable": "communications_and_technology",
+      "type": "yoy",
+      "constituents": [
+        "communications_and_technology"
+      ],
+      "description": "communications_and_technology YoY growth rate vs Q-4"
+    },
+    "depreciation_and_amortization_yoy": {
+      "variable": "depreciation_and_amortization",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_and_amortization"
+      ],
+      "description": "depreciation_and_amortization YoY growth rate vs Q-4"
+    },
+    "occupancy_yoy": {
+      "variable": "occupancy",
+      "type": "yoy",
+      "constituents": [
+        "occupancy"
+      ],
+      "description": "occupancy YoY growth rate vs Q-4"
+    },
+    "professional_fees_yoy": {
+      "variable": "professional_fees",
+      "type": "yoy",
+      "constituents": [
+        "professional_fees"
+      ],
+      "description": "professional_fees YoY growth rate vs Q-4"
+    },
+    "other_expenses_abs": {
+      "variable": "other_expenses",
+      "type": "absolute",
+      "description": "other_expenses absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "preferred_stock_dividends_abs": {
+      "variable": "preferred_stock_dividends",
+      "type": "absolute",
+      "default": 188.0,
+      "description": "preferred_stock_dividends absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 322.15,
+      "references": {
+        "last_q": 315.0,
+        "ttm": 322.15,
+        "q4": 330.8
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.217995,
+      "references": {
+        "last_q": 0.239985,
+        "ttm": 0.215677,
+        "q4": 0.217995
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 14.02,
+    "baseline_fq_eps": 11.86,
+    "target_fq_pretax": 5855.0
+  },
+  "revenue_field": "total_net_revenues"
+}

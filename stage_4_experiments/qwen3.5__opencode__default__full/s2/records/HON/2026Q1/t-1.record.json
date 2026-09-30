@@ -1,0 +1,28 @@
+{
+  "ticker": "HON",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.880526817887814,
+  "revenue_pred": 10134.0,
+  "operating_pred": null,
+  "pretax_pred": 1550.7173891264501,
+  "eps_p10": 1.72,
+  "eps_p90": 2.04,
+  "eps_gaap_actual": 1.29,
+  "operating_actual": null,
+  "pretax_actual": 886.0,
+  "fundamental_predictions": {
+    "product_sales_yoy": 0.035,
+    "service_sales_yoy": 0.025,
+    "cogs_margin_delta_bps": -15,
+    "rd_yoy": 0.05,
+    "sga_margin_delta_bps": -5,
+    "impairment_of_assets_held_for_sale_abs": 15,
+    "other_income_abs": -180,
+    "interest_and_other_financial_charges_yoy": 0.1,
+    "tax_rate": 0.205,
+    "noncontrolling_interest_abs": 18,
+    "shares_abs": 646
+  },
+  "model": "qwen3.5-122b-a10b"
+}

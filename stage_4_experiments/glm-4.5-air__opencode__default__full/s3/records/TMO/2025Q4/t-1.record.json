@@ -1,0 +1,30 @@
+{
+  "ticker": "TMO",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.14853285919051,
+  "revenue_pred": 11827.665,
+  "operating_pred": 2092.6842035114087,
+  "pretax_pred": 1984.9942035114086,
+  "eps_p10": null,
+  "eps_p90": null,
+  "eps_gaap_actual": 5.2,
+  "operating_actual": 2255.0,
+  "pretax_actual": 2153.0,
+  "fundamental_predictions": {
+    "product_revenues_yoy": 0.04,
+    "service_revenues_yoy": 0.035,
+    "cogs_margin_delta_bps": -10,
+    "rd_yoy": 0.05,
+    "sga_margin_delta_bps": -5,
+    "restructuring_and_other_costs_yoy": 0.1,
+    "interest_income_yoy": -0.05,
+    "interest_expense_yoy": 0.02,
+    "other_income_net_abs": 0,
+    "equity_in_earnings_of_unconsolidated_entities_abs": 0,
+    "net_income_attributable_to_noncontrolling_interests_abs": 0,
+    "shares_abs": 378,
+    "tax_rate": 0.21
+  },
+  "model": "glm-4.5-air"
+}

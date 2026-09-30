@@ -1,0 +1,29 @@
+{
+  "ticker": "CRWD",
+  "fiscal_quarter": "2026Q3",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.00329367071027817,
+  "revenue_pred": 1218.1257593999999,
+  "operating_pred": -46.76341414565172,
+  "pretax_pred": 0.5321608543482768,
+  "eps_p10": -0.13,
+  "eps_p90": 0.14,
+  "eps_gaap_actual": -0.14,
+  "operating_actual": -69.443,
+  "pretax_actual": -23.268,
+  "fundamental_predictions": {
+    "subscription_revenue_yoy": 0.2045,
+    "professional_services_revenue_yoy": 0.2333,
+    "cogs_margin_delta_bps": -20,
+    "sales_and_marketing_yoy": 0.125,
+    "research_and_development_yoy": 0.24,
+    "general_and_administrative_yoy": 0.25,
+    "interest_expense_yoy": 0.045,
+    "interest_income_yoy": -0.01,
+    "other_income_expense_net_abs": -2.5,
+    "noncontrolling_interest_abs": 0.02,
+    "shares_abs": 251.8,
+    "tax_rate": -0.596033
+  },
+  "model": "gpt-5.5"
+}

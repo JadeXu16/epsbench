@@ -1,0 +1,157 @@
+{
+  "ticker": "WFC",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "interest_income_debt_securities": 4707.0,
+    "interest_income_loans_held_for_sale": 117.0,
+    "interest_income_loans": 13357.0,
+    "interest_income_equity_securities": 147.0,
+    "interest_income_other": 2645.0,
+    "interest_expense_deposits": 5209.0,
+    "interest_expense_short_term_borrowings": 1362.0,
+    "interest_expense_long_term_debt": 2582.0,
+    "interest_expense_other": 325.0,
+    "noninterest_income_deposit_and_lending_fees": 1633.0,
+    "noninterest_income_investment_advisory_fees": 2536.0,
+    "noninterest_income_commissions_and_brokerage_fees": 638.0,
+    "noninterest_income_investment_banking_fees": 775.0,
+    "noninterest_income_card_fees": 1044.0,
+    "noninterest_income_mortgage_banking": 332.0,
+    "noninterest_income_net_gains_trading_securities": 883.0,
+    "noninterest_income_other": 813.0,
+    "provision_for_credit_losses": 932.0,
+    "personnel_expense": 9474.0,
+    "technology_telecommunications_equipment_expense": 1223.0,
+    "occupancy_expense": 761.0,
+    "operating_losses": 143.0,
+    "professional_and_outside_services_expense": 1038.0,
+    "advertising_and_promotion_expense": 181.0,
+    "other_noninterest_expense": 1071.0,
+    "tax_rate": 0.09801,
+    "noncontrolling_interest_income": -90.0,
+    "preferred_stock_dividends": 278.0,
+    "shares": 3321.6
+  },
+  "formulas": {
+    "total_interest_income": "interest_income_debt_securities + interest_income_loans_held_for_sale + interest_income_loans + interest_income_equity_securities + interest_income_other",
+    "total_interest_expense": "interest_expense_deposits + interest_expense_short_term_borrowings + interest_expense_long_term_debt + interest_expense_other",
+    "net_interest_income": "total_interest_income - total_interest_expense",
+    "total_noninterest_income": "noninterest_income_deposit_and_lending_fees + noninterest_income_investment_advisory_fees + noninterest_income_commissions_and_brokerage_fees + noninterest_income_investment_banking_fees + noninterest_income_card_fees + noninterest_income_mortgage_banking + noninterest_income_net_gains_trading_securities + noninterest_income_other",
+    "total_revenue": "net_interest_income + total_noninterest_income",
+    "income_before_provision": "total_revenue - provision_for_credit_losses",
+    "total_noninterest_expense": "personnel_expense + technology_telecommunications_equipment_expense + occupancy_expense + operating_losses + professional_and_outside_services_expense + advertising_and_promotion_expense + other_noninterest_expense",
+    "income_before_tax": "income_before_provision - total_noninterest_expense",
+    "tax_provision": "income_before_tax * tax_rate",
+    "net_income_before_nci": "income_before_tax - tax_provision",
+    "wells_fargo_net_income": "net_income_before_nci - noncontrolling_interest_income",
+    "earnings_to_common": "wells_fargo_net_income - preferred_stock_dividends",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "interest_income_yoy": {
+      "variable": "total_interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income_debt_securities",
+        "interest_income_loans_held_for_sale",
+        "interest_income_loans",
+        "interest_income_equity_securities",
+        "interest_income_other"
+      ],
+      "description": "Total interest income YoY growth vs Q-4 baseline"
+    },
+    "interest_expense_yoy": {
+      "variable": "total_interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_deposits",
+        "interest_expense_short_term_borrowings",
+        "interest_expense_long_term_debt",
+        "interest_expense_other"
+      ],
+      "description": "Total interest expense YoY growth vs Q-4 baseline"
+    },
+    "noninterest_income_yoy": {
+      "variable": "total_noninterest_income",
+      "type": "yoy",
+      "constituents": [
+        "noninterest_income_deposit_and_lending_fees",
+        "noninterest_income_investment_advisory_fees",
+        "noninterest_income_commissions_and_brokerage_fees",
+        "noninterest_income_investment_banking_fees",
+        "noninterest_income_card_fees",
+        "noninterest_income_mortgage_banking",
+        "noninterest_income_net_gains_trading_securities",
+        "noninterest_income_other"
+      ],
+      "description": "Total noninterest income YoY growth vs Q-4 baseline"
+    },
+    "provision_credit_losses_margin_delta_bps": {
+      "variable": "provision_for_credit_losses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "provision_for_credit_losses"
+      ],
+      "description": "Provision for credit losses as % of total revenue, delta vs Q-4 baseline"
+    },
+    "noninterest_expense_margin_delta_bps": {
+      "variable": "total_noninterest_expense",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "personnel_expense",
+        "technology_telecommunications_equipment_expense",
+        "occupancy_expense",
+        "operating_losses",
+        "professional_and_outside_services_expense",
+        "advertising_and_promotion_expense",
+        "other_noninterest_expense"
+      ],
+      "description": "Total noninterest expense as % of total revenue, delta vs Q-4 baseline"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.154649,
+      "references": {
+        "last_q": 0.177597,
+        "ttm": 0.154649,
+        "q4": 0.09801
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "noncontrolling_interest_income_abs": {
+      "variable": "noncontrolling_interest_income",
+      "type": "absolute",
+      "default": -90.0,
+      "description": "noncontrolling_interest_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "preferred_stock_dividends_abs": {
+      "variable": "preferred_stock_dividends",
+      "type": "absolute",
+      "default": 278.0,
+      "description": "preferred_stock_dividends absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 3292.0,
+      "references": {
+        "last_q": 3292.0,
+        "ttm": 3276.025,
+        "q4": 3321.6
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.39,
+    "target_fq_eps": 1.6,
+    "target_fq_pretax": 5981.0
+  }
+}

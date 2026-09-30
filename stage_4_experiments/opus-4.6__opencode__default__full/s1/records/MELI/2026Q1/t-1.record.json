@@ -1,0 +1,29 @@
+{
+  "ticker": "MELI",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 10.578026701494986,
+  "revenue_pred": 8251.8,
+  "operating_pred": 874.584778433024,
+  "pretax_pred": 812.584778433024,
+  "eps_p10": 7.5,
+  "eps_p90": 13.5,
+  "eps_gaap_actual": 8.23,
+  "operating_actual": 611.0,
+  "pretax_actual": 579.0,
+  "fundamental_predictions": {
+    "net_service_revenues_and_financial_income_yoy": 0.38,
+    "net_product_revenues_yoy": 0.48,
+    "cost_of_revenues_margin_delta_bps": 200,
+    "product_and_technology_development_margin_delta_bps": -160,
+    "sales_and_marketing_margin_delta_bps": 100,
+    "provision_for_doubtful_accounts_margin_delta_bps": 160,
+    "general_and_administrative_yoy": 0.15,
+    "interest_income_and_other_financial_gains_abs": 45,
+    "interest_expense_and_other_financial_losses_abs": 52,
+    "foreign_currency_losses_net_abs": 55,
+    "tax_rate": 0.34,
+    "shares_abs": 50.7
+  },
+  "model": "claude-opus-4-6"
+}

@@ -1,0 +1,28 @@
+{
+  "ticker": "MA",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.104,
+  "revenue_pred": 8777.108,
+  "operating_pred": 4765.808,
+  "pretax_pred": 4680.608,
+  "eps_p10": 3.82,
+  "eps_p90": 4.39,
+  "eps_gaap_actual": 4.53,
+  "operating_actual": 4910.0,
+  "pretax_actual": 4876.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": 0.172,
+    "general_and_administrative_yoy": 0.18,
+    "advertising_and_marketing_yoy": 0.22,
+    "depreciation_and_amortization_yoy": 0.3,
+    "provision_for_litigation_yoy": -0.6,
+    "investment_income_abs": 85,
+    "gains_losses_on_equity_investments_net_abs": 25,
+    "interest_expense_yoy": 0.05,
+    "other_income_net_abs": -2,
+    "shares_abs": 901,
+    "tax_rate": 0.21
+  },
+  "model": "gpt-5.5"
+}

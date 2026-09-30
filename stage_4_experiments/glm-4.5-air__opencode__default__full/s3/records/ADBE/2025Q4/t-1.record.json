@@ -1,0 +1,31 @@
+{
+  "ticker": "ADBE",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.2041457496026995,
+  "revenue_pred": 6174.025,
+  "operating_pred": 2167.1715831252236,
+  "pretax_pred": 2202.1715831252236,
+  "eps_p10": 3.85,
+  "eps_p90": 4.55,
+  "eps_gaap_actual": 4.45,
+  "operating_actual": 2261.0,
+  "pretax_actual": 2264.0,
+  "fundamental_predictions": {
+    "subscription_revenue_yoy": 0.105,
+    "product_revenue_yoy": -0.1,
+    "services_and_other_revenue_yoy": 0.08,
+    "cogs_margin_delta_bps": 0,
+    "rd_margin_delta_bps": 0,
+    "sales_and_marketing_margin_delta_bps": 0,
+    "general_and_administrative_yoy": 0.08,
+    "acquisition_termination_fee_abs": 0,
+    "amortization_of_intangibles_yoy": 0.05,
+    "interest_expense_yoy": 0.1,
+    "investment_gains_losses_net_abs": 15,
+    "other_income_net_abs": 75,
+    "shares_abs": 440,
+    "tax_rate": 0.16
+  },
+  "model": "glm-4.5-air"
+}

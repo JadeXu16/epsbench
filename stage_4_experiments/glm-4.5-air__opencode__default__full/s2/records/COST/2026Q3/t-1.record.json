@@ -1,0 +1,25 @@
+{
+  "ticker": "COST",
+  "fiscal_quarter": "2026Q3",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.779811415116319,
+  "revenue_pred": 68594.78499999999,
+  "operating_pred": 2780.0422868912683,
+  "pretax_pred": 2838.492286891268,
+  "eps_p10": 4.45,
+  "eps_p90": 5.11,
+  "eps_gaap_actual": 4.93,
+  "operating_actual": 2815.0,
+  "pretax_actual": 2938.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": 0.085,
+    "membership_fees_yoy": 0.099,
+    "merchandise_costs_margin_delta_bps": -10,
+    "sga_margin_delta_bps": 5,
+    "interest_income_and_other_net_yoy": 0.12,
+    "interest_expense_yoy": 0.05,
+    "tax_rate": 0.252,
+    "shares_abs": 444.2
+  },
+  "model": "glm-4.5-air"
+}

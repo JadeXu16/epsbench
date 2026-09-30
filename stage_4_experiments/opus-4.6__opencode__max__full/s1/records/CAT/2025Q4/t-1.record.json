@@ -1,0 +1,31 @@
+{
+  "ticker": "CAT",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.598012400365687,
+  "revenue_pred": 17945.670000000002,
+  "operating_pred": 2663.7038663737267,
+  "pretax_pred": 2753.1638663737267,
+  "eps_p10": 4.0,
+  "eps_p90": 5.2,
+  "eps_gaap_actual": 5.12,
+  "operating_actual": 2660.0,
+  "pretax_actual": 3026.0,
+  "fundamental_predictions": {
+    "machinery_revenue_yoy": 0.11,
+    "financial_products_revenue_yoy": 0.05,
+    "cogs_margin_delta_bps": 380,
+    "sga_margin_delta_bps": -10,
+    "rd_margin_delta_bps": -10,
+    "interest_expense_financial_products_margin_delta_bps": -10,
+    "goodwill_impairment_charge_abs": 0,
+    "other_operating_expenses_abs": 325,
+    "interest_expense_yoy": 0.22,
+    "other_income_net_abs": 220,
+    "equity_income_abs": 8,
+    "profit_attrib_to_noncontrolling_interests_abs": -1,
+    "shares_abs": 469,
+    "tax_rate": 0.22
+  },
+  "model": "claude-opus-4-6"
+}

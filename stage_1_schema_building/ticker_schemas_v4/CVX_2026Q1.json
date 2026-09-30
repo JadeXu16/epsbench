@@ -1,0 +1,151 @@
+{
+  "ticker": "CVX",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "sales_and_other_operating_revenues": 46101.0,
+    "income_from_equity_affiliates": 820.0,
+    "other_income": 689.0,
+    "purchased_crude_oil_and_products": 28610.0,
+    "operating_expenses": 6408.0,
+    "sga": 1221.0,
+    "exploration_expenses": 187.0,
+    "depreciation_depletion_amortization": 4123.0,
+    "taxes_other_than_on_income": 1255.0,
+    "interest_and_debt_expense": 212.0,
+    "other_components_of_net_periodic_benefit_costs": 11.0,
+    "nci": 12.0,
+    "tax_rate": 0.3709,
+    "shares": 1751.441
+  },
+  "formulas": {
+    "total_revenue": "sales_and_other_operating_revenues + income_from_equity_affiliates + other_income",
+    "total_opex": "operating_expenses + sga",
+    "total_costs_and_deductions": "purchased_crude_oil_and_products + total_opex + exploration_expenses + depreciation_depletion_amortization + taxes_other_than_on_income + interest_and_debt_expense + other_components_of_net_periodic_benefit_costs",
+    "pretax_income": "total_revenue - total_costs_and_deductions",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "sales_revenue_yoy": {
+      "variable": "sales_and_other_operating_revenues",
+      "type": "yoy",
+      "constituents": [
+        "sales_and_other_operating_revenues"
+      ],
+      "description": "Sales and other operating revenues YoY growth vs Q-4"
+    },
+    "equity_income_yoy": {
+      "variable": "income_from_equity_affiliates",
+      "type": "yoy",
+      "constituents": [
+        "income_from_equity_affiliates"
+      ],
+      "description": "Equity affiliate income YoY growth vs Q-4"
+    },
+    "other_income_yoy": {
+      "variable": "other_income",
+      "type": "yoy",
+      "constituents": [
+        "other_income"
+      ],
+      "description": "Other income YoY growth vs Q-4"
+    },
+    "purchased_crude_margin_delta_bps": {
+      "variable": "purchased_crude_oil_and_products",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "purchased_crude_oil_and_products"
+      ],
+      "description": "Purchased crude oil and products as % of total revenue, delta vs Q-4"
+    },
+    "opex_yoy": {
+      "variable": "total_opex",
+      "type": "yoy",
+      "constituents": [
+        "operating_expenses",
+        "sga"
+      ],
+      "description": "Total operating and SG&A expenses YoY growth vs Q-4"
+    },
+    "dd_and_a_yoy": {
+      "variable": "depreciation_depletion_amortization",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_depletion_amortization"
+      ],
+      "description": "Depreciation, depletion and amortization YoY growth vs Q-4"
+    },
+    "exploration_expenses_yoy": {
+      "variable": "exploration_expenses",
+      "type": "yoy",
+      "constituents": [
+        "exploration_expenses"
+      ],
+      "description": "exploration_expenses YoY growth rate vs Q-4"
+    },
+    "taxes_other_than_on_income_yoy": {
+      "variable": "taxes_other_than_on_income",
+      "type": "yoy",
+      "constituents": [
+        "taxes_other_than_on_income"
+      ],
+      "description": "taxes_other_than_on_income YoY growth rate vs Q-4"
+    },
+    "interest_and_debt_expense_yoy": {
+      "variable": "interest_and_debt_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_and_debt_expense"
+      ],
+      "description": "interest_and_debt_expense YoY growth rate vs Q-4"
+    },
+    "other_components_of_net_periodic_benefit_costs_yoy": {
+      "variable": "other_components_of_net_periodic_benefit_costs",
+      "type": "yoy",
+      "constituents": [
+        "other_components_of_net_periodic_benefit_costs"
+      ],
+      "description": "other_components_of_net_periodic_benefit_costs YoY growth rate vs Q-4"
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 12.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.3709,
+      "references": {
+        "last_q": 0.381387,
+        "ttm": 0.367611,
+        "q4": 0.3709
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1841.977,
+      "references": {
+        "last_q": 1946.035,
+        "ttm": 1841.977,
+        "q4": 1751.441
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 2.0,
+    "target_fq_eps": 1.11,
+    "target_fq_pretax": 3946.0
+  }
+}

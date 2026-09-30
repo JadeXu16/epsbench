@@ -1,0 +1,128 @@
+{
+  "ticker": "LMT",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "products_revenue": 14936.0,
+    "services_revenue": 3027.0,
+    "products_cogs": 13284.0,
+    "services_cogs": 2640.0,
+    "other_unallocated_net": 284.0,
+    "other_income_net": 49.0,
+    "interest_expense": 268.0,
+    "non_service_fas_pension_expense": 98.0,
+    "other_non_operating_income_net": 30.0,
+    "tax_rate": 0.15913556,
+    "shares": 235.164835
+  },
+  "formulas": {
+    "total_sales": "products_revenue + services_revenue",
+    "total_operating_costs": "products_cogs + services_cogs - other_unallocated_net",
+    "gross_profit": "total_sales - total_operating_costs",
+    "operating_profit": "gross_profit + other_income_net",
+    "pretax_income": "operating_profit - interest_expense - non_service_fas_pension_expense + other_non_operating_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "products_revenue_yoy": {
+      "variable": "products_revenue",
+      "type": "yoy",
+      "constituents": [
+        "products_revenue"
+      ],
+      "description": "Products sales YoY growth rate vs Q-4"
+    },
+    "services_revenue_yoy": {
+      "variable": "services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "services_revenue"
+      ],
+      "description": "Services sales YoY growth rate vs Q-4"
+    },
+    "products_cogs_margin_delta_bps": {
+      "variable": "products_cogs",
+      "type": "bps",
+      "anchor": "products_revenue",
+      "constituents": [
+        "products_cogs"
+      ],
+      "description": "Products cost as a percentage of products sales, basis-point change vs Q-4"
+    },
+    "services_cogs_margin_delta_bps": {
+      "variable": "services_cogs",
+      "type": "bps",
+      "anchor": "services_revenue",
+      "constituents": [
+        "services_cogs"
+      ],
+      "description": "Services cost as a percentage of services sales, basis-point change vs Q-4"
+    },
+    "other_unallocated_net_yoy": {
+      "variable": "other_unallocated_net",
+      "type": "yoy",
+      "constituents": [
+        "other_unallocated_net"
+      ],
+      "description": "other_unallocated_net YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "non_service_fas_pension_expense_yoy": {
+      "variable": "non_service_fas_pension_expense",
+      "type": "yoy",
+      "constituents": [
+        "non_service_fas_pension_expense"
+      ],
+      "description": "non_service_fas_pension_expense YoY growth rate vs Q-4"
+    },
+    "other_non_operating_income_net_abs": {
+      "variable": "other_non_operating_income_net",
+      "type": "absolute",
+      "description": "other_non_operating_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.15282,
+      "references": {
+        "last_q": 0.122142,
+        "ttm": 0.15282,
+        "q4": 0.15913556
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 233.853,
+      "references": {
+        "last_q": 233.0,
+        "ttm": 233.853,
+        "q4": 235.164835
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 7.28,
+    "target_fq_eps": 6.44,
+    "target_fq_pretax": 1774.0
+  }
+}

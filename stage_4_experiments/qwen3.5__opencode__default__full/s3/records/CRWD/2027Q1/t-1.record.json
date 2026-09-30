@@ -1,0 +1,29 @@
+{
+  "ticker": "CRWD",
+  "fiscal_quarter": "2027Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": -0.47726910095099984,
+  "revenue_pred": 1358.27714,
+  "operating_pred": -124.23431259583344,
+  "pretax_pred": -92.17406259583345,
+  "eps_p10": -0.6,
+  "eps_p90": -0.35,
+  "eps_gaap_actual": 0.11,
+  "operating_actual": -30.6,
+  "pretax_actual": 39.063,
+  "fundamental_predictions": {
+    "subscription_revenue_yoy": 0.23,
+    "professional_services_revenue_yoy": 0.25,
+    "cogs_margin_delta_bps": -5,
+    "sales_marketing_yoy": 0.22,
+    "rd_yoy": 0.2,
+    "ga_yoy": 0.15,
+    "interest_expense_yoy": 0.05,
+    "interest_income_yoy": -0.05,
+    "other_income_net_abs": -4,
+    "income_taxes_abs": 32,
+    "noncontrolling_interest_abs": -0.8,
+    "shares_abs": 258.5
+  },
+  "model": "qwen3.5-122b-a10b"
+}

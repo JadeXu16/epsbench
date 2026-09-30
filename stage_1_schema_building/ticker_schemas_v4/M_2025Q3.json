@@ -1,0 +1,131 @@
+{
+  "ticker": "M",
+  "target_fq": "2025Q3",
+  "baseline_fq": "2024Q3",
+  "variables_baseline": {
+    "net_sales": 4742.0,
+    "other_revenue": 161.0,
+    "cost_of_sales": 2864.0,
+    "sga": 2064.0,
+    "gains_on_sale_of_real_estate": 66.0,
+    "impairment_restructuring_other_benefits": 23.0,
+    "benefit_plan_income_net": 4.0,
+    "settlement_charges": 0.0,
+    "interest_expense_net": 32.0,
+    "losses_on_early_retirement_of_debt": 1.0,
+    "shares": 280.0,
+    "tax_rate": 0.2
+  },
+  "formulas": {
+    "total_revenue": "net_sales + other_revenue",
+    "gross_profit": "total_revenue - cost_of_sales",
+    "operating_income": "gross_profit - sga + gains_on_sale_of_real_estate + impairment_restructuring_other_benefits",
+    "pretax_income": "operating_income + benefit_plan_income_net - settlement_charges - interest_expense_net - losses_on_early_retirement_of_debt",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "net_sales_yoy": {
+      "variable": "net_sales",
+      "type": "yoy",
+      "constituents": [
+        "net_sales"
+      ],
+      "description": "Net sales YoY growth rate vs Q-4"
+    },
+    "other_revenue_yoy": {
+      "variable": "other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_revenue"
+      ],
+      "description": "Other revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "gains_on_sale_of_real_estate_abs": {
+      "variable": "gains_on_sale_of_real_estate",
+      "type": "absolute",
+      "description": "gains_on_sale_of_real_estate absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "impairment_restructuring_other_benefits_abs": {
+      "variable": "impairment_restructuring_other_benefits",
+      "type": "absolute",
+      "description": "impairment_restructuring_other_benefits absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "benefit_plan_income_net_yoy": {
+      "variable": "benefit_plan_income_net",
+      "type": "yoy",
+      "constituents": [
+        "benefit_plan_income_net"
+      ],
+      "description": "benefit_plan_income_net YoY growth rate vs Q-4"
+    },
+    "settlement_charges_abs": {
+      "variable": "settlement_charges",
+      "type": "absolute",
+      "description": "settlement_charges absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_net_yoy": {
+      "variable": "interest_expense_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "interest_expense_net YoY growth rate vs Q-4"
+    },
+    "losses_on_early_retirement_of_debt_abs": {
+      "variable": "losses_on_early_retirement_of_debt",
+      "type": "absolute",
+      "description": "losses_on_early_retirement_of_debt absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 281.0,
+      "references": {
+        "last_q": 281.0,
+        "ttm": 284.4333,
+        "q4": 280.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.2,
+      "references": {
+        "last_q": 0.243478,
+        "ttm": 0.022936,
+        "q4": 0.2
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.1,
+    "target_fq_eps": 0.04,
+    "target_fq_pretax": 5.0
+  },
+  "revenue_field": "total_revenue"
+}

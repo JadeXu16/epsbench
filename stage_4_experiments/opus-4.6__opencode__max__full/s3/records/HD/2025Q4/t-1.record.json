@@ -1,0 +1,25 @@
+{
+  "ticker": "HD",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.4329407997105528,
+  "revenue_pred": 38036.432,
+  "operating_pred": 3778.9548159999995,
+  "pretax_pred": 3197.8548159999996,
+  "eps_p10": 2.22,
+  "eps_p90": 2.66,
+  "eps_gaap_actual": 2.58,
+  "operating_actual": 3849.0,
+  "pretax_actual": 3298.0,
+  "fundamental_predictions": {
+    "revenue_yoy": -0.042,
+    "cost_of_sales_margin_delta_bps": 50,
+    "sg_and_a_margin_delta_bps": 70,
+    "depreciation_and_amortization_yoy": 0.045,
+    "interest_income_and_other_net_abs": -25,
+    "interest_expense_yoy": -0.05,
+    "shares_abs": 995,
+    "tax_rate": 0.243
+  },
+  "model": "claude-opus-4-6"
+}

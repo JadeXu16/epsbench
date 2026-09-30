@@ -1,0 +1,28 @@
+{
+  "ticker": "PYPL",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.4200821621621618,
+  "revenue_pred": 7907.865,
+  "operating_pred": 1571.9699999999993,
+  "pretax_pred": 1641.9699999999993,
+  "eps_p10": 1.15,
+  "eps_p90": 1.68,
+  "eps_gaap_actual": 1.21,
+  "operating_actual": 1488.0,
+  "pretax_actual": 1393.0,
+  "fundamental_predictions": {
+    "net_revenues_yoy": 0.015,
+    "transaction_expense_margin_delta_bps": 0,
+    "transaction_and_credit_losses_margin_delta_bps": 0,
+    "customer_support_and_operations_yoy": 0.04,
+    "sales_and_marketing_yoy": 0.04,
+    "technology_and_development_yoy": 0.04,
+    "general_and_administrative_yoy": 0.03,
+    "restructuring_and_other_abs": 0,
+    "other_income_net_abs": 70,
+    "tax_rate": 0.2,
+    "shares_abs": 925
+  },
+  "model": "qwen3.5-122b-a10b"
+}

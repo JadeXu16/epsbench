@@ -1,0 +1,28 @@
+{
+  "ticker": "GM",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": -5.101911768954929,
+  "revenue_pred": 45468.270000000004,
+  "operating_pred": -3550.7800253532405,
+  "pretax_pred": -4310.58002535324,
+  "eps_p10": -6.4,
+  "eps_p90": -3.7,
+  "eps_gaap_actual": -3.6,
+  "operating_actual": -3646.0,
+  "pretax_actual": -4249.0,
+  "fundamental_predictions": {
+    "automotive_revenue_yoy": -0.055,
+    "gm_financial_revenue_yoy": 0.04,
+    "cogs_margin_delta_bps": 1250,
+    "sga_margin_delta_bps": -150,
+    "automotive_interest_expense_yoy": -0.02,
+    "interest_income_net_yoy": -0.1,
+    "equity_loss_abs": 1000,
+    "nci_income_abs": 0,
+    "preferred_redemption_gain_abs": 0,
+    "tax_rate": -0.1244,
+    "shares_abs": 950
+  },
+  "model": "gpt-5.5"
+}

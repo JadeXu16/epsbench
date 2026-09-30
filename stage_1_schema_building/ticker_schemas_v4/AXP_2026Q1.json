@@ -1,0 +1,197 @@
+{
+  "ticker": "AXP",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "discount_revenue": 8743.0,
+    "net_card_fees": 2333.0,
+    "service_fees_and_other_revenue": 1722.0,
+    "interest_on_loans": 5552.0,
+    "interest_and_dividends_on_investment_securities": 14.0,
+    "deposits_with_banks_and_other": 569.0,
+    "deposits_interest_expense": 1337.0,
+    "long_term_debt_and_other_interest_expense": 629.0,
+    "card_member_receivables_provision": 146.0,
+    "card_member_loans_provision": 901.0,
+    "other_provisions": 103.0,
+    "card_member_rewards": 4378.0,
+    "business_development": 1529.0,
+    "card_member_services": 1328.0,
+    "marketing": 1486.0,
+    "salaries_and_employee_benefits": 2120.0,
+    "other_net": 1646.0,
+    "tax_rate": 0.224024,
+    "shares": 702.0,
+    "participating_share_awards": 18.0,
+    "preferred_dividends": 14.0
+  },
+  "formulas": {
+    "total_non_interest_revenues": "discount_revenue + net_card_fees + service_fees_and_other_revenue",
+    "other_interest_income": "interest_and_dividends_on_investment_securities + deposits_with_banks_and_other",
+    "total_interest_income": "interest_on_loans + other_interest_income",
+    "total_interest_expense": "deposits_interest_expense + long_term_debt_and_other_interest_expense",
+    "net_interest_income": "total_interest_income - total_interest_expense",
+    "total_revenues_net_of_interest_expense": "total_non_interest_revenues + net_interest_income",
+    "total_provisions_for_credit_losses": "card_member_receivables_provision + card_member_loans_provision + other_provisions",
+    "total_revenues_net_of_interest_expense_after_provisions": "total_revenues_net_of_interest_expense - total_provisions_for_credit_losses",
+    "total_expenses": "card_member_rewards + business_development + card_member_services + marketing + salaries_and_employee_benefits + other_net",
+    "pretax_income": "total_revenues_net_of_interest_expense_after_provisions - total_expenses",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - participating_share_awards - preferred_dividends",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "discount_revenue_yoy": {
+      "variable": "discount_revenue",
+      "type": "yoy",
+      "constituents": [
+        "discount_revenue"
+      ],
+      "description": "Card Member spend (discount revenue) YoY growth vs Q-4"
+    },
+    "net_card_fees_yoy": {
+      "variable": "net_card_fees",
+      "type": "yoy",
+      "constituents": [
+        "net_card_fees"
+      ],
+      "description": "Net card fee revenue YoY growth vs Q-4"
+    },
+    "service_fees_and_other_revenue_yoy": {
+      "variable": "service_fees_and_other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "service_fees_and_other_revenue"
+      ],
+      "description": "Service fees and other revenue YoY growth vs Q-4"
+    },
+    "total_interest_income_yoy": {
+      "variable": "total_interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_on_loans",
+        "interest_and_dividends_on_investment_securities",
+        "deposits_with_banks_and_other"
+      ],
+      "description": "Total interest income YoY growth vs Q-4"
+    },
+    "card_member_rewards_yoy": {
+      "variable": "card_member_rewards",
+      "type": "yoy",
+      "constituents": [
+        "card_member_rewards"
+      ],
+      "description": "Customer rewards expense YoY growth vs Q-4"
+    },
+    "provisions_margin_delta_bps": {
+      "variable": "total_provisions_for_credit_losses",
+      "type": "bps",
+      "anchor": "total_revenues_net_of_interest_expense",
+      "constituents": [
+        "card_member_receivables_provision",
+        "card_member_loans_provision",
+        "other_provisions"
+      ],
+      "description": "Total credit loss provisions as % of total revenues net of interest expense, delta vs Q-4"
+    },
+    "deposits_interest_expense_yoy": {
+      "variable": "deposits_interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "deposits_interest_expense"
+      ],
+      "description": "deposits_interest_expense YoY growth rate vs Q-4"
+    },
+    "long_term_debt_and_other_interest_expense_yoy": {
+      "variable": "long_term_debt_and_other_interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "long_term_debt_and_other_interest_expense"
+      ],
+      "description": "long_term_debt_and_other_interest_expense YoY growth rate vs Q-4"
+    },
+    "business_development_yoy": {
+      "variable": "business_development",
+      "type": "yoy",
+      "constituents": [
+        "business_development"
+      ],
+      "description": "business_development YoY growth rate vs Q-4"
+    },
+    "card_member_services_yoy": {
+      "variable": "card_member_services",
+      "type": "yoy",
+      "constituents": [
+        "card_member_services"
+      ],
+      "description": "card_member_services YoY growth rate vs Q-4"
+    },
+    "marketing_yoy": {
+      "variable": "marketing",
+      "type": "yoy",
+      "constituents": [
+        "marketing"
+      ],
+      "description": "marketing YoY growth rate vs Q-4"
+    },
+    "salaries_and_employee_benefits_yoy": {
+      "variable": "salaries_and_employee_benefits",
+      "type": "yoy",
+      "constituents": [
+        "salaries_and_employee_benefits"
+      ],
+      "description": "salaries_and_employee_benefits YoY growth rate vs Q-4"
+    },
+    "other_net_yoy": {
+      "variable": "other_net",
+      "type": "yoy",
+      "constituents": [
+        "other_net"
+      ],
+      "description": "other_net YoY growth rate vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.214715,
+      "references": {
+        "last_q": 0.203236,
+        "ttm": 0.214715,
+        "q4": 0.224024
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 696.75,
+      "references": {
+        "last_q": 693.0,
+        "ttm": 696.75,
+        "q4": 702.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "participating_share_awards_abs": {
+      "variable": "participating_share_awards",
+      "type": "absolute",
+      "default": 18.0,
+      "description": "participating_share_awards absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "preferred_dividends_abs": {
+      "variable": "preferred_dividends",
+      "type": "absolute",
+      "default": 14.0,
+      "description": "preferred_dividends absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 3.64,
+    "target_fq_eps": 4.28,
+    "target_fq_pretax": 3778.0
+  }
+}

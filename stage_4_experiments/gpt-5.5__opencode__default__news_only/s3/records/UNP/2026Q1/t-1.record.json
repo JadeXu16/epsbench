@@ -1,0 +1,24 @@
+{
+  "ticker": "UNP",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.8323992209470967,
+  "revenue_pred": 6184.290000000001,
+  "operating_pred": 2445.2458970731705,
+  "pretax_pred": 2188.5858970731706,
+  "eps_p10": 2.68,
+  "eps_p90": 2.98,
+  "eps_gaap_actual": 2.87,
+  "operating_actual": 2458.0,
+  "pretax_actual": 2229.0,
+  "fundamental_predictions": {
+    "freight_revenue_yoy": 0.03,
+    "other_revenue_yoy": -0.04,
+    "operating_expense_margin_delta_bps": -20,
+    "other_income_net_abs": 75,
+    "interest_expense_yoy": 0.03,
+    "tax_rate": 0.232558,
+    "shares_abs": 593
+  },
+  "model": "gpt-5.5"
+}

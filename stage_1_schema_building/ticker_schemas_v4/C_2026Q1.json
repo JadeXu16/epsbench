@@ -1,0 +1,146 @@
+{
+  "ticker": "C",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "interest_income": 33666.0,
+    "interest_expense": 19654.0,
+    "commissions_and_fees": 2707.0,
+    "principal_transactions": 3921.0,
+    "administration_and_other_fiduciary_fees": 1045.0,
+    "realized_gains_on_sales_of_investments_net": 121.0,
+    "impairment_losses_on_investments": 58.0,
+    "other_revenue_reduction": 152.0,
+    "provision_for_credit_losses_on_loans": 2561.0,
+    "release_for_credit_losses_on_htm_debt_securities": 5.0,
+    "provision_for_credit_losses_on_other_assets": 39.0,
+    "policyholder_benefits_and_claims": 20.0,
+    "provision_for_credit_losses_on_unfunded_lending_commitments": 108.0,
+    "compensation_and_benefits": 7464.0,
+    "technology_communication": 2379.0,
+    "transactional_and_tax_charges": 936.0,
+    "premises_and_equipment": 574.0,
+    "professional_services": 476.0,
+    "advertising_and_marketing": 250.0,
+    "restructuring_benefit": 3.0,
+    "other_operating": 1349.0,
+    "loss_from_discontinued_operations_net": 1.0,
+    "noncontrolling_interests": 43.0,
+    "preferred_stock_dividends": 301.6,
+    "tax_rate": 0.245962,
+    "shares": 1919.6
+  },
+  "formulas": {
+    "net_interest_income": "interest_income - interest_expense",
+    "non_interest_revenues": "commissions_and_fees + principal_transactions + administration_and_other_fiduciary_fees + realized_gains_on_sales_of_investments_net - impairment_losses_on_investments - other_revenue_reduction",
+    "total_revenues": "net_interest_income + non_interest_revenues",
+    "total_provisions": "provision_for_credit_losses_on_loans - release_for_credit_losses_on_htm_debt_securities + provision_for_credit_losses_on_other_assets + policyholder_benefits_and_claims + provision_for_credit_losses_on_unfunded_lending_commitments",
+    "total_operating_expenses": "compensation_and_benefits + technology_communication + transactional_and_tax_charges + premises_and_equipment + professional_services + advertising_and_marketing - restructuring_benefit + other_operating",
+    "pretax_income": "total_revenues - total_provisions - total_operating_expenses",
+    "tax_provision": "pretax_income * tax_rate",
+    "income_from_continuing_operations": "pretax_income - tax_provision",
+    "net_income": "income_from_continuing_operations - loss_from_discontinued_operations_net",
+    "earnings_to_common": "net_income - noncontrolling_interests - preferred_stock_dividends",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "net_interest_income_yoy": {
+      "variable": "net_interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income",
+        "interest_expense"
+      ],
+      "description": "Net interest income YoY growth rate vs Q-4"
+    },
+    "non_interest_revenues_yoy": {
+      "variable": "non_interest_revenues",
+      "type": "yoy",
+      "constituents": [
+        "commissions_and_fees",
+        "principal_transactions",
+        "administration_and_other_fiduciary_fees",
+        "realized_gains_on_sales_of_investments_net",
+        "impairment_losses_on_investments",
+        "other_revenue_reduction"
+      ],
+      "description": "Non-interest revenues YoY growth rate vs Q-4"
+    },
+    "provisions_margin_delta_bps": {
+      "variable": "total_provisions",
+      "type": "bps",
+      "anchor": "total_revenues",
+      "constituents": [
+        "provision_for_credit_losses_on_loans",
+        "release_for_credit_losses_on_htm_debt_securities",
+        "provision_for_credit_losses_on_other_assets",
+        "policyholder_benefits_and_claims",
+        "provision_for_credit_losses_on_unfunded_lending_commitments"
+      ],
+      "description": "Total provisions for credit losses and benefits as % of total revenues, delta vs Q-4"
+    },
+    "operating_expenses_yoy": {
+      "variable": "total_operating_expenses",
+      "type": "yoy",
+      "constituents": [
+        "compensation_and_benefits",
+        "technology_communication",
+        "transactional_and_tax_charges",
+        "premises_and_equipment",
+        "professional_services",
+        "advertising_and_marketing",
+        "restructuring_benefit",
+        "other_operating"
+      ],
+      "description": "Total operating expenses YoY growth rate vs Q-4"
+    },
+    "loss_from_discontinued_operations_net_abs": {
+      "variable": "loss_from_discontinued_operations_net",
+      "type": "absolute",
+      "default": 1.0,
+      "description": "loss_from_discontinued_operations_net absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "noncontrolling_interests_abs": {
+      "variable": "noncontrolling_interests",
+      "type": "absolute",
+      "default": 43.0,
+      "description": "noncontrolling_interests absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "preferred_stock_dividends_abs": {
+      "variable": "preferred_stock_dividends",
+      "type": "absolute",
+      "default": 301.6,
+      "description": "preferred_stock_dividends absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.27098,
+      "references": {
+        "last_q": 0.337969,
+        "ttm": 0.27098,
+        "q4": 0.245962
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1884.475,
+      "references": {
+        "last_q": 1862.6,
+        "ttm": 1884.475,
+        "q4": 1919.6
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.96,
+    "target_fq_eps": 3.06,
+    "target_fq_pretax": 7517.0
+  }
+}

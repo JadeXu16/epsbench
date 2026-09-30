@@ -1,0 +1,29 @@
+{
+  "ticker": "SLB",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.8687113900083725,
+  "revenue_pred": 9553.18,
+  "operating_pred": 1710.320144028436,
+  "pretax_pred": 1655.390144028436,
+  "eps_p10": 0.65,
+  "eps_p90": 1.07,
+  "eps_gaap_actual": 0.55,
+  "operating_actual": 996.0,
+  "pretax_actual": 943.0,
+  "fundamental_predictions": {
+    "services_revenue_yoy": 0.04,
+    "product_sales_yoy": 0.01,
+    "cogs_margin_delta_bps": -50,
+    "research_engineering_yoy": 0.03,
+    "general_administrative_margin_delta_bps": -5,
+    "interest_other_income_net_abs": 80,
+    "restructuring_other_abs": 50,
+    "merger_integration_abs": 30,
+    "interest_expense_yoy": 0.03,
+    "net_income_attributable_to_noncontrolling_interests_abs": 25,
+    "tax_rate": 0.204029,
+    "shares_abs": 1488
+  },
+  "model": "gpt-5.5"
+}

@@ -1,0 +1,23 @@
+{
+  "ticker": "V",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 3.092445825507614,
+  "revenue_pred": 10603.65,
+  "operating_pred": 6897.891749999999,
+  "pretax_pred": 7474.991749999999,
+  "eps_p10": 2.85,
+  "eps_p90": 3.35,
+  "eps_gaap_actual": 3.03,
+  "operating_actual": 6737.0,
+  "pretax_actual": 6726.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": 0.115,
+    "opex_margin_delta_bps": 50,
+    "interest_expense_yoy": -0.05,
+    "investment_income_other_abs": 750,
+    "shares_abs": 1970,
+    "tax_rate": 0.185
+  },
+  "model": "glm-4.5-air"
+}

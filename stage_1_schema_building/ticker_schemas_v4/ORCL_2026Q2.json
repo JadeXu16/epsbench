@@ -1,0 +1,132 @@
+{
+  "ticker": "ORCL",
+  "target_fq": "2026Q2",
+  "baseline_fq": "2025Q2",
+  "variables_baseline": {
+    "cloud_services_revenue": 10806.0,
+    "cloud_license_revenue": 1195.0,
+    "hardware_revenue": 728.0,
+    "services_revenue": 1330.0,
+    "cloud_services_cost": 2746.0,
+    "hardware_cost": 172.0,
+    "services_cost": 1167.0,
+    "sales_marketing": 2190.0,
+    "research_development": 2471.0,
+    "general_administrative": 387.0,
+    "amortization_intangible": 591.0,
+    "acquisition_related": 31.0,
+    "restructuring": 84.0,
+    "interest_expense": 866.0,
+    "non_operating_income": 36.0,
+    "shares": 2869.0,
+    "tax_rate": 0.070501
+  },
+  "formulas": {
+    "cloud_revenue": "cloud_services_revenue + cloud_license_revenue",
+    "total_revenue": "cloud_revenue + hardware_revenue + services_revenue",
+    "total_cost_of_revenue": "cloud_services_cost + hardware_cost + services_cost",
+    "gross_profit": "total_revenue - total_cost_of_revenue",
+    "total_operating_expenses": "sales_marketing + research_development + general_administrative + amortization_intangible + acquisition_related + restructuring",
+    "operating_income": "gross_profit - total_operating_expenses",
+    "pretax_income": "operating_income - interest_expense + non_operating_income",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "cloud_revenue_yoy": {
+      "variable": "cloud_revenue",
+      "type": "yoy",
+      "constituents": [
+        "cloud_services_revenue",
+        "cloud_license_revenue"
+      ],
+      "description": "Cloud services and license support revenue YoY growth rate vs Q-4"
+    },
+    "hardware_revenue_yoy": {
+      "variable": "hardware_revenue",
+      "type": "yoy",
+      "constituents": [
+        "hardware_revenue"
+      ],
+      "description": "Hardware revenue YoY growth rate vs Q-4"
+    },
+    "services_revenue_yoy": {
+      "variable": "services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "services_revenue"
+      ],
+      "description": "Services revenue YoY growth rate vs Q-4"
+    },
+    "cost_of_revenue_margin_delta_bps": {
+      "variable": "total_cost_of_revenue",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cloud_services_cost",
+        "hardware_cost",
+        "services_cost"
+      ],
+      "description": "Cost of revenue as % of total revenue, delta vs Q-4"
+    },
+    "opex_margin_delta_bps": {
+      "variable": "total_operating_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sales_marketing",
+        "research_development",
+        "general_administrative",
+        "amortization_intangible",
+        "acquisition_related",
+        "restructuring"
+      ],
+      "description": "Operating expenses as % of total revenue, delta vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "non_operating_income_abs": {
+      "variable": "non_operating_income",
+      "type": "absolute",
+      "description": "non_operating_income absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 2879.5,
+      "references": {
+        "last_q": 2909.0,
+        "ttm": 2879.5,
+        "q4": 2869.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.13706,
+      "references": {
+        "last_q": 0.1459,
+        "ttm": 0.13706,
+        "q4": 0.070501
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.1,
+    "target_fq_eps": 2.1,
+    "target_fq_pretax": 6342.0
+  },
+  "revenue_field": "total_revenue"
+}

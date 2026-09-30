@@ -1,0 +1,28 @@
+{
+  "ticker": "AXP",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 3.5151001003332363,
+  "revenue_pred": 18842.915073470518,
+  "operating_pred": null,
+  "pretax_pred": 3097.29320262239,
+  "eps_p10": 3.2,
+  "eps_p90": 3.85,
+  "eps_gaap_actual": 3.53,
+  "operating_actual": null,
+  "pretax_actual": 3090.0,
+  "fundamental_predictions": {
+    "discount_revenue_yoy": 0.075,
+    "net_card_fees_yoy": 0.08,
+    "service_fees_other_revenue_yoy": 0.1,
+    "total_non_interest_revenues_margin_delta_bps": 20,
+    "total_expenses_margin_delta_bps": 50,
+    "provisions_margin_delta_bps": -10,
+    "total_interest_income_yoy": 0.08,
+    "interest_expense_deposits_yoy": -0.03,
+    "interest_expense_long_term_debt_and_other_yoy": 0.06,
+    "shares_abs": 690,
+    "tax_rate": 0.216923
+  },
+  "model": "glm-4.5-air"
+}

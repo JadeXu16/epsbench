@@ -1,0 +1,30 @@
+{
+  "ticker": "CAT",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 3.4215494391927006,
+  "revenue_pred": 15505.28,
+  "operating_pred": 2121.085173527965,
+  "pretax_pred": 2101.605173527965,
+  "eps_p10": 2.8,
+  "eps_p90": 4.1,
+  "eps_gaap_actual": 5.47,
+  "operating_actual": 3085.0,
+  "pretax_actual": 3211.0,
+  "fundamental_predictions": {
+    "met_sales_yoy": 0.09,
+    "financial_products_revenues_yoy": 0.06,
+    "cogs_margin_delta_bps": 350,
+    "sga_margin_delta_bps": 50,
+    "rd_margin_delta_bps": 30,
+    "other_operating_expenses_margin_delta_bps": 20,
+    "interest_expense_of_financial_products_yoy": 0.05,
+    "interest_expense_excluding_financial_products_yoy": 0.03,
+    "other_income_expense_abs": 100,
+    "equity_in_profit_of_unconsolidated_affiliates_abs": 7,
+    "noncontrolling_interest_abs": 0,
+    "tax_rate": 0.23,
+    "shares_abs": 475
+  },
+  "model": "glm-4.5-air"
+}

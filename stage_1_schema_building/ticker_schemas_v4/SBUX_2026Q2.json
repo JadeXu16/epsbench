@@ -1,0 +1,157 @@
+{
+  "ticker": "SBUX",
+  "target_fq": "2026Q2",
+  "baseline_fq": "2025Q2",
+  "variables_baseline": {
+    "company_operated_stores": 7285.0,
+    "licensed_stores": 1016.0,
+    "other_revenue": 460.6,
+    "product_and_distribution_costs": 2737.6,
+    "store_operating_expenses": 4176.0,
+    "other_operating_expenses": 138.7,
+    "depreciation_and_amortization_expenses": 418.9,
+    "general_and_administrative_expenses": 632.3,
+    "restructuring": 116.2,
+    "income_from_equity_investees": 59.1,
+    "interest_income_and_other_net": 28.4,
+    "interest_expense": 127.3,
+    "noncontrolling_interest": -0.1,
+    "tax_rate": 0.235013,
+    "shares": 1140.0
+  },
+  "formulas": {
+    "total_net_revenues": "company_operated_stores + licensed_stores + other_revenue",
+    "sga": "other_operating_expenses + general_and_administrative_expenses",
+    "total_operating_expenses": "product_and_distribution_costs + store_operating_expenses + depreciation_and_amortization_expenses + sga + restructuring",
+    "operating_income": "total_net_revenues - total_operating_expenses + income_from_equity_investees",
+    "pretax_income": "operating_income + interest_income_and_other_net - interest_expense",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - noncontrolling_interest",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "company_operated_stores_yoy": {
+      "variable": "company_operated_stores",
+      "type": "yoy",
+      "constituents": [
+        "company_operated_stores"
+      ],
+      "description": "Company-operated store revenue YoY growth vs Q-4"
+    },
+    "licensed_stores_yoy": {
+      "variable": "licensed_stores",
+      "type": "yoy",
+      "constituents": [
+        "licensed_stores"
+      ],
+      "description": "Licensed store revenue YoY growth vs Q-4"
+    },
+    "other_revenue_yoy": {
+      "variable": "other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_revenue"
+      ],
+      "description": "Other revenue YoY growth vs Q-4"
+    },
+    "product_and_distribution_costs_margin_delta_bps": {
+      "variable": "product_and_distribution_costs",
+      "type": "bps",
+      "anchor": "total_net_revenues",
+      "constituents": [
+        "product_and_distribution_costs"
+      ],
+      "description": "Product and distribution costs as % of total net revenues, delta vs Q-4"
+    },
+    "store_operating_expenses_margin_delta_bps": {
+      "variable": "store_operating_expenses",
+      "type": "bps",
+      "anchor": "total_net_revenues",
+      "constituents": [
+        "store_operating_expenses"
+      ],
+      "description": "Store operating expenses as % of total net revenues, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_net_revenues",
+      "constituents": [
+        "other_operating_expenses",
+        "general_and_administrative_expenses"
+      ],
+      "description": "SG&A (other operating plus G&A) as % of total net revenues, delta vs Q-4"
+    },
+    "depreciation_and_amortization_expenses_yoy": {
+      "variable": "depreciation_and_amortization_expenses",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_and_amortization_expenses"
+      ],
+      "description": "depreciation_and_amortization_expenses YoY growth rate vs Q-4"
+    },
+    "restructuring_abs": {
+      "variable": "restructuring",
+      "type": "absolute",
+      "description": "restructuring absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "income_from_equity_investees_abs": {
+      "variable": "income_from_equity_investees",
+      "type": "absolute",
+      "description": "income_from_equity_investees absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_income_and_other_net_yoy": {
+      "variable": "interest_income_and_other_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_income_and_other_net"
+      ],
+      "description": "interest_income_and_other_net YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "noncontrolling_interest_abs": {
+      "variable": "noncontrolling_interest",
+      "type": "absolute",
+      "default": -0.1,
+      "description": "noncontrolling_interest absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.391474,
+      "references": {
+        "last_q": 0.616632,
+        "ttm": 0.391474,
+        "q4": 0.235013
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1140.375,
+      "references": {
+        "last_q": 1141.9,
+        "ttm": 1140.375,
+        "q4": 1140.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.34,
+    "target_fq_eps": 0.45,
+    "target_fq_pretax": 728.1
+  }
+}

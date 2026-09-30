@@ -1,0 +1,24 @@
+{
+  "ticker": "UAL",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.9136380787325913,
+  "revenue_pred": 15374.714999999998,
+  "operating_pred": 1449.5233174276964,
+  "pretax_pred": 1256.119302630773,
+  "eps_p10": 2.05,
+  "eps_p90": 3.78,
+  "eps_gaap_actual": 3.19,
+  "operating_actual": 1385.0,
+  "pretax_actual": 1325.0,
+  "fundamental_predictions": {
+    "passenger_revenue_yoy": 0.045,
+    "cargo_revenue_yoy": 0.02,
+    "other_operating_revenue_yoy": 0.08,
+    "op_expense_margin_delta_bps": 80,
+    "nonop_expense_margin_delta_bps": -25,
+    "shares_abs": 326,
+    "tax_rate": 0.243825
+  },
+  "model": "gpt-5-mini"
+}

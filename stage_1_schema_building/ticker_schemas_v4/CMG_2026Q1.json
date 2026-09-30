@@ -1,0 +1,122 @@
+{
+  "ticker": "CMG",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "food_and_beverage_revenue": 2859.831,
+    "delivery_service_revenue": 15.422,
+    "food_beverage_and_packaging": 838.403,
+    "labor": 718.226,
+    "occupancy": 149.841,
+    "other_operating_costs": 415.161,
+    "general_and_administrative_expenses": 172.783,
+    "depreciation_and_amortization": 87.211,
+    "pre_opening_costs": 8.21,
+    "impairment_closure_costs_and_asset_disposals": 6.168,
+    "interest_and_other_income_net": 22.253,
+    "tax_rate": 0.229119,
+    "shares": 1360.719
+  },
+  "formulas": {
+    "total_revenue": "food_and_beverage_revenue + delivery_service_revenue",
+    "restaurant_operating_costs": "food_beverage_and_packaging + labor + occupancy + other_operating_costs",
+    "development_and_closure_costs": "pre_opening_costs + impairment_closure_costs_and_asset_disposals",
+    "total_operating_costs": "restaurant_operating_costs + general_and_administrative_expenses + depreciation_and_amortization + development_and_closure_costs",
+    "operating_income": "total_revenue - total_operating_costs",
+    "pretax_income": "operating_income + interest_and_other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "food_and_beverage_revenue_yoy": {
+      "variable": "food_and_beverage_revenue",
+      "type": "yoy",
+      "constituents": [
+        "food_and_beverage_revenue"
+      ],
+      "description": "YoY growth rate for food and beverage revenue vs 2025Q1"
+    },
+    "delivery_service_revenue_yoy": {
+      "variable": "delivery_service_revenue",
+      "type": "yoy",
+      "constituents": [
+        "delivery_service_revenue"
+      ],
+      "description": "YoY growth rate for delivery service revenue vs 2025Q1"
+    },
+    "restaurant_operating_costs_margin_delta_bps": {
+      "variable": "restaurant_operating_costs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "food_beverage_and_packaging",
+        "labor",
+        "occupancy",
+        "other_operating_costs"
+      ],
+      "description": "Combined restaurant operating costs as % of total revenue, delta vs 2025Q1"
+    },
+    "general_and_administrative_expenses_yoy": {
+      "variable": "general_and_administrative_expenses",
+      "type": "yoy",
+      "constituents": [
+        "general_and_administrative_expenses"
+      ],
+      "description": "YoY growth rate for G&A expense vs 2025Q1"
+    },
+    "depreciation_and_amortization_yoy": {
+      "variable": "depreciation_and_amortization",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_and_amortization"
+      ],
+      "description": "YoY growth rate for depreciation and amortization vs 2025Q1"
+    },
+    "development_and_closure_costs_yoy": {
+      "variable": "development_and_closure_costs",
+      "type": "yoy",
+      "constituents": [
+        "pre_opening_costs",
+        "impairment_closure_costs_and_asset_disposals"
+      ],
+      "description": "YoY growth rate for combined pre-opening and impairment/closure costs vs 2025Q1"
+    },
+    "interest_and_other_income_net_abs": {
+      "variable": "interest_and_other_income_net",
+      "type": "absolute",
+      "description": "interest_and_other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.235757,
+      "references": {
+        "last_q": 0.236856,
+        "ttm": 0.235757,
+        "q4": 0.229119
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1347.4997,
+      "references": {
+        "last_q": 1339.522,
+        "ttm": 1347.4997,
+        "q4": 1360.719
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.28,
+    "target_fq_eps": 0.23,
+    "target_fq_pretax": 405805.0
+  }
+}

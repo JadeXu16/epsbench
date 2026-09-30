@@ -1,0 +1,150 @@
+{
+  "ticker": "XOM",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "sales_and_other_operating_revenue": 81058.0,
+    "income_from_equity_affiliates": 1127.0,
+    "other_income": 1241.0,
+    "crude_oil_and_product_purchases": 46393.0,
+    "production_and_manufacturing_expenses": 10833.0,
+    "selling_general_and_admin_expenses": 2617.0,
+    "depreciation_and_depletion": 6585.0,
+    "exploration_expenses_including_dry_holes": 186.0,
+    "non_service_pension_and_postretirement_benefit_expense": 31.0,
+    "interest_expense": 297.0,
+    "other_taxes_and_duties": 6671.0,
+    "pretax_income": 9813.0,
+    "nci": 345.0,
+    "shares": 4428.0,
+    "tax_rate": 0.189341
+  },
+  "formulas": {
+    "total_revenues_and_other_income": "sales_and_other_operating_revenue + income_from_equity_affiliates + other_income",
+    "total_costs_and_other_deductions": "crude_oil_and_product_purchases + production_and_manufacturing_expenses + selling_general_and_admin_expenses + depreciation_and_depletion + exploration_expenses_including_dry_holes + non_service_pension_and_postretirement_benefit_expense + interest_expense + other_taxes_and_duties",
+    "pretax_income": "total_revenues_and_other_income - total_costs_and_other_deductions",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "sales_and_other_operating_revenue_yoy": {
+      "variable": "sales_and_other_operating_revenue",
+      "type": "yoy",
+      "constituents": [
+        "sales_and_other_operating_revenue"
+      ],
+      "description": "Sales and other operating revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_costs_and_other_deductions",
+      "type": "bps",
+      "anchor": "total_revenues_and_other_income",
+      "constituents": [
+        "crude_oil_and_product_purchases",
+        "production_and_manufacturing_expenses"
+      ],
+      "description": "Cost of revenue margin delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "selling_general_and_admin_expenses",
+      "type": "bps",
+      "anchor": "total_revenues_and_other_income",
+      "constituents": [
+        "selling_general_and_admin_expenses"
+      ],
+      "description": "SG&A as % of total revenues margin delta vs Q-4"
+    },
+    "depreciation_and_depletion_yoy": {
+      "variable": "depreciation_and_depletion",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_and_depletion"
+      ],
+      "description": "Depreciation and depletion expense YoY growth rate vs Q-4"
+    },
+    "exploration_expenses_including_dry_holes_yoy": {
+      "variable": "exploration_expenses_including_dry_holes",
+      "type": "yoy",
+      "constituents": [
+        "exploration_expenses_including_dry_holes"
+      ],
+      "description": "Exploration expenses YoY growth rate vs Q-4"
+    },
+    "income_from_equity_affiliates_yoy": {
+      "variable": "income_from_equity_affiliates",
+      "type": "yoy",
+      "constituents": [
+        "income_from_equity_affiliates"
+      ],
+      "description": "income_from_equity_affiliates YoY growth rate vs Q-4"
+    },
+    "other_income_abs": {
+      "variable": "other_income",
+      "type": "absolute",
+      "description": "other_income absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "non_service_pension_and_postretirement_benefit_expense_yoy": {
+      "variable": "non_service_pension_and_postretirement_benefit_expense",
+      "type": "yoy",
+      "constituents": [
+        "non_service_pension_and_postretirement_benefit_expense"
+      ],
+      "description": "non_service_pension_and_postretirement_benefit_expense YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "other_taxes_and_duties_yoy": {
+      "variable": "other_taxes_and_duties",
+      "type": "yoy",
+      "constituents": [
+        "other_taxes_and_duties"
+      ],
+      "description": "other_taxes_and_duties YoY growth rate vs Q-4"
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 345.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 4354.325,
+      "references": {
+        "last_q": 4288.6,
+        "ttm": 4354.325,
+        "q4": 4428.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.277352,
+      "references": {
+        "last_q": 0.289426,
+        "ttm": 0.277352,
+        "q4": 0.189341
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.72,
+    "target_fq_eps": 1.53,
+    "target_fq_pretax": 8031.0
+  },
+  "revenue_field": "sales_and_other_operating_revenue"
+}

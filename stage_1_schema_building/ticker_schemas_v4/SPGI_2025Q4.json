@@ -1,0 +1,141 @@
+{
+  "ticker": "SPGI",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "revenue": 3592.0,
+    "operating_related_expenses": 1114.0,
+    "selling_and_general_expenses": 919.0,
+    "depreciation": 26.0,
+    "amortization_of_intangibles": 274.0,
+    "gain_on_dispositions_net": -38.0,
+    "equity_in_income_on_unconsolidated_subsidiaries": -12.0,
+    "other_income_expense_net": -15.0,
+    "interest_expense_net": 70.0,
+    "loss_on_extinguishment_of_debt": 0.0,
+    "tax_rate": 0.2288,
+    "shares": 318.0,
+    "net_income_attributable_to_noncontrolling_interests": 87.0
+  },
+  "formulas": {
+    "total_operating_expenses": "operating_related_expenses + selling_and_general_expenses + depreciation + amortization_of_intangibles",
+    "operating_profit": "revenue - total_operating_expenses - gain_on_dispositions_net - equity_in_income_on_unconsolidated_subsidiaries",
+    "pretax_income": "operating_profit - other_income_expense_net - interest_expense_net - loss_on_extinguishment_of_debt",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - net_income_attributable_to_noncontrolling_interests",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Total revenue YoY growth rate vs Q-4"
+    },
+    "operating_related_expenses_margin_delta_bps": {
+      "variable": "operating_related_expenses",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "operating_related_expenses"
+      ],
+      "description": "Operating-related expenses as % of revenue, delta vs Q-4"
+    },
+    "selling_and_general_expenses_margin_delta_bps": {
+      "variable": "selling_and_general_expenses",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "selling_and_general_expenses"
+      ],
+      "description": "Selling and general expenses as % of revenue, delta vs Q-4"
+    },
+    "depreciation_margin_delta_bps": {
+      "variable": "depreciation",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "depreciation"
+      ],
+      "description": "Depreciation as % of revenue, delta vs Q-4"
+    },
+    "amortization_of_intangibles_margin_delta_bps": {
+      "variable": "amortization_of_intangibles",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "amortization_of_intangibles"
+      ],
+      "description": "Amortization of intangibles as % of revenue, delta vs Q-4"
+    },
+    "interest_expense_net_margin_delta_bps": {
+      "variable": "interest_expense_net",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "Interest expense net as % of revenue, delta vs Q-4"
+    },
+    "gain_on_dispositions_net_abs": {
+      "variable": "gain_on_dispositions_net",
+      "type": "absolute",
+      "description": "gain_on_dispositions_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "equity_in_income_on_unconsolidated_subsidiaries_abs": {
+      "variable": "equity_in_income_on_unconsolidated_subsidiaries",
+      "type": "absolute",
+      "description": "equity_in_income_on_unconsolidated_subsidiaries absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_expense_net_abs": {
+      "variable": "other_income_expense_net",
+      "type": "absolute",
+      "description": "other_income_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "loss_on_extinguishment_of_debt_abs": {
+      "variable": "loss_on_extinguishment_of_debt",
+      "type": "absolute",
+      "description": "loss_on_extinguishment_of_debt absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "net_income_attributable_to_noncontrolling_interests_abs": {
+      "variable": "net_income_attributable_to_noncontrolling_interests",
+      "type": "absolute",
+      "default": 87.0,
+      "description": "net_income_attributable_to_noncontrolling_interests absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.219986,
+      "references": {
+        "last_q": 0.208385,
+        "ttm": 0.219986,
+        "q4": 0.2288
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 309.075,
+      "references": {
+        "last_q": 304.5,
+        "ttm": 309.075,
+        "q4": 318.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 2.77,
+    "target_fq_eps": 3.75,
+    "target_fq_pretax": 1631.0
+  },
+  "revenue_field": "revenue"
+}

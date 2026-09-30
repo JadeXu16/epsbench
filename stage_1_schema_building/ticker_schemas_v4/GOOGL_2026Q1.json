@@ -1,0 +1,102 @@
+{
+  "ticker": "GOOGL",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "revenues": 90234.0,
+    "cost_of_revenues": 36361.0,
+    "research_and_development": 13556.0,
+    "sales_and_marketing": 6172.0,
+    "general_and_administrative": 3539.0,
+    "other_income_net": 11183.0,
+    "tax_rate": 0.173467,
+    "shares": 12291.81
+  },
+  "formulas": {
+    "total_costs_and_expenses": "cost_of_revenues + research_and_development + sales_and_marketing + general_and_administrative",
+    "gross_profit": "revenues - cost_of_revenues",
+    "operating_income": "revenues - total_costs_and_expenses",
+    "pretax_income": "operating_income + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "revenues_yoy": {
+      "variable": "revenues",
+      "type": "yoy",
+      "constituents": [
+        "revenues"
+      ],
+      "description": "Total revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_revenues",
+      "type": "bps",
+      "anchor": "revenues",
+      "constituents": [
+        "cost_of_revenues"
+      ],
+      "description": "Cost of revenues as a percentage of total revenue, delta vs Q-4"
+    },
+    "rd_yoy": {
+      "variable": "research_and_development",
+      "type": "yoy",
+      "constituents": [
+        "research_and_development"
+      ],
+      "description": "Research and development expense YoY growth rate vs Q-4"
+    },
+    "sales_marketing_yoy": {
+      "variable": "sales_and_marketing",
+      "type": "yoy",
+      "constituents": [
+        "sales_and_marketing"
+      ],
+      "description": "Sales and marketing expense YoY growth rate vs Q-4"
+    },
+    "general_admin_yoy": {
+      "variable": "general_and_administrative",
+      "type": "yoy",
+      "constituents": [
+        "general_and_administrative"
+      ],
+      "description": "General and administrative expense YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.167832,
+      "references": {
+        "last_q": 0.119181,
+        "ttm": 0.167832,
+        "q4": 0.173467
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 12218.1775,
+      "references": {
+        "last_q": 12187.1,
+        "ttm": 12218.1775,
+        "q4": 12291.81
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 2.81,
+    "target_fq_eps": 5.11,
+    "target_fq_pretax": 77412.0
+  }
+}

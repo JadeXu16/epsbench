@@ -1,0 +1,30 @@
+{
+  "ticker": "CVX",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.8839248077405837,
+  "revenue_pred": 49477.1,
+  "operating_pred": null,
+  "pretax_pred": 2950.424771749633,
+  "eps_p10": 0.25,
+  "eps_p90": 1.5,
+  "eps_gaap_actual": 1.11,
+  "operating_actual": null,
+  "pretax_actual": 3946.0,
+  "fundamental_predictions": {
+    "sales_revenue_yoy": 0.05,
+    "equity_income_yoy": -0.24,
+    "other_income_yoy": -0.35,
+    "purchased_crude_margin_delta_bps": 70,
+    "opex_yoy": 0.14,
+    "dd_and_a_yoy": 0.38,
+    "exploration_expenses_yoy": 0.55,
+    "taxes_other_than_on_income_yoy": 0.06,
+    "interest_and_debt_expense_yoy": 0.75,
+    "other_components_of_net_periodic_benefit_costs_yoy": 5.4,
+    "nci_abs": 75,
+    "tax_rate": 0.381387,
+    "shares_abs": 1980
+  },
+  "model": "gpt-5.4"
+}

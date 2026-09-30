@@ -1,0 +1,124 @@
+{
+  "ticker": "PANW",
+  "target_fq": "2026Q2",
+  "baseline_fq": "2025Q2",
+  "variables_baseline": {
+    "product_revenue": 421.5,
+    "subscription_support_revenue": 1835.9,
+    "product_cogs": 101.3,
+    "subscription_support_cogs": 497.9,
+    "rd": 505.7,
+    "sales_marketing": 758.3,
+    "general_administrative": 153.8,
+    "interest_expense": 0.9,
+    "other_income_net": 85.3,
+    "tax_rate": 0.1771,
+    "shares": 709.0
+  },
+  "formulas": {
+    "total_revenue": "product_revenue + subscription_support_revenue",
+    "total_cogs": "product_cogs + subscription_support_cogs",
+    "gross_profit": "total_revenue - total_cogs",
+    "total_opex": "rd + sales_marketing + general_administrative",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - interest_expense + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "product_revenue_yoy": {
+      "variable": "product_revenue",
+      "type": "yoy",
+      "constituents": [
+        "product_revenue"
+      ],
+      "description": "Product revenue YoY growth rate vs Q-4"
+    },
+    "subscription_support_revenue_yoy": {
+      "variable": "subscription_support_revenue",
+      "type": "yoy",
+      "constituents": [
+        "subscription_support_revenue"
+      ],
+      "description": "Subscription and support revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "product_cogs",
+        "subscription_support_cogs"
+      ],
+      "description": "Combined COGS as % of total revenue, delta vs Q-4"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "sales_marketing_margin_delta_bps": {
+      "variable": "sales_marketing",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sales_marketing"
+      ],
+      "description": "Sales and marketing as % of total revenue, delta vs Q-4"
+    },
+    "general_administrative_margin_delta_bps": {
+      "variable": "general_administrative",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "general_administrative"
+      ],
+      "description": "General and administrative as % of total revenue, delta vs Q-4"
+    },
+    "interest_expense_abs": {
+      "variable": "interest_expense",
+      "type": "absolute",
+      "description": "interest_expense absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.18932,
+      "references": {
+        "last_q": 0.18932,
+        "ttm": 0.31842,
+        "q4": 0.1771
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 709.0,
+      "references": {
+        "last_q": 709.0,
+        "ttm": 708.2,
+        "q4": 709.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.38,
+    "target_fq_eps": 0.61,
+    "target_fq_pretax": 549.0
+  },
+  "revenue_field": "total_revenue"
+}

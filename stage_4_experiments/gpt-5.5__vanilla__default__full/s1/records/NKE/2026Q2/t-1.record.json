@@ -1,0 +1,25 @@
+{
+  "ticker": "NKE",
+  "fiscal_quarter": "2026Q2",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.3375,
+  "revenue_pred": 12168.69,
+  "operating_pred": 648.0625749999999,
+  "pretax_pred": 633.0625749999999,
+  "eps_p10": 0.24,
+  "eps_p90": 0.45,
+  "eps_gaap_actual": 0.53,
+  "operating_actual": 1006.0,
+  "pretax_actual": 999.0,
+  "fundamental_predictions": {
+    "revenue_yoy": -0.015,
+    "cost_of_sales_margin_delta_bps": 325,
+    "demand_creation_expense_yoy": 0.18,
+    "operating_overhead_expense_yoy": 0.02,
+    "interest_expense_income_net_abs": -18,
+    "other_income_expense_net_abs": 33,
+    "shares_abs": 1479,
+    "tax_rate": 0.211497
+  },
+  "model": "gpt-5.5"
+}

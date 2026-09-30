@@ -1,0 +1,31 @@
+{
+  "ticker": "AMZN",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.166,
+  "revenue_pred": 211555.07,
+  "operating_pred": 24115.788404656647,
+  "pretax_pred": 27701.02840465665,
+  "eps_p10": 1.75,
+  "eps_p90": 2.55,
+  "eps_gaap_actual": 1.95,
+  "operating_actual": 24977.0,
+  "pretax_actual": 26605.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.09,
+    "services_revenue_yoy": 0.155,
+    "cost_of_sales_margin_delta_bps": -100,
+    "fulfillment_margin_delta_bps": -20,
+    "technology_infrastructure_margin_delta_bps": 150,
+    "sales_and_marketing_margin_delta_bps": -25,
+    "general_and_administrative_yoy": 0.0,
+    "other_operating_expense_net_abs": 225,
+    "interest_income_yoy": -0.12,
+    "interest_expense_yoy": -0.1,
+    "other_income_expense_net_abs": 3000,
+    "equity_method_investment_activity_net_abs": 20,
+    "shares_abs": 10880,
+    "tax_rate": 0.15
+  },
+  "model": "claude-opus-4-6"
+}

@@ -1,0 +1,27 @@
+{
+  "ticker": "KHC",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.6940078098471976,
+  "revenue_pred": 6444.48,
+  "operating_pred": -12.268800000001193,
+  "pretax_pred": -203.4588000000012,
+  "eps_p10": -0.45,
+  "eps_p90": 2.35,
+  "eps_gaap_actual": 0.55,
+  "operating_actual": 1084.0,
+  "pretax_actual": 897.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": -0.02,
+    "cost_of_products_sold_margin_delta_bps": -25,
+    "selling_general_and_administrative_excluding_impairment_yoy": 0.01,
+    "goodwill_impairment_losses_yoy": 0,
+    "intangible_asset_impairment_losses_yoy": -0.05,
+    "interest_expense_yoy": -0.03,
+    "other_income_net_abs": 29,
+    "noncontrolling_interest_abs": 1,
+    "shares_abs": 1178,
+    "tax_amount": -2200
+  },
+  "model": "gpt-5.5"
+}

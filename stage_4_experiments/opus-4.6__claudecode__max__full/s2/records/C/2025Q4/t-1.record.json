@@ -1,0 +1,24 @@
+{
+  "ticker": "C",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.215,
+  "revenue_pred": 20560.05,
+  "operating_pred": null,
+  "pretax_pred": 3210.8181000000004,
+  "eps_p10": 0.9,
+  "eps_p90": 1.7,
+  "eps_gaap_actual": 1.36,
+  "operating_actual": null,
+  "pretax_actual": 3811.0,
+  "fundamental_predictions": {
+    "total_revenues_yoy": 0.05,
+    "provisions_margin_delta_bps": -35,
+    "opex_margin_delta_bps": 415,
+    "noncontrolling_interests_abs": 38,
+    "discontinued_ops_loss_abs": 0,
+    "shares_abs": 1845,
+    "tax_rate": 0.29
+  },
+  "model": "claude-opus-4-6"
+}

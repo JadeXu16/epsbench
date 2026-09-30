@@ -1,0 +1,26 @@
+{
+  "ticker": "MSFT",
+  "fiscal_quarter": "2026Q2",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.374346518281029,
+  "revenue_pred": 80152.41,
+  "operating_pred": 36358.61855679802,
+  "pretax_pred": 40358.61855679802,
+  "eps_p10": 4.08,
+  "eps_p90": 4.65,
+  "eps_gaap_actual": 5.16,
+  "operating_actual": 38275.0,
+  "pretax_actual": 48246.0,
+  "fundamental_predictions": {
+    "product_revenue_yoy": -0.01,
+    "service_and_other_revenue_yoy": 0.2,
+    "cogs_margin_delta_bps": 170,
+    "research_and_development_yoy": 0.1,
+    "sales_and_marketing_yoy": 0.04,
+    "general_and_administrative_yoy": 0.06,
+    "other_expense_net_abs": -4000,
+    "shares_abs": 7464,
+    "tax_rate": 0.191
+  },
+  "model": "gpt-5.5"
+}

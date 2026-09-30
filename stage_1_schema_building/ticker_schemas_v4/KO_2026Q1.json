@@ -1,0 +1,133 @@
+{
+  "ticker": "KO",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "net_operating_revenues": 11129.0,
+    "cost_of_goods_sold": 4163.0,
+    "selling_general_and_administrative": 3234.0,
+    "other_operating_charges": 73.0,
+    "interest_income": 180.0,
+    "interest_expense": 387.0,
+    "equity_income_net": 351.0,
+    "other_income_net": 254.0,
+    "income_taxes": 722.0,
+    "noncontrolling_interests": 5.0,
+    "tax_rate": 0.177964,
+    "shares": 4313.0
+  },
+  "formulas": {
+    "gross_profit": "net_operating_revenues - cost_of_goods_sold",
+    "operating_income": "gross_profit - selling_general_and_administrative - other_operating_charges",
+    "pretax_income": "operating_income + interest_income - interest_expense + equity_income_net + other_income_net",
+    "net_income": "pretax_income - income_taxes",
+    "earnings_to_common": "net_income - noncontrolling_interests",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "net_operating_revenues",
+      "type": "yoy",
+      "constituents": [
+        "net_operating_revenues"
+      ],
+      "description": "Net operating revenues YoY growth rate vs 2025Q1"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_goods_sold",
+      "type": "bps",
+      "anchor": "net_operating_revenues",
+      "constituents": [
+        "cost_of_goods_sold"
+      ],
+      "description": "Cost of goods sold as % of net operating revenues, delta vs 2025Q1"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "selling_general_and_administrative",
+      "type": "bps",
+      "anchor": "net_operating_revenues",
+      "constituents": [
+        "selling_general_and_administrative"
+      ],
+      "description": "SG&A as % of net operating revenues, delta vs 2025Q1"
+    },
+    "other_operating_charges_yoy": {
+      "variable": "other_operating_charges",
+      "type": "yoy",
+      "constituents": [
+        "other_operating_charges"
+      ],
+      "description": "Other operating charges YoY growth rate vs 2025Q1"
+    },
+    "income_taxes_yoy": {
+      "variable": "income_taxes",
+      "type": "yoy",
+      "constituents": [
+        "income_taxes"
+      ],
+      "description": "Income taxes YoY growth rate vs 2025Q1"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "equity_income_net_abs": {
+      "variable": "equity_income_net",
+      "type": "absolute",
+      "description": "equity_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "noncontrolling_interests_abs": {
+      "variable": "noncontrolling_interests",
+      "type": "absolute",
+      "default": 5.0,
+      "description": "noncontrolling_interests absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.179131,
+      "references": {
+        "last_q": 0.218096,
+        "ttm": 0.179131,
+        "q4": 0.177964
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 4313.0,
+      "references": {
+        "last_q": 4313.0,
+        "ttm": 4313.5,
+        "q4": 4313.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.77,
+    "target_fq_eps": 0.91,
+    "target_fq_pretax": 4611.0
+  }
+}

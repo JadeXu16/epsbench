@@ -1,0 +1,29 @@
+{
+  "ticker": "KO",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.8291,
+  "revenue_pred": 12186.255,
+  "operating_pred": 4159.77506,
+  "pretax_pred": 4385.51506,
+  "eps_p10": 0.74,
+  "eps_p90": 0.91,
+  "eps_gaap_actual": 0.91,
+  "operating_actual": 4359.0,
+  "pretax_actual": 4611.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.095,
+    "cogs_margin_delta_bps": -90,
+    "sga_margin_delta_bps": -30,
+    "other_operating_charges_yoy": 0,
+    "income_taxes_yoy": 0.12,
+    "interest_income_yoy": 0,
+    "interest_expense_yoy": -0.02,
+    "equity_income_net_abs": 325,
+    "other_income_net_abs": 100,
+    "noncontrolling_interests_abs": 5,
+    "tax_rate": 0.185,
+    "shares_abs": 4308
+  },
+  "model": "claude-opus-4-6"
+}

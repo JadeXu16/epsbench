@@ -1,0 +1,30 @@
+{
+  "ticker": "TMO",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.090864298465139,
+  "revenue_pred": 10465.62,
+  "operating_pred": 1806.8814354534943,
+  "pretax_pred": 1651.4314354534943,
+  "eps_p10": 3.6,
+  "eps_p90": 4.6,
+  "eps_gaap_actual": 4.43,
+  "operating_actual": 1864.0,
+  "pretax_actual": 1734.0,
+  "fundamental_predictions": {
+    "product_revenues_yoy": -0.005,
+    "service_revenues_yoy": 0.03,
+    "cogs_margin_delta_bps": -30,
+    "sga_yoy": 0.01,
+    "rd_yoy": 0.03,
+    "restructuring_and_other_costs_abs": 50,
+    "interest_income_yoy": 0.1,
+    "interest_expense_yoy": 0.25,
+    "other_income_net_abs": 0,
+    "tax_rate": 0.071064,
+    "equity_losses_abs": 0,
+    "nci_abs": 0,
+    "shares_abs": 375
+  },
+  "model": "gpt-5-mini"
+}

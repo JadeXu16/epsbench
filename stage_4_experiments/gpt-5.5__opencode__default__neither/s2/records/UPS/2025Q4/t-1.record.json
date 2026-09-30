@@ -1,0 +1,28 @@
+{
+  "ticker": "UPS",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.03488479497328,
+  "revenue_pred": 25554.010000000002,
+  "operating_pred": 2926.632995,
+  "pretax_pred": 2127.632995,
+  "eps_p10": 1.25,
+  "eps_p90": 2.8,
+  "eps_gaap_actual": 2.1,
+  "operating_actual": 2575.0,
+  "pretax_actual": 2372.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.01,
+    "compensation_and_benefits_margin_delta_bps": 30,
+    "purchased_transportation_margin_delta_bps": -10,
+    "fuel_margin_delta_bps": -15,
+    "depreciation_and_amortization_yoy": 0.01,
+    "repairs_and_maintenance_yoy": 0.02,
+    "other_occupancy_yoy": 0.02,
+    "other_expenses_abs": 2360,
+    "other_income_expense_abs": -799,
+    "shares_abs": 846,
+    "tax_rate": 0.190879
+  },
+  "model": "gpt-5.5"
+}

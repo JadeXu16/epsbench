@@ -1,0 +1,30 @@
+{
+  "ticker": "UBER",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.6466671966477808,
+  "revenue_pred": 14410.595000000001,
+  "operating_pred": 1453.7911224999998,
+  "pretax_pred": 1556.6411224999997,
+  "eps_p10": -0.15,
+  "eps_p90": 1.65,
+  "eps_gaap_actual": 0.14,
+  "operating_actual": 1774.0,
+  "pretax_actual": 291.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.205,
+    "cost_of_revenue_margin_delta_bps": -25,
+    "operations_and_support_margin_delta_bps": -35,
+    "sales_and_marketing_margin_delta_bps": -40,
+    "research_and_development_margin_delta_bps": -25,
+    "general_and_administrative_margin_delta_bps": -230,
+    "depreciation_and_amortization_yoy": 0.12,
+    "interest_expense_yoy": -0.05,
+    "other_income_net_abs": 200,
+    "income_loss_equity_method_investments_abs": -14,
+    "noncontrolling_interest_abs": 12,
+    "shares_abs": 2118,
+    "tax_amount": 175
+  },
+  "model": "gpt-5.5"
+}

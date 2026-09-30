@@ -1,0 +1,26 @@
+{
+  "ticker": "C",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.576439901100966,
+  "revenue_pred": 23018.884,
+  "operating_pred": null,
+  "pretax_pred": 6914.1058515806835,
+  "eps_p10": 2.2,
+  "eps_p90": 2.95,
+  "eps_gaap_actual": 3.06,
+  "operating_actual": null,
+  "pretax_actual": 7517.0,
+  "fundamental_predictions": {
+    "net_interest_income_yoy": 0.055,
+    "non_interest_revenues_yoy": 0.086,
+    "provisions_margin_delta_bps": 20,
+    "operating_expenses_yoy": -0.02,
+    "loss_from_discontinued_operations_net_abs": 0,
+    "noncontrolling_interests_abs": 43,
+    "preferred_stock_dividends_abs": 275,
+    "tax_rate": 0.246,
+    "shares_abs": 1900
+  },
+  "model": "glm-4.5-air"
+}

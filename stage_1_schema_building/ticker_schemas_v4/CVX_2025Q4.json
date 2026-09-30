@@ -1,0 +1,158 @@
+{
+  "ticker": "CVX",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "sales_and_other_operating_revenues": 48334.0,
+    "income_from_equity_affiliates": 688.0,
+    "other_income_net": 3204.0,
+    "purchased_crude_oil_and_products": 30148.0,
+    "operating_expenses": 7622.0,
+    "selling_general_and_administrative_expenses": 1585.0,
+    "exploration_expenses": 449.0,
+    "depreciation_depletion_and_amortization": 4973.0,
+    "taxes_other_than_income": 1141.0,
+    "interest_and_debt_expense": 199.0,
+    "other_net_periodic_benefit_costs": 50.0,
+    "nci": 20.0,
+    "shares": 1807.03,
+    "tax_rate": 0.462122
+  },
+  "formulas": {
+    "total_revenues_and_other_income": "sales_and_other_operating_revenues + income_from_equity_affiliates + other_income_net",
+    "total_costs_and_other_deductions": "purchased_crude_oil_and_products + operating_expenses + selling_general_and_administrative_expenses + exploration_expenses + depreciation_depletion_and_amortization + taxes_other_than_income + interest_and_debt_expense + other_net_periodic_benefit_costs",
+    "pretax_income": "total_revenues_and_other_income - total_costs_and_other_deductions",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "sales_and_other_operating_revenues_yoy": {
+      "variable": "sales_and_other_operating_revenues",
+      "type": "yoy",
+      "constituents": [
+        "sales_and_other_operating_revenues"
+      ],
+      "description": "Sales and other operating revenues YoY growth rate vs Q-4"
+    },
+    "purchased_crude_oil_and_products_margin_delta_bps": {
+      "variable": "purchased_crude_oil_and_products",
+      "type": "bps",
+      "anchor": "total_revenues_and_other_income",
+      "constituents": [
+        "purchased_crude_oil_and_products"
+      ],
+      "description": "Purchased crude oil and products as % of total revenues and other income, delta vs Q-4"
+    },
+    "operating_expenses_margin_delta_bps": {
+      "variable": "operating_expenses",
+      "type": "bps",
+      "anchor": "total_revenues_and_other_income",
+      "constituents": [
+        "operating_expenses"
+      ],
+      "description": "Operating expenses as % of total revenues and other income, delta vs Q-4"
+    },
+    "selling_general_and_administrative_expenses_margin_delta_bps": {
+      "variable": "selling_general_and_administrative_expenses",
+      "type": "bps",
+      "anchor": "total_revenues_and_other_income",
+      "constituents": [
+        "selling_general_and_administrative_expenses"
+      ],
+      "description": "Selling, general and administrative expenses as % of total revenues and other income, delta vs Q-4"
+    },
+    "exploration_expenses_yoy": {
+      "variable": "exploration_expenses",
+      "type": "yoy",
+      "constituents": [
+        "exploration_expenses"
+      ],
+      "description": "Exploration expenses YoY growth rate vs Q-4"
+    },
+    "depreciation_depletion_and_amortization_margin_delta_bps": {
+      "variable": "depreciation_depletion_and_amortization",
+      "type": "bps",
+      "anchor": "total_revenues_and_other_income",
+      "constituents": [
+        "depreciation_depletion_and_amortization"
+      ],
+      "description": "Depreciation, depletion and amortization as % of total revenues and other income, delta vs Q-4"
+    },
+    "income_from_equity_affiliates_yoy": {
+      "variable": "income_from_equity_affiliates",
+      "type": "yoy",
+      "constituents": [
+        "income_from_equity_affiliates"
+      ],
+      "description": "income_from_equity_affiliates YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "taxes_other_than_income_yoy": {
+      "variable": "taxes_other_than_income",
+      "type": "yoy",
+      "constituents": [
+        "taxes_other_than_income"
+      ],
+      "description": "taxes_other_than_income YoY growth rate vs Q-4"
+    },
+    "interest_and_debt_expense_yoy": {
+      "variable": "interest_and_debt_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_and_debt_expense"
+      ],
+      "description": "interest_and_debt_expense YoY growth rate vs Q-4"
+    },
+    "other_net_periodic_benefit_costs_yoy": {
+      "variable": "other_net_periodic_benefit_costs",
+      "type": "yoy",
+      "constituents": [
+        "other_net_periodic_benefit_costs"
+      ],
+      "description": "other_net_periodic_benefit_costs YoY growth rate vs Q-4"
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 20.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1807.2258,
+      "references": {
+        "last_q": 1946.035,
+        "ttm": 1807.2258,
+        "q4": 1807.03
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.391643,
+      "references": {
+        "last_q": 0.332656,
+        "ttm": 0.391643,
+        "q4": 0.462122
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 1.39,
+    "baseline_fq_eps": 1.79,
+    "target_fq_pretax": 4599.0
+  },
+  "revenue_field": "sales_and_other_operating_revenues"
+}

@@ -1,0 +1,104 @@
+{
+  "ticker": "V",
+  "target_fq": "2026Q2",
+  "baseline_fq": "2025Q2",
+  "variables_baseline": {
+    "net_revenue": 9594.0,
+    "personnel": 1657.0,
+    "marketing": 381.0,
+    "network_and_processing": 224.0,
+    "professional_fees": 173.0,
+    "depreciation_and_amortization": 305.0,
+    "general_and_administrative": 419.0,
+    "litigation_provision": 1000.0,
+    "interest_expense": 158.0,
+    "investment_income_other": 161.0,
+    "tax_rate": 0.15833,
+    "shares": 1974.0
+  },
+  "formulas": {
+    "other_opex": "marketing + network_and_processing + professional_fees + depreciation_and_amortization + general_and_administrative + litigation_provision",
+    "total_opex": "personnel + other_opex",
+    "operating_income": "net_revenue - total_opex",
+    "non_operating_income": "investment_income_other - interest_expense",
+    "pretax_income": "operating_income + non_operating_income",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "net_revenue_yoy": {
+      "variable": "net_revenue",
+      "type": "yoy",
+      "constituents": [
+        "net_revenue"
+      ],
+      "description": "Total net revenue YoY growth rate vs 2025Q2"
+    },
+    "personnel_yoy": {
+      "variable": "personnel",
+      "type": "yoy",
+      "constituents": [
+        "personnel"
+      ],
+      "description": "Personnel expense YoY growth rate vs 2025Q2"
+    },
+    "other_opex_margin_delta_bps": {
+      "variable": "other_opex",
+      "type": "bps",
+      "anchor": "net_revenue",
+      "constituents": [
+        "marketing",
+        "network_and_processing",
+        "professional_fees",
+        "depreciation_and_amortization",
+        "general_and_administrative",
+        "litigation_provision"
+      ],
+      "description": "Other operating expenses as % of net revenue, delta vs 2025Q2"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "investment_income_other_abs": {
+      "variable": "investment_income_other",
+      "type": "absolute",
+      "description": "investment_income_other absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.15833,
+      "references": {
+        "last_q": 0.129795,
+        "ttm": 0.1589,
+        "q4": 0.15833
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1959.75,
+      "references": {
+        "last_q": 1933.0,
+        "ttm": 1959.75,
+        "q4": 1974.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 2.32,
+    "target_fq_eps": 3.14,
+    "target_fq_pretax": 7174.0
+  }
+}

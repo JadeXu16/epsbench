@@ -1,0 +1,101 @@
+{
+  "ticker": "LULU",
+  "target_fq": "2025Q3",
+  "baseline_fq": "2024Q3",
+  "variables_baseline": {
+    "net_revenue": 2396.66,
+    "cost_of_goods_sold": 995.054,
+    "selling_general_admin": 909.827,
+    "impairment_restructuring": 0.0,
+    "amortization_intangible": 1.118,
+    "other_income_net": 13.743,
+    "tax_rate": 0.3025,
+    "shares": 122.803
+  },
+  "formulas": {
+    "gross_profit": "net_revenue - cost_of_goods_sold",
+    "total_opex": "selling_general_admin + impairment_restructuring + amortization_intangible",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "net_revenue_yoy": {
+      "variable": "net_revenue",
+      "type": "yoy",
+      "constituents": [
+        "net_revenue"
+      ],
+      "description": "Net revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_goods_sold",
+      "type": "bps",
+      "anchor": "net_revenue",
+      "constituents": [
+        "cost_of_goods_sold"
+      ],
+      "description": "COGS as % of net revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "selling_general_admin",
+      "type": "bps",
+      "anchor": "net_revenue",
+      "constituents": [
+        "selling_general_admin"
+      ],
+      "description": "SG&A as % of net revenue, delta vs Q-4"
+    },
+    "impairment_restructuring_abs": {
+      "variable": "impairment_restructuring",
+      "type": "absolute",
+      "description": "impairment_restructuring absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "amortization_intangible_yoy": {
+      "variable": "amortization_intangible",
+      "type": "yoy",
+      "constituents": [
+        "amortization_intangible"
+      ],
+      "description": "amortization_intangible YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 121.8153,
+      "references": {
+        "last_q": 119.68,
+        "ttm": 121.8153,
+        "q4": 122.803
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.3025,
+      "references": {
+        "last_q": 0.304837,
+        "ttm": 0.298595,
+        "q4": 0.3025
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 2.87,
+    "target_fq_eps": 2.59,
+    "target_fq_pretax": 441.74
+  },
+  "revenue_field": "net_revenue"
+}

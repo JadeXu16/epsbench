@@ -1,0 +1,145 @@
+{
+  "ticker": "CMG",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "food_and_beverage_revenue": 2829.988,
+    "delivery_service_revenue": 15.322,
+    "food_beverage_and_packaging": 866.252,
+    "labor": 716.865,
+    "occupancy": 146.442,
+    "other_operating_costs": 411.49,
+    "general_and_administrative_expenses": 191.216,
+    "depreciation_and_amortization": 83.876,
+    "pre_opening_costs": 12.905,
+    "impairment_closure_costs_and_asset_disposals": 0.532,
+    "interest_and_other_income_net": 23.365,
+    "shares": 1374.605,
+    "tax_rate": 0.24444
+  },
+  "formulas": {
+    "total_revenue": "food_and_beverage_revenue + delivery_service_revenue",
+    "total_operating_expenses": "food_beverage_and_packaging + labor + occupancy + other_operating_costs + general_and_administrative_expenses + depreciation_and_amortization + pre_opening_costs + impairment_closure_costs_and_asset_disposals",
+    "operating_income": "total_revenue - total_operating_expenses",
+    "pretax_income": "operating_income + interest_and_other_income_net",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "food_and_beverage_revenue_yoy": {
+      "variable": "food_and_beverage_revenue",
+      "type": "yoy",
+      "constituents": [
+        "food_and_beverage_revenue"
+      ],
+      "description": "Food and beverage revenue YoY growth rate vs Q-4"
+    },
+    "delivery_service_revenue_yoy": {
+      "variable": "delivery_service_revenue",
+      "type": "yoy",
+      "constituents": [
+        "delivery_service_revenue"
+      ],
+      "description": "Delivery service revenue YoY growth rate vs Q-4"
+    },
+    "food_beverage_and_packaging_margin_delta_bps": {
+      "variable": "food_beverage_and_packaging",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "food_beverage_and_packaging"
+      ],
+      "description": "Food and beverage packaging cost as % of total revenue, delta vs Q-4"
+    },
+    "labor_margin_delta_bps": {
+      "variable": "labor",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "labor"
+      ],
+      "description": "Labor expense as % of total revenue, delta vs Q-4"
+    },
+    "occupancy_margin_delta_bps": {
+      "variable": "occupancy",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "occupancy"
+      ],
+      "description": "Occupancy expense as % of total revenue, delta vs Q-4"
+    },
+    "general_and_administrative_expenses_margin_delta_bps": {
+      "variable": "general_and_administrative_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "general_and_administrative_expenses"
+      ],
+      "description": "G&A expense as % of total revenue, delta vs Q-4"
+    },
+    "other_operating_costs_abs": {
+      "variable": "other_operating_costs",
+      "type": "absolute",
+      "description": "other_operating_costs absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "depreciation_and_amortization_yoy": {
+      "variable": "depreciation_and_amortization",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_and_amortization"
+      ],
+      "description": "depreciation_and_amortization YoY growth rate vs Q-4"
+    },
+    "pre_opening_costs_yoy": {
+      "variable": "pre_opening_costs",
+      "type": "yoy",
+      "constituents": [
+        "pre_opening_costs"
+      ],
+      "description": "pre_opening_costs YoY growth rate vs Q-4"
+    },
+    "impairment_closure_costs_and_asset_disposals_abs": {
+      "variable": "impairment_closure_costs_and_asset_disposals",
+      "type": "absolute",
+      "description": "impairment_closure_costs_and_asset_disposals absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_and_other_income_net_abs": {
+      "variable": "interest_and_other_income_net",
+      "type": "absolute",
+      "description": "interest_and_other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1356.2705,
+      "references": {
+        "last_q": 1339.522,
+        "ttm": 1356.2705,
+        "q4": 1374.605
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.237413,
+      "references": {
+        "last_q": 0.231121,
+        "ttm": 0.237413,
+        "q4": 0.24444
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.24,
+    "target_fq_eps": 0.25,
+    "target_fq_pretax": 433.643
+  },
+  "revenue_field": "total_revenue"
+}

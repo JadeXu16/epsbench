@@ -1,0 +1,31 @@
+{
+  "ticker": "COP",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.1893765997732673,
+  "revenue_pred": 13924.999999999998,
+  "operating_pred": null,
+  "pretax_pred": 2215.041496233969,
+  "eps_p10": 0.95,
+  "eps_p90": 1.45,
+  "eps_gaap_actual": 1.17,
+  "operating_actual": null,
+  "pretax_actual": 2245.0,
+  "fundamental_predictions": {
+    "sales_revenue_yoy": -0.05,
+    "other_operating_income_yoy": -0.2,
+    "purchased_commodities_margin_delta_bps": 280,
+    "production_costs_margin_delta_bps": 230,
+    "sga_margin_delta_bps": -230,
+    "depreciation_margin_delta_bps": 220,
+    "exploration_yoy": 0.1,
+    "impairments_abs": 0,
+    "taxes_other_than_income_yoy": 0.02,
+    "accretion_abs": 94,
+    "interest_debt_yoy": 0.16,
+    "other_operating_expenses_net_abs": 0,
+    "tax_rate": 0.338472,
+    "shares_abs": 1232
+  },
+  "model": "gpt-5.5"
+}

@@ -1,0 +1,105 @@
+{
+  "ticker": "HD",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "revenue": 39704.0,
+    "cost_of_sales": 26670.0,
+    "sg_and_a": 7725.0,
+    "depreciation_and_amortization": 814.0,
+    "interest_income_and_other_net": -30.0,
+    "interest_expense": 638.0,
+    "tax_rate": 0.2289,
+    "shares": 993.0
+  },
+  "formulas": {
+    "gross_profit": "revenue - cost_of_sales",
+    "total_operating_expenses": "sg_and_a + depreciation_and_amortization",
+    "operating_income": "gross_profit - total_operating_expenses",
+    "interest_and_other_net": "interest_expense + interest_income_and_other_net",
+    "pretax_income": "operating_income - interest_and_other_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Net sales YoY growth rate vs Q-4"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of net sales, delta vs Q-4"
+    },
+    "sg_and_a_margin_delta_bps": {
+      "variable": "sg_and_a",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "sg_and_a"
+      ],
+      "description": "SG&A as % of net sales, delta vs Q-4"
+    },
+    "depreciation_and_amortization_yoy": {
+      "variable": "depreciation_and_amortization",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_and_amortization"
+      ],
+      "description": "Depreciation and amortization expense YoY growth rate vs Q-4"
+    },
+    "interest_income_and_other_net_abs": {
+      "variable": "interest_income_and_other_net",
+      "type": "absolute",
+      "description": "interest_income_and_other_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 994.0,
+      "references": {
+        "last_q": 995.0,
+        "ttm": 994.0,
+        "q4": 993.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.240151,
+      "references": {
+        "last_q": 0.24301,
+        "ttm": 0.240151,
+        "q4": 0.2289
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 2.58,
+    "baseline_fq_eps": 3.02,
+    "target_fq_pretax": 3298.0
+  },
+  "revenue_field": "revenue"
+}

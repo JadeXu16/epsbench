@@ -1,0 +1,27 @@
+{
+  "ticker": "CMCSA",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.9327920025691556,
+  "revenue_pred": 30843.384,
+  "operating_pred": 5624.184311999998,
+  "pretax_pred": 4532.184311999998,
+  "eps_p10": 0.75,
+  "eps_p90": 1.15,
+  "eps_gaap_actual": 0.6,
+  "operating_actual": 4136.0,
+  "pretax_actual": 2733.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.032,
+    "programming_and_production_margin_delta_bps": 0,
+    "marketing_and_promotion_margin_delta_bps": 50,
+    "other_operating_and_administrative_margin_delta_bps": 20,
+    "d_and_a_margin_delta_bps": 0,
+    "interest_expense_yoy": 0.04,
+    "investment_other_loss_net_abs": 0,
+    "tax_rate": 0.23698,
+    "noncontrolling_interest_abs": -79,
+    "shares_abs": 3792
+  },
+  "model": "glm-4.5-air"
+}

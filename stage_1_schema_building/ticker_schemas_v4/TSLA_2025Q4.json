@@ -1,0 +1,148 @@
+{
+  "ticker": "TSLA",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "automotive_sales": 18659.0,
+    "automotive_regulatory_credits": 692.0,
+    "automotive_leasing": 447.0,
+    "energy_generation_and_storage": 3061.0,
+    "services_and_other": 2848.0,
+    "automotive_sales_cogs": 16268.0,
+    "automotive_leasing_cogs": 242.0,
+    "energy_generation_and_storage_cogs": 2289.0,
+    "services_and_other_cogs": 2729.0,
+    "research_and_development": 1276.0,
+    "selling_general_and_administrative": 1313.0,
+    "restructuring_and_other": 7.0,
+    "interest_income": 442.0,
+    "interest_expense": 96.0,
+    "other_income_net": 837.0,
+    "net_income_attributable_to_noncontrolling_interests": 100.0,
+    "shares": 3497.0,
+    "tax_rate": 0.156905
+  },
+  "formulas": {
+    "total_automotive_revenue": "automotive_sales + automotive_regulatory_credits + automotive_leasing",
+    "total_revenue": "total_automotive_revenue + energy_generation_and_storage + services_and_other",
+    "total_automotive_cogs": "automotive_sales_cogs + automotive_leasing_cogs",
+    "total_cogs": "total_automotive_cogs + energy_generation_and_storage_cogs + services_and_other_cogs",
+    "gross_profit": "total_revenue - total_cogs",
+    "total_opex": "research_and_development + selling_general_and_administrative + restructuring_and_other",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income + interest_income - interest_expense + other_income_net",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - net_income_attributable_to_noncontrolling_interests",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "automotive_revenue_yoy": {
+      "variable": "total_automotive_revenue",
+      "type": "yoy",
+      "constituents": [
+        "automotive_sales",
+        "automotive_regulatory_credits",
+        "automotive_leasing"
+      ],
+      "description": "Automotive revenue YoY growth rate vs Q-4"
+    },
+    "energy_generation_and_storage_yoy": {
+      "variable": "energy_generation_and_storage",
+      "type": "yoy",
+      "constituents": [
+        "energy_generation_and_storage"
+      ],
+      "description": "Energy generation and storage revenue YoY growth rate vs Q-4"
+    },
+    "services_and_other_yoy": {
+      "variable": "services_and_other",
+      "type": "yoy",
+      "constituents": [
+        "services_and_other"
+      ],
+      "description": "Services and other revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "automotive_sales_cogs",
+        "automotive_leasing_cogs",
+        "energy_generation_and_storage_cogs",
+        "services_and_other_cogs"
+      ],
+      "description": "Combined COGS as % of total revenue, delta vs Q-4"
+    },
+    "opex_margin_delta_bps": {
+      "variable": "total_opex",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "research_and_development",
+        "selling_general_and_administrative",
+        "restructuring_and_other"
+      ],
+      "description": "Operating expenses as % of total revenue, delta vs Q-4"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "net_income_attributable_to_noncontrolling_interests_abs": {
+      "variable": "net_income_attributable_to_noncontrolling_interests",
+      "type": "absolute",
+      "default": 100.0,
+      "description": "net_income_attributable_to_noncontrolling_interests absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 3515.75,
+      "references": {
+        "last_q": 3526.0,
+        "ttm": 3515.75,
+        "q4": 3497.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.223226,
+      "references": {
+        "last_q": 0.290965,
+        "ttm": 0.223226,
+        "q4": 0.156905
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.64,
+    "target_fq_eps": 0.24,
+    "target_fq_pretax": 1181.0
+  },
+  "revenue_field": "total_revenue"
+}

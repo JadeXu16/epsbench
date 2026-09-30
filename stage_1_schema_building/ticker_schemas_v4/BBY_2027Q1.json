@@ -1,0 +1,109 @@
+{
+  "ticker": "BBY",
+  "target_fq": "2027Q1",
+  "baseline_fq": "2026Q1",
+  "variables_baseline": {
+    "revenue": 8767.0,
+    "cost_of_sales": 6718.0,
+    "sga": 1721.0,
+    "restructuring_charges": 109.0,
+    "investment_income_and_other": 15.0,
+    "interest_expense": 12.0,
+    "equity_in_income_loss_of_affiliates": -1.0,
+    "tax_rate": 0.08558558558558559,
+    "shares": 213.0
+  },
+  "formulas": {
+    "gross_profit": "revenue - cost_of_sales",
+    "operating_income": "gross_profit - sga - restructuring_charges",
+    "pretax_income": "operating_income + investment_income_and_other - interest_expense",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision + equity_in_income_loss_of_affiliates",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Total revenue YoY growth rate vs 2026Q1"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of revenue, delta bps vs 2026Q1"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A expense as % of revenue, delta bps vs 2026Q1"
+    },
+    "restructuring_yoy": {
+      "variable": "restructuring_charges",
+      "type": "yoy",
+      "constituents": [
+        "restructuring_charges"
+      ],
+      "description": "Restructuring charges YoY growth rate vs 2026Q1"
+    },
+    "investment_income_and_other_abs": {
+      "variable": "investment_income_and_other",
+      "type": "absolute",
+      "description": "investment_income_and_other absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "equity_in_income_loss_of_affiliates_abs": {
+      "variable": "equity_in_income_loss_of_affiliates",
+      "type": "absolute",
+      "default": -1.0,
+      "description": "equity_in_income_loss_of_affiliates absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.240028,
+      "references": {
+        "last_q": 0.256906,
+        "ttm": 0.240028,
+        "q4": 0.08558558558558559
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 212.3,
+      "references": {
+        "last_q": 212.1,
+        "ttm": 212.3,
+        "q4": 213.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.95,
+    "target_fq_eps": 1.31,
+    "target_fq_pretax": 378.0
+  }
+}

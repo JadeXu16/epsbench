@@ -1,0 +1,31 @@
+{
+  "ticker": "COP",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.0018726360256276723,
+  "revenue_pred": 14167.56,
+  "operating_pred": null,
+  "pretax_pred": 2996.2176410042757,
+  "eps_p10": 0.8,
+  "eps_p90": 1.3,
+  "eps_gaap_actual": 1.17,
+  "operating_actual": null,
+  "pretax_actual": 2245.0,
+  "fundamental_predictions": {
+    "sales_revenue_yoy": -0.04,
+    "other_operating_income_yoy": 0,
+    "purchased_commodities_margin_delta_bps": -30,
+    "production_costs_margin_delta_bps": -25,
+    "sga_margin_delta_bps": -20,
+    "depreciation_margin_delta_bps": -15,
+    "exploration_yoy": 0,
+    "impairments_abs": 0,
+    "taxes_other_than_income_yoy": 0,
+    "accretion_abs": 85,
+    "interest_debt_yoy": -0.05,
+    "other_operating_expenses_net_abs": 176,
+    "tax_rate": 0.25,
+    "shares_abs": 1200000
+  },
+  "model": "glm-4.5-air"
+}

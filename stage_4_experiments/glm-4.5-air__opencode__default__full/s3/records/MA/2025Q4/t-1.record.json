@@ -1,0 +1,28 @@
+{
+  "ticker": "MA",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.197303510928963,
+  "revenue_pred": 8837.02,
+  "operating_pred": 4962.995000000001,
+  "pretax_pred": 4815.715000000001,
+  "eps_p10": 3.85,
+  "eps_p90": 4.55,
+  "eps_gaap_actual": 4.53,
+  "operating_actual": 4910.0,
+  "pretax_actual": 4876.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": 0.18,
+    "general_and_administrative_yoy": 0.105,
+    "advertising_and_marketing_yoy": 0.08,
+    "depreciation_and_amortization_yoy": 0,
+    "provision_for_litigation_yoy": 0.04,
+    "investment_income_abs": 100,
+    "gains_losses_on_equity_investments_net_abs": 45,
+    "interest_expense_yoy": 0.045,
+    "other_income_net_abs": -100,
+    "shares_abs": 915,
+    "tax_rate": 0.2025
+  },
+  "model": "glm-4.5-air"
+}

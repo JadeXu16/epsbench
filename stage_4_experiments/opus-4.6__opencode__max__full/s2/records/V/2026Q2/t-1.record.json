@@ -1,0 +1,24 @@
+{
+  "ticker": "V",
+  "fiscal_quarter": "2026Q2",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.768708299973958,
+  "revenue_pred": 10697.31,
+  "operating_pred": 6326.093509999999,
+  "pretax_pred": 6291.0295099999985,
+  "eps_p10": 2.45,
+  "eps_p90": 3.05,
+  "eps_gaap_actual": 3.14,
+  "operating_actual": 7234.0,
+  "pretax_actual": 7174.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": 0.115,
+    "personnel_yoy": 0.09,
+    "other_opex_margin_delta_bps": -210,
+    "interest_expense_yoy": 0.108,
+    "investment_income_other_abs": 140,
+    "tax_rate": 0.155,
+    "shares_abs": 1920
+  },
+  "model": "claude-opus-4-6"
+}

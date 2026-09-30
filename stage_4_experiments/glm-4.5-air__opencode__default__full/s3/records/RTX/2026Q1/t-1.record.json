@@ -1,0 +1,28 @@
+{
+  "ticker": "RTX",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.2816593253875552,
+  "revenue_pred": 21264.756999999998,
+  "operating_pred": 2257.592834855117,
+  "pretax_pred": 2185.602834855117,
+  "eps_p10": null,
+  "eps_p90": null,
+  "eps_gaap_actual": 1.51,
+  "operating_actual": 2555.0,
+  "pretax_actual": 2520.0,
+  "fundamental_predictions": {
+    "products_sales_yoy": 0.052,
+    "services_sales_yoy": 0.035,
+    "cogs_margin_delta_bps": -40,
+    "rd_yoy": 0.025,
+    "sga_yoy": 0.06,
+    "other_income_net_abs": 50,
+    "non_service_pension_income_yoy": 0.05,
+    "interest_expense_net_yoy": 0.03,
+    "tax_rate": 0.1701,
+    "nci_abs": 90,
+    "shares_abs": 1345
+  },
+  "model": "glm-4.5-air"
+}

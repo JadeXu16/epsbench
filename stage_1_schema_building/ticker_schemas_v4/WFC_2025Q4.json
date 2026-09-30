@@ -1,0 +1,301 @@
+{
+  "ticker": "WFC",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "debt_securities_interest_income": 4680.0,
+    "loans_held_for_sale_interest_income": 115.0,
+    "loans_interest_income": 13998.0,
+    "equity_securities_interest_income": 175.0,
+    "other_interest_income": 3087.0,
+    "total_interest_income": 22055.0,
+    "deposits_interest_expense": 5877.0,
+    "short_term_borrowings_interest_expense": 1281.0,
+    "long_term_debt_interest_expense": 2787.0,
+    "other_interest_expense": 274.0,
+    "total_interest_expense": 10219.0,
+    "net_interest_income": 11836.0,
+    "deposit_and_lending_related_fees": 1625.0,
+    "investment_advisory_and_other_asset_based_fees": 2566.0,
+    "commissions_and_brokerage_services_fees": 635.0,
+    "investment_banking_fees": 725.0,
+    "card_fees": 1084.0,
+    "mortgage_banking": 294.0,
+    "net_gains_from_trading_and_securities": 1217.0,
+    "other_noninterest_income": 396.0,
+    "total_noninterest_income": 8542.0,
+    "total_revenue": 20378.0,
+    "provision_for_credit_losses": 1095.0,
+    "personnel": 9071.0,
+    "technology_telecommunications_and_equipment": 1282.0,
+    "occupancy": 789.0,
+    "operating_losses": 338.0,
+    "professional_and_outside_services": 1237.0,
+    "advertising_and_promotion": 243.0,
+    "other_noninterest_expense": 940.0,
+    "total_noninterest_expense": 13900.0,
+    "pretax_income": 5383.0,
+    "net_income_before_nci": 5263.0,
+    "net_income_nci": 184.0,
+    "preferred_stock_dividends": 278.0,
+    "shares": 3425.1,
+    "tax_rate": 0.022292
+  },
+  "formulas": {
+    "pretax_income": "total_revenue - provision_for_credit_losses - total_noninterest_expense",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - net_income_nci - preferred_stock_dividends",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "total_revenue_yoy": {
+      "variable": "total_revenue",
+      "type": "yoy",
+      "constituents": [
+        "total_revenue"
+      ],
+      "description": "Total revenue YoY growth rate vs Q-4"
+    },
+    "provision_for_credit_losses_yoy": {
+      "variable": "provision_for_credit_losses",
+      "type": "yoy",
+      "constituents": [
+        "provision_for_credit_losses"
+      ],
+      "description": "Provision for credit losses YoY growth rate vs Q-4"
+    },
+    "total_noninterest_expense_margin_delta_bps": {
+      "variable": "total_noninterest_expense",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "total_noninterest_expense"
+      ],
+      "description": "Total noninterest expense as % of total revenue, delta vs Q-4"
+    },
+    "net_interest_income_abs": {
+      "variable": "net_interest_income",
+      "type": "absolute",
+      "default": 11836.0,
+      "description": "net_interest_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "total_noninterest_income_abs": {
+      "variable": "total_noninterest_income",
+      "type": "absolute",
+      "default": 8542.0,
+      "description": "total_noninterest_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "personnel_abs": {
+      "variable": "personnel",
+      "type": "absolute",
+      "default": 9071.0,
+      "description": "personnel absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "debt_securities_interest_income_abs": {
+      "variable": "debt_securities_interest_income",
+      "type": "absolute",
+      "default": 4680.0,
+      "description": "debt_securities_interest_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "loans_held_for_sale_interest_income_abs": {
+      "variable": "loans_held_for_sale_interest_income",
+      "type": "absolute",
+      "default": 115.0,
+      "description": "loans_held_for_sale_interest_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "loans_interest_income_abs": {
+      "variable": "loans_interest_income",
+      "type": "absolute",
+      "default": 13998.0,
+      "description": "loans_interest_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "equity_securities_interest_income_abs": {
+      "variable": "equity_securities_interest_income",
+      "type": "absolute",
+      "default": 175.0,
+      "description": "equity_securities_interest_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "other_interest_income_abs": {
+      "variable": "other_interest_income",
+      "type": "absolute",
+      "default": 3087.0,
+      "description": "other_interest_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "total_interest_income_abs": {
+      "variable": "total_interest_income",
+      "type": "absolute",
+      "default": 22055.0,
+      "description": "total_interest_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "deposits_interest_expense_abs": {
+      "variable": "deposits_interest_expense",
+      "type": "absolute",
+      "default": 5877.0,
+      "description": "deposits_interest_expense absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "short_term_borrowings_interest_expense_abs": {
+      "variable": "short_term_borrowings_interest_expense",
+      "type": "absolute",
+      "default": 1281.0,
+      "description": "short_term_borrowings_interest_expense absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "long_term_debt_interest_expense_abs": {
+      "variable": "long_term_debt_interest_expense",
+      "type": "absolute",
+      "default": 2787.0,
+      "description": "long_term_debt_interest_expense absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "other_interest_expense_abs": {
+      "variable": "other_interest_expense",
+      "type": "absolute",
+      "default": 274.0,
+      "description": "other_interest_expense absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "total_interest_expense_abs": {
+      "variable": "total_interest_expense",
+      "type": "absolute",
+      "default": 10219.0,
+      "description": "total_interest_expense absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "deposit_and_lending_related_fees_abs": {
+      "variable": "deposit_and_lending_related_fees",
+      "type": "absolute",
+      "default": 1625.0,
+      "description": "deposit_and_lending_related_fees absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "investment_advisory_and_other_asset_based_fees_abs": {
+      "variable": "investment_advisory_and_other_asset_based_fees",
+      "type": "absolute",
+      "default": 2566.0,
+      "description": "investment_advisory_and_other_asset_based_fees absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "commissions_and_brokerage_services_fees_abs": {
+      "variable": "commissions_and_brokerage_services_fees",
+      "type": "absolute",
+      "default": 635.0,
+      "description": "commissions_and_brokerage_services_fees absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "investment_banking_fees_abs": {
+      "variable": "investment_banking_fees",
+      "type": "absolute",
+      "default": 725.0,
+      "description": "investment_banking_fees absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "card_fees_abs": {
+      "variable": "card_fees",
+      "type": "absolute",
+      "default": 1084.0,
+      "description": "card_fees absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "mortgage_banking_abs": {
+      "variable": "mortgage_banking",
+      "type": "absolute",
+      "default": 294.0,
+      "description": "mortgage_banking absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "net_gains_from_trading_and_securities_abs": {
+      "variable": "net_gains_from_trading_and_securities",
+      "type": "absolute",
+      "default": 1217.0,
+      "description": "net_gains_from_trading_and_securities absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "other_noninterest_income_abs": {
+      "variable": "other_noninterest_income",
+      "type": "absolute",
+      "default": 396.0,
+      "description": "other_noninterest_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "technology_telecommunications_and_equipment_abs": {
+      "variable": "technology_telecommunications_and_equipment",
+      "type": "absolute",
+      "default": 1282.0,
+      "description": "technology_telecommunications_and_equipment absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "occupancy_abs": {
+      "variable": "occupancy",
+      "type": "absolute",
+      "default": 789.0,
+      "description": "occupancy absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "operating_losses_abs": {
+      "variable": "operating_losses",
+      "type": "absolute",
+      "default": 338.0,
+      "description": "operating_losses absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "professional_and_outside_services_abs": {
+      "variable": "professional_and_outside_services",
+      "type": "absolute",
+      "default": 1237.0,
+      "description": "professional_and_outside_services absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "advertising_and_promotion_abs": {
+      "variable": "advertising_and_promotion",
+      "type": "absolute",
+      "default": 243.0,
+      "description": "advertising_and_promotion absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "other_noninterest_expense_abs": {
+      "variable": "other_noninterest_expense",
+      "type": "absolute",
+      "default": 940.0,
+      "description": "other_noninterest_expense absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "pretax_income_abs": {
+      "variable": "pretax_income",
+      "type": "absolute",
+      "default": 5383.0,
+      "description": "pretax_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "net_income_before_nci_abs": {
+      "variable": "net_income_before_nci",
+      "type": "absolute",
+      "default": 5263.0,
+      "description": "net_income_before_nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "net_income_nci_abs": {
+      "variable": "net_income_nci",
+      "type": "absolute",
+      "default": 184.0,
+      "description": "net_income_nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "preferred_stock_dividends_abs": {
+      "variable": "preferred_stock_dividends",
+      "type": "absolute",
+      "default": 278.0,
+      "description": "preferred_stock_dividends absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 3309.3,
+      "references": {
+        "last_q": 3223.5,
+        "ttm": 3309.3,
+        "q4": 3425.1
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.118806,
+      "references": {
+        "last_q": 0.18816,
+        "ttm": 0.118806,
+        "q4": 0.022292
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 1.62,
+    "baseline_fq_eps": 1.4,
+    "target_fq_pretax": 6526.0
+  },
+  "revenue_field": "total_revenue"
+}

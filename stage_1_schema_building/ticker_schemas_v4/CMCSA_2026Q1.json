@@ -1,0 +1,124 @@
+{
+  "ticker": "CMCSA",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "revenue": 29887.0,
+    "programming_and_production": 8415.0,
+    "marketing_and_promotion": 2071.0,
+    "other_operating_and_administrative": 9893.0,
+    "depreciation": 2231.0,
+    "amortization": 1618.0,
+    "interest_expense": 1050.0,
+    "investment_other_loss_net": 116.0,
+    "tax_rate": 0.266251,
+    "noncontrolling_interest": -79.0,
+    "shares": 3792.135
+  },
+  "formulas": {
+    "d_and_a": "depreciation + amortization",
+    "total_costs_and_expenses": "programming_and_production + marketing_and_promotion + other_operating_and_administrative + d_and_a",
+    "operating_income": "revenue - total_costs_and_expenses",
+    "pretax_income": "operating_income - interest_expense - investment_other_loss_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - noncontrolling_interest",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Total revenue YoY growth rate vs Q-4 baseline"
+    },
+    "programming_and_production_margin_delta_bps": {
+      "variable": "programming_and_production",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "programming_and_production"
+      ],
+      "description": "Programming and production costs as % of revenue, delta vs Q-4"
+    },
+    "marketing_and_promotion_margin_delta_bps": {
+      "variable": "marketing_and_promotion",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "marketing_and_promotion"
+      ],
+      "description": "Marketing and promotion expense as % of revenue, delta vs Q-4"
+    },
+    "other_operating_and_administrative_margin_delta_bps": {
+      "variable": "other_operating_and_administrative",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "other_operating_and_administrative"
+      ],
+      "description": "Other operating and administrative expense as % of revenue, delta vs Q-4"
+    },
+    "d_and_a_margin_delta_bps": {
+      "variable": "d_and_a",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "depreciation",
+        "amortization"
+      ],
+      "description": "Depreciation and amortization as % of revenue, delta vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "investment_other_loss_net_abs": {
+      "variable": "investment_other_loss_net",
+      "type": "absolute",
+      "description": "investment_other_loss_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.23698,
+      "references": {
+        "last_q": 0.041223,
+        "ttm": 0.23698,
+        "q4": 0.266251
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "noncontrolling_interest_abs": {
+      "variable": "noncontrolling_interest",
+      "type": "absolute",
+      "default": -79.0,
+      "description": "noncontrolling_interest absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 3731.8387,
+      "references": {
+        "last_q": 3700.0,
+        "ttm": 3731.8387,
+        "q4": 3792.135
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.89,
+    "target_fq_eps": 0.6,
+    "target_fq_pretax": 2733.0
+  }
+}

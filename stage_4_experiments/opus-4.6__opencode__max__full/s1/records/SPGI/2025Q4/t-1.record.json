@@ -1,0 +1,30 @@
+{
+  "ticker": "SPGI",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 3.509889758405316,
+  "revenue_pred": 3879.36,
+  "operating_pred": 1546.2131520000003,
+  "pretax_pred": 1472.4061760000002,
+  "eps_p10": 2.85,
+  "eps_p90": 4.15,
+  "eps_gaap_actual": 3.75,
+  "operating_actual": 1674.0,
+  "pretax_actual": 1631.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.08,
+    "operating_related_expenses_margin_delta_bps": -115,
+    "selling_and_general_expenses_margin_delta_bps": -170,
+    "depreciation_margin_delta_bps": -2,
+    "amortization_of_intangibles_margin_delta_bps": -70,
+    "interest_expense_net_margin_delta_bps": 16,
+    "gain_on_dispositions_net_abs": -40,
+    "equity_in_income_on_unconsolidated_subsidiaries_abs": -8,
+    "other_income_expense_net_abs": -8,
+    "loss_on_extinguishment_of_debt_abs": 0,
+    "net_income_attributable_to_noncontrolling_interests_abs": 92,
+    "tax_rate": 0.22,
+    "shares_abs": 301
+  },
+  "model": "claude-opus-4-6"
+}

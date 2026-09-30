@@ -1,0 +1,26 @@
+{
+  "ticker": "LMT",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": -0.4673598135192766,
+  "revenue_pred": 19878.489999999998,
+  "operating_pred": 627.29655445354,
+  "pretax_pred": -129.90344554645998,
+  "eps_p10": -2.2,
+  "eps_p90": 1.35,
+  "eps_gaap_actual": 5.81,
+  "operating_actual": 2331.0,
+  "pretax_actual": 1531.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.072,
+    "services_revenue_yoy": 0.045,
+    "cogs_margin_delta_bps": 60,
+    "other_income_net_yoy": 0,
+    "interest_expense_yoy": 0.05,
+    "non_service_pension_income_yoy": -33,
+    "other_non_operating_income_abs": 0,
+    "shares_abs": 232.2,
+    "tax_rate": 0.164603
+  },
+  "model": "gpt-5.5"
+}

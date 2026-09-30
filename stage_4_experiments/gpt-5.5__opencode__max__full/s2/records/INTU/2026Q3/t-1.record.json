@@ -1,0 +1,29 @@
+{
+  "ticker": "INTU",
+  "fiscal_quarter": "2026Q3",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 10.630989465682468,
+  "revenue_pred": 8530.358,
+  "operating_pred": 3882.2878713316995,
+  "pretax_pred": 3852.0078713316993,
+  "eps_p10": 10.15,
+  "eps_p90": 11.15,
+  "eps_gaap_actual": 11.09,
+  "operating_actual": 4020.0,
+  "pretax_actual": 4047.0,
+  "fundamental_predictions": {
+    "service_revenue_yoy": 0.108,
+    "product_and_other_revenue_yoy": 0.03,
+    "cost_of_revenue_margin_delta_bps": 45,
+    "selling_and_marketing_yoy": 0.185,
+    "rd_yoy": 0.18,
+    "general_and_administrative_yoy": 0.075,
+    "amortization_of_other_acquired_intangible_assets_yoy": 0.0083,
+    "restructuring_abs": 0,
+    "interest_expense_yoy": -0.04,
+    "interest_and_other_income_net_abs": 35,
+    "tax_rate": 0.23,
+    "shares_abs": 279
+  },
+  "model": "gpt-5.5"
+}

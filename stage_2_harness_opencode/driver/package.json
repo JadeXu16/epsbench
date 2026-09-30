@@ -1,0 +1,16 @@
+{
+  "name": "opencode-driver",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Driver for the OpenCode agent harness. Reconstructed 2026-09-05 from package-lock.json, which had recorded these exact dependencies all along -- the manifest itself was never committed, so the tree only resolved because driver/node_modules happened to be present. Without this file `npm ci` cannot run on a fresh checkout. \"type\": \"module\" is REQUIRED and is not recorded in the lock file: @opencode-ai/sdk is ESM-only (exports has an \"import\" condition and no \"main\"), so without it Node resolves run.ts through the CJS loader and every cell dies on ERR_PACKAGE_PATH_NOT_EXPORTED. The directory had no package.json at all before, which is why this never surfaced until 2026-09-07.",
+  "dependencies": {
+    "@opencode-ai/sdk": "^1.17.9",
+    "undici": "^7.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

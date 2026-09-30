@@ -1,0 +1,29 @@
+{
+  "ticker": "XOM",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.8033259345794395,
+  "revenue_pred": 81467.4,
+  "operating_pred": null,
+  "pretax_pred": 11355.235,
+  "eps_p10": 1.45,
+  "eps_p90": 2.15,
+  "eps_gaap_actual": 1.0,
+  "operating_actual": null,
+  "pretax_actual": 6967.0,
+  "fundamental_predictions": {
+    "revenue_yoy": -0.02,
+    "crude_oil_purchases_margin_delta_bps": 25,
+    "production_manufacturing_margin_delta_bps": -40,
+    "sga_margin_delta_bps": 15,
+    "depreciation_margin_delta_bps": 0,
+    "other_taxes_margin_delta_bps": 0,
+    "exploration_expenses_yoy": 0,
+    "non_service_pension_expense_yoy": 0,
+    "interest_expense_yoy": 0.025,
+    "income_taxes_abs": 3317,
+    "noncontrolling_interests_abs": 320,
+    "shares_abs": 4280
+  },
+  "model": "glm-4.5-air"
+}

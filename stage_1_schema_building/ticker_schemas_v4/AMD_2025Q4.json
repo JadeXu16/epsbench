@@ -1,0 +1,134 @@
+{
+  "ticker": "AMD",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "net_revenue": 7658.0,
+    "cost_of_sales": 3524.0,
+    "amortization_acq_intangibles_cos": 252.0,
+    "research_and_development": 1712.0,
+    "marketing_general_and_administrative": 792.0,
+    "amortization_acq_intangibles_sga": 332.0,
+    "restructuring_charges": 186.0,
+    "licensing_gain": 11.0,
+    "interest_expense": 19.0,
+    "other_income_net": 37.0,
+    "equity_income_in_investee": 12.0,
+    "shares": 1636.0,
+    "tax_rate": 0.471316
+  },
+  "formulas": {
+    "total_cost_of_sales": "cost_of_sales + amortization_acq_intangibles_cos",
+    "gross_profit": "net_revenue - total_cost_of_sales",
+    "total_opex": "research_and_development + marketing_general_and_administrative + amortization_acq_intangibles_sga + restructuring_charges",
+    "operating_income": "gross_profit - total_opex + licensing_gain",
+    "pretax_income": "operating_income - interest_expense + other_income_net",
+    "net_income": "pretax_income - tax_provision + equity_income_in_investee",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "net_revenue_yoy": {
+      "variable": "net_revenue",
+      "type": "yoy",
+      "constituents": [
+        "net_revenue"
+      ],
+      "description": "Net revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cost_of_sales",
+      "type": "bps",
+      "anchor": "net_revenue",
+      "constituents": [
+        "cost_of_sales",
+        "amortization_acq_intangibles_cos"
+      ],
+      "description": "Total cost of sales as % of net revenue, delta vs Q-4"
+    },
+    "rd_yoy": {
+      "variable": "research_and_development",
+      "type": "yoy",
+      "constituents": [
+        "research_and_development"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "total_opex",
+      "type": "bps",
+      "anchor": "net_revenue",
+      "constituents": [
+        "marketing_general_and_administrative",
+        "amortization_acq_intangibles_sga"
+      ],
+      "description": "SG&A expense as % of net revenue, delta vs Q-4"
+    },
+    "restructuring_charges_yoy": {
+      "variable": "restructuring_charges",
+      "type": "yoy",
+      "constituents": [
+        "restructuring_charges"
+      ],
+      "description": "Restructuring charges YoY growth rate vs Q-4"
+    },
+    "licensing_gain_yoy": {
+      "variable": "licensing_gain",
+      "type": "yoy",
+      "constituents": [
+        "licensing_gain"
+      ],
+      "description": "Licensing gain YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "equity_income_in_investee_abs": {
+      "variable": "equity_income_in_investee",
+      "type": "absolute",
+      "default": 12.0,
+      "description": "equity_income_in_investee absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1636.0,
+      "references": {
+        "last_q": 1641.0,
+        "ttm": 1633.25,
+        "q4": 1636.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.11635,
+      "references": {
+        "last_q": 0.11635,
+        "ttm": -0.047039,
+        "q4": 0.471316
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.29,
+    "target_fq_eps": 0.92,
+    "target_fq_pretax": 2074.0
+  },
+  "revenue_field": "net_revenue"
+}

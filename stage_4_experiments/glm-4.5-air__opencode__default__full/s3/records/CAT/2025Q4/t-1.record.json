@@ -1,0 +1,31 @@
+{
+  "ticker": "CAT",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.6088187234443465,
+  "revenue_pred": 17706.86,
+  "operating_pred": 2624.4095693425834,
+  "pretax_pred": 2936.9895693425833,
+  "eps_p10": 4.15,
+  "eps_p90": 5.07,
+  "eps_gaap_actual": 5.12,
+  "operating_actual": 2660.0,
+  "pretax_actual": 3026.0,
+  "fundamental_predictions": {
+    "machinery_revenue_yoy": 0.095,
+    "financial_products_revenue_yoy": 0.04,
+    "cogs_margin_delta_bps": 194,
+    "sga_margin_delta_bps": 110,
+    "rd_margin_delta_bps": 35,
+    "interest_expense_financial_products_margin_delta_bps": 0,
+    "goodwill_impairment_charge_abs": 0,
+    "other_operating_expenses_abs": 344,
+    "interest_expense_yoy": 0.06,
+    "other_income_net_abs": 426,
+    "equity_income_abs": 10,
+    "profit_attrib_to_noncontrolling_interests_abs": -1,
+    "shares_abs": 486.7,
+    "tax_rate": 0.24
+  },
+  "model": "glm-4.5-air"
+}

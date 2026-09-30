@@ -1,0 +1,29 @@
+{
+  "ticker": "SLB",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.7538530439271108,
+  "revenue_pred": 8606.14,
+  "operating_pred": null,
+  "pretax_pred": 1321.5501746760883,
+  "eps_p10": 0.62,
+  "eps_p90": 0.89,
+  "eps_gaap_actual": 0.5,
+  "operating_actual": null,
+  "pretax_actual": 956.0,
+  "fundamental_predictions": {
+    "services_revenue_yoy": 0.01,
+    "product_sales_revenue_yoy": 0.02,
+    "cost_margin_delta_bps": -50,
+    "research_and_engineering_yoy": 0,
+    "general_and_administrative_yoy": 0.08,
+    "interest_and_other_income_abs": 70,
+    "restructuring_abs": 0,
+    "merger_and_integration_abs": 10,
+    "interest_expense_yoy": -0.09,
+    "tax_rate": 0.2,
+    "nci_abs": 32,
+    "shares_abs": 1360
+  },
+  "model": "qwen3.5-122b-a10b"
+}

@@ -1,0 +1,26 @@
+{
+  "ticker": "UPS",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.0335556246900814,
+  "revenue_pred": null,
+  "operating_pred": 1309.2840399999986,
+  "pretax_pred": 1122.8840399999985,
+  "eps_p10": 0.75,
+  "eps_p90": 1.32,
+  "eps_gaap_actual": 1.02,
+  "operating_actual": 1267.0,
+  "pretax_actual": 1124.0,
+  "fundamental_predictions": {
+    "revenue_yoy": -0.024,
+    "compensation_and_benefits_yoy": -0.015,
+    "purchased_transportation_margin_delta_bps": 70,
+    "fuel_margin_delta_bps": 55,
+    "other_opex_margin_delta_bps": -25,
+    "investment_income_and_other_abs": 80,
+    "interest_expense_yoy": 0.2,
+    "tax_rate": 0.222222,
+    "shares_abs": 845
+  },
+  "model": "gpt-5.5"
+}

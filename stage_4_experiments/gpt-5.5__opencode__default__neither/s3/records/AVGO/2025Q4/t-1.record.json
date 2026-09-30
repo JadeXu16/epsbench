@@ -1,0 +1,29 @@
+{
+  "ticker": "AVGO",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.26451033808666,
+  "revenue_pred": 17559.18,
+  "operating_pred": 7216.10029550306,
+  "pretax_pred": 6423.38029550306,
+  "eps_p10": 0.95,
+  "eps_p90": 1.55,
+  "eps_gaap_actual": 1.74,
+  "operating_actual": 7508.0,
+  "pretax_actual": 6869.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.18,
+    "subscriptions_services_revenue_yoy": 0.35,
+    "cogs_margin_delta_bps": -250,
+    "rd_yoy": 0.1,
+    "sga_yoy": 0.03,
+    "amortization_acquisition_intangibles_opex_yoy": -0.05,
+    "restructuring_opex_abs": 200,
+    "interest_expense_yoy": -0.08,
+    "other_income_net_abs": 50,
+    "loss_from_discontinued_ops_abs": 0,
+    "shares_abs": 4870,
+    "tax_rate": 0.041289
+  },
+  "model": "gpt-5.5"
+}

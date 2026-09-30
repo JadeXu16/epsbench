@@ -1,0 +1,27 @@
+{
+  "ticker": "CMCSA",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.7457,
+  "revenue_pred": 30544.514,
+  "operating_pred": 4699.167752999998,
+  "pretax_pred": 3525.667752999998,
+  "eps_p10": 0.62,
+  "eps_p90": 0.88,
+  "eps_gaap_actual": 0.6,
+  "operating_actual": 4136.0,
+  "pretax_actual": 2733.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.022,
+    "programming_and_production_margin_delta_bps": 250,
+    "marketing_and_promotion_margin_delta_bps": 25,
+    "other_operating_and_administrative_margin_delta_bps": 80,
+    "d_and_a_margin_delta_bps": 0,
+    "interest_expense_yoy": 0.07,
+    "investment_other_loss_net_abs": 50,
+    "tax_rate": 0.25,
+    "noncontrolling_interest_abs": -85,
+    "shares_abs": 3660
+  },
+  "model": "claude-opus-4-6"
+}

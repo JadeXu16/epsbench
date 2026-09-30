@@ -1,0 +1,28 @@
+{
+  "ticker": "PYPL",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.3251445926928571,
+  "revenue_pred": 7868.91,
+  "operating_pred": 1537.4389099999999,
+  "pretax_pred": 1617.4389099999999,
+  "eps_p10": 1.05,
+  "eps_p90": 1.6,
+  "eps_gaap_actual": 1.21,
+  "operating_actual": 1488.0,
+  "pretax_actual": 1393.0,
+  "fundamental_predictions": {
+    "net_revenues_yoy": 0.01,
+    "transaction_expense_margin_delta_bps": -20,
+    "transaction_and_credit_losses_margin_delta_bps": 10,
+    "customer_support_and_operations_yoy": -0.03,
+    "sales_and_marketing_yoy": 0.08,
+    "technology_and_development_yoy": 0.05,
+    "general_and_administrative_yoy": -0.02,
+    "restructuring_and_other_abs": 50,
+    "other_income_net_abs": 80,
+    "tax_rate": 0.1971,
+    "shares_abs": 980
+  },
+  "model": "glm-4.5-air"
+}

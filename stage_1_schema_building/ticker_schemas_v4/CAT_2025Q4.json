@@ -1,0 +1,154 @@
+{
+  "ticker": "CAT",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "machinery_revenue": 15332.0,
+    "financial_products_revenue": 883.0,
+    "cogs": 10321.0,
+    "sga": 1769.0,
+    "rd": 519.0,
+    "interest_expense_financial_products": 338.0,
+    "goodwill_impairment_charge": 0.0,
+    "other_operating_expenses": 344.0,
+    "interest_expense": 107.0,
+    "other_income_net": 426.0,
+    "pretax_income": 3243.0,
+    "tax_rate": 0.1428,
+    "equity_income": 10.0,
+    "profit_attrib_to_noncontrolling_interests": -1.0,
+    "shares": 486.7
+  },
+  "formulas": {
+    "total_revenue": "machinery_revenue + financial_products_revenue",
+    "gross_profit": "total_revenue - cogs",
+    "total_opex": "sga + rd + interest_expense_financial_products + goodwill_impairment_charge + other_operating_expenses",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - interest_expense + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "profit_consolidated_affil": "net_income + equity_income",
+    "earnings_to_common": "profit_consolidated_affil - profit_attrib_to_noncontrolling_interests",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "machinery_revenue_yoy": {
+      "variable": "machinery_revenue",
+      "type": "yoy",
+      "constituents": [
+        "machinery_revenue"
+      ],
+      "description": "Machinery, Energy & Transportation revenue YoY growth rate vs Q-4"
+    },
+    "financial_products_revenue_yoy": {
+      "variable": "financial_products_revenue",
+      "type": "yoy",
+      "constituents": [
+        "financial_products_revenue"
+      ],
+      "description": "Financial Products revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cogs"
+      ],
+      "description": "COGS as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "rd_margin_delta_bps": {
+      "variable": "rd",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense as % of total revenue, delta vs Q-4"
+    },
+    "interest_expense_financial_products_margin_delta_bps": {
+      "variable": "interest_expense_financial_products",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "interest_expense_financial_products"
+      ],
+      "description": "Interest expense of Financial Products as % of total revenue, delta vs Q-4"
+    },
+    "goodwill_impairment_charge_abs": {
+      "variable": "goodwill_impairment_charge",
+      "type": "absolute",
+      "description": "goodwill_impairment_charge absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_operating_expenses_abs": {
+      "variable": "other_operating_expenses",
+      "type": "absolute",
+      "description": "other_operating_expenses absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "equity_income_abs": {
+      "variable": "equity_income",
+      "type": "absolute",
+      "default": 10.0,
+      "description": "equity_income absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "profit_attrib_to_noncontrolling_interests_abs": {
+      "variable": "profit_attrib_to_noncontrolling_interests",
+      "type": "absolute",
+      "default": -1.0,
+      "description": "profit_attrib_to_noncontrolling_interests absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 476.525,
+      "references": {
+        "last_q": 470.8,
+        "ttm": 476.525,
+        "q4": 486.7
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.214246,
+      "references": {
+        "last_q": 0.267349,
+        "ttm": 0.214246,
+        "q4": 0.1428
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 5.74,
+    "target_fq_eps": 5.12,
+    "target_fq_pretax": 3026.0
+  },
+  "revenue_field": "total_revenue"
+}

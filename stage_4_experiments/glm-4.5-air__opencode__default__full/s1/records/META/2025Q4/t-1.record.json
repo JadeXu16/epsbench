@@ -1,0 +1,25 @@
+{
+  "ticker": "META",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 9.083594837209302,
+  "revenue_pred": 57094.299999999996,
+  "operating_pred": 26431.4485,
+  "pretax_pred": 26631.4485,
+  "eps_p10": 7.5,
+  "eps_p90": 11.5,
+  "eps_gaap_actual": 8.89,
+  "operating_actual": 24745.0,
+  "pretax_actual": 25354.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.18,
+    "cost_of_revenue_margin_delta_bps": 50,
+    "rd_yoy": 0.25,
+    "marketing_and_sales_margin_delta_bps": 0,
+    "general_and_administrative_margin_delta_bps": 0,
+    "other_income_net_abs": 200,
+    "shares_abs": 2580,
+    "tax_rate": 0.12
+  },
+  "model": "glm-4.5-air"
+}

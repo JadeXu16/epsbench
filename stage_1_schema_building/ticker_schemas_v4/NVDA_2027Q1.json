@@ -1,0 +1,116 @@
+{
+  "ticker": "NVDA",
+  "target_fq": "2027Q1",
+  "baseline_fq": "2026Q1",
+  "variables_baseline": {
+    "revenue": 44062.0,
+    "cost_of_revenue": 17394.0,
+    "rd": 3989.0,
+    "sga": 1041.0,
+    "interest_income": 515.0,
+    "interest_expense": 63.0,
+    "other_net_expense": 180.0,
+    "tax_rate": 0.1430858055686901,
+    "shares": 24611.0
+  },
+  "formulas": {
+    "gross_profit": "revenue - cost_of_revenue",
+    "total_opex": "rd + sga",
+    "operating_income": "gross_profit - total_opex",
+    "total_other_income_net": "interest_income - interest_expense - other_net_expense",
+    "pretax_income": "operating_income + total_other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_revenue",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "cost_of_revenue"
+      ],
+      "description": "Cost of revenue as % of revenue, delta vs Q-4"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of revenue, delta vs Q-4"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "other_net_expense_yoy": {
+      "variable": "other_net_expense",
+      "type": "yoy",
+      "constituents": [
+        "other_net_expense"
+      ],
+      "description": "other_net_expense YoY growth rate vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.147585,
+      "references": {
+        "last_q": 0.147585,
+        "ttm": 0.15117,
+        "q4": 0.1430858055686901
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 24527.25,
+      "references": {
+        "last_q": 24483.0,
+        "ttm": 24527.25,
+        "q4": 24611.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.76,
+    "target_fq_eps": 2.39,
+    "target_fq_pretax": 69903.0
+  }
+}

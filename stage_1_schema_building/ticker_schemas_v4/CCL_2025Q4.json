@@ -1,0 +1,151 @@
+{
+  "ticker": "CCL",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "passenger_ticket": 3854.0,
+    "onboard_and_other": 2084.0,
+    "commissions_transportation_and_other": 722.0,
+    "onboard_and_other_operating": 635.0,
+    "payroll_and_related": 652.0,
+    "fuel": 461.0,
+    "food": 358.0,
+    "ship_and_other_impairments": 0.0,
+    "other_operating": 1005.0,
+    "selling_and_administrative": 886.0,
+    "depreciation_and_amortization": 659.0,
+    "interest_income": 16.0,
+    "interest_expense_net_of_capitalized_interest": 403.0,
+    "debt_extinguishment_and_modification_costs": 1.0,
+    "other_income_net": 118.0,
+    "tax_rate": -0.04844,
+    "shares": 1333.06
+  },
+  "formulas": {
+    "total_revenue": "passenger_ticket + onboard_and_other",
+    "total_cruise_operating_expenses": "commissions_transportation_and_other + onboard_and_other_operating + payroll_and_related + fuel + food + ship_and_other_impairments + other_operating",
+    "total_operating_expenses": "total_cruise_operating_expenses + selling_and_administrative + depreciation_and_amortization",
+    "operating_income": "total_revenue - total_operating_expenses",
+    "nonoperating_income_net": "interest_income - interest_expense_net_of_capitalized_interest - debt_extinguishment_and_modification_costs + other_income_net",
+    "pretax_income": "operating_income + nonoperating_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "passenger_ticket_yoy": {
+      "variable": "passenger_ticket",
+      "type": "yoy",
+      "constituents": [
+        "passenger_ticket"
+      ],
+      "description": "Passenger ticket revenue YoY growth rate vs Q-4"
+    },
+    "onboard_and_other_yoy": {
+      "variable": "onboard_and_other",
+      "type": "yoy",
+      "constituents": [
+        "onboard_and_other"
+      ],
+      "description": "Onboard and other revenue YoY growth rate vs Q-4"
+    },
+    "fuel_yoy": {
+      "variable": "fuel",
+      "type": "yoy",
+      "constituents": [
+        "fuel"
+      ],
+      "description": "Fuel expense YoY growth rate vs Q-4"
+    },
+    "cruise_and_tour_operating_expenses_margin_delta_bps": {
+      "variable": "total_cruise_operating_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "commissions_transportation_and_other",
+        "onboard_and_other_operating",
+        "payroll_and_related",
+        "fuel",
+        "food",
+        "ship_and_other_impairments",
+        "other_operating"
+      ],
+      "description": "Cruise and tour operating expenses as % of total revenue, delta vs Q-4"
+    },
+    "selling_and_administrative_margin_delta_bps": {
+      "variable": "selling_and_administrative",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "selling_and_administrative"
+      ],
+      "description": "Selling and administrative expense as % of total revenue, delta vs Q-4"
+    },
+    "depreciation_and_amortization_yoy": {
+      "variable": "depreciation_and_amortization",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_and_amortization"
+      ],
+      "description": "depreciation_and_amortization YoY growth rate vs Q-4"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "interest_expense_net_of_capitalized_interest_yoy": {
+      "variable": "interest_expense_net_of_capitalized_interest",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_net_of_capitalized_interest"
+      ],
+      "description": "interest_expense_net_of_capitalized_interest YoY growth rate vs Q-4"
+    },
+    "debt_extinguishment_and_modification_costs_abs": {
+      "variable": "debt_extinguishment_and_modification_costs",
+      "type": "absolute",
+      "description": "debt_extinguishment_and_modification_costs absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.000735,
+      "references": {
+        "last_q": 0.003231,
+        "ttm": 0.000735,
+        "q4": -0.04844
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1342.69,
+      "references": {
+        "last_q": 1392.5,
+        "ttm": 1342.69,
+        "q4": 1333.06
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.23,
+    "target_fq_eps": 0.31,
+    "target_fq_pretax": 404.0
+  },
+  "revenue_field": "total_revenue"
+}

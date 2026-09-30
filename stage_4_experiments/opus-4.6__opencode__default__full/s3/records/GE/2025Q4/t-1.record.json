@@ -1,0 +1,33 @@
+{
+  "ticker": "GE",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.9681745911807402,
+  "revenue_pred": 12015.810000000001,
+  "operating_pred": null,
+  "pretax_pred": 2465.981182971049,
+  "eps_p10": 1.55,
+  "eps_p90": 2.4,
+  "eps_gaap_actual": 2.4,
+  "operating_actual": null,
+  "pretax_actual": 2851.0,
+  "fundamental_predictions": {
+    "equipment_revenue_yoy": 0.07,
+    "services_revenue_yoy": 0.15,
+    "insurance_revenue_yoy": -0.02,
+    "cogs_margin_delta_bps": -40,
+    "sga_margin_delta_bps": -60,
+    "separation_costs_yoy": -0.46,
+    "rd_yoy": 0.19,
+    "interest_charges_yoy": 0.12,
+    "insurance_losses_yoy": 0.21,
+    "other_income_yoy": -0.33,
+    "goodwill_impairments_abs": 0,
+    "non_operating_benefit_income_abs": 195,
+    "nci_abs": -5,
+    "preferred_dividends_abs": 0,
+    "shares_abs": 1055,
+    "tax_rate": 0.16
+  },
+  "model": "claude-opus-4-6"
+}

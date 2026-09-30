@@ -1,0 +1,29 @@
+{
+  "ticker": "MCD",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.8206,
+  "revenue_pred": 6391.97,
+  "operating_pred": 2891.3497643237324,
+  "pretax_pred": 2517.3497643237324,
+  "eps_p10": 2.65,
+  "eps_p90": 3.0,
+  "eps_gaap_actual": 3.03,
+  "operating_actual": 3156.0,
+  "pretax_actual": 2757.0,
+  "fundamental_predictions": {
+    "company_owned_sales_yoy": -0.06,
+    "franchised_revenue_yoy": 0.03,
+    "other_revenue_yoy": 0.2,
+    "cost_of_sales_margin_delta_bps": -195,
+    "franchised_occupancy_margin_delta_bps": 30,
+    "sga_margin_delta_bps": 40,
+    "other_restaurant_expenses_yoy": 0.3,
+    "other_operating_income_expense_abs": 40,
+    "interest_expense_yoy": 0.05,
+    "nonoperating_income_expense_abs": -25,
+    "shares_abs": 714,
+    "tax_rate": 0.2
+  },
+  "model": "claude-opus-4-6"
+}

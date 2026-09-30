@@ -1,0 +1,28 @@
+{
+  "ticker": "AVGO",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.4061379252799344,
+  "revenue_pred": 19203.85,
+  "operating_pred": 8295.149815412977,
+  "pretax_pred": 7655.6398154129765,
+  "eps_p10": 1.1,
+  "eps_p90": 1.75,
+  "eps_gaap_actual": 1.5,
+  "operating_actual": 8563.0,
+  "pretax_actual": 8195.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.5,
+    "subscriptions_services_revenue_yoy": 0.03,
+    "cogs_margin_delta_bps": 90,
+    "rd_yoy": 0.3,
+    "sga_margin_delta_bps": -85,
+    "amortization_acquisition_intangible_opex_yoy": -0.01,
+    "restructuring_other_charges_opex_abs": 100,
+    "interest_expense_yoy": -0.13,
+    "other_income_net_abs": 120,
+    "shares_abs": 4900,
+    "tax_rate": 0.1
+  },
+  "model": "claude-opus-4-6"
+}

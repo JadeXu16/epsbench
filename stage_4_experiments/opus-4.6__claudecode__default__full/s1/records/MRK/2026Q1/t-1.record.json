@@ -1,0 +1,26 @@
+{
+  "ticker": "MRK",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": -1.648,
+  "revenue_pred": 15917.225,
+  "operating_pred": -3148.482250000001,
+  "pretax_pred": -3348.482250000001,
+  "eps_p10": -1.95,
+  "eps_p90": -1.25,
+  "eps_gaap_actual": -1.72,
+  "operating_actual": -3396.0,
+  "pretax_actual": -3534.0,
+  "fundamental_predictions": {
+    "sales_yoy": 0.025,
+    "cost_of_sales_margin_delta_bps": 100,
+    "sga_yoy": 0.03,
+    "rd_yoy": 2.5,
+    "restructuring_costs_abs": 100,
+    "other_income_net_abs": -200,
+    "tax_rate": -0.22,
+    "nci_abs": 2,
+    "shares_abs": 2480
+  },
+  "model": "claude-opus-4-6"
+}

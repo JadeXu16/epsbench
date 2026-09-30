@@ -1,0 +1,26 @@
+{
+  "ticker": "LULU",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.691628817056826,
+  "revenue_pred": 3539.2670599999997,
+  "operating_pred": 780.4604399199998,
+  "pretax_pred": 790.2043393299998,
+  "eps_p10": 3.75,
+  "eps_p90": 5.63,
+  "eps_gaap_actual": 5.01,
+  "operating_actual": 812.29,
+  "pretax_actual": 813.265,
+  "fundamental_predictions": {
+    "net_revenue_yoy": -0.02,
+    "cost_of_goods_sold_margin_delta_bps": 580,
+    "selling_general_and_administrative_expenses_margin_delta_bps": 100,
+    "other_income_expense_net_margin_delta_bps": -15,
+    "impairment_of_goodwill_and_other_assets_restructuring_costs_abs": 0,
+    "amortization_of_intangible_assets_yoy": 0.1,
+    "gain_on_disposal_of_assets_abs": 0,
+    "shares_abs": 117.9,
+    "tax_rate": 0.3
+  },
+  "model": "gpt-5-mini"
+}

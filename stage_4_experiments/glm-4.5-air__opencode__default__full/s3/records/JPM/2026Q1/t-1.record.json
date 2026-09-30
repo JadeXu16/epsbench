@@ -1,0 +1,26 @@
+{
+  "ticker": "JPM",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 5.525333988232349,
+  "revenue_pred": 49803.28,
+  "operating_pred": null,
+  "pretax_pred": 20009.360813604057,
+  "eps_p10": 4.97,
+  "eps_p90": 6.08,
+  "eps_gaap_actual": 5.94,
+  "operating_actual": null,
+  "pretax_actual": 20479.0,
+  "fundamental_predictions": {
+    "noninterest_revenue_yoy": 0.055,
+    "interest_income_yoy": 0.065,
+    "interest_expense_yoy": -0.01,
+    "provision_for_credit_losses_margin_delta_bps": 15,
+    "compensation_expense_margin_delta_bps": 20,
+    "noncomp_expense_margin_delta_bps": 10,
+    "tax_rate": 0.205,
+    "preferred_stock_dividends_abs": 326,
+    "shares_abs": 2820
+  },
+  "model": "glm-4.5-air"
+}

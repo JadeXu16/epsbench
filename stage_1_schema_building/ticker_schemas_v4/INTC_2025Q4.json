@@ -1,0 +1,113 @@
+{
+  "ticker": "INTC",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "net_revenue": 14260.0,
+    "cost_of_sales": 8676.0,
+    "research_and_development": 3876.0,
+    "marketing_general_and_administrative": 1239.0,
+    "restructuring_and_other_charges": 57.0,
+    "gains_losses_on_equity_investments_net": 316.0,
+    "interest_and_other_net": -129.0,
+    "nci": -27.0,
+    "shares": 4292.0,
+    "tax_provision": 751.9846
+  },
+  "formulas": {
+    "total_revenue": "net_revenue",
+    "total_cogs": "cost_of_sales",
+    "gross_profit": "total_revenue - total_cogs",
+    "total_opex": "research_and_development + marketing_general_and_administrative + restructuring_and_other_charges",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income + gains_losses_on_equity_investments_net + interest_and_other_net",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "net_revenue_yoy": {
+      "variable": "net_revenue",
+      "type": "yoy",
+      "constituents": [
+        "net_revenue"
+      ],
+      "description": "Net revenue YoY growth rate vs Q-4"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of total revenue, delta vs Q-4"
+    },
+    "research_and_development_yoy": {
+      "variable": "research_and_development",
+      "type": "yoy",
+      "constituents": [
+        "research_and_development"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "marketing_general_and_administrative_margin_delta_bps": {
+      "variable": "marketing_general_and_administrative",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "marketing_general_and_administrative"
+      ],
+      "description": "MG&A expense as % of total revenue, delta vs Q-4"
+    },
+    "restructuring_and_other_charges_abs": {
+      "variable": "restructuring_and_other_charges",
+      "type": "absolute",
+      "description": "restructuring_and_other_charges absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "gains_losses_on_equity_investments_net_abs": {
+      "variable": "gains_losses_on_equity_investments_net",
+      "type": "absolute",
+      "description": "gains_losses_on_equity_investments_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_and_other_net_abs": {
+      "variable": "interest_and_other_net",
+      "type": "absolute",
+      "description": "interest_and_other_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": -27.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 4383.75,
+      "references": {
+        "last_q": 4531.0,
+        "ttm": 4383.75,
+        "q4": 4292.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_amount": {
+      "variable": "tax_provision",
+      "type": "absolute",
+      "default": 751.9846,
+      "references": {
+        "last_q": 304.0,
+        "ttm": 1611.9846,
+        "q4": 751.9846
+      },
+      "description": "Income tax provision/expense for the target quarter, in DOLLARS (same units as the Q-4 baseline) \u2014 NOT a rate. Pretax income is near zero or negative this quarter, which makes an effective tax RATE numerically meaningless (a small pretax swing produces an enormous rate swing). Predict the dollar tax provision directly; sign matters (a tax BENEFIT is negative). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": -0.03,
+    "target_fq_eps": -0.12,
+    "target_fq_pretax": 338.0
+  },
+  "revenue_field": "net_revenue"
+}

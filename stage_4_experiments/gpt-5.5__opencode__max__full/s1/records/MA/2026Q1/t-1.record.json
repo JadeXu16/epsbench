@@ -1,0 +1,22 @@
+{
+  "ticker": "MA",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.194374155904678,
+  "revenue_pred": null,
+  "operating_pred": 4719.594999999999,
+  "pretax_pred": 4613.4847615131575,
+  "eps_p10": 4.0,
+  "eps_p90": 4.42,
+  "eps_gaap_actual": 4.35,
+  "operating_actual": 4907.0,
+  "pretax_actual": 4812.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": 0.145,
+    "total_opex_yoy": 0.155,
+    "total_other_income_margin_delta_bps": -90,
+    "tax_rate": 0.186306,
+    "shares_abs": 895
+  },
+  "model": "gpt-5.5"
+}

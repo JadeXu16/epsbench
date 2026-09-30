@@ -1,0 +1,30 @@
+{
+  "ticker": "CAT",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.337293148018729,
+  "revenue_pred": 15192.605,
+  "operating_pred": 2663.9208543146888,
+  "pretax_pred": 2634.4408543146887,
+  "eps_p10": 4.05,
+  "eps_p90": 4.65,
+  "eps_gaap_actual": 5.47,
+  "operating_actual": 3085.0,
+  "pretax_actual": 3211.0,
+  "fundamental_predictions": {
+    "met_sales_yoy": 0.065,
+    "financial_products_revenues_yoy": 0.085,
+    "cogs_margin_delta_bps": 65,
+    "sga_margin_delta_bps": -15,
+    "rd_margin_delta_bps": -10,
+    "other_operating_expenses_margin_delta_bps": 20,
+    "interest_expense_of_financial_products_yoy": 0.05,
+    "interest_expense_excluding_financial_products_yoy": 0.03,
+    "other_income_expense_abs": 90,
+    "equity_in_profit_of_unconsolidated_affiliates_abs": 8,
+    "noncontrolling_interest_abs": 0,
+    "tax_rate": 0.235,
+    "shares_abs": 466.5
+  },
+  "model": "qwen3.5-122b-a10b"
+}

@@ -1,0 +1,29 @@
+{
+  "ticker": "UNH",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 6.6467,
+  "revenue_pred": 109779.762,
+  "operating_pred": 8772.107106829571,
+  "pretax_pred": 7769.087106829571,
+  "eps_p10": 5.85,
+  "eps_p90": 7.4,
+  "eps_gaap_actual": 6.9,
+  "operating_actual": 8990.0,
+  "pretax_actual": 7963.0,
+  "fundamental_predictions": {
+    "premiums_yoy": -0.007,
+    "products_yoy": 0.038,
+    "services_yoy": 0.031,
+    "medical_cost_ratio_delta_bps": 90,
+    "products_cogs_margin_delta_bps": 10,
+    "opex_margin_delta_bps": -20,
+    "investment_other_income_abs": 1070,
+    "interest_expense_yoy": -0.01,
+    "loss_on_sale_subsidiary_yoy": 0.0,
+    "tax_rate": 0.2013,
+    "noncontrolling_interests_abs": 170,
+    "shares_abs": 908
+  },
+  "model": "claude-opus-4-6"
+}

@@ -1,0 +1,25 @@
+{
+  "ticker": "AMAT",
+  "fiscal_quarter": "2026Q2",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.8456582938048243,
+  "revenue_pred": 7650.25,
+  "operating_pred": 2353.3507499999996,
+  "pretax_pred": 2609.3307499999996,
+  "eps_p10": 2.35,
+  "eps_p90": 3.42,
+  "eps_gaap_actual": 3.51,
+  "operating_actual": 2523.0,
+  "pretax_actual": 3225.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": 0.0775,
+    "cogs_margin_delta_bps": -20,
+    "rd_yoy": 0.085,
+    "sga_margin_delta_bps": -10,
+    "interest_expense_yoy": 0.015,
+    "interest_and_other_income_net_abs": 325,
+    "tax_rate": 0.129725,
+    "shares_abs": 798
+  },
+  "model": "gpt-5.5"
+}

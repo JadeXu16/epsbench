@@ -1,0 +1,25 @@
+{
+  "ticker": "META",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 8.2544,
+  "revenue_pred": 58400.695,
+  "operating_pred": 24079.175335000007,
+  "pretax_pred": 24429.175335000007,
+  "eps_p10": 7.2,
+  "eps_p90": 9.3,
+  "eps_gaap_actual": 8.89,
+  "operating_actual": 24745.0,
+  "pretax_actual": 25354.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.207,
+    "cost_of_revenue_margin_delta_bps": 80,
+    "rd_yoy": 0.32,
+    "marketing_and_sales_margin_delta_bps": -140,
+    "general_and_administrative_margin_delta_bps": 530,
+    "other_income_net_abs": 350,
+    "shares_abs": 2560,
+    "tax_rate": 0.135
+  },
+  "model": "claude-opus-4-6"
+}

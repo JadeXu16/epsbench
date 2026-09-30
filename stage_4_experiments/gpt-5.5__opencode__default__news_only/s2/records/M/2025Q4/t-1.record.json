@@ -1,0 +1,29 @@
+{
+  "ticker": "M",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.3684150466493399,
+  "revenue_pred": 7769.059,
+  "operating_pred": 496.7453070465837,
+  "pretax_pred": 479.7453070465837,
+  "eps_p10": 0.95,
+  "eps_p90": 1.75,
+  "eps_gaap_actual": 1.84,
+  "operating_actual": 745.0,
+  "pretax_actual": 662.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": -0.033,
+    "other_revenue_yoy": 0.077,
+    "cogs_margin_delta_bps": 90,
+    "sga_margin_delta_bps": -30,
+    "benefit_plan_income_net_yoy": 0,
+    "impairment_restructuring_and_other_costs_yoy": -0.45,
+    "gains_on_sale_of_real_estate_abs": 25,
+    "settlement_charges_abs": 0,
+    "interest_expense_net_yoy": 0,
+    "losses_on_early_retirement_of_debt_abs": 0,
+    "shares_abs": 275,
+    "tax_rate": 0.215596
+  },
+  "model": "gpt-5.5"
+}

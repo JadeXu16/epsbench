@@ -1,0 +1,26 @@
+{
+  "ticker": "BBY",
+  "fiscal_quarter": "2027Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.1635211975436925,
+  "revenue_pred": 8819.602,
+  "operating_pred": 318.78610199999963,
+  "pretax_pred": 322.78610199999963,
+  "eps_p10": 0.98,
+  "eps_p90": 1.34,
+  "eps_gaap_actual": 1.31,
+  "operating_actual": 370.0,
+  "pretax_actual": 378.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.006,
+    "cogs_margin_delta_bps": -25,
+    "sga_margin_delta_bps": 15,
+    "restructuring_yoy": -0.8165,
+    "investment_income_and_other_abs": 16,
+    "interest_expense_yoy": 0,
+    "equity_in_income_loss_of_affiliates_abs": 1,
+    "tax_rate": 0.24,
+    "shares_abs": 211.7
+  },
+  "model": "gpt-5.5"
+}

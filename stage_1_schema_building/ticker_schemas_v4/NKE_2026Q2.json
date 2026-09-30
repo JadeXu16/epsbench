@@ -1,0 +1,100 @@
+{
+  "ticker": "NKE",
+  "target_fq": "2026Q2",
+  "baseline_fq": "2025Q2",
+  "variables_baseline": {
+    "revenue": 12354.0,
+    "cost_of_sales": 6965.0,
+    "demand_creation_expense": 1122.0,
+    "operating_overhead_expense": 2883.0,
+    "interest_expense_income_net": -24.0,
+    "other_income_expense_net": -8.0,
+    "shares": 1490.0,
+    "tax_rate": 0.178672
+  },
+  "formulas": {
+    "gross_profit": "revenue - cost_of_sales",
+    "total_sga": "demand_creation_expense + operating_overhead_expense",
+    "operating_income": "gross_profit - total_sga",
+    "pretax_income": "operating_income - interest_expense_income_net - other_income_expense_net",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Revenue YoY growth rate vs Q-4"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of revenue, delta vs Q-4"
+    },
+    "demand_creation_expense_yoy": {
+      "variable": "demand_creation_expense",
+      "type": "yoy",
+      "constituents": [
+        "demand_creation_expense"
+      ],
+      "description": "Demand creation expense YoY growth rate vs Q-4"
+    },
+    "operating_overhead_expense_yoy": {
+      "variable": "operating_overhead_expense",
+      "type": "yoy",
+      "constituents": [
+        "operating_overhead_expense"
+      ],
+      "description": "Operating overhead expense YoY growth rate vs Q-4"
+    },
+    "interest_expense_income_net_abs": {
+      "variable": "interest_expense_income_net",
+      "type": "absolute",
+      "description": "interest_expense_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_expense_net_abs": {
+      "variable": "other_income_expense_net",
+      "type": "absolute",
+      "description": "other_income_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1482.55,
+      "references": {
+        "last_q": 1479.0,
+        "ttm": 1482.55,
+        "q4": 1490.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.178672,
+      "references": {
+        "last_q": 0.211497,
+        "ttm": 0.172857,
+        "q4": 0.178672
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.78,
+    "target_fq_eps": 0.53,
+    "target_fq_pretax": 999.0
+  },
+  "revenue_field": "revenue"
+}

@@ -1,0 +1,27 @@
+{
+  "ticker": "JNJ",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.2573126678442628,
+  "revenue_pred": 23447.403,
+  "operating_pred": 6615.681597000001,
+  "pretax_pred": 6716.8815970000005,
+  "eps_p10": 2.05,
+  "eps_p90": 2.45,
+  "eps_gaap_actual": 2.14,
+  "operating_actual": 6327.0,
+  "pretax_actual": 5990.0,
+  "fundamental_predictions": {
+    "sales_yoy": 0.071,
+    "cogs_margin_delta_bps": 20,
+    "sga_margin_delta_bps": -10,
+    "rd_margin_delta_bps": 0,
+    "restructuring_abs": 0,
+    "interest_income_yoy": -0.05,
+    "interest_expense_net_yoy": 0.05,
+    "other_income_net_abs": 0,
+    "tax_rate": 0.18,
+    "shares_abs": 2440
+  },
+  "model": "glm-4.5-air"
+}

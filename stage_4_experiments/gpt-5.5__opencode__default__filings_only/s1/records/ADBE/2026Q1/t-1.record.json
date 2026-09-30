@@ -1,0 +1,27 @@
+{
+  "ticker": "ADBE",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.387800940626185,
+  "revenue_pred": 6300.073,
+  "operating_pred": 2317.105910088205,
+  "pretax_pred": 2314.0759100882046,
+  "eps_p10": 4.2,
+  "eps_p90": 4.72,
+  "eps_gaap_actual": 4.6,
+  "operating_actual": 2418.0,
+  "pretax_actual": 2422.0,
+  "fundamental_predictions": {
+    "subscription_revenue_yoy": 0.111,
+    "cogs_margin_delta_bps": -20,
+    "total_opex_yoy": 0.13,
+    "product_revenue_yoy": -0.18,
+    "services_and_other_revenue_yoy": -0.04,
+    "interest_expense_yoy": 0.065,
+    "investment_gains_abs": 8,
+    "other_income_net_abs": 55,
+    "shares_abs": 414,
+    "tax_rate": 0.215
+  },
+  "model": "gpt-5.5"
+}

@@ -1,0 +1,143 @@
+{
+  "ticker": "INTU",
+  "target_fq": "2026Q2",
+  "baseline_fq": "2025Q2",
+  "variables_baseline": {
+    "service_revenue": 3249.0,
+    "product_and_other_revenue": 714.0,
+    "cost_of_service_revenue": 880.0,
+    "cost_of_product_and_other_revenue": 20.0,
+    "amortization_of_acquired_technology": 37.0,
+    "selling_and_marketing": 1204.0,
+    "research_and_development": 716.0,
+    "general_and_administrative": 389.0,
+    "amortization_of_other_acquired_intangible_assets": 120.0,
+    "restructuring": 4.0,
+    "interest_expense": 60.0,
+    "interest_and_other_income_net": 38.0,
+    "tax_rate": 0.1751,
+    "shares": 283.0
+  },
+  "formulas": {
+    "total_revenue": "service_revenue + product_and_other_revenue",
+    "total_cost_of_revenue": "cost_of_service_revenue + cost_of_product_and_other_revenue + amortization_of_acquired_technology",
+    "total_operating_expenses": "selling_and_marketing + research_and_development + general_and_administrative + amortization_of_other_acquired_intangible_assets + restructuring",
+    "operating_income": "total_revenue - total_cost_of_revenue - total_operating_expenses",
+    "pretax_income": "operating_income - interest_expense + interest_and_other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "service_revenue_yoy": {
+      "variable": "service_revenue",
+      "type": "yoy",
+      "constituents": [
+        "service_revenue"
+      ],
+      "description": "Service revenue YoY growth rate vs Q-4"
+    },
+    "product_and_other_revenue_yoy": {
+      "variable": "product_and_other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "product_and_other_revenue"
+      ],
+      "description": "Product and other revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cost_of_revenue",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_service_revenue",
+        "cost_of_product_and_other_revenue",
+        "amortization_of_acquired_technology"
+      ],
+      "description": "Combined cost of revenue as % of total revenue, delta vs Q-4"
+    },
+    "selling_and_marketing_margin_delta_bps": {
+      "variable": "selling_and_marketing",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "selling_and_marketing"
+      ],
+      "description": "Selling and marketing as % of total revenue, delta vs Q-4"
+    },
+    "research_and_development_yoy": {
+      "variable": "research_and_development",
+      "type": "yoy",
+      "constituents": [
+        "research_and_development"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "general_and_administrative_margin_delta_bps": {
+      "variable": "general_and_administrative",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "general_and_administrative"
+      ],
+      "description": "G&A as % of total revenue, delta vs Q-4"
+    },
+    "amortization_of_other_acquired_intangible_assets_yoy": {
+      "variable": "amortization_of_other_acquired_intangible_assets",
+      "type": "yoy",
+      "constituents": [
+        "amortization_of_other_acquired_intangible_assets"
+      ],
+      "description": "amortization_of_other_acquired_intangible_assets YoY growth rate vs Q-4"
+    },
+    "restructuring_abs": {
+      "variable": "restructuring",
+      "type": "absolute",
+      "description": "restructuring absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "interest_and_other_income_net_abs": {
+      "variable": "interest_and_other_income_net",
+      "type": "absolute",
+      "description": "interest_and_other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 282.0,
+      "references": {
+        "last_q": 281.0,
+        "ttm": 282.0,
+        "q4": 283.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.204991,
+      "references": {
+        "last_q": 0.204991,
+        "ttm": 0.205323,
+        "q4": 0.1751
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.67,
+    "target_fq_eps": 2.48,
+    "target_fq_pretax": 869.0
+  },
+  "revenue_field": "total_revenue"
+}

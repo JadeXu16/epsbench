@@ -1,0 +1,132 @@
+{
+  "ticker": "CRWD",
+  "target_fq": "2027Q1",
+  "baseline_fq": "2026Q1",
+  "variables_baseline": {
+    "subscription_revenue": 1050.768,
+    "professional_services_revenue": 52.666,
+    "subscription_cost_of_revenue": 242.374,
+    "professional_services_cost_of_revenue": 46.769,
+    "sales_marketing_expense": 439.617,
+    "research_development_expense": 334.129,
+    "general_administrative_expense": 165.201,
+    "interest_expense": 6.715,
+    "interest_income": 45.38,
+    "other_income_net": -3.896,
+    "income_taxes": 21.106,
+    "noncontrolling_interest": -0.786,
+    "shares": 248.432
+  },
+  "formulas": {
+    "total_revenue": "subscription_revenue + professional_services_revenue",
+    "total_cogs": "subscription_cost_of_revenue + professional_services_cost_of_revenue",
+    "gross_profit": "total_revenue - total_cogs",
+    "total_opex": "sales_marketing_expense + research_development_expense + general_administrative_expense",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - interest_expense + interest_income + other_income_net",
+    "net_income": "pretax_income - income_taxes",
+    "earnings_to_common": "net_income - noncontrolling_interest",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "subscription_revenue_yoy": {
+      "variable": "subscription_revenue",
+      "type": "yoy",
+      "constituents": [
+        "subscription_revenue"
+      ],
+      "description": "Subscription revenue YoY growth rate vs Q4 baseline"
+    },
+    "professional_services_revenue_yoy": {
+      "variable": "professional_services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "professional_services_revenue"
+      ],
+      "description": "Professional services revenue YoY growth rate vs Q4 baseline"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "subscription_cost_of_revenue",
+        "professional_services_cost_of_revenue"
+      ],
+      "description": "Combined cost of revenue as % of total revenue, delta vs Q4 baseline"
+    },
+    "sales_marketing_yoy": {
+      "variable": "sales_marketing_expense",
+      "type": "yoy",
+      "constituents": [
+        "sales_marketing_expense"
+      ],
+      "description": "Sales and marketing expense YoY growth rate vs Q4 baseline"
+    },
+    "rd_yoy": {
+      "variable": "research_development_expense",
+      "type": "yoy",
+      "constituents": [
+        "research_development_expense"
+      ],
+      "description": "Research and development expense YoY growth rate vs Q4 baseline"
+    },
+    "ga_yoy": {
+      "variable": "general_administrative_expense",
+      "type": "yoy",
+      "constituents": [
+        "general_administrative_expense"
+      ],
+      "description": "General and administrative expense YoY growth rate vs Q4 baseline"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "income_taxes_abs": {
+      "variable": "income_taxes",
+      "type": "absolute",
+      "default": 21.106,
+      "description": "income_taxes absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "noncontrolling_interest_abs": {
+      "variable": "noncontrolling_interest",
+      "type": "absolute",
+      "default": -0.786,
+      "description": "noncontrolling_interest absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 250.2482,
+      "references": {
+        "last_q": 251.326,
+        "ttm": 250.2482,
+        "q4": 248.432
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": -0.44,
+    "target_fq_eps": 0.11,
+    "target_fq_pretax": 39.063
+  }
+}

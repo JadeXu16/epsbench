@@ -1,0 +1,27 @@
+{
+  "ticker": "PG",
+  "fiscal_quarter": "2026Q3",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.7011562159938491,
+  "revenue_pred": 20448.384000000002,
+  "operating_pred": 4733.420384000002,
+  "pretax_pred": 5173.290384000002,
+  "eps_p10": 1.6,
+  "eps_p90": 1.81,
+  "eps_gaap_actual": 1.63,
+  "operating_actual": 4575.0,
+  "pretax_actual": 4989.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": 0.034,
+    "cogs_margin_delta_bps": 15,
+    "sga_margin_delta_bps": -25,
+    "intangible_impairment_abs": 0,
+    "interest_expense_yoy": 0.06,
+    "interest_income_yoy": -0.01,
+    "other_non_operating_income_net_abs": 560,
+    "tax_rate": 0.20107,
+    "nci_abs": 18,
+    "shares_abs": 2419
+  },
+  "model": "gpt-5.4"
+}

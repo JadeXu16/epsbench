@@ -1,0 +1,27 @@
+{
+  "ticker": "INTC",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.08650382222222187,
+  "revenue_pred": 13375.88,
+  "operating_pred": 609.2671999999984,
+  "pretax_pred": 759.2671999999984,
+  "eps_p10": 0.02,
+  "eps_p90": 0.15,
+  "eps_gaap_actual": -0.12,
+  "operating_actual": 580.0,
+  "pretax_actual": 338.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": -0.062,
+    "cost_of_sales_margin_delta_bps": 150,
+    "research_and_development_yoy": -0.166,
+    "marketing_general_and_administrative_margin_delta_bps": -50,
+    "restructuring_and_other_charges_abs": 100,
+    "gains_losses_on_equity_investments_net_abs": 250,
+    "interest_and_other_net_abs": -100,
+    "nci_abs": -30,
+    "shares_abs": 4500,
+    "tax_amount": 400
+  },
+  "model": "glm-4.5-air"
+}

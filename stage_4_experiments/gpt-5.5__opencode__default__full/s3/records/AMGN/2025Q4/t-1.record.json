@@ -1,0 +1,27 @@
+{
+  "ticker": "AMGN",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 3.1490512438243354,
+  "revenue_pred": 9420.66,
+  "operating_pred": 2405.9410571736735,
+  "pretax_pred": 2080.9410571736735,
+  "eps_p10": 1.4,
+  "eps_p90": 4.8,
+  "eps_gaap_actual": 2.46,
+  "operating_actual": 2720.0,
+  "pretax_actual": 1514.0,
+  "fundamental_predictions": {
+    "product_sales_yoy": 0.035,
+    "other_revenues_yoy": 0.08,
+    "cost_of_sales_margin_delta_bps": -110,
+    "research_and_development_yoy": 0.15,
+    "selling_general_and_administrative_margin_delta_bps": -120,
+    "other_operating_expenses_abs": 75,
+    "interest_expense_net_abs": -675,
+    "other_income_net_abs": 350,
+    "shares_abs": 542,
+    "tax_rate": 0.179801
+  },
+  "model": "gpt-5.5"
+}

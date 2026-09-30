@@ -1,0 +1,107 @@
+{
+  "ticker": "COST",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "net_sales": 60985.0,
+    "membership_fees": 1166.0,
+    "merchandise_costs": 54109.0,
+    "sga": 5846.0,
+    "interest_expense": 37.0,
+    "interest_income_net": 147.0,
+    "shares": 444.891,
+    "tax_rate": 0.220295
+  },
+  "formulas": {
+    "total_revenue": "net_sales + membership_fees",
+    "total_cogs": "merchandise_costs",
+    "operating_income": "total_revenue - total_cogs - sga",
+    "pretax_income": "operating_income + interest_income_net - interest_expense",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "net_sales_yoy": {
+      "variable": "net_sales",
+      "type": "yoy",
+      "constituents": [
+        "net_sales"
+      ],
+      "description": "Net sales YoY growth rate vs Q-4"
+    },
+    "membership_fees_yoy": {
+      "variable": "membership_fees",
+      "type": "yoy",
+      "constituents": [
+        "membership_fees"
+      ],
+      "description": "Membership fees YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "merchandise_costs"
+      ],
+      "description": "Merchandise costs as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "interest_income_net_yoy": {
+      "variable": "interest_income_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_income_net"
+      ],
+      "description": "interest_income_net YoY growth rate vs Q-4"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 444.8252,
+      "references": {
+        "last_q": 444.762,
+        "ttm": 444.8252,
+        "q4": 444.891
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.25134,
+      "references": {
+        "last_q": 0.25641,
+        "ttm": 0.25134,
+        "q4": 0.220295
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 4.04,
+    "target_fq_eps": 4.5,
+    "target_fq_pretax": 2583.0
+  },
+  "revenue_field": "total_revenue"
+}

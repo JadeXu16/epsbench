@@ -1,0 +1,144 @@
+{
+  "ticker": "UBER",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "revenue": 11959.0,
+    "cost_of_revenue": 7234.0,
+    "operations_and_support": 678.0,
+    "sales_and_marketing": 1209.0,
+    "research_and_development": 785.0,
+    "general_and_administrative": 1114.0,
+    "depreciation_and_amortization": 169.0,
+    "interest_expense": 117.0,
+    "other_income_net": 256.0,
+    "income_loss_equity_method_investments": 10.0,
+    "noncontrolling_interest": 18.0,
+    "shares": 2154.466,
+    "tax_provision": -6002.0
+  },
+  "formulas": {
+    "gross_profit": "revenue - cost_of_revenue",
+    "total_opex": "operations_and_support + sales_and_marketing + research_and_development + general_and_administrative + depreciation_and_amortization",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - interest_expense + other_income_net - income_loss_equity_method_investments",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - noncontrolling_interest",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Total revenue YoY growth rate vs Q-4"
+    },
+    "cost_of_revenue_margin_delta_bps": {
+      "variable": "cost_of_revenue",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "cost_of_revenue"
+      ],
+      "description": "Cost of revenue as % of revenue, delta vs Q-4"
+    },
+    "operations_and_support_margin_delta_bps": {
+      "variable": "operations_and_support",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "operations_and_support"
+      ],
+      "description": "Operations and support as % of revenue, delta vs Q-4"
+    },
+    "sales_and_marketing_margin_delta_bps": {
+      "variable": "sales_and_marketing",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "sales_and_marketing"
+      ],
+      "description": "Sales and marketing as % of revenue, delta vs Q-4"
+    },
+    "research_and_development_margin_delta_bps": {
+      "variable": "research_and_development",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "research_and_development"
+      ],
+      "description": "R&D as % of revenue, delta vs Q-4"
+    },
+    "general_and_administrative_margin_delta_bps": {
+      "variable": "general_and_administrative",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "general_and_administrative"
+      ],
+      "description": "G&A as % of revenue, delta vs Q-4"
+    },
+    "depreciation_and_amortization_yoy": {
+      "variable": "depreciation_and_amortization",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_and_amortization"
+      ],
+      "description": "depreciation_and_amortization YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "income_loss_equity_method_investments_abs": {
+      "variable": "income_loss_equity_method_investments",
+      "type": "absolute",
+      "description": "income_loss_equity_method_investments absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "noncontrolling_interest_abs": {
+      "variable": "noncontrolling_interest",
+      "type": "absolute",
+      "default": 18.0,
+      "description": "noncontrolling_interest absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 2124.391,
+      "references": {
+        "last_q": 2124.391,
+        "ttm": 2121.1633,
+        "q4": 2154.466
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_amount": {
+      "variable": "tax_provision",
+      "type": "absolute",
+      "default": -6001.999993,
+      "references": {
+        "last_q": -4046.0,
+        "ttm": -9877.0,
+        "q4": -6002.0
+      },
+      "description": "Income tax provision/expense for the target quarter, in DOLLARS (same units as the Q-4 baseline) \u2014 NOT a rate. Pretax income is near zero or negative this quarter, which makes an effective tax RATE numerically meaningless (a small pretax swing produces an enormous rate swing). Predict the dollar tax provision directly; sign matters (a tax BENEFIT is negative). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 0.14,
+    "baseline_fq_eps": 3.19,
+    "target_fq_pretax": 291.0
+  },
+  "revenue_field": "revenue"
+}

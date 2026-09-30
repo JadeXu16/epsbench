@@ -1,0 +1,31 @@
+{
+  "ticker": "PFE",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.03951155485718473,
+  "revenue_pred": 17360.72,
+  "operating_pred": 2084.7690244539535,
+  "pretax_pred": -273.23097554604647,
+  "eps_p10": 0.15,
+  "eps_p90": 0.35,
+  "eps_gaap_actual": -0.29,
+  "operating_actual": 2872.0,
+  "pretax_actual": -1642.0,
+  "fundamental_predictions": {
+    "product_revenues_yoy": -0.03,
+    "alliance_revenues_yoy": 0.02,
+    "royalty_revenues_yoy": 0.01,
+    "cogs_margin_delta_bps": -20,
+    "sga_margin_delta_bps": -30,
+    "rd_yoy": 0.05,
+    "acquired_ip_rd_abs": 88,
+    "amortization_intangible_yoy": 0.02,
+    "restructuring_charges_abs": 750,
+    "other_income_net_abs": -2358,
+    "discontinued_ops_abs": 7,
+    "noncontrolling_interests_abs": 8,
+    "shares_abs": 5714,
+    "tax_amount": -500
+  },
+  "model": "glm-4.5-air"
+}

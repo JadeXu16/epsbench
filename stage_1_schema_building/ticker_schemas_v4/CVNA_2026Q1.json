@@ -1,0 +1,133 @@
+{
+  "ticker": "CVNA",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "retail_vehicle_sales": 2980.0,
+    "wholesale_sales_and_revenues": 863.0,
+    "other_sales_and_revenues": 389.0,
+    "cost_of_sales": 3303.0,
+    "sga": 535.0,
+    "other_operating_expense_net": 0.0,
+    "interest_expense_net": 139.0,
+    "loss_on_debt_extinguishment": 2.0,
+    "other_income_net": 122.0,
+    "tax_rate": 0.005333333333333333,
+    "nci": 157.0,
+    "shares": 142.587
+  },
+  "formulas": {
+    "total_revenue": "retail_vehicle_sales + wholesale_sales_and_revenues + other_sales_and_revenues",
+    "gross_profit": "total_revenue - cost_of_sales",
+    "operating_income": "gross_profit - sga - other_operating_expense_net",
+    "pretax_income": "operating_income - interest_expense_net - loss_on_debt_extinguishment + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "retail_vehicle_sales_yoy": {
+      "variable": "retail_vehicle_sales",
+      "type": "yoy",
+      "constituents": [
+        "retail_vehicle_sales"
+      ],
+      "description": "Retail vehicle sales YoY growth rate vs Q-4"
+    },
+    "wholesale_sales_and_revenues_yoy": {
+      "variable": "wholesale_sales_and_revenues",
+      "type": "yoy",
+      "constituents": [
+        "wholesale_sales_and_revenues"
+      ],
+      "description": "Wholesale sales and revenues YoY growth rate vs Q-4"
+    },
+    "other_sales_and_revenues_yoy": {
+      "variable": "other_sales_and_revenues",
+      "type": "yoy",
+      "constituents": [
+        "other_sales_and_revenues"
+      ],
+      "description": "Other sales and revenues YoY growth rate vs Q-4"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "interest_expense_margin_delta_bps": {
+      "variable": "interest_expense_net",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "Net interest expense as % of total revenue, delta vs Q-4"
+    },
+    "other_operating_expense_net_abs": {
+      "variable": "other_operating_expense_net",
+      "type": "absolute",
+      "description": "other_operating_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "loss_on_debt_extinguishment_abs": {
+      "variable": "loss_on_debt_extinguishment",
+      "type": "absolute",
+      "description": "loss_on_debt_extinguishment absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 1.519105,
+      "references": {
+        "last_q": 1.519105,
+        "ttm": 3.129213,
+        "q4": 0.005333333333333333
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 157.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 144.5913,
+      "references": {
+        "last_q": 146.274,
+        "ttm": 144.5913,
+        "q4": 142.587
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.51,
+    "target_fq_eps": 1.69,
+    "target_fq_pretax": 441.0
+  }
+}

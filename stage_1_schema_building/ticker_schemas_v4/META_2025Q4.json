@@ -1,0 +1,107 @@
+{
+  "ticker": "META",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "revenue": 48385.0,
+    "cost_of_revenue": 8839.0,
+    "rd": 12180.0,
+    "marketing_and_sales": 3240.0,
+    "general_and_administrative": 762.0,
+    "other_income_net": 188.0,
+    "tax_rate": 0.1152,
+    "shares": 2600.0
+  },
+  "formulas": {
+    "total_revenue": "revenue",
+    "total_cogs": "cost_of_revenue",
+    "gross_profit": "total_revenue - total_cogs",
+    "total_opex": "rd + marketing_and_sales + general_and_administrative",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Revenue YoY growth rate vs Q-4"
+    },
+    "cost_of_revenue_margin_delta_bps": {
+      "variable": "cost_of_revenue",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "cost_of_revenue"
+      ],
+      "description": "Cost of revenue as % of revenue, delta vs Q-4"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "marketing_and_sales_margin_delta_bps": {
+      "variable": "marketing_and_sales",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "marketing_and_sales"
+      ],
+      "description": "Marketing and sales as % of revenue, delta vs Q-4"
+    },
+    "general_and_administrative_margin_delta_bps": {
+      "variable": "general_and_administrative",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "general_and_administrative"
+      ],
+      "description": "General and administrative as % of revenue, delta vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 2583.0,
+      "references": {
+        "last_q": 2572.0,
+        "ttm": 2583.0,
+        "q4": 2600.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.362884,
+      "references": {
+        "last_q": 0.874948,
+        "ttm": 0.362884,
+        "q4": 0.1152
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 8.02,
+    "target_fq_eps": 8.89,
+    "target_fq_pretax": 25354.0
+  },
+  "revenue_field": "revenue"
+}

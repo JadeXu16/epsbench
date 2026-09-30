@@ -1,0 +1,28 @@
+{
+  "ticker": "LMT",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 7.352461225937019,
+  "revenue_pred": 18532.16,
+  "operating_pred": 2391.8456399999995,
+  "pretax_pred": 2039.5056399999994,
+  "eps_p10": 6.24,
+  "eps_p90": 8.46,
+  "eps_gaap_actual": 6.44,
+  "operating_actual": 2063.0,
+  "pretax_actual": 1774.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.03,
+    "services_revenue_yoy": 0.04,
+    "products_cogs_margin_delta_bps": 30,
+    "services_cogs_margin_delta_bps": 15,
+    "other_unallocated_net_yoy": 0.02,
+    "other_income_net_abs": 49,
+    "interest_expense_yoy": 0.05,
+    "non_service_fas_pension_expense_yoy": 0.03,
+    "other_non_operating_income_net_abs": 30,
+    "tax_rate": 0.15282,
+    "shares_abs": 235
+  },
+  "model": "glm-4.5-air"
+}

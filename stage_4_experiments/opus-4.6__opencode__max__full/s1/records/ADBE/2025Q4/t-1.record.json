@@ -1,0 +1,31 @@
+{
+  "ticker": "ADBE",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.356437269116814,
+  "revenue_pred": 6124.025,
+  "operating_pred": 2198.213512963789,
+  "pretax_pred": 2199.213512963789,
+  "eps_p10": 4.12,
+  "eps_p90": 4.58,
+  "eps_gaap_actual": 4.45,
+  "operating_actual": 2261.0,
+  "pretax_actual": 2264.0,
+  "fundamental_predictions": {
+    "subscription_revenue_yoy": 0.103,
+    "product_revenue_yoy": -0.17,
+    "services_and_other_revenue_yoy": -0.13,
+    "cogs_margin_delta_bps": -25,
+    "rd_margin_delta_bps": -30,
+    "sales_and_marketing_margin_delta_bps": 10,
+    "general_and_administrative_yoy": 0.04,
+    "acquisition_termination_fee_abs": 0,
+    "amortization_of_intangibles_yoy": -0.12,
+    "interest_expense_yoy": 0.34,
+    "investment_gains_losses_net_abs": 10,
+    "other_income_net_abs": 58,
+    "shares_abs": 419,
+    "tax_rate": 0.17
+  },
+  "model": "claude-opus-4-6"
+}

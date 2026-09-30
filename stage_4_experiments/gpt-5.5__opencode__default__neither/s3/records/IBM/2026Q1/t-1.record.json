@@ -1,0 +1,29 @@
+{
+  "ticker": "IBM",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.4703648975620547,
+  "revenue_pred": 15110.13,
+  "operating_pred": null,
+  "pretax_pred": 1363.2860948091602,
+  "eps_p10": 0.85,
+  "eps_p90": 2.15,
+  "eps_gaap_actual": 1.28,
+  "operating_actual": null,
+  "pretax_actual": 1387.0,
+  "fundamental_predictions": {
+    "services_revenue_yoy": 0.035,
+    "sales_revenue_yoy": 0.045,
+    "cost_margin_delta_bps": -60,
+    "sga_margin_delta_bps": -80,
+    "rd_yoy": 0.04,
+    "financing_revenue_yoy": -0.02,
+    "ip_and_custom_development_income_yoy": 0,
+    "other_income_abs": 100,
+    "interest_expense_yoy": -0.03,
+    "discontinued_operations_net_abs": 0,
+    "tax_rate": -0.023431,
+    "shares_abs": 948.9
+  },
+  "model": "gpt-5.5"
+}

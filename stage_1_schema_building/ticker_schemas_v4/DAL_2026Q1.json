@@ -1,0 +1,143 @@
+{
+  "ticker": "DAL",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "passenger_revenue": 11480.0,
+    "cargo_revenue": 208.0,
+    "other_revenue": 2352.0,
+    "salaries_and_related_costs": 4083.0,
+    "aircraft_fuel_and_related_taxes": 2410.0,
+    "ancillary_businesses_and_refinery": 1250.0,
+    "contracted_services": 1121.0,
+    "landing_fees_and_other_rents": 851.0,
+    "aircraft_maintenance_materials_and_outside_repairs": 646.0,
+    "regional_carrier_expense": 613.0,
+    "depreciation_and_amortization": 607.0,
+    "passenger_commissions_and_other_selling_expenses": 552.0,
+    "passenger_service": 430.0,
+    "aircraft_rent": 137.0,
+    "profit_sharing": 124.0,
+    "other_operating_expense": 647.0,
+    "interest_expense_net": 179.0,
+    "investment_losses_net": 40.0,
+    "loss_on_extinguishment_of_debt": 0.0,
+    "miscellaneous_net": 30.0,
+    "tax_rate": 0.25,
+    "shares": 648.65
+  },
+  "formulas": {
+    "total_revenue": "passenger_revenue + cargo_revenue + other_revenue",
+    "total_operating_expense": "salaries_and_related_costs + aircraft_fuel_and_related_taxes + ancillary_businesses_and_refinery + contracted_services + landing_fees_and_other_rents + aircraft_maintenance_materials_and_outside_repairs + regional_carrier_expense + depreciation_and_amortization + passenger_commissions_and_other_selling_expenses + passenger_service + aircraft_rent + profit_sharing + other_operating_expense",
+    "operating_income": "total_revenue - total_operating_expense",
+    "total_nonoperating_expense": "interest_expense_net + investment_losses_net + loss_on_extinguishment_of_debt + miscellaneous_net",
+    "pretax_income": "operating_income - total_nonoperating_expense",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "passenger_revenue_yoy": {
+      "variable": "passenger_revenue",
+      "type": "yoy",
+      "constituents": [
+        "passenger_revenue"
+      ],
+      "description": "Passenger revenue YoY growth rate vs Q-4"
+    },
+    "cargo_revenue_yoy": {
+      "variable": "cargo_revenue",
+      "type": "yoy",
+      "constituents": [
+        "cargo_revenue"
+      ],
+      "description": "Cargo revenue YoY growth rate vs Q-4"
+    },
+    "other_revenue_yoy": {
+      "variable": "other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_revenue"
+      ],
+      "description": "Other revenue YoY growth rate vs Q-4"
+    },
+    "total_opex_margin_delta_bps": {
+      "variable": "total_operating_expense",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "salaries_and_related_costs",
+        "aircraft_fuel_and_related_taxes",
+        "ancillary_businesses_and_refinery",
+        "contracted_services",
+        "landing_fees_and_other_rents",
+        "aircraft_maintenance_materials_and_outside_repairs",
+        "regional_carrier_expense",
+        "depreciation_and_amortization",
+        "passenger_commissions_and_other_selling_expenses",
+        "passenger_service",
+        "aircraft_rent",
+        "profit_sharing",
+        "other_operating_expense"
+      ],
+      "description": "Total operating expense as a percentage of total revenue, delta vs Q-4"
+    },
+    "interest_expense_net_yoy": {
+      "variable": "interest_expense_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "interest_expense_net YoY growth rate vs Q-4"
+    },
+    "investment_losses_net_abs": {
+      "variable": "investment_losses_net",
+      "type": "absolute",
+      "description": "investment_losses_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "loss_on_extinguishment_of_debt_abs": {
+      "variable": "loss_on_extinguishment_of_debt",
+      "type": "absolute",
+      "description": "loss_on_extinguishment_of_debt absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "miscellaneous_net_yoy": {
+      "variable": "miscellaneous_net",
+      "type": "yoy",
+      "constituents": [
+        "miscellaneous_net"
+      ],
+      "description": "miscellaneous_net YoY growth rate vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.194316,
+      "references": {
+        "last_q": 0.194316,
+        "ttm": 0.190492,
+        "q4": 0.25
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 653.7575,
+      "references": {
+        "last_q": 662.0,
+        "ttm": 653.7575,
+        "q4": 648.65
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.37,
+    "target_fq_eps": -0.44,
+    "target_fq_pretax": -214.0
+  }
+}

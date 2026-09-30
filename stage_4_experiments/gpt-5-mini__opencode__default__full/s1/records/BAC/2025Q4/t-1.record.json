@@ -1,0 +1,16 @@
+{
+  "ticker": "BAC",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": null,
+  "revenue_pred": null,
+  "operating_pred": null,
+  "pretax_pred": null,
+  "eps_p10": null,
+  "eps_p90": null,
+  "eps_gaap_actual": 0.95,
+  "operating_actual": null,
+  "pretax_actual": 12435.0,
+  "fundamental_predictions": {},
+  "model": "gpt-5-mini"
+}

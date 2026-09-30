@@ -1,0 +1,27 @@
+{
+  "ticker": "PLTR",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.21321590318967182,
+  "revenue_pred": 1533.4884,
+  "operating_pred": 483.8883400625,
+  "pretax_pred": 559.4175400624999,
+  "eps_p10": 0.17,
+  "eps_p90": 0.26,
+  "eps_gaap_actual": 0.34,
+  "operating_actual": 753.998,
+  "pretax_actual": 888601.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.735,
+    "cogs_margin_delta_bps": -75,
+    "rd_yoy": 0.35,
+    "sales_and_marketing_margin_delta_bps": -350,
+    "general_and_administrative_margin_delta_bps": -400,
+    "interest_income_yoy": 0.2,
+    "other_income_expense_net_abs": 15,
+    "noncontrolling_interests_abs": -4,
+    "tax_rate": 0.02,
+    "shares_abs": 2590
+  },
+  "model": "qwen3.5-122b-a10b"
+}

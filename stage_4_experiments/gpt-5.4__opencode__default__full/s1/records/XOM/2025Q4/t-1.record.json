@@ -1,0 +1,30 @@
+{
+  "ticker": "XOM",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.6944021737911403,
+  "revenue_pred": 79842.13,
+  "operating_pred": null,
+  "pretax_pred": 10467.224001642884,
+  "eps_p10": 1.4,
+  "eps_p90": 1.98,
+  "eps_gaap_actual": 1.53,
+  "operating_actual": null,
+  "pretax_actual": 8031.0,
+  "fundamental_predictions": {
+    "sales_and_other_operating_revenue_yoy": -0.015,
+    "cogs_margin_delta_bps": -120,
+    "sga_margin_delta_bps": -10,
+    "depreciation_and_depletion_yoy": 0.04,
+    "exploration_expenses_including_dry_holes_yoy": -0.15,
+    "income_from_equity_affiliates_yoy": 0.12,
+    "other_income_abs": 850,
+    "non_service_pension_and_postretirement_benefit_expense_yoy": 2.3,
+    "interest_expense_yoy": -0.6,
+    "other_taxes_and_duties_yoy": -0.02,
+    "nci_abs": 245,
+    "shares_abs": 4245,
+    "tax_rate": 0.289426
+  },
+  "model": "gpt-5.4"
+}

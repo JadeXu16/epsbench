@@ -1,0 +1,27 @@
+{
+  "ticker": "INTC",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": -0.08844152000000031,
+  "revenue_pred": 13618.3,
+  "operating_pred": 482.79239999999845,
+  "pretax_pred": 232.79239999999845,
+  "eps_p10": -0.26,
+  "eps_p90": 0.09,
+  "eps_gaap_actual": -0.12,
+  "operating_actual": 580.0,
+  "pretax_actual": 338.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": -0.045,
+    "cost_of_sales_margin_delta_bps": 280,
+    "research_and_development_yoy": -0.17,
+    "marketing_general_and_administrative_margin_delta_bps": -60,
+    "restructuring_and_other_charges_abs": 150,
+    "gains_losses_on_equity_investments_net_abs": 150,
+    "interest_and_other_net_abs": -400,
+    "nci_abs": 375,
+    "shares_abs": 5000,
+    "tax_amount": 300
+  },
+  "model": "gpt-5.4"
+}

@@ -1,0 +1,116 @@
+{
+  "ticker": "KHC",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "net_sales": 6576.0,
+    "cost_of_products_sold": 4331.0,
+    "selling_general_and_administrative_excluding_impairment": 898.0,
+    "goodwill_impairment_losses": 77.0,
+    "intangible_asset_impairment_losses": 1310.0,
+    "interest_expense": 227.0,
+    "other_income_net": 29.0,
+    "noncontrolling_interest": 1.0,
+    "shares": 1208.33,
+    "tax_provision": -2370.0
+  },
+  "formulas": {
+    "gross_profit": "net_sales - cost_of_products_sold",
+    "total_opex": "selling_general_and_administrative_excluding_impairment + goodwill_impairment_losses + intangible_asset_impairment_losses",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - interest_expense + other_income_net",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - noncontrolling_interest",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "net_sales_yoy": {
+      "variable": "net_sales",
+      "type": "yoy",
+      "constituents": [
+        "net_sales"
+      ],
+      "description": "Net sales YoY growth rate vs Q-4"
+    },
+    "cost_of_products_sold_margin_delta_bps": {
+      "variable": "cost_of_products_sold",
+      "type": "bps",
+      "anchor": "net_sales",
+      "constituents": [
+        "cost_of_products_sold"
+      ],
+      "description": "Cost of products sold as % of net sales, delta vs Q-4"
+    },
+    "selling_general_and_administrative_excluding_impairment_yoy": {
+      "variable": "selling_general_and_administrative_excluding_impairment",
+      "type": "yoy",
+      "constituents": [
+        "selling_general_and_administrative_excluding_impairment"
+      ],
+      "description": "SG&A excluding impairment losses YoY growth rate vs Q-4"
+    },
+    "goodwill_impairment_losses_yoy": {
+      "variable": "goodwill_impairment_losses",
+      "type": "yoy",
+      "constituents": [
+        "goodwill_impairment_losses"
+      ],
+      "description": "Goodwill impairment losses YoY growth rate vs Q-4"
+    },
+    "intangible_asset_impairment_losses_yoy": {
+      "variable": "intangible_asset_impairment_losses",
+      "type": "yoy",
+      "constituents": [
+        "intangible_asset_impairment_losses"
+      ],
+      "description": "Intangible asset impairment losses YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "Interest expense YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "noncontrolling_interest_abs": {
+      "variable": "noncontrolling_interest",
+      "type": "absolute",
+      "default": 1.0,
+      "description": "noncontrolling_interest absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1195.8186,
+      "references": {
+        "last_q": 1182.69,
+        "ttm": 1195.8186,
+        "q4": 1208.33
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_amount": {
+      "variable": "tax_provision",
+      "type": "absolute",
+      "default": -2216.0,
+      "references": {
+        "last_q": 194.0,
+        "ttm": -2216.0,
+        "q4": -2370.0
+      },
+      "description": "Income tax provision/expense for the target quarter, in DOLLARS (same units as the Q-4 baseline) \u2014 NOT a rate. Pretax income is near zero or negative this quarter, which makes an effective tax RATE numerically meaningless (a small pretax swing produces an enormous rate swing). Predict the dollar tax provision directly; sign matters (a tax BENEFIT is negative). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.76,
+    "target_fq_eps": 0.55,
+    "target_fq_pretax": 897.0
+  },
+  "revenue_field": "net_sales"
+}

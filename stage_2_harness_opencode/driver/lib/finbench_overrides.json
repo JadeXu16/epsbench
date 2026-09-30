@@ -1,0 +1,9 @@
+{
+  "_comment": "Per-model OpenCode settings. Opus 4.6 runs peak at about 175K tokens of context; the raised context limit keeps OpenCode's automatic compaction from triggering, as in the paper's runs.",
+  "claude-opus-4-6": {
+    "limit": {
+      "context": 1000000,
+      "output": 64000
+    }
+  }
+}

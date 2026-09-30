@@ -1,0 +1,29 @@
+{
+  "ticker": "CVNA",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.9141625670278766,
+  "revenue_pred": 5712.900000000001,
+  "operating_pred": 612.5655699432893,
+  "pretax_pred": 552.9254234404538,
+  "eps_p10": 1.25,
+  "eps_p90": 2.75,
+  "eps_gaap_actual": 1.69,
+  "operating_actual": 581.0,
+  "pretax_actual": 441.0,
+  "fundamental_predictions": {
+    "retail_vehicle_sales_yoy": 0.37,
+    "wholesale_sales_and_revenues_yoy": 0.286,
+    "other_sales_and_revenues_yoy": 0.338,
+    "cost_of_sales_margin_delta_bps": -200,
+    "sga_margin_delta_bps": 50,
+    "interest_expense_margin_delta_bps": 0,
+    "other_operating_expense_net_abs": 5,
+    "loss_on_debt_extinguishment_abs": 2,
+    "other_income_net_abs": 130,
+    "tax_rate": 0.21,
+    "nci_abs": 165,
+    "shares_abs": 142
+  },
+  "model": "glm-4.5-air"
+}

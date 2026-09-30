@@ -1,0 +1,27 @@
+{
+  "ticker": "NVDA",
+  "fiscal_quarter": "2026Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.5172,
+  "revenue_pred": 65604.108,
+  "operating_pred": 42372.72125160001,
+  "pretax_pred": 43261.22125160001,
+  "eps_p10": 1.37,
+  "eps_p90": 1.66,
+  "eps_gaap_actual": 1.76,
+  "operating_actual": 44299.0,
+  "pretax_actual": 50398.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.668,
+    "cogs_margin_delta_bps": -177,
+    "rd_yoy": 0.454,
+    "sga_margin_delta_bps": -50,
+    "acquisition_termination_cost_abs": 0,
+    "interest_income_yoy": 0.27,
+    "interest_expense_yoy": 0.0,
+    "other_net_yoy": -0.59,
+    "shares_abs": 24380,
+    "tax_rate": 0.145
+  },
+  "model": "claude-opus-4-6"
+}

@@ -1,0 +1,27 @@
+{
+  "ticker": "SPGI",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 3.994390288557213,
+  "revenue_pred": 4060.275,
+  "operating_pred": 1720.0071999999996,
+  "pretax_pred": 1644.9791999999995,
+  "eps_p10": 3.55,
+  "eps_p90": 4.4,
+  "eps_gaap_actual": 4.69,
+  "operating_actual": 2002.0,
+  "pretax_actual": 1908.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.075,
+    "operating_related_expenses_margin_delta_bps": -30,
+    "selling_and_general_expenses_margin_delta_bps": -15,
+    "depreciation_and_amortization_margin_delta_bps": -35,
+    "equity_income_abs": 3,
+    "other_expense_net_abs": -5,
+    "interest_expense_net_yoy": 0.026,
+    "nci_abs": 87,
+    "tax_rate": 0.215,
+    "shares_abs": 301.5
+  },
+  "model": "claude-opus-4-6"
+}

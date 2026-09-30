@@ -1,0 +1,107 @@
+{
+  "ticker": "MRK",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "sales": 15529.0,
+    "cost_of_sales": 3419.0,
+    "sga": 2552.0,
+    "rd": 3621.0,
+    "restructuring_costs": 69.0,
+    "other_income_net": 35.0,
+    "tax_rate": 0.1385736,
+    "nci": 6.0,
+    "shares": 2526.866
+  },
+  "formulas": {
+    "gross_profit": "sales - cost_of_sales",
+    "total_opex": "sga + rd + restructuring_costs",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income + other_income_net",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "sales_yoy": {
+      "variable": "sales",
+      "type": "yoy",
+      "constituents": [
+        "sales"
+      ],
+      "description": "Sales year-over-year growth rate vs 2025Q1"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "sales",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as a percentage of sales, basis point change vs Q-4 baseline"
+    },
+    "sga_yoy": {
+      "variable": "sga",
+      "type": "yoy",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A expense year-over-year growth rate vs 2025Q1"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense year-over-year growth rate vs 2025Q1"
+    },
+    "restructuring_costs_abs": {
+      "variable": "restructuring_costs",
+      "type": "absolute",
+      "description": "restructuring_costs absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.133918,
+      "references": {
+        "last_q": 0.133918,
+        "ttm": 0.133147,
+        "q4": 0.1385736
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 6.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 2507.4351,
+      "references": {
+        "last_q": 2493.5344827586205,
+        "ttm": 2507.4351,
+        "q4": 2526.866
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 2.01,
+    "target_fq_eps": -1.72,
+    "target_fq_pretax": -3534.0
+  }
+}

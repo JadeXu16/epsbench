@@ -1,0 +1,29 @@
+{
+  "ticker": "ABBV",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.3165043635186723,
+  "revenue_pred": 16355.465999999999,
+  "operating_pred": 3388.1190099999994,
+  "pretax_pred": 2127.6190099999994,
+  "eps_p10": 0.2,
+  "eps_p90": 0.45,
+  "eps_gaap_actual": 1.02,
+  "operating_actual": 4544.0,
+  "pretax_actual": 2668.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.083,
+    "cost_of_products_sold_margin_delta_bps": 200,
+    "selling_general_and_administrative_margin_delta_bps": -50,
+    "research_and_development_yoy": -0.633,
+    "acquired_iprd_and_milestones_yoy": -0.174,
+    "other_operating_income_net_abs": 0,
+    "interest_expense_net_yoy": 0.05,
+    "net_foreign_exchange_loss_abs": 20,
+    "other_expense_net_abs": 600,
+    "net_earnings_attributable_to_noncontrolling_interest_abs": 0,
+    "shares_abs": 1770,
+    "tax_rate": 0.736695
+  },
+  "model": "gpt-5-mini"
+}

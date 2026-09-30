@@ -1,0 +1,118 @@
+{
+  "ticker": "PG",
+  "target_fq": "2026Q3",
+  "baseline_fq": "2025Q3",
+  "variables_baseline": {
+    "net_sales": 19776.0,
+    "cost_of_products_sold": 9694.0,
+    "sga": 5524.0,
+    "intangible_impairment": 0.0,
+    "interest_expense": 217.0,
+    "interest_income": 111.0,
+    "other_non_operating_income_net": 210.0,
+    "tax_rate": 0.18623,
+    "nci": 23.0,
+    "shares": 2447.4
+  },
+  "formulas": {
+    "total_revenue": "net_sales",
+    "gross_profit": "net_sales - cost_of_products_sold",
+    "total_opex": "sga + intangible_impairment",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - interest_expense + interest_income + other_non_operating_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "net_sales_yoy": {
+      "variable": "net_sales",
+      "type": "yoy",
+      "constituents": [
+        "net_sales"
+      ],
+      "description": "Net sales YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_products_sold",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_products_sold"
+      ],
+      "description": "Cost of products sold as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "intangible_impairment_abs": {
+      "variable": "intangible_impairment",
+      "type": "absolute",
+      "description": "intangible_impairment absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "other_non_operating_income_net_abs": {
+      "variable": "other_non_operating_income_net",
+      "type": "absolute",
+      "description": "other_non_operating_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.198963,
+      "references": {
+        "last_q": 0.20107,
+        "ttm": 0.198963,
+        "q4": 0.18623
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 23.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 2439.2756,
+      "references": {
+        "last_q": 2426.4,
+        "ttm": 2439.2756,
+        "q4": 2447.4
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.54,
+    "target_fq_eps": 1.63,
+    "target_fq_pretax": 4989.0
+  }
+}

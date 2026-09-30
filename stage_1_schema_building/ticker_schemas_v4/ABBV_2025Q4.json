@@ -1,0 +1,133 @@
+{
+  "ticker": "ABBV",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "revenue": 15102.0,
+    "cost_of_products_sold": 4396.0,
+    "selling_general_and_administrative": 3855.0,
+    "research_and_development": 6774.0,
+    "acquired_iprd_and_milestones": 1574.0,
+    "other_operating_income_net": -7.0,
+    "interest_expense_net": 610.0,
+    "net_foreign_exchange_loss": 19.0,
+    "other_expense_net": 150.0,
+    "net_earnings_attributable_to_noncontrolling_interest": -1.0,
+    "shares": 1772.0,
+    "tax_rate": 0.989863
+  },
+  "formulas": {
+    "gross_profit": "revenue - cost_of_products_sold",
+    "operating_expenses": "selling_general_and_administrative + research_and_development + acquired_iprd_and_milestones + other_operating_income_net",
+    "operating_income": "gross_profit - operating_expenses",
+    "pretax_income": "operating_income - interest_expense_net - net_foreign_exchange_loss - other_expense_net",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - net_earnings_attributable_to_noncontrolling_interest",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Net revenues YoY growth rate vs Q-4"
+    },
+    "cost_of_products_sold_margin_delta_bps": {
+      "variable": "cost_of_products_sold",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "cost_of_products_sold"
+      ],
+      "description": "Cost of products sold as % of revenue, delta vs Q-4"
+    },
+    "selling_general_and_administrative_margin_delta_bps": {
+      "variable": "selling_general_and_administrative",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "selling_general_and_administrative"
+      ],
+      "description": "SG&A as % of revenue, delta vs Q-4"
+    },
+    "research_and_development_yoy": {
+      "variable": "research_and_development",
+      "type": "yoy",
+      "constituents": [
+        "research_and_development"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "acquired_iprd_and_milestones_yoy": {
+      "variable": "acquired_iprd_and_milestones",
+      "type": "yoy",
+      "constituents": [
+        "acquired_iprd_and_milestones"
+      ],
+      "description": "Acquired IPR&D and milestones expense YoY growth rate vs Q-4"
+    },
+    "other_operating_income_net_abs": {
+      "variable": "other_operating_income_net",
+      "type": "absolute",
+      "description": "other_operating_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_net_yoy": {
+      "variable": "interest_expense_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "interest_expense_net YoY growth rate vs Q-4"
+    },
+    "net_foreign_exchange_loss_abs": {
+      "variable": "net_foreign_exchange_loss",
+      "type": "absolute",
+      "description": "net_foreign_exchange_loss absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_expense_net_abs": {
+      "variable": "other_expense_net",
+      "type": "absolute",
+      "description": "other_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "net_earnings_attributable_to_noncontrolling_interest_abs": {
+      "variable": "net_earnings_attributable_to_noncontrolling_interest",
+      "type": "absolute",
+      "default": -1.0,
+      "description": "net_earnings_attributable_to_noncontrolling_interest absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1772.0,
+      "references": {
+        "last_q": 1772.0,
+        "ttm": 1771.75,
+        "q4": 1772.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.736695,
+      "references": {
+        "last_q": 0.736695,
+        "ttm": -0.442771,
+        "q4": 0.989863
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 1.02,
+    "baseline_fq_eps": -0.01,
+    "target_fq_pretax": 2668.0
+  },
+  "revenue_field": "revenue"
+}

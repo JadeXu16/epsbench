@@ -1,0 +1,29 @@
+{
+  "ticker": "PLUG",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": -0.18844301128468907,
+  "revenue_pred": 219.23315,
+  "operating_pred": -213.57505049999992,
+  "pretax_pred": -253.38967749999992,
+  "eps_p10": -0.35,
+  "eps_p90": -0.09,
+  "eps_gaap_actual": -0.626,
+  "operating_actual": -763.194,
+  "pretax_actual": -904.325,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.145,
+    "cogs_margin_delta_bps": -9300,
+    "rd_yoy": 0.08,
+    "sga_yoy": -0.18,
+    "other_expense_margin_delta_bps": -200,
+    "provision_loss_contracts_yoy": -1.25,
+    "restructuring_abs": 4,
+    "impairment_abs": 30,
+    "change_contingent_consideration_abs": -1,
+    "nci_loss_abs": 1.5,
+    "shares_abs": 1335,
+    "tax_rate": -0.001256
+  },
+  "model": "gpt-5.5"
+}

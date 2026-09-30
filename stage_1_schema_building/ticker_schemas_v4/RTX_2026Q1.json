@@ -1,0 +1,133 @@
+{
+  "ticker": "RTX",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "products_sales": 14591.0,
+    "services_sales": 5715.0,
+    "cost_of_sales_products": 12283.0,
+    "cost_of_sales_services": 3907.0,
+    "rd": 637.0,
+    "sga": 1448.0,
+    "other_income_net": 4.0,
+    "non_service_pension_income": 366.0,
+    "interest_expense_net": 443.0,
+    "tax_rate": 0.1701,
+    "nci": 90.0,
+    "shares": 1346.49
+  },
+  "formulas": {
+    "total_revenue": "products_sales + services_sales",
+    "total_cogs": "cost_of_sales_products + cost_of_sales_services",
+    "gross_profit": "total_revenue - total_cogs",
+    "total_opex": "rd + sga",
+    "operating_income": "gross_profit - total_opex + other_income_net",
+    "non_operating_expense_net": "interest_expense_net - non_service_pension_income",
+    "pretax_income": "operating_income - non_operating_expense_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "products_sales_yoy": {
+      "variable": "products_sales",
+      "type": "yoy",
+      "constituents": [
+        "products_sales"
+      ],
+      "description": "Products sales YoY growth vs 2025Q1 baseline"
+    },
+    "services_sales_yoy": {
+      "variable": "services_sales",
+      "type": "yoy",
+      "constituents": [
+        "services_sales"
+      ],
+      "description": "Services sales YoY growth vs 2025Q1 baseline"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_sales_products",
+        "cost_of_sales_services"
+      ],
+      "description": "Total cost of sales as % of total revenue, delta vs 2025Q1"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense YoY growth vs 2025Q1 baseline"
+    },
+    "sga_yoy": {
+      "variable": "sga",
+      "type": "yoy",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A expense YoY growth vs 2025Q1 baseline"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "non_service_pension_income_yoy": {
+      "variable": "non_service_pension_income",
+      "type": "yoy",
+      "constituents": [
+        "non_service_pension_income"
+      ],
+      "description": "non_service_pension_income YoY growth rate vs Q-4"
+    },
+    "interest_expense_net_yoy": {
+      "variable": "interest_expense_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "interest_expense_net YoY growth rate vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.190548,
+      "references": {
+        "last_q": 0.254245,
+        "ttm": 0.190548,
+        "q4": 0.1701
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 90.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1356.2475,
+      "references": {
+        "last_q": 1360.0,
+        "ttm": 1356.2475,
+        "q4": 1346.49
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.14,
+    "target_fq_eps": 1.51,
+    "target_fq_pretax": 2520.0
+  }
+}

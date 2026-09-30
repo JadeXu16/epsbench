@@ -1,0 +1,33 @@
+{
+  "ticker": "CCL",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.1256477108904583,
+  "revenue_pred": 5950.432,
+  "operating_pred": 517.851034244406,
+  "pretax_pred": 178.47103424440604,
+  "eps_p10": 0.03,
+  "eps_p90": 0.24,
+  "eps_gaap_actual": 0.19,
+  "operating_actual": 607.0,
+  "pretax_actual": 280.0,
+  "fundamental_predictions": {
+    "passenger_ticket_yoy": 0.016,
+    "onboard_other_yoy": 0.04,
+    "fuel_margin_delta_bps": -25,
+    "selling_administrative_margin_delta_bps": 20,
+    "commissions_transportation_other_yoy": 0.03,
+    "onboard_other_expense_abs": 624,
+    "payroll_related_yoy": 0.025,
+    "food_yoy": 0.03,
+    "other_operating_abs": 884,
+    "depreciation_amortization_yoy": 0.05,
+    "interest_income_yoy": 0,
+    "interest_expense_yoy": -0.06,
+    "debt_extinguishment_costs_abs": 0,
+    "other_income_net_abs": 8,
+    "shares_abs": 1392,
+    "tax_rate": 0.02
+  },
+  "model": "gpt-5-mini"
+}

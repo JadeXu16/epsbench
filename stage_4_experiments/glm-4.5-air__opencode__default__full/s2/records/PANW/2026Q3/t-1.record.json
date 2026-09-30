@@ -1,0 +1,27 @@
+{
+  "ticker": "PANW",
+  "fiscal_quarter": "2026Q3",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.5989928783653703,
+  "revenue_pred": 2645.676,
+  "operating_pred": 425.94496636959343,
+  "pretax_pred": 525.9449663695934,
+  "eps_p10": 0.45,
+  "eps_p90": 0.75,
+  "eps_gaap_actual": -0.22,
+  "operating_actual": -183.0,
+  "pretax_actual": -156.0,
+  "fundamental_predictions": {
+    "product_revenue_yoy": 0.22,
+    "subscription_and_support_revenue_yoy": 0.14,
+    "cogs_margin_delta_bps": -50,
+    "rd_yoy": 0.05,
+    "sales_and_marketing_yoy": 0.04,
+    "general_and_administrative_yoy": 0.06,
+    "interest_expense_abs": 0,
+    "other_income_net_abs": 100,
+    "tax_rate": 0.18,
+    "shares_abs": 720
+  },
+  "model": "glm-4.5-air"
+}

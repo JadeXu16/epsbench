@@ -1,0 +1,29 @@
+{
+  "ticker": "M",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.109766211260118,
+  "revenue_pred": 7630.549999999999,
+  "operating_pred": 392.7313191332585,
+  "pretax_pred": 357.83131913325855,
+  "eps_p10": 0.85,
+  "eps_p90": 1.4,
+  "eps_gaap_actual": 1.84,
+  "operating_actual": 745.0,
+  "pretax_actual": 662.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": -0.05,
+    "other_revenue_yoy": 0.05,
+    "cogs_margin_delta_bps": 50,
+    "sga_margin_delta_bps": -30,
+    "benefit_plan_income_net_yoy": 0,
+    "impairment_restructuring_and_other_costs_yoy": 0.2,
+    "gains_on_sale_of_real_estate_abs": 15,
+    "settlement_charges_abs": 20,
+    "interest_expense_net_yoy": -0.1,
+    "losses_on_early_retirement_of_debt_abs": 0,
+    "shares_abs": 278,
+    "tax_rate": 0.13782
+  },
+  "model": "glm-4.5-air"
+}

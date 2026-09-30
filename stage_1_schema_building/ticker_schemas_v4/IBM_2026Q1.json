@@ -1,0 +1,143 @@
+{
+  "ticker": "IBM",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "services_revenue": 7280.0,
+    "sales_revenue": 7070.0,
+    "financing_revenue": 191.0,
+    "services_cost": 5002.0,
+    "sales_cost": 1404.0,
+    "financing_cost": 104.0,
+    "sga": 4886.0,
+    "rd": 1950.0,
+    "ip_and_custom_development_income": 253.0,
+    "other_income": 165.0,
+    "interest_expense": 455.0,
+    "tax_rate": 0.0889464594,
+    "discontinued_operations_net": 1.0,
+    "shares": 945.4
+  },
+  "formulas": {
+    "total_revenue": "services_revenue + sales_revenue + financing_revenue",
+    "total_cost": "services_cost + sales_cost + financing_cost",
+    "gross_profit": "total_revenue - total_cost",
+    "total_expense_other": "sga + rd + interest_expense - ip_and_custom_development_income - other_income",
+    "pretax_income": "gross_profit - total_expense_other",
+    "tax_provision": "pretax_income * tax_rate",
+    "income_from_continuing_operations": "pretax_income - tax_provision",
+    "net_income": "income_from_continuing_operations + discontinued_operations_net",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "services_revenue_yoy": {
+      "variable": "services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "services_revenue"
+      ],
+      "description": "Services revenue YoY growth rate vs Q-4"
+    },
+    "sales_revenue_yoy": {
+      "variable": "sales_revenue",
+      "type": "yoy",
+      "constituents": [
+        "sales_revenue"
+      ],
+      "description": "Sales revenue YoY growth rate vs Q-4"
+    },
+    "cost_margin_delta_bps": {
+      "variable": "total_cost",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "services_cost",
+        "sales_cost",
+        "financing_cost"
+      ],
+      "description": "Combined cost as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "financing_revenue_yoy": {
+      "variable": "financing_revenue",
+      "type": "yoy",
+      "constituents": [
+        "financing_revenue"
+      ],
+      "description": "financing_revenue YoY growth rate vs Q-4"
+    },
+    "ip_and_custom_development_income_yoy": {
+      "variable": "ip_and_custom_development_income",
+      "type": "yoy",
+      "constituents": [
+        "ip_and_custom_development_income"
+      ],
+      "description": "ip_and_custom_development_income YoY growth rate vs Q-4"
+    },
+    "other_income_abs": {
+      "variable": "other_income",
+      "type": "absolute",
+      "description": "other_income absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "discontinued_operations_net_abs": {
+      "variable": "discontinued_operations_net",
+      "type": "absolute",
+      "default": 1.0,
+      "description": "discontinued_operations_net absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": -0.023431,
+      "references": {
+        "last_q": -0.346367,
+        "ttm": -0.023431,
+        "q4": 0.0889464594
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 947.8,
+      "references": {
+        "last_q": 948.9,
+        "ttm": 947.8,
+        "q4": 945.4
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.12,
+    "target_fq_eps": 1.28,
+    "target_fq_pretax": 1387.0
+  }
+}

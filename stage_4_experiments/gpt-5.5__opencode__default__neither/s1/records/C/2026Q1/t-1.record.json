@@ -1,0 +1,26 @@
+{
+  "ticker": "C",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.9848154032824115,
+  "revenue_pred": 22168.04,
+  "operating_pred": null,
+  "pretax_pred": 5523.075598870913,
+  "eps_p10": 1.55,
+  "eps_p90": 2.45,
+  "eps_gaap_actual": 3.06,
+  "operating_actual": null,
+  "pretax_actual": 7517.0,
+  "fundamental_predictions": {
+    "net_interest_income_yoy": 0.03,
+    "non_interest_revenues_yoy": 0.02,
+    "provisions_margin_delta_bps": 10,
+    "operating_expenses_yoy": 0.03,
+    "loss_from_discontinued_operations_net_abs": 0,
+    "noncontrolling_interests_abs": 43,
+    "preferred_stock_dividends_abs": 301.6,
+    "tax_rate": 0.27098,
+    "shares_abs": 1855
+  },
+  "model": "gpt-5.5"
+}

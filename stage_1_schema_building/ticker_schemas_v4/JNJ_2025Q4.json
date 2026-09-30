@@ -1,0 +1,124 @@
+{
+  "ticker": "JNJ",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "sales_to_customers": 22520.0,
+    "cost_of_products_sold": 7128.0,
+    "selling_marketing_administrative_expenses": 6453.0,
+    "research_and_development_expense": 5298.0,
+    "in_process_research_and_development_impairments": 17.0,
+    "interest_income": -281.0,
+    "interest_expense": 137.0,
+    "other_income_expense_net": -161.0,
+    "restructuring": 42.0,
+    "tax_rate": 0.11731,
+    "shares": 2427.9
+  },
+  "formulas": {
+    "gross_profit": "sales_to_customers - cost_of_products_sold",
+    "total_operating_expenses": "selling_marketing_administrative_expenses + research_and_development_expense + in_process_research_and_development_impairments",
+    "operating_income": "gross_profit - total_operating_expenses",
+    "net_interest": "interest_expense + interest_income",
+    "other_non_operating": "other_income_expense_net + restructuring",
+    "pretax_income": "operating_income - net_interest - other_non_operating",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "sales_to_customers_yoy": {
+      "variable": "sales_to_customers",
+      "type": "yoy",
+      "constituents": [
+        "sales_to_customers"
+      ],
+      "description": "Customer sales YoY growth rate vs Q-4"
+    },
+    "cost_of_products_sold_margin_delta_bps": {
+      "variable": "cost_of_products_sold",
+      "type": "bps",
+      "anchor": "sales_to_customers",
+      "constituents": [
+        "cost_of_products_sold"
+      ],
+      "description": "COGS as % of sales, delta vs Q-4"
+    },
+    "research_and_development_expense_yoy": {
+      "variable": "research_and_development_expense",
+      "type": "yoy",
+      "constituents": [
+        "research_and_development_expense"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "selling_marketing_administrative_expenses_yoy": {
+      "variable": "selling_marketing_administrative_expenses",
+      "type": "yoy",
+      "constituents": [
+        "selling_marketing_administrative_expenses"
+      ],
+      "description": "Selling, marketing and administrative expense YoY growth rate vs Q-4"
+    },
+    "in_process_research_and_development_impairments_abs": {
+      "variable": "in_process_research_and_development_impairments",
+      "type": "absolute",
+      "description": "in_process_research_and_development_impairments absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_income_abs": {
+      "variable": "interest_income",
+      "type": "absolute",
+      "description": "interest_income absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "other_income_expense_net_abs": {
+      "variable": "other_income_expense_net",
+      "type": "absolute",
+      "description": "other_income_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "restructuring_abs": {
+      "variable": "restructuring",
+      "type": "absolute",
+      "description": "restructuring absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 2427.9,
+      "references": {
+        "last_q": 2428.6,
+        "ttm": 2426.425,
+        "q4": 2427.9
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.195042,
+      "references": {
+        "last_q": 0.312425,
+        "ttm": 0.195042,
+        "q4": 0.11731
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.41,
+    "target_fq_eps": 2.09,
+    "target_fq_pretax": 4966.0
+  },
+  "revenue_field": "sales_to_customers"
+}

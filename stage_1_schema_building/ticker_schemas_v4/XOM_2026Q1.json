@@ -1,0 +1,138 @@
+{
+  "ticker": "XOM",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "sales_and_other_operating_revenue": 81058.0,
+    "income_from_equity_affiliates": 1369.0,
+    "other_income": 703.0,
+    "crude_oil_and_product_purchases": 46788.0,
+    "production_and_manufacturing_expenses": 10083.0,
+    "sga": 2540.0,
+    "depreciation_and_depletion": 5702.0,
+    "exploration_expenses": 64.0,
+    "non_service_pension_expense": 113.0,
+    "interest_expense": 205.0,
+    "other_taxes_and_duties": 6035.0,
+    "income_taxes": 3567.0,
+    "noncontrolling_interests": 320.0,
+    "shares": 4382.386
+  },
+  "formulas": {
+    "total_revenues": "sales_and_other_operating_revenue + income_from_equity_affiliates + other_income",
+    "total_costs": "crude_oil_and_product_purchases + production_and_manufacturing_expenses + sga + depreciation_and_depletion + exploration_expenses + non_service_pension_expense + interest_expense + other_taxes_and_duties",
+    "pretax_income": "total_revenues - total_costs",
+    "net_income_including_nci": "pretax_income - income_taxes",
+    "earnings_to_common": "net_income_including_nci - noncontrolling_interests",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "total_revenues",
+      "type": "yoy",
+      "constituents": [
+        "sales_and_other_operating_revenue",
+        "income_from_equity_affiliates",
+        "other_income"
+      ],
+      "description": "Total revenues and other income YoY growth rate vs Q-4"
+    },
+    "crude_oil_purchases_margin_delta_bps": {
+      "variable": "crude_oil_and_product_purchases",
+      "type": "bps",
+      "anchor": "total_revenues",
+      "constituents": [
+        "crude_oil_and_product_purchases"
+      ],
+      "description": "Crude oil and product purchases as % of total revenues, delta vs Q-4"
+    },
+    "production_manufacturing_margin_delta_bps": {
+      "variable": "production_and_manufacturing_expenses",
+      "type": "bps",
+      "anchor": "total_revenues",
+      "constituents": [
+        "production_and_manufacturing_expenses"
+      ],
+      "description": "Production and manufacturing expenses as % of total revenues, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenues",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenues, delta vs Q-4"
+    },
+    "depreciation_margin_delta_bps": {
+      "variable": "depreciation_and_depletion",
+      "type": "bps",
+      "anchor": "total_revenues",
+      "constituents": [
+        "depreciation_and_depletion"
+      ],
+      "description": "Depreciation and depletion as % of total revenues, delta vs Q-4"
+    },
+    "other_taxes_margin_delta_bps": {
+      "variable": "other_taxes_and_duties",
+      "type": "bps",
+      "anchor": "total_revenues",
+      "constituents": [
+        "other_taxes_and_duties"
+      ],
+      "description": "Other taxes and duties as % of total revenues, delta vs Q-4"
+    },
+    "exploration_expenses_yoy": {
+      "variable": "exploration_expenses",
+      "type": "yoy",
+      "constituents": [
+        "exploration_expenses"
+      ],
+      "description": "exploration_expenses YoY growth rate vs Q-4"
+    },
+    "non_service_pension_expense_yoy": {
+      "variable": "non_service_pension_expense",
+      "type": "yoy",
+      "constituents": [
+        "non_service_pension_expense"
+      ],
+      "description": "non_service_pension_expense YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "income_taxes_abs": {
+      "variable": "income_taxes",
+      "type": "absolute",
+      "default": 3567.0,
+      "description": "income_taxes absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "noncontrolling_interests_abs": {
+      "variable": "noncontrolling_interests",
+      "type": "absolute",
+      "default": 320.0,
+      "description": "noncontrolling_interests absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 4319.5715,
+      "references": {
+        "last_q": 4289.0,
+        "ttm": 4319.5715,
+        "q4": 4382.386
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.76,
+    "target_fq_eps": 1.0,
+    "target_fq_pretax": 6967.0
+  }
+}

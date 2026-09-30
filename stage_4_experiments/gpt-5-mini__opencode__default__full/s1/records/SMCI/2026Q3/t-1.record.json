@@ -1,0 +1,26 @@
+{
+  "ticker": "SMCI",
+  "fiscal_quarter": "2026Q3",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.5677013187205441,
+  "revenue_pred": 12300.1674,
+  "operating_pred": 486.0315186130002,
+  "pretax_pred": 482.9697786130002,
+  "eps_p10": 0.42,
+  "eps_p90": 0.7,
+  "eps_gaap_actual": 0.72,
+  "operating_actual": 625.868,
+  "pretax_actual": 610969.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": 1.674,
+    "cogs_margin_delta_bps": 300,
+    "rd_yoy": 0.08,
+    "sga_margin_delta_bps": -165,
+    "other_expense_income_net_abs": -22,
+    "interest_expense_yoy": 0.87,
+    "tax_rate": 0.196,
+    "equity_investee_loss_abs": 0,
+    "shares_abs": 684
+  },
+  "model": "gpt-5-mini"
+}

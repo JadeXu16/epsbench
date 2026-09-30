@@ -1,0 +1,148 @@
+{
+  "ticker": "CAT",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "sales_of_machinery_energy_transportation": 13378.0,
+    "revenues_of_financial_products": 871.0,
+    "cost_of_goods_sold": 8965.0,
+    "selling_general_and_administrative_expenses": 1593.0,
+    "research_and_development_expenses": 480.0,
+    "interest_expense_of_financial_products": 326.0,
+    "other_operating_income_expenses": 306.0,
+    "interest_expense_excluding_financial_products": 116.0,
+    "other_income_expense": 107.0,
+    "equity_in_profit_of_unconsolidated_affiliates": 7.0,
+    "noncontrolling_interest": 0.0,
+    "tax_rate": 0.22334630350194554,
+    "shares": 477.1
+  },
+  "formulas": {
+    "total_revenue": "sales_of_machinery_energy_transportation + revenues_of_financial_products",
+    "total_operating_costs": "cost_of_goods_sold + selling_general_and_administrative_expenses + research_and_development_expenses + interest_expense_of_financial_products + other_operating_income_expenses",
+    "operating_profit": "total_revenue - total_operating_costs",
+    "pretax_income": "operating_profit - interest_expense_excluding_financial_products + other_income_expense",
+    "tax_provision": "pretax_income * tax_rate",
+    "profit_of_consolidated_companies": "pretax_income - tax_provision",
+    "profit_of_consolidated_and_affiliated_companies": "profit_of_consolidated_companies + equity_in_profit_of_unconsolidated_affiliates",
+    "earnings_to_common": "profit_of_consolidated_and_affiliated_companies - noncontrolling_interest",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "met_sales_yoy": {
+      "variable": "sales_of_machinery_energy_transportation",
+      "type": "yoy",
+      "constituents": [
+        "sales_of_machinery_energy_transportation"
+      ],
+      "description": "Machinery, Energy & Transportation sales YoY growth vs Q-4"
+    },
+    "financial_products_revenues_yoy": {
+      "variable": "revenues_of_financial_products",
+      "type": "yoy",
+      "constituents": [
+        "revenues_of_financial_products"
+      ],
+      "description": "Financial Products revenues YoY growth vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_goods_sold",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_goods_sold"
+      ],
+      "description": "COGS as % of total sales and revenues, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "selling_general_and_administrative_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "selling_general_and_administrative_expenses"
+      ],
+      "description": "SG&A as % of total sales and revenues, delta vs Q-4"
+    },
+    "rd_margin_delta_bps": {
+      "variable": "research_and_development_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "research_and_development_expenses"
+      ],
+      "description": "R&D as % of total sales and revenues, delta vs Q-4"
+    },
+    "other_operating_expenses_margin_delta_bps": {
+      "variable": "other_operating_income_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "other_operating_income_expenses"
+      ],
+      "description": "Other operating expenses as % of total sales and revenues, delta vs Q-4"
+    },
+    "interest_expense_of_financial_products_yoy": {
+      "variable": "interest_expense_of_financial_products",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_of_financial_products"
+      ],
+      "description": "interest_expense_of_financial_products YoY growth rate vs Q-4"
+    },
+    "interest_expense_excluding_financial_products_yoy": {
+      "variable": "interest_expense_excluding_financial_products",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_excluding_financial_products"
+      ],
+      "description": "interest_expense_excluding_financial_products YoY growth rate vs Q-4"
+    },
+    "other_income_expense_abs": {
+      "variable": "other_income_expense",
+      "type": "absolute",
+      "description": "other_income_expense absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "equity_in_profit_of_unconsolidated_affiliates_abs": {
+      "variable": "equity_in_profit_of_unconsolidated_affiliates",
+      "type": "absolute",
+      "default": 7.0,
+      "description": "equity_in_profit_of_unconsolidated_affiliates absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "noncontrolling_interest_abs": {
+      "variable": "noncontrolling_interest",
+      "type": "absolute",
+      "default": 0.0,
+      "description": "noncontrolling_interest absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.235294,
+      "references": {
+        "last_q": 0.235294,
+        "ttm": 0.239841,
+        "q4": 0.22334630350194554
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 472.55,
+      "references": {
+        "last_q": 470.8,
+        "ttm": 472.55,
+        "q4": 477.1
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 4.2,
+    "target_fq_eps": 5.47,
+    "target_fq_pretax": 3211.0
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "ticker": "TSLA",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.03894404093810884,
+  "revenue_pred": 20397.42,
+  "operating_pred": 17.93401249030103,
+  "pretax_pred": 207.93401249030103,
+  "eps_p10": 0.01,
+  "eps_p90": 0.07,
+  "eps_gaap_actual": 0.13,
+  "operating_actual": 941.0,
+  "pretax_actual": 748.0,
+  "fundamental_predictions": {
+    "automotive_sales_revenue_yoy": 0.05,
+    "automotive_regulatory_credits_yoy": -0.1,
+    "automotive_leasing_revenue_yoy": 0.03,
+    "energy_generation_storage_revenue_yoy": 0.15,
+    "services_and_other_revenue_yoy": 0.02,
+    "cogs_margin_delta_bps": 50,
+    "rd_yoy": 0.25,
+    "sga_yoy": 0.08,
+    "restructuring_and_other_abs": 94,
+    "interest_income_yoy": 0,
+    "interest_expense_yoy": 0,
+    "other_expense_net_abs": 119,
+    "net_income_attributable_to_nci_abs": 11,
+    "tax_rate": 0.2869,
+    "shares_abs": 3525
+  },
+  "model": "glm-4.5-air"
+}

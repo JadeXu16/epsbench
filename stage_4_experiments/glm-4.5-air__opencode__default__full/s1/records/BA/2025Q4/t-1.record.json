@@ -1,0 +1,30 @@
+{
+  "ticker": "BA",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": -7.568234302312723,
+  "revenue_pred": 18718.4,
+  "operating_pred": -4257.728669308494,
+  "pretax_pred": -4688.228669308494,
+  "eps_p10": -10.2,
+  "eps_p90": -4.9,
+  "eps_gaap_actual": 10.23,
+  "operating_actual": 8777.0,
+  "pretax_actual": 8319.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.25,
+    "services_revenue_yoy": 0.15,
+    "cogs_margin_delta_bps": -50,
+    "rd_yoy": -0.05,
+    "sga_margin_delta_bps": -30,
+    "operating_investment_income_abs": 15,
+    "gain_on_dispositions_abs": 40,
+    "other_income_abs": 400,
+    "interest_expense_yoy": 0.1,
+    "nci_loss_abs": 0,
+    "preferred_dividends_abs": 60,
+    "shares_abs": 615,
+    "tax_rate": 0.02
+  },
+  "model": "glm-4.5-air"
+}

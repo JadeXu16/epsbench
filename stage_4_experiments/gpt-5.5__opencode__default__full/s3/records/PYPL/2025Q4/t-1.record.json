@@ -1,0 +1,28 @@
+{
+  "ticker": "PYPL",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.3326255119177637,
+  "revenue_pred": 8801.032000000001,
+  "operating_pred": 1537.5371599999999,
+  "pretax_pred": 1552.5371599999999,
+  "eps_p10": 1.12,
+  "eps_p90": 1.55,
+  "eps_gaap_actual": 1.532,
+  "operating_actual": 1511.0,
+  "pretax_actual": 1627.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.052,
+    "transaction_expense_margin_delta_bps": 45,
+    "transaction_credit_losses_margin_delta_bps": 25,
+    "customer_support_margin_delta_bps": -20,
+    "sales_marketing_margin_delta_bps": -5,
+    "technology_development_margin_delta_bps": 5,
+    "general_administrative_margin_delta_bps": -100,
+    "restructuring_and_other_abs": 75,
+    "other_income_net_abs": 15,
+    "tax_rate": 0.186281,
+    "shares_abs": 948
+  },
+  "model": "gpt-5.5"
+}

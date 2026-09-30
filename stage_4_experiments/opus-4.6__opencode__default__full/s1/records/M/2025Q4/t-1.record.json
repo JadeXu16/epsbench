@@ -1,0 +1,29 @@
+{
+  "ticker": "M",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.1906598318914137,
+  "revenue_pred": 7751.85,
+  "operating_pred": 468.7789150899215,
+  "pretax_pred": 419.7839150899215,
+  "eps_p10": 0.8,
+  "eps_p90": 1.65,
+  "eps_gaap_actual": 1.84,
+  "operating_actual": 745.0,
+  "pretax_actual": 662.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": -0.035,
+    "other_revenue_yoy": 0.07,
+    "cogs_margin_delta_bps": 75,
+    "sga_margin_delta_bps": 50,
+    "benefit_plan_income_net_yoy": 0,
+    "impairment_restructuring_and_other_costs_yoy": -0.63,
+    "gains_on_sale_of_real_estate_abs": 17,
+    "settlement_charges_abs": 30,
+    "interest_expense_net_yoy": 0.095,
+    "losses_on_early_retirement_of_debt_abs": 0,
+    "shares_abs": 275,
+    "tax_rate": 0.22
+  },
+  "model": "claude-opus-4-6"
+}

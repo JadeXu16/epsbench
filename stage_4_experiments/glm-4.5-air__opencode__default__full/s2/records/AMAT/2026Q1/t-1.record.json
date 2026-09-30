@@ -1,0 +1,25 @@
+{
+  "ticker": "AMAT",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.714282037037037,
+  "revenue_pred": 6807.7,
+  "operating_pred": 1908.6246,
+  "pretax_pred": 1851.4246,
+  "eps_p10": 1.2,
+  "eps_p90": 2.2,
+  "eps_gaap_actual": 2.54,
+  "operating_actual": 1831.0,
+  "pretax_actual": 2328.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": -0.05,
+    "cost_of_products_sold_margin_delta_bps": 20,
+    "research_development_engineering_yoy": 0.08,
+    "total_sga_yoy": 0.02,
+    "interest_expense_yoy": 0.05,
+    "interest_and_other_income_net_abs": 10,
+    "shares_abs": 810,
+    "tax_rate": 0.25
+  },
+  "model": "glm-4.5-air"
+}

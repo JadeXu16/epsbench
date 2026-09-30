@@ -1,0 +1,154 @@
+{
+  "ticker": "COP",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "sales_revenue": 14236.0,
+    "other_operating_income": 501.0,
+    "purchased_commodities": 5073.0,
+    "production_and_operating_expenses": 2311.0,
+    "sga": 630.0,
+    "exploration": 71.0,
+    "depreciation": 2664.0,
+    "impairments": 46.0,
+    "taxes_other_than_income": 520.0,
+    "accretion": 85.0,
+    "interest_debt": 191.0,
+    "other_operating_expenses_net": 176.0,
+    "tax_rate": 0.2236,
+    "shares": 1163.227
+  },
+  "formulas": {
+    "total_revenue": "sales_revenue + other_operating_income",
+    "total_operating_costs": "purchased_commodities + production_and_operating_expenses + sga + exploration + depreciation + impairments + taxes_other_than_income + accretion + other_operating_expenses_net",
+    "total_costs": "total_operating_costs + interest_debt",
+    "pretax_income": "total_revenue - total_costs",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "sales_revenue_yoy": {
+      "variable": "sales_revenue",
+      "type": "yoy",
+      "constituents": [
+        "sales_revenue"
+      ],
+      "description": "Sales and other operating revenues YoY growth rate vs Q-4"
+    },
+    "other_operating_income_yoy": {
+      "variable": "other_operating_income",
+      "type": "yoy",
+      "constituents": [
+        "other_operating_income"
+      ],
+      "description": "Other operating income (equity earnings, gain/loss on dispositions, other) YoY growth rate vs Q-4"
+    },
+    "purchased_commodities_margin_delta_bps": {
+      "variable": "purchased_commodities",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "purchased_commodities"
+      ],
+      "description": "Purchased commodities as % of total revenue, delta vs Q-4"
+    },
+    "production_costs_margin_delta_bps": {
+      "variable": "production_and_operating_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "production_and_operating_expenses"
+      ],
+      "description": "Production and operating expenses as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "Selling, general and administrative expenses as % of total revenue, delta vs Q-4"
+    },
+    "depreciation_margin_delta_bps": {
+      "variable": "depreciation",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "depreciation"
+      ],
+      "description": "Depreciation, depletion and amortization as % of total revenue, delta vs Q-4"
+    },
+    "exploration_yoy": {
+      "variable": "exploration",
+      "type": "yoy",
+      "constituents": [
+        "exploration"
+      ],
+      "description": "exploration YoY growth rate vs Q-4"
+    },
+    "impairments_abs": {
+      "variable": "impairments",
+      "type": "absolute",
+      "description": "impairments absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "taxes_other_than_income_yoy": {
+      "variable": "taxes_other_than_income",
+      "type": "yoy",
+      "constituents": [
+        "taxes_other_than_income"
+      ],
+      "description": "taxes_other_than_income YoY growth rate vs Q-4"
+    },
+    "accretion_abs": {
+      "variable": "accretion",
+      "type": "absolute",
+      "description": "accretion absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_debt_yoy": {
+      "variable": "interest_debt",
+      "type": "yoy",
+      "constituents": [
+        "interest_debt"
+      ],
+      "description": "interest_debt YoY growth rate vs Q-4"
+    },
+    "other_operating_expenses_net_abs": {
+      "variable": "other_operating_expenses_net",
+      "type": "absolute",
+      "description": "other_operating_expenses_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.338472,
+      "references": {
+        "last_q": 0.410519,
+        "ttm": 0.338472,
+        "q4": 0.2236
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1235.9895,
+      "references": {
+        "last_q": 1246.854,
+        "ttm": 1235.9895,
+        "q4": 1163.227
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.98,
+    "target_fq_eps": 1.17,
+    "target_fq_pretax": 2245.0
+  },
+  "revenue_field": "sales_revenue"
+}

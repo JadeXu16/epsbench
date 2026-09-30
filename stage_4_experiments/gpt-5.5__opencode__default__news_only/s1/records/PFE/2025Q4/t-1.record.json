@@ -1,0 +1,31 @@
+{
+  "ticker": "PFE",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": -0.5898221806079367,
+  "revenue_pred": 16619.059999999998,
+  "operating_pred": -3345.4744734519263,
+  "pretax_pred": -4045.4744734519263,
+  "eps_p10": -1.05,
+  "eps_p90": -0.25,
+  "eps_gaap_actual": -0.29,
+  "operating_actual": 2872.0,
+  "pretax_actual": -1642.0,
+  "fundamental_predictions": {
+    "product_revenues_yoy": -0.07,
+    "alliance_revenues_yoy": -0.03,
+    "royalty_revenues_yoy": -0.05,
+    "cogs_margin_delta_bps": -150,
+    "sga_margin_delta_bps": -250,
+    "rd_yoy": -0.12,
+    "acquired_ip_rd_abs": 6500,
+    "amortization_intangible_yoy": -0.02,
+    "restructuring_charges_abs": 600,
+    "other_income_net_abs": -700,
+    "discontinued_ops_abs": 0,
+    "noncontrolling_interests_abs": 8,
+    "shares_abs": 5711,
+    "tax_amount": -685
+  },
+  "model": "gpt-5.5"
+}

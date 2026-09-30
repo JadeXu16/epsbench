@@ -1,0 +1,29 @@
+{
+  "ticker": "CVNA",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.3354137616847568,
+  "revenue_pred": 6071.937999999999,
+  "operating_pred": 573.4064826143664,
+  "pretax_pred": 440.0528063950847,
+  "eps_p10": 0.45,
+  "eps_p90": 2.35,
+  "eps_gaap_actual": 1.69,
+  "operating_actual": 581.0,
+  "pretax_actual": 441.0,
+  "fundamental_predictions": {
+    "retail_vehicle_sales_yoy": 0.485,
+    "wholesale_sales_and_revenues_yoy": 0.286,
+    "other_sales_and_revenues_yoy": 0.38,
+    "cost_of_sales_margin_delta_bps": 170,
+    "sga_margin_delta_bps": -185,
+    "interest_expense_margin_delta_bps": -150,
+    "other_operating_expense_net_abs": 1,
+    "loss_on_debt_extinguishment_abs": 0,
+    "other_income_net_abs": -25,
+    "tax_rate": 0.16,
+    "nci_abs": 170,
+    "shares_abs": 149.5
+  },
+  "model": "gpt-5.5"
+}

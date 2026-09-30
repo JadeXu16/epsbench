@@ -1,0 +1,32 @@
+{
+  "ticker": "PFE",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.4927167255638849,
+  "revenue_pred": 13996.683,
+  "operating_pred": 3876.383369872038,
+  "pretax_pred": 2826.383369872038,
+  "eps_p10": 0.32,
+  "eps_p90": 0.65,
+  "eps_gaap_actual": 0.47,
+  "operating_actual": 4031.0,
+  "pretax_actual": 3170.0,
+  "fundamental_predictions": {
+    "product_revenues_yoy": 0.012,
+    "alliance_revenues_yoy": 0.075,
+    "royalty_revenues_yoy": -0.04,
+    "cost_of_sales_margin_delta_bps": -70,
+    "rd_yoy": 0.12,
+    "sga_margin_delta_bps": -40,
+    "acquired_iprd_abs": 0,
+    "amortization_intangible_assets_yoy": 0.02,
+    "restructuring_acquisition_costs_abs": 575,
+    "other_income_deductions_net_abs": 1050,
+    "income_taxes_abs": 5,
+    "discontinued_operations_net_abs": 0,
+    "nci_abs": 6,
+    "tax_rate": 0.001218,
+    "shares_abs": 5714
+  },
+  "model": "gpt-5.5"
+}

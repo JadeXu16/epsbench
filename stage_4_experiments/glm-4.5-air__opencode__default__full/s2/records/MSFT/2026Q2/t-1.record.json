@@ -1,0 +1,26 @@
+{
+  "ticker": "MSFT",
+  "fiscal_quarter": "2026Q2",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.252667271970638,
+  "revenue_pred": 77434.20000000001,
+  "operating_pred": 35532.79158674174,
+  "pretax_pred": 39192.79158674174,
+  "eps_p10": 4.05,
+  "eps_p90": 4.45,
+  "eps_gaap_actual": 5.16,
+  "operating_actual": 38275.0,
+  "pretax_actual": 48246.0,
+  "fundamental_predictions": {
+    "product_revenue_yoy": 0.02,
+    "service_and_other_revenue_yoy": 0.14,
+    "cogs_margin_delta_bps": 50,
+    "research_and_development_yoy": 0.08,
+    "sales_and_marketing_yoy": 0.06,
+    "general_and_administrative_yoy": 0.04,
+    "other_expense_net_abs": -3660,
+    "shares_abs": 7465,
+    "tax_rate": 0.19
+  },
+  "model": "glm-4.5-air"
+}

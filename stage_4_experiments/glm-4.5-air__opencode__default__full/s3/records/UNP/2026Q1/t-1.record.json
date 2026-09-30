@@ -1,0 +1,24 @@
+{
+  "ticker": "UNP",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.7786709475262907,
+  "revenue_pred": 6127.38,
+  "operating_pred": 2398.2343689198606,
+  "pretax_pred": 2147.7943689198605,
+  "eps_p10": 2.45,
+  "eps_p90": 3.15,
+  "eps_gaap_actual": 2.87,
+  "operating_actual": 2458.0,
+  "pretax_actual": 2229.0,
+  "fundamental_predictions": {
+    "freight_revenue_yoy": 0.02,
+    "other_revenue_yoy": -0.04,
+    "operating_expense_margin_delta_bps": 20,
+    "other_income_net_abs": 78,
+    "interest_expense_yoy": 0.02,
+    "tax_rate": 0.232558,
+    "shares_abs": 593.2
+  },
+  "model": "glm-4.5-air"
+}

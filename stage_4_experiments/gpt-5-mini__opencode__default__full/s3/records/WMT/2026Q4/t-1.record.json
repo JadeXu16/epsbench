@@ -1,0 +1,26 @@
+{
+  "ticker": "WMT",
+  "fiscal_quarter": "2026Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.6914650319529835,
+  "revenue_pred": 188412.875,
+  "operating_pred": 8389.487260640853,
+  "pretax_pred": 7454.487559720353,
+  "eps_p10": 0.56,
+  "eps_p90": 0.82,
+  "eps_gaap_actual": 0.53,
+  "operating_actual": 8708.0,
+  "pretax_actual": 5970.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": 0.0425,
+    "membership_and_other_income_yoy": 0.15,
+    "cost_of_sales_margin_delta_bps": 20,
+    "opex_margin_delta_bps": -30,
+    "interest_margin_delta_bps": 0,
+    "other_gains_and_losses_margin_delta_bps": 0,
+    "tax_rate": 0.234995,
+    "shares_abs": 8000,
+    "noncontrolling_interest_abs": 171
+  },
+  "model": "gpt-5-mini"
+}

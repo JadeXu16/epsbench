@@ -1,0 +1,141 @@
+{
+  "ticker": "JPM",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "investment_banking_fees": 2178.0,
+    "principal_transactions": 7614.0,
+    "lending_deposit_fees": 2132.0,
+    "asset_management_fees": 4700.0,
+    "commissions_and_other_fees": 2033.0,
+    "investment_securities_losses": 37.0,
+    "mortgage_fees_and_related_income": 278.0,
+    "card_income": 1216.0,
+    "other_income": 1923.0,
+    "interest_income": 46853.0,
+    "interest_expense": 23580.0,
+    "provision_for_credit_losses": 3305.0,
+    "compensation_expense": 14093.0,
+    "occupancy_expense": 1302.0,
+    "technology_communications_equipment_expense": 2578.0,
+    "professional_and_outside_services": 2839.0,
+    "marketing_expense": 1304.0,
+    "other_expense": 1481.0,
+    "tax_rate": 0.20453064,
+    "preferred_stock_dividends": 326.0,
+    "shares": 2824.3
+  },
+  "formulas": {
+    "noninterest_revenue": "investment_banking_fees + principal_transactions + lending_deposit_fees + asset_management_fees + commissions_and_other_fees - investment_securities_losses + mortgage_fees_and_related_income + card_income + other_income",
+    "net_interest_income": "interest_income - interest_expense",
+    "total_net_revenue": "noninterest_revenue + net_interest_income",
+    "noncomp_expense": "occupancy_expense + technology_communications_equipment_expense + professional_and_outside_services + marketing_expense + other_expense",
+    "total_noninterest_expense": "compensation_expense + noncomp_expense",
+    "pretax_income": "total_net_revenue - provision_for_credit_losses - total_noninterest_expense",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - preferred_stock_dividends",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "noninterest_revenue_yoy": {
+      "variable": "noninterest_revenue",
+      "type": "yoy",
+      "constituents": [
+        "investment_banking_fees",
+        "principal_transactions",
+        "lending_deposit_fees",
+        "asset_management_fees",
+        "commissions_and_other_fees",
+        "investment_securities_losses",
+        "mortgage_fees_and_related_income",
+        "card_income",
+        "other_income"
+      ],
+      "description": "Noninterest revenue YoY growth rate vs Q-4"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "Interest income YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "Interest expense YoY growth rate vs Q-4"
+    },
+    "provision_for_credit_losses_margin_delta_bps": {
+      "variable": "provision_for_credit_losses",
+      "type": "bps",
+      "anchor": "total_net_revenue",
+      "constituents": [
+        "provision_for_credit_losses"
+      ],
+      "description": "Provision for credit losses as % of total net revenue, delta vs Q-4"
+    },
+    "compensation_expense_margin_delta_bps": {
+      "variable": "compensation_expense",
+      "type": "bps",
+      "anchor": "total_net_revenue",
+      "constituents": [
+        "compensation_expense"
+      ],
+      "description": "Compensation expense as % of total net revenue, delta vs Q-4"
+    },
+    "noncomp_expense_margin_delta_bps": {
+      "variable": "noncomp_expense",
+      "type": "bps",
+      "anchor": "total_net_revenue",
+      "constituents": [
+        "occupancy_expense",
+        "technology_communications_equipment_expense",
+        "professional_and_outside_services",
+        "marketing_expense",
+        "other_expense"
+      ],
+      "description": "Non-compensation noninterest expense as % of total net revenue, delta vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.214161,
+      "references": {
+        "last_q": 0.240967,
+        "ttm": 0.214161,
+        "q4": 0.20453064
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "preferred_stock_dividends_abs": {
+      "variable": "preferred_stock_dividends",
+      "type": "absolute",
+      "default": 326.0,
+      "description": "preferred_stock_dividends absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 2788.3,
+      "references": {
+        "last_q": 2767.6,
+        "ttm": 2788.3,
+        "q4": 2824.3
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 5.07,
+    "target_fq_eps": 5.94,
+    "target_fq_pretax": 20479.0
+  }
+}

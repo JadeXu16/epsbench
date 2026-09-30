@@ -1,0 +1,175 @@
+{
+  "ticker": "GE",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "equipment_revenue": 3230.0,
+    "services_revenue": 6649.0,
+    "insurance_revenue": 932.0,
+    "cost_equipment_sold": 2950.0,
+    "cost_services_sold": 3812.0,
+    "sga": 1157.0,
+    "separation_costs": 84.0,
+    "rd": 385.0,
+    "interest_and_other_financial_charges": 224.0,
+    "insurance_losses_and_other_costs": 421.0,
+    "goodwill_impairments": 0.0,
+    "non_operating_benefit_income": 214.0,
+    "other_income": 299.0,
+    "nci": -7.0,
+    "preferred_dividends": 0.0,
+    "shares": 1093.0,
+    "tax_rate": 0.172414
+  },
+  "formulas": {
+    "total_revenue": "equipment_revenue + services_revenue + insurance_revenue",
+    "total_cogs": "cost_equipment_sold + cost_services_sold",
+    "gross_profit": "total_revenue - total_cogs",
+    "other_opex": "sga + separation_costs + rd + interest_and_other_financial_charges + insurance_losses_and_other_costs + goodwill_impairments",
+    "total_costs_and_expenses": "total_cogs + other_opex - non_operating_benefit_income",
+    "pretax_income": "total_revenue - total_costs_and_expenses + other_income",
+    "net_income": "pretax_income - tax_provision",
+    "net_income_company": "net_income - nci",
+    "earnings_to_common": "net_income_company - preferred_dividends",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "equipment_revenue_yoy": {
+      "variable": "equipment_revenue",
+      "type": "yoy",
+      "constituents": [
+        "equipment_revenue"
+      ],
+      "description": "Equipment revenue YoY growth rate vs Q-4"
+    },
+    "services_revenue_yoy": {
+      "variable": "services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "services_revenue"
+      ],
+      "description": "Services revenue YoY growth rate vs Q-4"
+    },
+    "insurance_revenue_yoy": {
+      "variable": "insurance_revenue",
+      "type": "yoy",
+      "constituents": [
+        "insurance_revenue"
+      ],
+      "description": "Insurance revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_equipment_sold",
+        "cost_services_sold"
+      ],
+      "description": "Combined COGS as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "separation_costs_yoy": {
+      "variable": "separation_costs",
+      "type": "yoy",
+      "constituents": [
+        "separation_costs"
+      ],
+      "description": "Separation costs YoY growth rate vs Q-4"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "interest_charges_yoy": {
+      "variable": "interest_and_other_financial_charges",
+      "type": "yoy",
+      "constituents": [
+        "interest_and_other_financial_charges"
+      ],
+      "description": "Interest and other financial charges YoY growth rate vs Q-4"
+    },
+    "insurance_losses_yoy": {
+      "variable": "insurance_losses_and_other_costs",
+      "type": "yoy",
+      "constituents": [
+        "insurance_losses_and_other_costs"
+      ],
+      "description": "Insurance losses, annuity benefits and other costs YoY growth rate vs Q-4"
+    },
+    "other_income_yoy": {
+      "variable": "other_income",
+      "type": "yoy",
+      "constituents": [
+        "other_income"
+      ],
+      "description": "Other income (loss) YoY growth rate vs Q-4"
+    },
+    "goodwill_impairments_abs": {
+      "variable": "goodwill_impairments",
+      "type": "absolute",
+      "description": "goodwill_impairments absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "non_operating_benefit_income_abs": {
+      "variable": "non_operating_benefit_income",
+      "type": "absolute",
+      "description": "non_operating_benefit_income absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": -7.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "preferred_dividends_abs": {
+      "variable": "preferred_dividends",
+      "type": "absolute",
+      "default": 0.0,
+      "description": "preferred_dividends absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1077.025,
+      "references": {
+        "last_q": 1064.2,
+        "ttm": 1077.025,
+        "q4": 1093.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.136779,
+      "references": {
+        "last_q": 0.136779,
+        "ttm": 0.089407,
+        "q4": 0.172414
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.74,
+    "target_fq_eps": 2.4,
+    "target_fq_pretax": 2851.0
+  },
+  "revenue_field": "total_revenue"
+}

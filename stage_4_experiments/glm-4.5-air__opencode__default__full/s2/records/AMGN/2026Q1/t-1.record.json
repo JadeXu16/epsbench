@@ -1,0 +1,27 @@
+{
+  "ticker": "AMGN",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.358585693448714,
+  "revenue_pred": 8480.48,
+  "operating_pred": 1043.971925095103,
+  "pretax_pred": 857.1219250951029,
+  "eps_p10": 0.85,
+  "eps_p90": 1.87,
+  "eps_gaap_actual": 3.34,
+  "operating_actual": 2666.0,
+  "pretax_actual": 2084.0,
+  "fundamental_predictions": {
+    "product_sales_yoy": 0.04,
+    "other_revenues_yoy": 0.06,
+    "cost_of_sales_margin_delta_bps": -50,
+    "rd_yoy": 0.08,
+    "sga_yoy": 0.1,
+    "other_opex_yoy": 0.12,
+    "interest_expense_net_yoy": -0.05,
+    "other_income_net_abs": 500,
+    "tax_rate": 0.1409,
+    "shares_abs": 542
+  },
+  "model": "glm-4.5-air"
+}

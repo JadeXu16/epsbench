@@ -1,0 +1,27 @@
+{
+  "ticker": "GS",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 19.197110022494847,
+  "revenue_pred": 17368.4598,
+  "operating_pred": null,
+  "pretax_pred": null,
+  "eps_p10": 15.6,
+  "eps_p90": 22.6,
+  "eps_gaap_actual": 17.55,
+  "operating_actual": null,
+  "pretax_actual": 6486.0,
+  "fundamental_predictions": {
+    "investment_banking_yoy": 0.32,
+    "investment_management_yoy": 0.12,
+    "commissions_and_fees_yoy": 0.12,
+    "trading_revenue_yoy": 0.13,
+    "net_interest_margin_delta_bps": 250,
+    "total_operating_expenses_margin_delta_bps": -250,
+    "provision_for_credit_losses_abs": 125,
+    "tax_rate": 0.161,
+    "preferred_stock_dividends_abs": 235,
+    "shares_abs": 310.5
+  },
+  "model": "gpt-5.5"
+}

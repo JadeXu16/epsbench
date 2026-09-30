@@ -1,0 +1,30 @@
+{
+  "ticker": "WBD",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": -0.07234349798387071,
+  "revenue_pred": 8754.525,
+  "operating_pred": 251.18812500000058,
+  "pretax_pred": -150.41187499999938,
+  "eps_p10": -0.18,
+  "eps_p90": 0.04,
+  "eps_gaap_actual": -1.17,
+  "operating_actual": -2469.0,
+  "pretax_actual": -3120.0,
+  "fundamental_predictions": {
+    "revenue_yoy": -0.025,
+    "cost_of_revenues_margin_delta_bps": -100,
+    "sga_margin_delta_bps": -50,
+    "d_and_a_margin_delta_bps": -100,
+    "other_charges_yoy": -0.5,
+    "interest_expense_net_yoy": -0.05,
+    "loss_on_extinguishment_of_debt_abs": 0,
+    "loss_from_equity_investees_net_abs": 7,
+    "other_income_net_abs": 50,
+    "income_taxes_abs": 25,
+    "nci_abs": 8,
+    "rnci_loss_abs": 4,
+    "shares_abs": 2480
+  },
+  "model": "gpt-5.5"
+}

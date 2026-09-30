@@ -1,0 +1,24 @@
+{
+  "ticker": "HOOD",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.648,
+  "revenue_pred": 1312.068,
+  "operating_pred": 682.6997764733727,
+  "pretax_pred": 683.6997764733727,
+  "eps_p10": 0.5,
+  "eps_p90": 0.82,
+  "eps_gaap_actual": 0.66,
+  "operating_actual": 650.0,
+  "pretax_actual": 661.0,
+  "fundamental_predictions": {
+    "transaction_revenue_yoy": 0.194,
+    "net_interest_revenue_yoy": 0.45,
+    "other_revenue_yoy": 0.75,
+    "total_opex_margin_delta_bps": 280,
+    "other_income_net_abs": 1,
+    "tax_rate": 0.13,
+    "shares_abs": 918
+  },
+  "model": "claude-opus-4-6"
+}

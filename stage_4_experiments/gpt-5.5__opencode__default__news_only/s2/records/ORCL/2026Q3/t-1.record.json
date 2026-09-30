@@ -1,0 +1,25 @@
+{
+  "ticker": "ORCL",
+  "fiscal_quarter": "2026Q3",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.3245925672035828,
+  "revenue_pred": 17124.12,
+  "operating_pred": 5709.554872611465,
+  "pretax_pred": 4565.634872611465,
+  "eps_p10": 1.1,
+  "eps_p90": 1.55,
+  "eps_gaap_actual": 1.27,
+  "operating_actual": 5464.0,
+  "pretax_actual": 4416.0,
+  "fundamental_predictions": {
+    "cloud_revenue_yoy": 0.25,
+    "hardware_revenue_yoy": -0.02,
+    "services_revenue_yoy": -0.02,
+    "opex_margin_delta_bps": -250,
+    "interest_expense_yoy": 0.26,
+    "non_operating_expense_abs": 20,
+    "tax_rate": 0.148491,
+    "shares_abs": 2935
+  },
+  "model": "gpt-5.5"
+}

@@ -1,0 +1,26 @@
+{
+  "ticker": "CMG",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.26234157582839623,
+  "revenue_pred": 3063.87847,
+  "operating_pred": 428.96714717185114,
+  "pretax_pred": 447.96714717185114,
+  "eps_p10": 0.22,
+  "eps_p90": 0.3,
+  "eps_gaap_actual": 0.23,
+  "operating_actual": 397063.0,
+  "pretax_actual": 405805.0,
+  "fundamental_predictions": {
+    "food_and_beverage_revenue_yoy": 0.066,
+    "delivery_service_revenue_yoy": -0.008,
+    "restaurant_operating_costs_margin_delta_bps": 250,
+    "general_and_administrative_expenses_yoy": 0.07,
+    "depreciation_and_amortization_yoy": 0.11,
+    "development_and_closure_costs_yoy": 0.1,
+    "interest_and_other_income_net_abs": 19,
+    "tax_rate": 0.235757,
+    "shares_abs": 1305
+  },
+  "model": "gpt-5.5"
+}

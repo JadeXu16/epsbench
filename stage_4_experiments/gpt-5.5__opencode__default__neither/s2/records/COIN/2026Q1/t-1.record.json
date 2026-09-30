@@ -1,0 +1,27 @@
+{
+  "ticker": "COIN",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.1935688245992269,
+  "revenue_pred": 1883.3875600000001,
+  "operating_pred": 673.7078381024003,
+  "pretax_pred": 437.9587681024003,
+  "eps_p10": -0.2,
+  "eps_p90": 2.8,
+  "eps_gaap_actual": -1.49,
+  "operating_actual": -21.421,
+  "pretax_actual": -464705.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": -0.08,
+    "other_revenue_yoy": 0.08,
+    "core_opex_margin_delta_bps": -100,
+    "crypto_operating_losses_yoy": -0.1,
+    "crypto_investment_losses_yoy": -0.65,
+    "other_operating_income_net_abs": 6,
+    "interest_expense_yoy": 0.02,
+    "other_expense_net_abs": 6,
+    "tax_rate": 0.204327,
+    "shares_abs": 291.958
+  },
+  "model": "gpt-5.5"
+}

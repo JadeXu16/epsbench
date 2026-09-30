@@ -1,0 +1,24 @@
+{
+  "ticker": "LOW",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.6993817988591797,
+  "revenue_pred": 20331.986,
+  "operating_pred": 1652.2720909999998,
+  "pretax_pred": 1254.4120909999997,
+  "eps_p10": 1.45,
+  "eps_p90": 1.95,
+  "eps_gaap_actual": 1.77,
+  "operating_actual": 1708.0,
+  "pretax_actual": 1304.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": 0.093,
+    "cost_of_sales_margin_delta_bps": 20,
+    "sga_margin_delta_bps": 45,
+    "depreciation_yoy": 0.23,
+    "interest_net_yoy": 0.14,
+    "tax_rate": 0.24,
+    "shares_abs": 561
+  },
+  "model": "gpt-5.5"
+}

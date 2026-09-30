@@ -1,0 +1,120 @@
+{
+  "ticker": "JNJ",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "sales_to_customers": 21893.0,
+    "cost_of_products_sold": 7357.0,
+    "sga": 5112.0,
+    "rd": 3225.0,
+    "restructuring": 17.0,
+    "interest_income": 332.0,
+    "interest_expense_net": 204.0,
+    "other_income_net": 7321.0,
+    "tax_rate": 0.1931,
+    "shares": 2423.8
+  },
+  "formulas": {
+    "gross_profit": "sales_to_customers - cost_of_products_sold",
+    "total_operating_expenses": "sga + rd + restructuring",
+    "operating_income": "gross_profit - total_operating_expenses",
+    "pretax_income": "operating_income + interest_income - interest_expense_net + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "sales_yoy": {
+      "variable": "sales_to_customers",
+      "type": "yoy",
+      "constituents": [
+        "sales_to_customers"
+      ],
+      "description": "Sales to customers YoY growth vs 2025Q1 baseline"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_products_sold",
+      "type": "bps",
+      "anchor": "sales_to_customers",
+      "constituents": [
+        "cost_of_products_sold"
+      ],
+      "description": "Cost of products sold as % of sales, delta vs 2025Q1 baseline"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "sales_to_customers",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of sales, delta vs 2025Q1 baseline"
+    },
+    "rd_margin_delta_bps": {
+      "variable": "rd",
+      "type": "bps",
+      "anchor": "sales_to_customers",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D as % of sales, delta vs 2025Q1 baseline"
+    },
+    "restructuring_abs": {
+      "variable": "restructuring",
+      "type": "absolute",
+      "description": "restructuring absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "interest_expense_net_yoy": {
+      "variable": "interest_expense_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "interest_expense_net YoY growth rate vs Q-4"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.177316,
+      "references": {
+        "last_q": -0.030205,
+        "ttm": 0.177316,
+        "q4": 0.1931
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 2425.025,
+      "references": {
+        "last_q": 2428.6,
+        "ttm": 2425.025,
+        "q4": 2423.8
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 4.54,
+    "target_fq_eps": 2.14,
+    "target_fq_pretax": 5990.0
+  }
+}

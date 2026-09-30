@@ -1,0 +1,26 @@
+{
+  "ticker": "JPM",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 5.307133089171133,
+  "revenue_pred": null,
+  "operating_pred": null,
+  "pretax_pred": 18973.35424818859,
+  "eps_p10": 4.85,
+  "eps_p90": 5.78,
+  "eps_gaap_actual": 5.94,
+  "operating_actual": null,
+  "pretax_actual": 20479.0,
+  "fundamental_predictions": {
+    "noninterest_revenue_yoy": 0.035,
+    "interest_income_yoy": 0.03,
+    "interest_expense_yoy": -0.04,
+    "provision_for_credit_losses_margin_delta_bps": 25,
+    "compensation_expense_margin_delta_bps": 35,
+    "noncomp_expense_margin_delta_bps": 85,
+    "tax_rate": 0.214161,
+    "preferred_stock_dividends_abs": 326,
+    "shares_abs": 2748
+  },
+  "model": "gpt-5.5"
+}

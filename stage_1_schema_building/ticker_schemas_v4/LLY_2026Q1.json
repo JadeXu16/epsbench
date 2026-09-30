@@ -1,0 +1,107 @@
+{
+  "ticker": "LLY",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "revenue": 12728.5,
+    "cost_of_sales": 2224.2,
+    "rd": 2733.7,
+    "msa": 2468.8,
+    "acquired_in_process_rd": 1571.7,
+    "asset_impairment_restructuring_and_other_special_charges": 35.0,
+    "other_net_expense": 239.0,
+    "tax_rate": 0.2016145,
+    "shares": 900.6
+  },
+  "formulas": {
+    "total_costs": "cost_of_sales + rd + msa + acquired_in_process_rd + asset_impairment_restructuring_and_other_special_charges + other_net_expense",
+    "pretax_income": "revenue - total_costs",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Total revenue YoY growth rate vs 2025Q1"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of revenue, delta vs 2025Q1"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense YoY growth rate vs 2025Q1"
+    },
+    "msa_yoy": {
+      "variable": "msa",
+      "type": "yoy",
+      "constituents": [
+        "msa"
+      ],
+      "description": "Marketing, selling, and administrative expense YoY growth rate vs 2025Q1"
+    },
+    "acquired_in_process_rd_abs": {
+      "variable": "acquired_in_process_rd",
+      "type": "absolute",
+      "description": "acquired_in_process_rd absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "asset_impairment_restructuring_and_other_special_charges_abs": {
+      "variable": "asset_impairment_restructuring_and_other_special_charges",
+      "type": "absolute",
+      "description": "asset_impairment_restructuring_and_other_special_charges absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_net_expense_yoy": {
+      "variable": "other_net_expense",
+      "type": "yoy",
+      "constituents": [
+        "other_net_expense"
+      ],
+      "description": "other_net_expense YoY growth rate vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.197858,
+      "references": {
+        "last_q": 0.197007,
+        "ttm": 0.197858,
+        "q4": 0.2016145
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 899.5,
+      "references": {
+        "last_q": 898.8,
+        "ttm": 899.5,
+        "q4": 900.6
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 3.06,
+    "target_fq_eps": 8.26,
+    "target_fq_pretax": 8850.0
+  }
+}

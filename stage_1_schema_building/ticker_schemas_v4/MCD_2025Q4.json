@@ -1,0 +1,140 @@
+{
+  "ticker": "MCD",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "company_owned_sales": 2310.0,
+    "franchised_revenue": 3959.0,
+    "other_revenue": 119.0,
+    "company_owned_expenses": 1977.0,
+    "franchised_occupancy": 634.0,
+    "other_restaurant_expenses": 98.0,
+    "sga_depreciation": 136.0,
+    "sga_other": 664.0,
+    "other_operating_income_expense": 10.0,
+    "interest_expense": 380.0,
+    "nonoperating_income_expense": -49.0,
+    "tax_rate": 0.2053,
+    "shares": 720.0
+  },
+  "formulas": {
+    "total_revenue": "company_owned_sales + franchised_revenue + other_revenue",
+    "total_opex": "company_owned_expenses + franchised_occupancy + other_restaurant_expenses + sga_depreciation + sga_other + other_operating_income_expense",
+    "operating_income": "total_revenue - total_opex",
+    "pretax_income": "operating_income - interest_expense - nonoperating_income_expense",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "company_owned_sales_yoy": {
+      "variable": "company_owned_sales",
+      "type": "yoy",
+      "constituents": [
+        "company_owned_sales"
+      ],
+      "description": "Company-owned restaurant sales YoY growth rate vs Q-4"
+    },
+    "franchised_revenue_yoy": {
+      "variable": "franchised_revenue",
+      "type": "yoy",
+      "constituents": [
+        "franchised_revenue"
+      ],
+      "description": "Franchised revenue YoY growth rate vs Q-4"
+    },
+    "other_revenue_yoy": {
+      "variable": "other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_revenue"
+      ],
+      "description": "Other revenue YoY growth rate vs Q-4"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "company_owned_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "company_owned_expenses"
+      ],
+      "description": "Company-owned restaurant expenses as % of total revenue, delta vs Q-4"
+    },
+    "franchised_occupancy_margin_delta_bps": {
+      "variable": "franchised_occupancy",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "franchised_occupancy"
+      ],
+      "description": "Franchised occupancy expenses as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga_total",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga_depreciation",
+        "sga_other"
+      ],
+      "description": "SG&A (depreciation and other) as % of total revenue, delta vs Q-4"
+    },
+    "other_restaurant_expenses_yoy": {
+      "variable": "other_restaurant_expenses",
+      "type": "yoy",
+      "constituents": [
+        "other_restaurant_expenses"
+      ],
+      "description": "other_restaurant_expenses YoY growth rate vs Q-4"
+    },
+    "other_operating_income_expense_abs": {
+      "variable": "other_operating_income_expense",
+      "type": "absolute",
+      "description": "other_operating_income_expense absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "nonoperating_income_expense_abs": {
+      "variable": "nonoperating_income_expense",
+      "type": "absolute",
+      "description": "nonoperating_income_expense absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 717.925,
+      "references": {
+        "last_q": 715.9,
+        "ttm": 717.925,
+        "q4": 720.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.211749,
+      "references": {
+        "last_q": 0.227535,
+        "ttm": 0.211749,
+        "q4": 0.2053
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 3.03,
+    "baseline_fq_eps": 2.8,
+    "target_fq_pretax": 2757.0
+  },
+  "revenue_field": "total_revenue"
+}

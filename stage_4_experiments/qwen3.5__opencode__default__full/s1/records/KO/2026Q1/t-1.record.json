@@ -1,0 +1,29 @@
+{
+  "ticker": "KO",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.7915192296983758,
+  "revenue_pred": 11574.16,
+  "operating_pred": 3871.93788,
+  "pretax_pred": 4166.32788,
+  "eps_p10": 0.71,
+  "eps_p90": 0.88,
+  "eps_gaap_actual": 0.91,
+  "operating_actual": 4359.0,
+  "pretax_actual": 4611.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.04,
+    "cogs_margin_delta_bps": -30,
+    "sga_margin_delta_bps": -25,
+    "other_operating_charges_yoy": 0,
+    "income_taxes_yoy": 0.04,
+    "interest_income_yoy": 0.05,
+    "interest_expense_yoy": 0.03,
+    "equity_income_net_abs": 250,
+    "other_income_net_abs": 254,
+    "noncontrolling_interests_abs": 4,
+    "tax_rate": 0.179131,
+    "shares_abs": 4310
+  },
+  "model": "qwen3.5-122b-a10b"
+}

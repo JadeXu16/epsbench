@@ -1,0 +1,29 @@
+{
+  "ticker": "BLK",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 11.616463332707557,
+  "revenue_pred": 6518.547,
+  "operating_pred": 2195.6729749014403,
+  "pretax_pred": 2284.5929749014404,
+  "eps_p10": 10.5,
+  "eps_p90": 12.75,
+  "eps_gaap_actual": 14.06,
+  "operating_actual": 2814.0,
+  "pretax_actual": 2842.0,
+  "fundamental_predictions": {
+    "advisory_fees_yoy": 0.218,
+    "performance_fees_yoy": 3.05,
+    "technology_services_revenue_yoy": 0.234,
+    "other_revenue_yoy": -0.005,
+    "compensation_margin_delta_bps": -100,
+    "other_operating_expense_margin_delta_bps": -50,
+    "net_gain_investments_abs": 75,
+    "interest_dividend_income_yoy": 0.04,
+    "interest_expense_yoy": 0,
+    "income_taxes_abs": 450,
+    "nci_abs": 5,
+    "shares_abs": 157.5
+  },
+  "model": "glm-4.5-air"
+}

@@ -1,0 +1,143 @@
+{
+  "ticker": "CVNA",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "retail_vehicle_sales_net": 2552.0,
+    "wholesale_sales_revenues": 678.0,
+    "other_sales_revenues": 317.0,
+    "net_sales_operating_revenues": 3547.0,
+    "cost_of_sales": 2784.0,
+    "selling_general_and_administrative_expenses": 494.0,
+    "goodwill_impairment": 0.0,
+    "other_operating_expense_net": 9.0,
+    "interest_expense": 148.0,
+    "loss_gain_on_debt_extinguishment": 6.0,
+    "other_income_expense_net": -50.0,
+    "pretax_income": 156.0,
+    "noncontrolling_interest": 80.0,
+    "shares": 133.555,
+    "tax_rate": -0.019231
+  },
+  "formulas": {
+    "gross_profit": "net_sales_operating_revenues - cost_of_sales",
+    "total_opex": "selling_general_and_administrative_expenses + goodwill_impairment + other_operating_expense_net",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - interest_expense - loss_gain_on_debt_extinguishment - other_income_expense_net",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - noncontrolling_interest",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "net_sales_operating_revenues_yoy": {
+      "variable": "net_sales_operating_revenues",
+      "type": "yoy",
+      "constituents": [
+        "net_sales_operating_revenues"
+      ],
+      "description": "Net sales and operating revenues YoY growth rate vs Q-4"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "net_sales_operating_revenues",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of net sales and operating revenues, delta vs Q-4"
+    },
+    "selling_general_and_administrative_expenses_margin_delta_bps": {
+      "variable": "selling_general_and_administrative_expenses",
+      "type": "bps",
+      "anchor": "net_sales_operating_revenues",
+      "constituents": [
+        "selling_general_and_administrative_expenses"
+      ],
+      "description": "SG&A expenses as % of net sales and operating revenues, delta vs Q-4"
+    },
+    "retail_vehicle_sales_net_abs": {
+      "variable": "retail_vehicle_sales_net",
+      "type": "absolute",
+      "default": 2552.0,
+      "description": "retail_vehicle_sales_net absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "wholesale_sales_revenues_abs": {
+      "variable": "wholesale_sales_revenues",
+      "type": "absolute",
+      "default": 678.0,
+      "description": "wholesale_sales_revenues absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "other_sales_revenues_abs": {
+      "variable": "other_sales_revenues",
+      "type": "absolute",
+      "default": 317.0,
+      "description": "other_sales_revenues absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "goodwill_impairment_abs": {
+      "variable": "goodwill_impairment",
+      "type": "absolute",
+      "description": "goodwill_impairment absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_operating_expense_net_abs": {
+      "variable": "other_operating_expense_net",
+      "type": "absolute",
+      "description": "other_operating_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "loss_gain_on_debt_extinguishment_abs": {
+      "variable": "loss_gain_on_debt_extinguishment",
+      "type": "absolute",
+      "description": "loss_gain_on_debt_extinguishment absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_expense_net_abs": {
+      "variable": "other_income_expense_net",
+      "type": "absolute",
+      "description": "other_income_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "noncontrolling_interest_abs": {
+      "variable": "noncontrolling_interest",
+      "type": "absolute",
+      "default": 80.0,
+      "description": "noncontrolling_interest absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 141.4115,
+      "references": {
+        "last_q": 146.274,
+        "ttm": 141.4115,
+        "q4": 133.555
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": -0.015444,
+      "references": {
+        "last_q": -0.015444,
+        "ttm": -0.004554,
+        "q4": -0.019231
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.59,
+    "target_fq_eps": 4.22,
+    "target_fq_pretax": -1832.0
+  },
+  "revenue_field": "net_sales_operating_revenues"
+}

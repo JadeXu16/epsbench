@@ -1,0 +1,29 @@
+{
+  "ticker": "XOM",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.252544364508397,
+  "revenue_pred": 83130.0,
+  "operating_pred": null,
+  "pretax_pred": 7203.110000000015,
+  "eps_p10": 0.85,
+  "eps_p90": 1.55,
+  "eps_gaap_actual": 1.0,
+  "operating_actual": null,
+  "pretax_actual": 6967.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0,
+    "crude_oil_purchases_margin_delta_bps": 350,
+    "production_manufacturing_margin_delta_bps": 30,
+    "sga_margin_delta_bps": 10,
+    "depreciation_margin_delta_bps": 140,
+    "other_taxes_margin_delta_bps": 0,
+    "exploration_expenses_yoy": 0.5,
+    "non_service_pension_expense_yoy": 0,
+    "interest_expense_yoy": -0.2,
+    "income_taxes_abs": 1800,
+    "noncontrolling_interests_abs": 180,
+    "shares_abs": 4170
+  },
+  "model": "claude-opus-4-6"
+}

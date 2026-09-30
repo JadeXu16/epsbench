@@ -1,0 +1,32 @@
+{
+  "ticker": "COIN",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.9513918121810921,
+  "revenue_pred": 1918.62006,
+  "operating_pred": 416.136996402543,
+  "pretax_pred": 324.162406402543,
+  "eps_p10": 0.1,
+  "eps_p90": 1.9,
+  "eps_gaap_actual": -2.484,
+  "operating_actual": 273.753,
+  "pretax_actual": -886.307,
+  "fundamental_predictions": {
+    "net_revenue_yoy": -0.16,
+    "other_revenue_yoy": -0.02,
+    "transaction_expense_margin_delta_bps": 100,
+    "tech_development_margin_delta_bps": 750,
+    "sales_marketing_margin_delta_bps": 310,
+    "general_administrative_margin_delta_bps": 880,
+    "gains_on_crypto_operations_net_abs": 5,
+    "crypto_impairment_net_abs": 0,
+    "restructuring_abs": 0,
+    "other_operating_expense_net_abs": 30,
+    "interest_expense_yoy": 0.07,
+    "gains_on_crypto_investment_net_abs": 220,
+    "other_income_net_abs": -150,
+    "tax_rate": 0.1386,
+    "shares_abs": 293.5
+  },
+  "model": "gpt-5.4"
+}

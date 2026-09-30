@@ -1,0 +1,125 @@
+{
+  "ticker": "COIN",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "net_revenue": 1960.319,
+    "other_revenue": 73.976,
+    "transaction_expense": 303.026,
+    "technology_and_development": 355.368,
+    "sales_and_marketing": 247.283,
+    "general_and_administrative": 394.346,
+    "crypto_operating_losses": 34.365,
+    "other_operating_income_net": 5.899,
+    "interest_expense": 20.511,
+    "crypto_investment_losses": 596.651,
+    "other_expense_net": 6.188,
+    "tax_rate": 0.204327,
+    "shares": 271.251
+  },
+  "formulas": {
+    "total_revenue": "net_revenue + other_revenue",
+    "core_operating_expenses": "transaction_expense + technology_and_development + sales_and_marketing + general_and_administrative",
+    "total_operating_expenses": "core_operating_expenses + crypto_operating_losses - other_operating_income_net",
+    "operating_income": "total_revenue - total_operating_expenses",
+    "pretax_income": "operating_income - interest_expense - crypto_investment_losses - other_expense_net",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "net_revenue_yoy": {
+      "variable": "net_revenue",
+      "type": "yoy",
+      "constituents": [
+        "net_revenue"
+      ],
+      "description": "Transaction revenue YoY growth rate vs Q-4"
+    },
+    "other_revenue_yoy": {
+      "variable": "other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_revenue"
+      ],
+      "description": "Subscription, stablecoin, and other non-transaction revenue YoY growth rate vs Q-4"
+    },
+    "core_opex_margin_delta_bps": {
+      "variable": "core_operating_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "transaction_expense",
+        "technology_and_development",
+        "sales_and_marketing",
+        "general_and_administrative"
+      ],
+      "description": "Core operating expenses as % of total revenue, delta vs Q-4"
+    },
+    "crypto_operating_losses_yoy": {
+      "variable": "crypto_operating_losses",
+      "type": "yoy",
+      "constituents": [
+        "crypto_operating_losses"
+      ],
+      "description": "Net losses on crypto assets held for operations YoY growth rate vs Q-4"
+    },
+    "crypto_investment_losses_yoy": {
+      "variable": "crypto_investment_losses",
+      "type": "yoy",
+      "constituents": [
+        "crypto_investment_losses"
+      ],
+      "description": "Net losses on crypto assets held for investment YoY growth rate vs Q-4"
+    },
+    "other_operating_income_net_abs": {
+      "variable": "other_operating_income_net",
+      "type": "absolute",
+      "description": "other_operating_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "other_expense_net_abs": {
+      "variable": "other_expense_net",
+      "type": "absolute",
+      "description": "other_expense_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.204327,
+      "references": {
+        "last_q": 0.24774,
+        "ttm": 0.171962,
+        "q4": 0.204327
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 283.52,
+      "references": {
+        "last_q": 291.958,
+        "ttm": 283.52,
+        "q4": 271.251
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.24,
+    "target_fq_eps": -1.49,
+    "target_fq_pretax": -464705.0
+  }
+}

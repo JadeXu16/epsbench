@@ -1,0 +1,28 @@
+{
+  "ticker": "GM",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": -3.871,
+  "revenue_pred": 45386.19,
+  "operating_pred": -3589.756294226245,
+  "pretax_pred": -4353.126294226245,
+  "eps_p10": -5.2,
+  "eps_p90": -2.5,
+  "eps_gaap_actual": -3.6,
+  "operating_actual": -3646.0,
+  "pretax_actual": -4249.0,
+  "fundamental_predictions": {
+    "automotive_revenue_yoy": -0.055,
+    "gm_financial_revenue_yoy": 0.02,
+    "cogs_margin_delta_bps": 1300,
+    "sga_margin_delta_bps": -190,
+    "automotive_interest_expense_yoy": -0.05,
+    "interest_income_net_yoy": -0.12,
+    "equity_loss_abs": 1000,
+    "nci_income_abs": 15,
+    "preferred_redemption_gain_abs": -30,
+    "tax_rate": 0.17,
+    "shares_abs": 945
+  },
+  "model": "claude-opus-4-6"
+}

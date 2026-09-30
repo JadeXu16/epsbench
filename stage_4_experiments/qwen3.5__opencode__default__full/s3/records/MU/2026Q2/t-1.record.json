@@ -1,0 +1,28 @@
+{
+  "ticker": "MU",
+  "fiscal_quarter": "2026Q2",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 8.379792591513045,
+  "revenue_pred": 18699.066,
+  "operating_pred": 11327.924592000001,
+  "pretax_pred": 11402.084592000003,
+  "eps_p10": 7.9,
+  "eps_p90": 8.87,
+  "eps_gaap_actual": 12.07,
+  "operating_actual": 16135.0,
+  "pretax_actual": 16160.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 1.322,
+    "cogs_margin_delta_bps": -3120,
+    "rd_yoy": 0.19,
+    "sga_yoy": 0.09,
+    "other_operating_income_expense_net_abs": 7,
+    "interest_income_yoy": 0.39,
+    "interest_expense_yoy": -0.42,
+    "other_non_operating_income_expense_net_abs": 11,
+    "equity_in_net_income_abs": 2,
+    "shares_abs": 1150,
+    "tax_rate": 0.155
+  },
+  "model": "qwen3.5-122b-a10b"
+}

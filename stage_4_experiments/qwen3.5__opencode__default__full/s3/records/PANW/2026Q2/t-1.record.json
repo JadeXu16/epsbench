@@ -1,0 +1,27 @@
+{
+  "ticker": "PANW",
+  "fiscal_quarter": "2026Q2",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.5028911467699313,
+  "revenue_pred": 2588.1885,
+  "operating_pred": 340.332154730575,
+  "pretax_pred": 439.332154730575,
+  "eps_p10": 0.42,
+  "eps_p90": 0.6,
+  "eps_gaap_actual": 0.61,
+  "operating_actual": 397.0,
+  "pretax_actual": 549.0,
+  "fundamental_predictions": {
+    "product_revenue_yoy": 0.175,
+    "subscription_support_revenue_yoy": 0.14,
+    "cogs_margin_delta_bps": -30,
+    "rd_yoy": 0.08,
+    "sales_marketing_margin_delta_bps": -50,
+    "general_administrative_margin_delta_bps": -40,
+    "interest_expense_abs": 1,
+    "other_income_net_abs": 100,
+    "tax_rate": 0.189,
+    "shares_abs": 708.5
+  },
+  "model": "qwen3.5-122b-a10b"
+}

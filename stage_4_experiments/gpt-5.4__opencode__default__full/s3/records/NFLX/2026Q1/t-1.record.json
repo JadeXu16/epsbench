@@ -1,0 +1,26 @@
+{
+  "ticker": "NFLX",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 7.515946620902117,
+  "revenue_pred": null,
+  "operating_pred": 3890.145831875999,
+  "pretax_pred": 3730.448671875999,
+  "eps_p10": 7.0,
+  "eps_p90": 8.2,
+  "eps_gaap_actual": 1.23,
+  "operating_actual": 3956997.0,
+  "pretax_actual": 6547086.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.154,
+    "cost_of_revenues_margin_delta_bps": 75,
+    "sales_marketing_margin_delta_bps": -15,
+    "technology_development_yoy": 0.09,
+    "general_administrative_yoy": 0.04,
+    "interest_expense_yoy": 0.03,
+    "interest_and_other_income_net_abs": 30,
+    "tax_rate": 0.1262,
+    "shares_abs": 433.7
+  },
+  "model": "gpt-5.4"
+}

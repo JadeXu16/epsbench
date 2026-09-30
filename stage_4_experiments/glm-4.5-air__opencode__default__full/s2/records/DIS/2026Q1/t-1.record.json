@@ -1,0 +1,28 @@
+{
+  "ticker": "DIS",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.3856560829043247,
+  "revenue_pred": 25140.08,
+  "operating_pred": 3897.918724925071,
+  "pretax_pred": 3615.5787249250707,
+  "eps_p10": null,
+  "eps_p90": null,
+  "eps_gaap_actual": 1.34,
+  "operating_actual": 3875.0,
+  "pretax_actual": 3693.0,
+  "fundamental_predictions": {
+    "services_revenue_yoy": 0.03,
+    "products_revenue_yoy": -0.08,
+    "cogs_margin_delta_bps": 50,
+    "sga_margin_delta_bps": 30,
+    "depreciation_amortization_yoy": 0.06,
+    "restructuring_impairment_abs": 0,
+    "interest_expense_net_yoy": 0.02,
+    "equity_income_abs": 92,
+    "nci_abs": 90,
+    "shares_abs": 1820,
+    "tax_rate": 0.2776
+  },
+  "model": "glm-4.5-air"
+}

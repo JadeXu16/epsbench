@@ -1,0 +1,90 @@
+{
+  "ticker": "MA",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "net_revenue": 7250.0,
+    "general_and_administrative": 2523.0,
+    "advertising_and_marketing": 152.0,
+    "depreciation_and_amortization": 275.0,
+    "provision_for_litigation": 151.0,
+    "investment_income": 88.0,
+    "losses_on_equity_investments_net": 29.0,
+    "interest_expense": 182.0,
+    "other_income_net": 5.0,
+    "tax_rate": 0.186306,
+    "shares": 914.0
+  },
+  "formulas": {
+    "total_opex": "general_and_administrative + advertising_and_marketing + depreciation_and_amortization + provision_for_litigation",
+    "operating_income": "net_revenue - total_opex",
+    "total_other_income": "investment_income + other_income_net - losses_on_equity_investments_net - interest_expense",
+    "pretax_income": "operating_income + total_other_income",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "net_revenue_yoy": {
+      "variable": "net_revenue",
+      "type": "yoy",
+      "constituents": [
+        "net_revenue"
+      ],
+      "description": "Net revenue YoY growth rate vs 2025Q1"
+    },
+    "total_opex_yoy": {
+      "variable": "total_opex",
+      "type": "yoy",
+      "constituents": [
+        "general_and_administrative",
+        "advertising_and_marketing",
+        "depreciation_and_amortization",
+        "provision_for_litigation"
+      ],
+      "description": "Total operating expenses YoY growth rate vs 2025Q1"
+    },
+    "total_other_income_margin_delta_bps": {
+      "variable": "total_other_income",
+      "type": "bps",
+      "anchor": "net_revenue",
+      "constituents": [
+        "investment_income",
+        "losses_on_equity_investments_net",
+        "interest_expense",
+        "other_income_net"
+      ],
+      "description": "Total other income (expense) as a percentage of net revenue, delta vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.186306,
+      "references": {
+        "last_q": 0.16735,
+        "ttm": 0.194316,
+        "q4": 0.186306
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 908.25,
+      "references": {
+        "last_q": 905.0,
+        "ttm": 908.25,
+        "q4": 914.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 3.59,
+    "target_fq_eps": 4.35,
+    "target_fq_pretax": 4812.0
+  }
+}

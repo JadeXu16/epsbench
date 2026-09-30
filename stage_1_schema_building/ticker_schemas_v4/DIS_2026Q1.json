@@ -1,0 +1,131 @@
+{
+  "ticker": "DIS",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "services": 22048.0,
+    "products": 2642.0,
+    "cost_services": 13789.0,
+    "cost_products": 1617.0,
+    "sga": 3930.0,
+    "depreciation_amortization": 1276.0,
+    "restructuring_impairment": 143.0,
+    "interest_expense_net": 367.0,
+    "equity_income": 92.0,
+    "nci": 90.0,
+    "shares": 1818.0,
+    "tax_rate": 0.277596
+  },
+  "formulas": {
+    "total_revenue": "services + products",
+    "total_cogs": "cost_services + cost_products",
+    "gross_profit": "total_revenue - total_cogs",
+    "total_opex": "sga + depreciation_amortization",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income - restructuring_impairment - interest_expense_net + equity_income",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - nci",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "services_revenue_yoy": {
+      "variable": "services",
+      "type": "yoy",
+      "constituents": [
+        "services"
+      ],
+      "description": "Services revenue YoY growth rate vs Q-4"
+    },
+    "products_revenue_yoy": {
+      "variable": "products",
+      "type": "yoy",
+      "constituents": [
+        "products"
+      ],
+      "description": "Products revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_services",
+        "cost_products"
+      ],
+      "description": "Combined COGS as % of total revenue, delta vs Q-4"
+    },
+    "sga_margin_delta_bps": {
+      "variable": "sga",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sga"
+      ],
+      "description": "SG&A as % of total revenue, delta vs Q-4"
+    },
+    "depreciation_amortization_yoy": {
+      "variable": "depreciation_amortization",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_amortization"
+      ],
+      "description": "depreciation_amortization YoY growth rate vs Q-4"
+    },
+    "restructuring_impairment_abs": {
+      "variable": "restructuring_impairment",
+      "type": "absolute",
+      "description": "restructuring_impairment absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_net_yoy": {
+      "variable": "interest_expense_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense_net"
+      ],
+      "description": "interest_expense_net YoY growth rate vs Q-4"
+    },
+    "equity_income_abs": {
+      "variable": "equity_income",
+      "type": "absolute",
+      "description": "equity_income absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "nci_abs": {
+      "variable": "nci",
+      "type": "absolute",
+      "default": 90.0,
+      "description": "nci absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1810.5,
+      "references": {
+        "last_q": 1805.0,
+        "ttm": 1810.5,
+        "q4": 1818.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.277596,
+      "references": {
+        "last_q": 0.294377,
+        "ttm": -0.06665,
+        "q4": 0.277596
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.4,
+    "target_fq_eps": 1.34,
+    "target_fq_pretax": 3693.0
+  },
+  "revenue_field": "total_revenue"
+}

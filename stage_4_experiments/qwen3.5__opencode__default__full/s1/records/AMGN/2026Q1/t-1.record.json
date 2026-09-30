@@ -1,0 +1,27 @@
+{
+  "ticker": "AMGN",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.3007015867338843,
+  "revenue_pred": 8121.4,
+  "operating_pred": 936.5616745244797,
+  "pretax_pred": 1428.0216745244797,
+  "eps_p10": 1.75,
+  "eps_p90": 2.85,
+  "eps_gaap_actual": 3.34,
+  "operating_actual": 2666.0,
+  "pretax_actual": 2084.0,
+  "fundamental_predictions": {
+    "product_sales_yoy": 0,
+    "other_revenues_yoy": -0.1,
+    "cost_of_sales_margin_delta_bps": 5,
+    "rd_yoy": 0.08,
+    "sga_yoy": 0.05,
+    "other_opex_yoy": 0.02,
+    "interest_expense_net_yoy": -0.02,
+    "other_income_net_abs": 1200,
+    "tax_rate": 0.13,
+    "shares_abs": 540
+  },
+  "model": "qwen3.5-122b-a10b"
+}

@@ -1,0 +1,30 @@
+{
+  "ticker": "UBER",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.45180118779481104,
+  "revenue_pred": 13724.27,
+  "operating_pred": 1375.8866249999992,
+  "pretax_pred": 1267.736624999999,
+  "eps_p10": 0.35,
+  "eps_p90": 0.55,
+  "eps_gaap_actual": 0.13,
+  "operating_actual": 1923.0,
+  "pretax_actual": 476.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.19,
+    "cost_of_revenue_margin_delta_bps": 50,
+    "operations_and_support_margin_delta_bps": 50,
+    "sales_and_marketing_margin_delta_bps": 0,
+    "rd_yoy": 0.12,
+    "general_and_administrative_margin_delta_bps": 25,
+    "depreciation_and_amortization_yoy": 0.02,
+    "interest_expense_yoy": 0.03,
+    "other_income_net_abs": 0,
+    "loss_from_equity_method_investments_abs": 15,
+    "nci_net_loss_abs": 3,
+    "tax_rate": 0.235,
+    "shares_abs": 2120
+  },
+  "model": "glm-4.5-air"
+}

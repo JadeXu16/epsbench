@@ -1,0 +1,31 @@
+{
+  "ticker": "CVNA",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.1160397369014092,
+  "revenue_pred": 5192.808,
+  "operating_pred": 503.0577760000001,
+  "pretax_pred": 254.65777600000013,
+  "eps_p10": 0.85,
+  "eps_p90": 1.45,
+  "eps_gaap_actual": 4.22,
+  "operating_actual": 424.0,
+  "pretax_actual": -1832.0,
+  "fundamental_predictions": {
+    "net_sales_operating_revenues_yoy": 0.464,
+    "cost_of_sales_margin_delta_bps": 120,
+    "selling_general_and_administrative_expenses_margin_delta_bps": -340,
+    "retail_vehicle_sales_net_abs": 3800,
+    "wholesale_sales_revenues_abs": 945,
+    "other_sales_revenues_abs": 434,
+    "goodwill_impairment_abs": 0,
+    "other_operating_expense_net_abs": 5,
+    "interest_expense_yoy": -0.2,
+    "loss_gain_on_debt_extinguishment_abs": 10,
+    "other_income_expense_net_abs": 120,
+    "noncontrolling_interest_abs": 100,
+    "shares_abs": 142,
+    "tax_rate": -0.015
+  },
+  "model": "glm-4.5-air"
+}

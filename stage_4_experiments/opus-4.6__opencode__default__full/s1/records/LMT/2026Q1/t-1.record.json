@@ -1,0 +1,28 @@
+{
+  "ticker": "LMT",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 6.783313587213822,
+  "revenue_pred": 18188.035,
+  "operating_pred": 2212.6960799999997,
+  "pretax_pred": 1862.7960799999998,
+  "eps_p10": 5.9,
+  "eps_p90": 7.7,
+  "eps_gaap_actual": 6.44,
+  "operating_actual": 2063.0,
+  "pretax_actual": 1774.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.01,
+    "services_revenue_yoy": 0.025,
+    "products_cogs_margin_delta_bps": 70,
+    "services_cogs_margin_delta_bps": 80,
+    "other_unallocated_net_yoy": -0.12,
+    "other_income_net_abs": 28,
+    "interest_expense_yoy": 0.1,
+    "non_service_fas_pension_expense_yoy": -0.05,
+    "other_non_operating_income_net_abs": 38,
+    "tax_rate": 0.157,
+    "shares_abs": 231.5
+  },
+  "model": "claude-opus-4-6"
+}

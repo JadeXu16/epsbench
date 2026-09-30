@@ -1,0 +1,167 @@
+{
+  "ticker": "MS",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "investment_banking_revenue": 1791.0,
+    "trading_revenue": 3778.0,
+    "investments_revenue": 215.0,
+    "commissions_and_fees_revenue": 1390.0,
+    "asset_management_revenue": 6059.0,
+    "other_revenue": 438.0,
+    "interest_income": 13491.0,
+    "interest_expense": 10939.0,
+    "provision_for_credit_losses": 115.0,
+    "compensation_and_benefits": 6289.0,
+    "brokerage_clearing_and_exchange_fees": 1180.0,
+    "information_processing_and_communications": 1059.0,
+    "professional_services": 798.0,
+    "occupancy_and_equipment": 527.0,
+    "marketing_and_business_development": 279.0,
+    "other_non_interest_expense": 1070.0,
+    "net_income_noncontrolling_interests": 10.0,
+    "preferred_stock_dividends": 150.0,
+    "shares": 1609.0,
+    "tax_rate": 0.240929
+  },
+  "formulas": {
+    "total_non_interest_revenues": "investment_banking_revenue + trading_revenue + investments_revenue + commissions_and_fees_revenue + asset_management_revenue + other_revenue",
+    "net_interest": "interest_income - interest_expense",
+    "total_revenue": "total_non_interest_revenues + net_interest",
+    "total_non_interest_expenses": "compensation_and_benefits + brokerage_clearing_and_exchange_fees + information_processing_and_communications + professional_services + occupancy_and_equipment + marketing_and_business_development + other_non_interest_expense",
+    "pretax_income": "total_non_interest_revenues + net_interest - provision_for_credit_losses - total_non_interest_expenses",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - net_income_noncontrolling_interests - preferred_stock_dividends",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "investment_banking_revenue_yoy": {
+      "variable": "investment_banking_revenue",
+      "type": "yoy",
+      "constituents": [
+        "investment_banking_revenue"
+      ],
+      "description": "Investment banking revenue YoY growth rate vs Q-4"
+    },
+    "trading_revenue_yoy": {
+      "variable": "trading_revenue",
+      "type": "yoy",
+      "constituents": [
+        "trading_revenue"
+      ],
+      "description": "Trading revenue YoY growth rate vs Q-4"
+    },
+    "commissions_and_fees_revenue_yoy": {
+      "variable": "commissions_and_fees_revenue",
+      "type": "yoy",
+      "constituents": [
+        "commissions_and_fees_revenue"
+      ],
+      "description": "Commissions and fees revenue YoY growth rate vs Q-4"
+    },
+    "asset_management_revenue_yoy": {
+      "variable": "asset_management_revenue",
+      "type": "yoy",
+      "constituents": [
+        "asset_management_revenue"
+      ],
+      "description": "Asset management revenue YoY growth rate vs Q-4"
+    },
+    "total_non_interest_expenses_margin_delta_bps": {
+      "variable": "total_non_interest_expenses",
+      "type": "bps",
+      "anchor": "total_non_interest_revenues",
+      "constituents": [
+        "compensation_and_benefits",
+        "brokerage_clearing_and_exchange_fees",
+        "information_processing_and_communications",
+        "professional_services",
+        "occupancy_and_equipment",
+        "marketing_and_business_development",
+        "other_non_interest_expense"
+      ],
+      "description": "Total non-interest expenses as % of non-interest revenues, delta vs Q-4"
+    },
+    "investments_revenue_abs": {
+      "variable": "investments_revenue",
+      "type": "absolute",
+      "description": "investments_revenue absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_revenue_yoy": {
+      "variable": "other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_revenue"
+      ],
+      "description": "other_revenue YoY growth rate vs Q-4"
+    },
+    "interest_income_yoy": {
+      "variable": "interest_income",
+      "type": "yoy",
+      "constituents": [
+        "interest_income"
+      ],
+      "description": "interest_income YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "provision_for_credit_losses_yoy": {
+      "variable": "provision_for_credit_losses",
+      "type": "yoy",
+      "constituents": [
+        "provision_for_credit_losses"
+      ],
+      "description": "provision_for_credit_losses YoY growth rate vs Q-4"
+    },
+    "net_income_noncontrolling_interests_abs": {
+      "variable": "net_income_noncontrolling_interests",
+      "type": "absolute",
+      "default": 10.0,
+      "description": "net_income_noncontrolling_interests absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "preferred_stock_dividends_abs": {
+      "variable": "preferred_stock_dividends",
+      "type": "absolute",
+      "default": 150.0,
+      "description": "preferred_stock_dividends absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1598.0,
+      "references": {
+        "last_q": 1590.0,
+        "ttm": 1598.0,
+        "q4": 1609.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.22777,
+      "references": {
+        "last_q": 0.22777,
+        "ttm": 0.226303,
+        "q4": 0.240929
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 2.68,
+    "baseline_fq_eps": 2.22,
+    "target_fq_pretax": 5760.0
+  },
+  "revenue_field": "total_revenue"
+}

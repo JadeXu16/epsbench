@@ -1,0 +1,28 @@
+{
+  "ticker": "AMD",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.8029,
+  "revenue_pred": 9603.132,
+  "operating_pred": 1457.1483759999992,
+  "pretax_pred": 1494.0883759999992,
+  "eps_p10": 0.45,
+  "eps_p90": 1.1,
+  "eps_gaap_actual": 0.92,
+  "operating_actual": 1752.0,
+  "pretax_actual": 2074.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": 0.254,
+    "cogs_margin_delta_bps": -110,
+    "rd_yoy": 0.27,
+    "sga_margin_delta_bps": -70,
+    "restructuring_charges_yoy": -1.0,
+    "licensing_gain_yoy": -1.0,
+    "interest_expense_yoy": 0.74,
+    "other_income_net_abs": 70,
+    "equity_income_in_investee_abs": 10,
+    "shares_abs": 1650,
+    "tax_rate": 0.12
+  },
+  "model": "claude-opus-4-6"
+}

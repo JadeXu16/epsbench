@@ -1,0 +1,27 @@
+{
+  "ticker": "QCOM",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 3.234140613519408,
+  "revenue_pred": 12699.84,
+  "operating_pred": 3976.6966077093157,
+  "pretax_pred": 4056.6966077093157,
+  "eps_p10": 3.08,
+  "eps_p90": 3.38,
+  "eps_gaap_actual": 2.78,
+  "operating_actual": 3366.0,
+  "pretax_actual": 3547.0,
+  "fundamental_predictions": {
+    "equipment_services_revenue_yoy": 0.095,
+    "licensing_revenue_yoy": 0.05,
+    "cogs_margin_delta_bps": -20,
+    "rd_yoy": 0.06,
+    "sga_margin_delta_bps": -15,
+    "other_income_expense_net_abs": 0,
+    "interest_expense_yoy": 0,
+    "investment_and_other_income_net_abs": 243,
+    "shares_abs": 1085,
+    "tax_rate": 0.135
+  },
+  "model": "qwen3.5-122b-a10b"
+}

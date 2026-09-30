@@ -1,0 +1,25 @@
+{
+  "ticker": "GOOGL",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.9692325250622944,
+  "revenue_pred": 107378.46,
+  "operating_pred": 35539.22692999999,
+  "pretax_pred": 43539.22692999999,
+  "eps_p10": 2.65,
+  "eps_p90": 3.3,
+  "eps_gaap_actual": 5.11,
+  "operating_actual": 39696.0,
+  "pretax_actual": 77412.0,
+  "fundamental_predictions": {
+    "revenues_yoy": 0.19,
+    "cogs_margin_delta_bps": 45,
+    "rd_yoy": 0.28,
+    "sales_marketing_yoy": 0.12,
+    "general_admin_yoy": 0.08,
+    "other_income_net_abs": 8000,
+    "tax_rate": 0.168,
+    "shares_abs": 12200
+  },
+  "model": "qwen3.5-122b-a10b"
+}

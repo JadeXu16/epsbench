@@ -1,0 +1,24 @@
+{
+  "ticker": "LOW",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.679930741238936,
+  "revenue_pred": 18881.03,
+  "operating_pred": 1622.3258799999985,
+  "pretax_pred": 1248.8958799999984,
+  "eps_p10": 1.45,
+  "eps_p90": 1.95,
+  "eps_gaap_actual": 1.77,
+  "operating_actual": 1708.0,
+  "pretax_actual": 1304.0,
+  "fundamental_predictions": {
+    "net_sales_yoy": 0.015,
+    "cost_of_sales_margin_delta_bps": 10,
+    "sga_margin_delta_bps": 30,
+    "depreciation_yoy": 0.05,
+    "interest_net_yoy": 0.07,
+    "tax_rate": 0.24,
+    "shares_abs": 565
+  },
+  "model": "glm-4.5-air"
+}

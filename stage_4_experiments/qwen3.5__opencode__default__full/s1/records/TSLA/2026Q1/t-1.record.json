@@ -1,0 +1,32 @@
+{
+  "ticker": "TSLA",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.08210560593109532,
+  "revenue_pred": 20594.145,
+  "operating_pred": 58.32490099301958,
+  "pretax_pred": 410.5049009930196,
+  "eps_p10": 0.03,
+  "eps_p90": 0.14,
+  "eps_gaap_actual": 0.13,
+  "operating_actual": 941.0,
+  "pretax_actual": 748.0,
+  "fundamental_predictions": {
+    "automotive_sales_revenue_yoy": 0.055,
+    "automotive_regulatory_credits_yoy": -0.08,
+    "automotive_leasing_revenue_yoy": 0.01,
+    "energy_generation_storage_revenue_yoy": 0.12,
+    "services_and_other_revenue_yoy": 0.1,
+    "cogs_margin_delta_bps": 40,
+    "rd_yoy": 0.22,
+    "sga_yoy": 0.15,
+    "restructuring_and_other_abs": 60,
+    "interest_income_yoy": 0.2,
+    "interest_expense_yoy": 0.02,
+    "other_expense_net_abs": 35,
+    "net_income_attributable_to_nci_abs": 10,
+    "tax_rate": 0.27,
+    "shares_abs": 3528
+  },
+  "model": "qwen3.5-122b-a10b"
+}

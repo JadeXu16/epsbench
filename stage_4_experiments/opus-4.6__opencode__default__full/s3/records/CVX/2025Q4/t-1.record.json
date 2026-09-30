@@ -1,0 +1,31 @@
+{
+  "ticker": "CVX",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.289079472056576,
+  "revenue_pred": 47367.32,
+  "operating_pred": null,
+  "pretax_pred": 4087.691578112055,
+  "eps_p10": 0.65,
+  "eps_p90": 2.1,
+  "eps_gaap_actual": 1.39,
+  "operating_actual": null,
+  "pretax_actual": 4599.0,
+  "fundamental_predictions": {
+    "sales_and_other_operating_revenues_yoy": -0.02,
+    "purchased_crude_oil_and_products_margin_delta_bps": -100,
+    "operating_expenses_margin_delta_bps": 100,
+    "selling_general_and_administrative_expenses_margin_delta_bps": 10,
+    "exploration_expenses_yoy": 0.2,
+    "depreciation_depletion_and_amortization_margin_delta_bps": 200,
+    "income_from_equity_affiliates_yoy": -0.15,
+    "other_income_net_abs": 500,
+    "taxes_other_than_income_yoy": 0.1,
+    "interest_and_debt_expense_yoy": 0.8,
+    "other_net_periodic_benefit_costs_yoy": 0.4,
+    "nci_abs": 40,
+    "shares_abs": 1935,
+    "tax_rate": 0.38
+  },
+  "model": "claude-opus-4-6"
+}

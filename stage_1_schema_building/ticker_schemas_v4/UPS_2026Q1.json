@@ -1,0 +1,121 @@
+{
+  "ticker": "UPS",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "revenue": 21546.0,
+    "compensation_and_benefits": 11827.0,
+    "repairs_and_maintenance": 732.0,
+    "depreciation_and_amortization": 912.0,
+    "purchased_transportation": 2730.0,
+    "fuel": 1058.0,
+    "other_occupancy": 607.0,
+    "other_expenses": 2014.0,
+    "investment_income_and_other": 79.0,
+    "interest_expense": 222.0,
+    "tax_rate": 0.220617203,
+    "shares": 847.857
+  },
+  "formulas": {
+    "other_opex_total": "repairs_and_maintenance + depreciation_and_amortization + other_occupancy + other_expenses",
+    "total_operating_expenses": "compensation_and_benefits + purchased_transportation + fuel + other_opex_total",
+    "operating_profit": "revenue - total_operating_expenses",
+    "other_income_net": "investment_income_and_other - interest_expense",
+    "pretax_income": "operating_profit + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Total revenue YoY growth rate vs Q-4"
+    },
+    "compensation_and_benefits_yoy": {
+      "variable": "compensation_and_benefits",
+      "type": "yoy",
+      "constituents": [
+        "compensation_and_benefits"
+      ],
+      "description": "Compensation and benefits expense YoY growth rate vs Q-4"
+    },
+    "purchased_transportation_margin_delta_bps": {
+      "variable": "purchased_transportation",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "purchased_transportation"
+      ],
+      "description": "Purchased transportation as % of revenue, delta vs Q-4"
+    },
+    "fuel_margin_delta_bps": {
+      "variable": "fuel",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "fuel"
+      ],
+      "description": "Fuel expense as % of revenue, delta vs Q-4"
+    },
+    "other_opex_margin_delta_bps": {
+      "variable": "other_opex_total",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "repairs_and_maintenance",
+        "depreciation_and_amortization",
+        "other_occupancy",
+        "other_expenses"
+      ],
+      "description": "Total other operating expenses as % of revenue, delta vs Q-4"
+    },
+    "investment_income_and_other_abs": {
+      "variable": "investment_income_and_other",
+      "type": "absolute",
+      "description": "investment_income_and_other absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.222222,
+      "references": {
+        "last_q": 0.244941,
+        "ttm": 0.222222,
+        "q4": 0.220617203
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 847.1671,
+      "references": {
+        "last_q": 844.811320754717,
+        "ttm": 847.1671,
+        "q4": 847.857
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.4,
+    "target_fq_eps": 1.02,
+    "target_fq_pretax": 1124.0
+  }
+}

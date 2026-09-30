@@ -1,0 +1,30 @@
+{
+  "ticker": "MELI",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 11.75163090736337,
+  "revenue_pred": 8508.338,
+  "operating_pred": 831.4257550034663,
+  "pretax_pred": 711.4257550034663,
+  "eps_p10": 8.2,
+  "eps_p90": 15.4,
+  "eps_gaap_actual": 11.03,
+  "operating_actual": 889.0,
+  "pretax_actual": 784.0,
+  "fundamental_predictions": {
+    "net_service_revenues_and_financial_income_yoy": 0.398,
+    "net_product_revenues_yoy": 0.45,
+    "cost_of_net_revenues_and_financial_expenses_margin_delta_bps": 250,
+    "product_and_technology_development_margin_delta_bps": -50,
+    "sales_and_marketing_margin_delta_bps": 70,
+    "provision_for_doubtful_accounts_yoy": 0.65,
+    "general_and_administrative_yoy": 0.25,
+    "interest_income_and_other_financial_gains_abs": 55,
+    "interest_expense_and_other_financial_losses_abs": 65,
+    "foreign_currency_losses_net_abs": 110,
+    "equity_in_earnings_of_unconsolidated_entity_abs": 0,
+    "shares_abs": 50.7,
+    "tax_rate": 0.162516
+  },
+  "model": "gpt-5.5"
+}

@@ -1,0 +1,128 @@
+{
+  "ticker": "UPS",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "revenue": 25301.0,
+    "compensation_and_benefits": 12996.0,
+    "repairs_and_maintenance": 775.0,
+    "depreciation_and_amortization": 919.0,
+    "purchased_transportation": 3695.0,
+    "fuel": 1112.0,
+    "other_occupancy": 544.0,
+    "other_expenses": 2334.0,
+    "other_income_expense": -799.0,
+    "shares": 855.0,
+    "tax_rate": 0.190879
+  },
+  "formulas": {
+    "total_operating_expenses": "compensation_and_benefits + repairs_and_maintenance + depreciation_and_amortization + purchased_transportation + fuel + other_occupancy + other_expenses",
+    "operating_profit": "revenue - total_operating_expenses",
+    "pretax_income": "operating_profit + other_income_expense",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "revenue_yoy": {
+      "variable": "revenue",
+      "type": "yoy",
+      "constituents": [
+        "revenue"
+      ],
+      "description": "Total revenue YoY growth rate vs Q4-2024"
+    },
+    "compensation_and_benefits_margin_delta_bps": {
+      "variable": "compensation_and_benefits",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "compensation_and_benefits"
+      ],
+      "description": "Compensation and benefits as % of revenue, delta vs Q4-2024"
+    },
+    "purchased_transportation_margin_delta_bps": {
+      "variable": "purchased_transportation",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "purchased_transportation"
+      ],
+      "description": "Purchased transportation as % of revenue, delta vs Q4-2024"
+    },
+    "fuel_margin_delta_bps": {
+      "variable": "fuel",
+      "type": "bps",
+      "anchor": "revenue",
+      "constituents": [
+        "fuel"
+      ],
+      "description": "Fuel expense as % of revenue, delta vs Q4-2024"
+    },
+    "depreciation_and_amortization_yoy": {
+      "variable": "depreciation_and_amortization",
+      "type": "yoy",
+      "constituents": [
+        "depreciation_and_amortization"
+      ],
+      "description": "Depreciation and amortization expense YoY growth rate vs Q4-2024"
+    },
+    "repairs_and_maintenance_yoy": {
+      "variable": "repairs_and_maintenance",
+      "type": "yoy",
+      "constituents": [
+        "repairs_and_maintenance"
+      ],
+      "description": "repairs_and_maintenance YoY growth rate vs Q-4"
+    },
+    "other_occupancy_yoy": {
+      "variable": "other_occupancy",
+      "type": "yoy",
+      "constituents": [
+        "other_occupancy"
+      ],
+      "description": "other_occupancy YoY growth rate vs Q-4"
+    },
+    "other_expenses_abs": {
+      "variable": "other_expenses",
+      "type": "absolute",
+      "description": "other_expenses absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_expense_abs": {
+      "variable": "other_income_expense",
+      "type": "absolute",
+      "description": "other_income_expense absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 849.725,
+      "references": {
+        "last_q": 846.0,
+        "ttm": 849.725,
+        "q4": 855.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.190879,
+      "references": {
+        "last_q": 0.184194,
+        "ttm": 0.204798,
+        "q4": 0.190879
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 2.1,
+    "baseline_fq_eps": 2.01,
+    "target_fq_pretax": 2372.0
+  },
+  "revenue_field": "revenue"
+}

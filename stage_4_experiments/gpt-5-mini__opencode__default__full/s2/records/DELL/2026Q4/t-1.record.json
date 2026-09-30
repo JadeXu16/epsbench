@@ -1,0 +1,26 @@
+{
+  "ticker": "DELL",
+  "fiscal_quarter": "2026Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.997589579774118,
+  "revenue_pred": 27658.44,
+  "operating_pred": 2771.274035351634,
+  "pretax_pred": 2631.024035351634,
+  "eps_p10": 2.45,
+  "eps_p90": 3.55,
+  "eps_gaap_actual": 3.38,
+  "operating_actual": 3092.0,
+  "pretax_actual": 2799.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.2,
+    "services_revenue_yoy": 0.02,
+    "cogs_margin_delta_bps": 120,
+    "sga_margin_delta_bps": -120,
+    "rd_yoy": 0.02,
+    "interest_and_other_net_yoy": -0.25,
+    "net_loss_nci_abs": 0,
+    "shares_abs": 700,
+    "tax_rate": 0.202473
+  },
+  "model": "gpt-5-mini"
+}

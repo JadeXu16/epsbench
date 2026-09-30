@@ -1,0 +1,137 @@
+{
+  "ticker": "MELI",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "net_service_revenues_and_financial_income": 5320.0,
+    "net_product_revenues": 615.0,
+    "cost_of_net_revenues_and_financial_expenses": 3164.0,
+    "product_and_technology_development": 551.0,
+    "sales_and_marketing": 599.0,
+    "provision_for_doubtful_accounts": 603.0,
+    "general_and_administrative": 255.0,
+    "interest_income_and_other_financial_gains": 37.0,
+    "interest_expense_and_other_financial_losses": 39.0,
+    "foreign_currency_losses_net": 55.0,
+    "tax_rate": 0.3002832861189802,
+    "shares": 50.697375
+  },
+  "formulas": {
+    "net_revenues": "net_service_revenues_and_financial_income + net_product_revenues",
+    "gross_profit": "net_revenues - cost_of_net_revenues_and_financial_expenses",
+    "total_opex": "product_and_technology_development + sales_and_marketing + provision_for_doubtful_accounts + general_and_administrative",
+    "operating_income": "gross_profit - total_opex",
+    "other_income_net": "interest_income_and_other_financial_gains - interest_expense_and_other_financial_losses - foreign_currency_losses_net",
+    "pretax_income": "operating_income + other_income_net",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "net_service_revenues_and_financial_income_yoy": {
+      "variable": "net_service_revenues_and_financial_income",
+      "type": "yoy",
+      "constituents": [
+        "net_service_revenues_and_financial_income"
+      ],
+      "description": "Service revenues and financial income YoY growth vs Q-4 2025Q1"
+    },
+    "net_product_revenues_yoy": {
+      "variable": "net_product_revenues",
+      "type": "yoy",
+      "constituents": [
+        "net_product_revenues"
+      ],
+      "description": "Product revenues YoY growth vs Q-4 2025Q1"
+    },
+    "cost_of_revenues_margin_delta_bps": {
+      "variable": "cost_of_net_revenues_and_financial_expenses",
+      "type": "bps",
+      "anchor": "net_revenues",
+      "constituents": [
+        "cost_of_net_revenues_and_financial_expenses"
+      ],
+      "description": "Cost of net revenues and financial expenses as % of net revenues, delta vs Q-4"
+    },
+    "product_and_technology_development_margin_delta_bps": {
+      "variable": "product_and_technology_development",
+      "type": "bps",
+      "anchor": "net_revenues",
+      "constituents": [
+        "product_and_technology_development"
+      ],
+      "description": "Product and technology development expense as % of net revenues, delta vs Q-4"
+    },
+    "sales_and_marketing_margin_delta_bps": {
+      "variable": "sales_and_marketing",
+      "type": "bps",
+      "anchor": "net_revenues",
+      "constituents": [
+        "sales_and_marketing"
+      ],
+      "description": "Sales and marketing expense as % of net revenues, delta vs Q-4"
+    },
+    "provision_for_doubtful_accounts_margin_delta_bps": {
+      "variable": "provision_for_doubtful_accounts",
+      "type": "bps",
+      "anchor": "net_revenues",
+      "constituents": [
+        "provision_for_doubtful_accounts"
+      ],
+      "description": "Provision for doubtful accounts as % of net revenues, delta vs Q-4"
+    },
+    "general_and_administrative_yoy": {
+      "variable": "general_and_administrative",
+      "type": "yoy",
+      "constituents": [
+        "general_and_administrative"
+      ],
+      "description": "general_and_administrative YoY growth rate vs Q-4"
+    },
+    "interest_income_and_other_financial_gains_abs": {
+      "variable": "interest_income_and_other_financial_gains",
+      "type": "absolute",
+      "description": "interest_income_and_other_financial_gains absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_and_other_financial_losses_abs": {
+      "variable": "interest_expense_and_other_financial_losses",
+      "type": "absolute",
+      "description": "interest_expense_and_other_financial_losses absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "foreign_currency_losses_net_abs": {
+      "variable": "foreign_currency_losses_net",
+      "type": "absolute",
+      "description": "foreign_currency_losses_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.364118,
+      "references": {
+        "last_q": 0.463014,
+        "ttm": 0.364118,
+        "q4": 0.3002832861189802
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 50.697375,
+      "references": {
+        "last_q": 50.697375,
+        "ttm": 50.6974,
+        "q4": 50.697375
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 9.74,
+    "target_fq_eps": 8.23,
+    "target_fq_pretax": 579.0
+  }
+}

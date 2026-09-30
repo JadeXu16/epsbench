@@ -1,0 +1,26 @@
+{
+  "ticker": "ISRG",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.2105214690022224,
+  "revenue_pred": 2765.103,
+  "operating_pred": 874.0521039136111,
+  "pretax_pred": 944.0521039136111,
+  "eps_p10": 1.95,
+  "eps_p90": 2.48,
+  "eps_gaap_actual": 2.21,
+  "operating_actual": 864.3,
+  "pretax_actual": 955.6,
+  "fundamental_predictions": {
+    "product_revenue_yoy": 0.15,
+    "service_revenue_yoy": 0.12,
+    "cogs_margin_delta_bps": -30,
+    "rd_yoy": 0.14,
+    "sga_margin_delta_bps": -80,
+    "other_income_net_abs": 70,
+    "shares_abs": 361.8,
+    "nci_abs": 2.3,
+    "tax_rate": 0.1504
+  },
+  "model": "gpt-5.5"
+}

@@ -1,0 +1,25 @@
+{
+  "ticker": "JPM",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 4.9307,
+  "revenue_pred": 45979.29,
+  "operating_pred": null,
+  "pretax_pred": 17330.93480424242,
+  "eps_p10": 4.35,
+  "eps_p90": 5.65,
+  "eps_gaap_actual": 4.63,
+  "operating_actual": null,
+  "pretax_actual": 17160.0,
+  "fundamental_predictions": {
+    "noninterest_revenue_yoy": 0.08,
+    "net_interest_income_yoy": 0.071,
+    "provision_margin_delta_bps": 280,
+    "compensation_expense_yoy": 0.08,
+    "other_operating_expense_margin_delta_bps": 0,
+    "preferred_dividends_abs": 330,
+    "tax_rate": 0.2,
+    "shares_abs": 2745
+  },
+  "model": "claude-opus-4-6"
+}

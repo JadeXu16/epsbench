@@ -1,0 +1,111 @@
+{
+  "ticker": "LULU",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "net_revenue": 3611.497,
+    "cost_of_goods_sold": 1429.545,
+    "selling_general_and_administrative_expenses": 1138.167,
+    "impairment_of_goodwill_and_other_assets_restructuring_costs": 0.0,
+    "amortization_of_intangible_assets": 1.617,
+    "gain_on_disposal_of_assets": 0.0,
+    "other_income_expense_net": 15.36,
+    "shares": 122.803,
+    "tax_rate": 0.292309
+  },
+  "formulas": {
+    "gross_profit": "net_revenue - cost_of_goods_sold",
+    "total_opex": "selling_general_and_administrative_expenses + impairment_of_goodwill_and_other_assets_restructuring_costs + amortization_of_intangible_assets",
+    "income_from_operations": "gross_profit - total_opex + gain_on_disposal_of_assets",
+    "pretax_income": "income_from_operations + other_income_expense_net",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "net_revenue_yoy": {
+      "variable": "net_revenue",
+      "type": "yoy",
+      "constituents": [
+        "net_revenue"
+      ],
+      "description": "Net revenue YoY growth rate vs Q-4"
+    },
+    "cost_of_goods_sold_margin_delta_bps": {
+      "variable": "cost_of_goods_sold",
+      "type": "bps",
+      "anchor": "net_revenue",
+      "constituents": [
+        "cost_of_goods_sold"
+      ],
+      "description": "COGS as % of net revenue, delta vs Q-4"
+    },
+    "selling_general_and_administrative_expenses_margin_delta_bps": {
+      "variable": "selling_general_and_administrative_expenses",
+      "type": "bps",
+      "anchor": "net_revenue",
+      "constituents": [
+        "selling_general_and_administrative_expenses"
+      ],
+      "description": "SG&A as % of net revenue, delta vs Q-4"
+    },
+    "other_income_expense_net_margin_delta_bps": {
+      "variable": "other_income_expense_net",
+      "type": "bps",
+      "anchor": "net_revenue",
+      "constituents": [
+        "other_income_expense_net"
+      ],
+      "description": "Other income (expense), net as % of net revenue, delta vs Q-4"
+    },
+    "impairment_of_goodwill_and_other_assets_restructuring_costs_abs": {
+      "variable": "impairment_of_goodwill_and_other_assets_restructuring_costs",
+      "type": "absolute",
+      "description": "impairment_of_goodwill_and_other_assets_restructuring_costs absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "amortization_of_intangible_assets_yoy": {
+      "variable": "amortization_of_intangible_assets",
+      "type": "yoy",
+      "constituents": [
+        "amortization_of_intangible_assets"
+      ],
+      "description": "amortization_of_intangible_assets YoY growth rate vs Q-4"
+    },
+    "gain_on_disposal_of_assets_abs": {
+      "variable": "gain_on_disposal_of_assets",
+      "type": "absolute",
+      "description": "gain_on_disposal_of_assets absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 120.4695,
+      "references": {
+        "last_q": 118.552,
+        "ttm": 120.4695,
+        "q4": 122.803
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.299012,
+      "references": {
+        "last_q": 0.305395,
+        "ttm": 0.299012,
+        "q4": 0.292309
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 6.09,
+    "target_fq_eps": 5.01,
+    "target_fq_pretax": 813.265
+  },
+  "revenue_field": "net_revenue"
+}

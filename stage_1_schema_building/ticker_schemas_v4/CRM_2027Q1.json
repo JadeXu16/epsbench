@@ -1,0 +1,129 @@
+{
+  "ticker": "CRM",
+  "target_fq": "2027Q1",
+  "baseline_fq": "2026Q1",
+  "variables_baseline": {
+    "subscription_and_support_revenue": 9297.0,
+    "services_revenue": 532.0,
+    "subscription_and_support_cost_of_revenue": 1611.0,
+    "services_cost_of_revenue": 654.0,
+    "rd": 1460.0,
+    "sales_and_marketing": 3429.0,
+    "general_and_administrative": 697.0,
+    "restructuring": 36.0,
+    "strategic_investment_losses": 63.0,
+    "other_income": 95.0,
+    "tax_rate": 0.21935258358662613,
+    "shares": 970.0
+  },
+  "formulas": {
+    "total_revenue": "subscription_and_support_revenue + services_revenue",
+    "total_cost_of_revenue": "subscription_and_support_cost_of_revenue + services_cost_of_revenue",
+    "gross_profit": "total_revenue - total_cost_of_revenue",
+    "total_opex": "rd + sales_and_marketing + general_and_administrative + restructuring",
+    "operating_income": "gross_profit - total_opex",
+    "pretax_income": "operating_income + other_income - strategic_investment_losses",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "subscription_revenue_yoy": {
+      "variable": "subscription_and_support_revenue",
+      "type": "yoy",
+      "constituents": [
+        "subscription_and_support_revenue"
+      ],
+      "description": "Subscription and support revenue YoY growth rate vs Q-4"
+    },
+    "services_revenue_yoy": {
+      "variable": "services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "services_revenue"
+      ],
+      "description": "Professional services and other revenue YoY growth rate vs Q-4"
+    },
+    "cost_of_revenue_margin_delta_bps": {
+      "variable": "total_cost_of_revenue",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "subscription_and_support_cost_of_revenue",
+        "services_cost_of_revenue"
+      ],
+      "description": "Total cost of revenues as % of total revenue, delta vs Q-4"
+    },
+    "rd_yoy": {
+      "variable": "rd",
+      "type": "yoy",
+      "constituents": [
+        "rd"
+      ],
+      "description": "R&D expense YoY growth rate vs Q-4"
+    },
+    "sales_and_marketing_margin_delta_bps": {
+      "variable": "sales_and_marketing",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "sales_and_marketing"
+      ],
+      "description": "Sales and marketing as % of total revenue, delta vs Q-4"
+    },
+    "g_and_a_margin_delta_bps": {
+      "variable": "general_and_administrative",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "general_and_administrative"
+      ],
+      "description": "General and administrative as % of total revenue, delta vs Q-4"
+    },
+    "restructuring_abs": {
+      "variable": "restructuring",
+      "type": "absolute",
+      "description": "restructuring absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "strategic_investment_losses_abs": {
+      "variable": "strategic_investment_losses",
+      "type": "absolute",
+      "description": "strategic_investment_losses absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "other_income_abs": {
+      "variable": "other_income",
+      "type": "absolute",
+      "description": "other_income absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.21935258358662613,
+      "references": {
+        "last_q": 0.260654,
+        "ttm": 0.216702,
+        "q4": 0.21935258358662613
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 959.0,
+      "references": {
+        "last_q": 952.0,
+        "ttm": 959.0,
+        "q4": 970.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.59,
+    "target_fq_eps": 2.42,
+    "target_fq_pretax": 2721.0
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "ticker": "UAL",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "passenger_revenue": 13275.0,
+    "cargo_revenue": 521.0,
+    "other_operating_revenue": 899.0,
+    "salaries_and_related_costs": 4325.0,
+    "aircraft_fuel": 2676.0,
+    "landing_fees_and_other_rent": 901.0,
+    "aircraft_maintenance_materials_and_outside_repairs": 809.0,
+    "depreciation_and_amortization": 759.0,
+    "regional_capacity_purchase": 668.0,
+    "distribution_expenses": 551.0,
+    "aircraft_rent": 45.0,
+    "special_charges": 68.0,
+    "other_operating_expenses": 2390.0,
+    "interest_expense": 369.0,
+    "interest_income": 172.0,
+    "interest_capitalized": 53.0,
+    "unrealized_gains_losses_on_investments_net": 39.0,
+    "miscellaneous_net": 13.0,
+    "shares": 332.8,
+    "tax_rate": 0.246366
+  },
+  "formulas": {
+    "total_revenue": "passenger_revenue + cargo_revenue + other_operating_revenue",
+    "total_operating_expense": "salaries_and_related_costs + aircraft_fuel + landing_fees_and_other_rent + aircraft_maintenance_materials_and_outside_repairs + depreciation_and_amortization + regional_capacity_purchase + distribution_expenses + aircraft_rent + special_charges + other_operating_expenses",
+    "operating_income": "total_revenue - total_operating_expense",
+    "total_nonoperating_expense_net": "interest_expense + unrealized_gains_losses_on_investments_net + miscellaneous_net - interest_income - interest_capitalized",
+    "pretax_income": "operating_income - total_nonoperating_expense_net",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "passenger_revenue_yoy": {
+      "variable": "passenger_revenue",
+      "type": "yoy",
+      "constituents": [
+        "passenger_revenue"
+      ],
+      "description": "Passenger revenue YoY growth rate vs Q-4"
+    },
+    "cargo_revenue_yoy": {
+      "variable": "cargo_revenue",
+      "type": "yoy",
+      "constituents": [
+        "cargo_revenue"
+      ],
+      "description": "Cargo revenue YoY growth rate vs Q-4"
+    },
+    "other_operating_revenue_yoy": {
+      "variable": "other_operating_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_operating_revenue"
+      ],
+      "description": "Other operating revenue YoY growth rate vs Q-4"
+    },
+    "op_expense_margin_delta_bps": {
+      "variable": "total_operating_expense",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "salaries_and_related_costs",
+        "aircraft_fuel",
+        "landing_fees_and_other_rent",
+        "aircraft_maintenance_materials_and_outside_repairs",
+        "depreciation_and_amortization",
+        "regional_capacity_purchase",
+        "distribution_expenses",
+        "aircraft_rent",
+        "special_charges",
+        "other_operating_expenses"
+      ],
+      "description": "Operating expenses as % of total revenue, delta vs Q-4"
+    },
+    "nonop_expense_margin_delta_bps": {
+      "variable": "total_nonoperating_expense_net",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "interest_expense",
+        "interest_income",
+        "interest_capitalized",
+        "unrealized_gains_losses_on_investments_net",
+        "miscellaneous_net"
+      ],
+      "description": "Net nonoperating expense as % of total revenue, delta vs Q-4"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 330.31,
+      "references": {
+        "last_q": 327.24,
+        "ttm": 330.31,
+        "q4": 332.8
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.243825,
+      "references": {
+        "last_q": 0.243825,
+        "ttm": 0.23181,
+        "q4": 0.246366
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 3.19,
+    "baseline_fq_eps": 2.96,
+    "target_fq_pretax": 1325.0
+  },
+  "revenue_field": "total_revenue"
+}

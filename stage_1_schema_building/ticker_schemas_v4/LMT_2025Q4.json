@@ -1,0 +1,119 @@
+{
+  "ticker": "LMT",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "products_revenue": 15500.0,
+    "services_revenue": 3122.0,
+    "products_cogs": 15484.0,
+    "services_cogs": 2760.0,
+    "impairment_severance": 0.0,
+    "other_unallocated_net": 312.0,
+    "other_income_net": 6.0,
+    "interest_expense": 264.0,
+    "non_service_pension_income": 15.0,
+    "other_non_operating_income": 72.0,
+    "tax_rate": -0.0154,
+    "shares": 238.7
+  },
+  "formulas": {
+    "total_revenue": "products_revenue + services_revenue",
+    "total_cogs": "products_cogs + services_cogs + impairment_severance - other_unallocated_net",
+    "gross_profit": "total_revenue - total_cogs",
+    "operating_income": "gross_profit + other_income_net",
+    "pretax_income": "operating_income - interest_expense + non_service_pension_income + other_non_operating_income",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "eps": "net_income / shares"
+  },
+  "prediction_schema": {
+    "products_revenue_yoy": {
+      "variable": "products_revenue",
+      "type": "yoy",
+      "constituents": [
+        "products_revenue"
+      ],
+      "description": "Product segment revenue YoY growth rate vs Q-4"
+    },
+    "services_revenue_yoy": {
+      "variable": "services_revenue",
+      "type": "yoy",
+      "constituents": [
+        "services_revenue"
+      ],
+      "description": "Services segment revenue YoY growth rate vs Q-4"
+    },
+    "cogs_margin_delta_bps": {
+      "variable": "total_cogs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "products_cogs",
+        "services_cogs",
+        "impairment_severance",
+        "other_unallocated_net"
+      ],
+      "description": "Combined cost of sales as % of total revenue, delta vs Q-4"
+    },
+    "other_income_net_yoy": {
+      "variable": "other_income_net",
+      "type": "yoy",
+      "constituents": [
+        "other_income_net"
+      ],
+      "description": "Other income (operating) YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "Interest expense YoY growth rate vs Q-4"
+    },
+    "non_service_pension_income_yoy": {
+      "variable": "non_service_pension_income",
+      "type": "yoy",
+      "constituents": [
+        "non_service_pension_income"
+      ],
+      "description": "non_service_pension_income YoY growth rate vs Q-4"
+    },
+    "other_non_operating_income_abs": {
+      "variable": "other_non_operating_income",
+      "type": "absolute",
+      "description": "other_non_operating_income absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 235.2867,
+      "references": {
+        "last_q": 233.0,
+        "ttm": 235.2867,
+        "q4": 238.7
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.012629,
+      "references": {
+        "last_q": 0.164603,
+        "ttm": 0.012629,
+        "q4": -0.0154
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 2.21,
+    "target_fq_eps": 5.81,
+    "target_fq_pretax": 1531.0
+  },
+  "revenue_field": "total_revenue"
+}

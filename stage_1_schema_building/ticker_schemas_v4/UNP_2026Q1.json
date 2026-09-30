@@ -1,0 +1,104 @@
+{
+  "ticker": "UNP",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "freight_revenue": 5691.0,
+    "other_revenue": 336.0,
+    "compensation_and_benefits": 1212.0,
+    "purchased_services_and_materials": 631.0,
+    "depreciation": 610.0,
+    "fuel": 603.0,
+    "equipment_and_other_rents": 241.0,
+    "other_operating_expense": 359.0,
+    "other_income_net": 78.0,
+    "interest_expense": 322.0,
+    "tax_rate": 0.2355,
+    "shares": 601.9
+  },
+  "formulas": {
+    "total_revenue": "freight_revenue + other_revenue",
+    "total_operating_expenses": "compensation_and_benefits + purchased_services_and_materials + depreciation + fuel + equipment_and_other_rents + other_operating_expense",
+    "operating_income": "total_revenue - total_operating_expenses",
+    "pretax_income": "operating_income + other_income_net - interest_expense",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "freight_revenue_yoy": {
+      "variable": "freight_revenue",
+      "type": "yoy",
+      "constituents": [
+        "freight_revenue"
+      ],
+      "description": "Freight revenue YoY growth rate vs Q-4 baseline"
+    },
+    "other_revenue_yoy": {
+      "variable": "other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_revenue"
+      ],
+      "description": "Other revenue YoY growth rate vs Q-4 baseline"
+    },
+    "operating_expense_margin_delta_bps": {
+      "variable": "total_operating_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "compensation_and_benefits",
+        "purchased_services_and_materials",
+        "depreciation",
+        "fuel",
+        "equipment_and_other_rents",
+        "other_operating_expense"
+      ],
+      "description": "Total operating expenses as a percentage of total revenue, delta vs Q-4 baseline"
+    },
+    "other_income_net_abs": {
+      "variable": "other_income_net",
+      "type": "absolute",
+      "description": "other_income_net absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.232558,
+      "references": {
+        "last_q": 0.232558,
+        "ttm": 0.221242,
+        "q4": 0.2355
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 595.775,
+      "references": {
+        "last_q": 593.2,
+        "ttm": 595.775,
+        "q4": 601.9
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 2.7,
+    "target_fq_eps": 2.87,
+    "target_fq_pretax": 2229.0
+  }
+}

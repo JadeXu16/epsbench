@@ -1,0 +1,29 @@
+{
+  "ticker": "SLB",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.8634623720177642,
+  "revenue_pred": 9516.380000000001,
+  "operating_pred": 1586.96534985782,
+  "pretax_pred": 1560.48534985782,
+  "eps_p10": 0.65,
+  "eps_p90": 1.08,
+  "eps_gaap_actual": 0.55,
+  "operating_actual": 996.0,
+  "pretax_actual": 943.0,
+  "fundamental_predictions": {
+    "services_revenue_yoy": -0.03,
+    "product_sales_yoy": 0.12,
+    "cogs_margin_delta_bps": 20,
+    "research_engineering_yoy": 0.05,
+    "general_administrative_margin_delta_bps": -10,
+    "interest_other_income_net_abs": 115,
+    "restructuring_other_abs": 50,
+    "merger_integration_abs": 80,
+    "interest_expense_yoy": 0.08,
+    "net_income_attributable_to_noncontrolling_interests_abs": 23,
+    "tax_rate": 0.194,
+    "shares_abs": 1430
+  },
+  "model": "glm-4.5-air"
+}

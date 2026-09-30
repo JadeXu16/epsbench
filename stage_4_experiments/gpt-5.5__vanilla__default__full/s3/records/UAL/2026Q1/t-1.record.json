@@ -1,0 +1,30 @@
+{
+  "ticker": "UAL",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.0164,
+  "revenue_pred": 14403.03,
+  "operating_pred": 525.6495467347868,
+  "pretax_pred": 427.16954673478676,
+  "eps_p10": 0.55,
+  "eps_p90": 1.45,
+  "eps_gaap_actual": 2.14,
+  "operating_actual": 997.0,
+  "pretax_actual": 870.0,
+  "fundamental_predictions": {
+    "passenger_revenue_yoy": 0.09,
+    "cargo_revenue_yoy": 0.03,
+    "other_operating_revenue_yoy": 0.12,
+    "fuel_margin_delta_bps": 55,
+    "nonfuel_opex_margin_delta_bps": -40,
+    "special_charges_credits_abs": 0,
+    "interest_expense_yoy": -0.08,
+    "interest_income_yoy": -0.14,
+    "interest_capitalized_yoy": 0.1,
+    "unrealized_losses_on_investments_net_abs": -10,
+    "miscellaneous_net_yoy": -0.3,
+    "income_taxes_abs": 95,
+    "shares_abs": 326.8
+  },
+  "model": "gpt-5.5"
+}

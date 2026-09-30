@@ -1,0 +1,28 @@
+{
+  "ticker": "RTX",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.1415135154330596,
+  "revenue_pred": 21594.28,
+  "operating_pred": 2157.318393785087,
+  "pretax_pred": 2060.858393785087,
+  "eps_p10": 0.9,
+  "eps_p90": 1.36,
+  "eps_gaap_actual": 1.51,
+  "operating_actual": 2555.0,
+  "pretax_actual": 2520.0,
+  "fundamental_predictions": {
+    "products_sales_yoy": 0.055,
+    "services_sales_yoy": 0.085,
+    "cogs_margin_delta_bps": -25,
+    "rd_yoy": 0.16,
+    "sga_yoy": 0.06,
+    "other_income_net_abs": 0,
+    "non_service_pension_income_yoy": -0.15,
+    "interest_expense_net_yoy": -0.08,
+    "tax_rate": 0.190548,
+    "nci_abs": 110,
+    "shares_abs": 1365
+  },
+  "model": "gpt-5.5"
+}

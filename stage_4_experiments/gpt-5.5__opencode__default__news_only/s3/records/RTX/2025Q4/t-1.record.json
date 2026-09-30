@@ -1,0 +1,28 @@
+{
+  "ticker": "RTX",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.1151357236106176,
+  "revenue_pred": 22767.120000000003,
+  "operating_pred": 2029.1593025944585,
+  "pretax_pred": 1946.8393025944583,
+  "eps_p10": 0.85,
+  "eps_p90": 1.38,
+  "eps_gaap_actual": 1.19,
+  "operating_actual": 2596.0,
+  "pretax_actual": 2297.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.04,
+    "services_revenue_yoy": 0.09,
+    "cogs_margin_delta_bps": 20,
+    "rd_yoy": 0.08,
+    "sga_margin_delta_bps": -20,
+    "other_income_net_abs": 100,
+    "non_service_pension_income_yoy": -0.05,
+    "interest_expense_net_yoy": -0.08,
+    "noncontrolling_interest_abs": 80,
+    "tax_rate": 0.181055,
+    "shares_abs": 1358
+  },
+  "model": "gpt-5.5"
+}

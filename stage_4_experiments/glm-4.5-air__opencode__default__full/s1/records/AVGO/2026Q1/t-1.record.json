@@ -1,0 +1,28 @@
+{
+  "ticker": "AVGO",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.2359941911551129,
+  "revenue_pred": 18482.72,
+  "operating_pred": 7982.876308436578,
+  "pretax_pred": 7105.116308436578,
+  "eps_p10": 1.05,
+  "eps_p90": 1.42,
+  "eps_gaap_actual": 1.5,
+  "operating_actual": 8563.0,
+  "pretax_actual": 8195.0,
+  "fundamental_predictions": {
+    "products_revenue_yoy": 0.42,
+    "subscriptions_services_revenue_yoy": 0.02,
+    "cogs_margin_delta_bps": 80,
+    "rd_yoy": 0.18,
+    "sga_margin_delta_bps": -25,
+    "amortization_acquisition_intangible_opex_yoy": 0.08,
+    "restructuring_other_charges_opex_abs": 100,
+    "interest_expense_yoy": 0.12,
+    "other_income_net_abs": 100,
+    "shares_abs": 4800,
+    "tax_rate": 0.165
+  },
+  "model": "glm-4.5-air"
+}

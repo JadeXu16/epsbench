@@ -1,0 +1,32 @@
+{
+  "ticker": "GE",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.147961764903224,
+  "revenue_pred": 11748.63,
+  "operating_pred": 2345.890955995569,
+  "pretax_pred": 2620.890955995569,
+  "eps_p10": 1.95,
+  "eps_p90": 2.35,
+  "eps_gaap_actual": 1.81,
+  "operating_actual": 2214.0,
+  "pretax_actual": 2198.0,
+  "fundamental_predictions": {
+    "equipment_revenue_yoy": 0.24,
+    "services_revenue_yoy": 0.19,
+    "insurance_revenue_yoy": -0.03,
+    "cogs_margin_delta_bps": 170,
+    "rd_yoy": 0.12,
+    "sga_yoy": 0.09,
+    "separation_costs_abs": 25,
+    "interest_and_other_financial_charges_yoy": 0.0714,
+    "insurance_losses_annuity_benefits_and_other_costs_abs": 670,
+    "non_operating_benefit_income_abs": 164,
+    "other_income_abs": 275,
+    "tax_rate": 0.1405,
+    "discontinued_operations_net_abs": 5,
+    "noncontrolling_interest_abs": -2,
+    "shares_abs": 1052
+  },
+  "model": "gpt-5.5"
+}

@@ -1,0 +1,16 @@
+{
+  "ticker": "AXP",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": null,
+  "revenue_pred": null,
+  "operating_pred": null,
+  "pretax_pred": null,
+  "eps_p10": null,
+  "eps_p90": null,
+  "eps_gaap_actual": 4.28,
+  "operating_actual": null,
+  "pretax_actual": 3778.0,
+  "fundamental_predictions": {},
+  "model": "qwen3.5-122b-a10b"
+}

@@ -1,0 +1,27 @@
+{
+  "ticker": "DAL",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.6099,
+  "revenue_pred": 15031.8,
+  "operating_pred": 759.5127435897411,
+  "pretax_pred": 533.6527435897411,
+  "eps_p10": 0.38,
+  "eps_p90": 0.85,
+  "eps_gaap_actual": -0.44,
+  "operating_actual": 501.0,
+  "pretax_actual": -214.0,
+  "fundamental_predictions": {
+    "passenger_revenue_yoy": 0.065,
+    "cargo_revenue_yoy": 0.05,
+    "other_revenue_yoy": 0.1,
+    "total_opex_margin_delta_bps": -100,
+    "interest_expense_net_yoy": -0.16,
+    "investment_losses_net_abs": 50,
+    "loss_on_extinguishment_of_debt_abs": 0,
+    "miscellaneous_net_yoy": -0.15,
+    "tax_rate": 0.24,
+    "shares_abs": 665
+  },
+  "model": "claude-opus-4-6"
+}

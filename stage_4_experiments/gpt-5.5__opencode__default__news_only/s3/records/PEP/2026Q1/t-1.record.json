@@ -1,0 +1,25 @@
+{
+  "ticker": "PEP",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.487660110955545,
+  "revenue_pred": 18922.464,
+  "operating_pred": 2793.8766239999995,
+  "pretax_pred": 2531.7566239999996,
+  "eps_p10": 1.32,
+  "eps_p90": 1.66,
+  "eps_gaap_actual": 1.7,
+  "operating_actual": 3213.0,
+  "pretax_actual": 2970.0,
+  "fundamental_predictions": {
+    "net_revenue_yoy": 0.056,
+    "cost_of_sales_margin_delta_bps": -15,
+    "sga_margin_delta_bps": -20,
+    "other_pension_income_yoy": 0,
+    "net_interest_expense_and_other_yoy": 0.08,
+    "tax_rate": 0.190258,
+    "shares_abs": 1372,
+    "noncontrolling_interests_abs": 9
+  },
+  "model": "gpt-5.5"
+}

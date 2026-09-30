@@ -1,0 +1,26 @@
+{
+  "ticker": "MRK",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.7234641401129935,
+  "revenue_pred": 16170.839999999998,
+  "operating_pred": 4811.200159999998,
+  "pretax_pred": 4911.200159999998,
+  "eps_p10": 1.1,
+  "eps_p90": 2.3,
+  "eps_gaap_actual": 1.19,
+  "operating_actual": 3852.0,
+  "pretax_actual": 3420.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.035,
+    "cost_of_sales_margin_delta_bps": -120,
+    "rd_yoy": 0.03,
+    "sga_margin_delta_bps": -120,
+    "restructuring_costs_abs": 100,
+    "other_expense_net_abs": -100,
+    "nci_abs": 2,
+    "shares_abs": 2478,
+    "tax_rate": 0.13
+  },
+  "model": "claude-opus-4-6"
+}

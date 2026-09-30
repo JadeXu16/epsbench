@@ -1,0 +1,7 @@
+__pycache__/
+node_modules/
+data/consensus.csv
+data/news_index/
+data/filings_raw/
+stage_2_shared/filings/
+runs/

@@ -1,0 +1,123 @@
+{
+  "ticker": "WMT",
+  "target_fq": "2026Q4",
+  "baseline_fq": "2025Q4",
+  "variables_baseline": {
+    "net_sales": 178830.0,
+    "membership_and_other_income": 1724.0,
+    "cost_of_sales": 136172.0,
+    "operating_selling_general_and_administrative_expenses": 36523.0,
+    "interest_debt": 599.0,
+    "interest_finance_lease": 118.0,
+    "interest_income": 115.0,
+    "other_gains_and_losses": 294.0,
+    "tax_rate": 0.2208,
+    "noncontrolling_interest": 171.0,
+    "shares": 8082.0
+  },
+  "formulas": {
+    "total_revenue": "net_sales + membership_and_other_income",
+    "gross_profit": "total_revenue - cost_of_sales",
+    "total_opex": "operating_selling_general_and_administrative_expenses",
+    "operating_income": "gross_profit - total_opex",
+    "interest_net": "interest_debt + interest_finance_lease - interest_income",
+    "pretax_income": "operating_income - interest_net - other_gains_and_losses",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - noncontrolling_interest",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "net_sales_yoy": {
+      "variable": "net_sales",
+      "type": "yoy",
+      "constituents": [
+        "net_sales"
+      ],
+      "description": "Net sales YoY growth rate vs Q-4"
+    },
+    "membership_and_other_income_yoy": {
+      "variable": "membership_and_other_income",
+      "type": "yoy",
+      "constituents": [
+        "membership_and_other_income"
+      ],
+      "description": "Membership and other income YoY growth rate vs Q-4"
+    },
+    "cost_of_sales_margin_delta_bps": {
+      "variable": "cost_of_sales",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "cost_of_sales"
+      ],
+      "description": "Cost of sales as % of total revenue, delta vs Q-4"
+    },
+    "opex_margin_delta_bps": {
+      "variable": "operating_selling_general_and_administrative_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "operating_selling_general_and_administrative_expenses"
+      ],
+      "description": "Operating SG&A as % of total revenue, delta vs Q-4"
+    },
+    "interest_margin_delta_bps": {
+      "variable": "interest_net",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "interest_debt",
+        "interest_finance_lease",
+        "interest_income"
+      ],
+      "description": "Net interest expense as % of total revenue, delta vs Q-4"
+    },
+    "other_gains_and_losses_margin_delta_bps": {
+      "variable": "other_gains_and_losses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "other_gains_and_losses"
+      ],
+      "description": "Other gains and losses as % of total revenue, delta vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.234995,
+      "references": {
+        "last_q": 0.256291,
+        "ttm": 0.234995,
+        "q4": 0.2208
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 8040.0,
+      "references": {
+        "last_q": 8011.0,
+        "ttm": 8040.0,
+        "q4": 8082.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "noncontrolling_interest_abs": {
+      "variable": "noncontrolling_interest",
+      "type": "absolute",
+      "default": 171.0,
+      "description": "noncontrolling_interest absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    }
+  },
+  "_validation": {
+    "target_fq_eps": 0.53,
+    "baseline_fq_eps": 0.65,
+    "target_fq_pretax": 5970.0
+  },
+  "revenue_field": "total_revenue"
+}

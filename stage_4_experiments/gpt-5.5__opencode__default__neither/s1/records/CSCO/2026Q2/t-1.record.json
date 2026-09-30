@@ -1,0 +1,30 @@
+{
+  "ticker": "CSCO",
+  "fiscal_quarter": "2026Q2",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.6567677183496341,
+  "revenue_pred": 14545.454999999998,
+  "operating_pred": 3349.123738830498,
+  "pretax_pred": 3103.143738830498,
+  "eps_p10": 0.58,
+  "eps_p90": 0.73,
+  "eps_gaap_actual": 0.8,
+  "operating_actual": 3781.0,
+  "pretax_actual": 3646.0,
+  "fundamental_predictions": {
+    "product_revenue_yoy": 0.045,
+    "services_revenue_yoy": 0.025,
+    "cogs_margin_delta_bps": -30,
+    "rd_yoy": 0.04,
+    "sales_marketing_margin_delta_bps": -25,
+    "general_administrative_yoy": 0.02,
+    "amortization_intangibles_yoy": -0.03,
+    "restructuring_charges_abs": 10,
+    "interest_income_yoy": -0.05,
+    "interest_expense_yoy": 0.02,
+    "other_income_net_abs": 60,
+    "shares_abs": 3985,
+    "tax_rate": 0.156591
+  },
+  "model": "gpt-5.5"
+}

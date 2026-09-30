@@ -1,0 +1,31 @@
+{
+  "ticker": "SBUX",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.5627,
+  "revenue_pred": 9603.007,
+  "operating_pred": 981.653492155313,
+  "pretax_pred": 865.5994921553129,
+  "eps_p10": 0.48,
+  "eps_p90": 0.66,
+  "eps_gaap_actual": 0.26,
+  "operating_actual": 890.8,
+  "pretax_actual": 764.8,
+  "fundamental_predictions": {
+    "company_operated_stores_revenue_yoy": 0.02,
+    "licensed_stores_revenue_yoy": 0.01,
+    "product_and_distribution_costs_margin_delta_bps": 110,
+    "store_operating_expenses_margin_delta_bps": 120,
+    "depreciation_and_amortization_expenses_margin_delta_bps": 10,
+    "general_and_administrative_expenses_margin_delta_bps": -60,
+    "other_revenue_yoy": 0.08,
+    "other_operating_expenses_abs": 148,
+    "income_from_equity_investees_abs": 48,
+    "interest_income_and_other_net_yoy": -0.05,
+    "interest_expense_yoy": 0.12,
+    "net_earnings_attributable_to_noncontrolling_interests_abs": 0.1,
+    "tax_rate": 0.259439,
+    "shares_abs": 1139
+  },
+  "model": "gpt-5.5"
+}

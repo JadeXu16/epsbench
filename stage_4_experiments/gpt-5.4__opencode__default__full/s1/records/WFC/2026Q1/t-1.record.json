@@ -1,0 +1,26 @@
+{
+  "ticker": "WFC",
+  "fiscal_quarter": "2026Q1",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 1.6218087153928602,
+  "revenue_pred": 21553.772000000004,
+  "operating_pred": null,
+  "pretax_pred": 6613.359726695617,
+  "eps_p10": 1.47,
+  "eps_p90": 1.77,
+  "eps_gaap_actual": 1.6,
+  "operating_actual": null,
+  "pretax_actual": 5981.0,
+  "fundamental_predictions": {
+    "interest_income_yoy": 0.058,
+    "interest_expense_yoy": 0.055,
+    "noninterest_income_yoy": 0.082,
+    "provision_credit_losses_margin_delta_bps": 25,
+    "noninterest_expense_margin_delta_bps": -450,
+    "tax_rate": 0.155,
+    "noncontrolling_interest_income_abs": 25,
+    "preferred_stock_dividends_abs": 247,
+    "shares_abs": 3278
+  },
+  "model": "gpt-5.4"
+}

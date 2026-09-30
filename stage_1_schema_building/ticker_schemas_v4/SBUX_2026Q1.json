@@ -1,0 +1,157 @@
+{
+  "ticker": "SBUX",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "company_operated_stores_revenue": 7785.3,
+    "licensed_stores_revenue": 1135.7,
+    "other_revenue": 476.8,
+    "product_and_distribution_costs": 2893.7,
+    "store_operating_expenses": 4203.0,
+    "other_operating_expenses": 152.5,
+    "depreciation_and_amortization_expenses": 407.6,
+    "general_and_administrative_expenses": 665.8,
+    "income_from_equity_investees": 46.5,
+    "interest_income_and_other_net": 27.8,
+    "interest_expense": 127.2,
+    "net_earnings_attributable_to_noncontrolling_interests": 0.1,
+    "tax_rate": 0.2361,
+    "shares": 1138.4
+  },
+  "formulas": {
+    "total_revenue": "company_operated_stores_revenue + licensed_stores_revenue + other_revenue",
+    "gross_profit": "total_revenue - product_and_distribution_costs",
+    "total_operating_expenses": "store_operating_expenses + other_operating_expenses + depreciation_and_amortization_expenses + general_and_administrative_expenses",
+    "operating_income": "gross_profit - total_operating_expenses + income_from_equity_investees",
+    "pretax_income": "operating_income + interest_income_and_other_net - interest_expense",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - net_earnings_attributable_to_noncontrolling_interests",
+    "eps": "earnings_to_common / shares",
+    "tax_provision": "pretax_income * tax_rate"
+  },
+  "prediction_schema": {
+    "company_operated_stores_revenue_yoy": {
+      "variable": "company_operated_stores_revenue",
+      "type": "yoy",
+      "constituents": [
+        "company_operated_stores_revenue"
+      ],
+      "description": "Company-operated stores revenue YoY growth rate vs Q-4"
+    },
+    "licensed_stores_revenue_yoy": {
+      "variable": "licensed_stores_revenue",
+      "type": "yoy",
+      "constituents": [
+        "licensed_stores_revenue"
+      ],
+      "description": "Licensed stores revenue YoY growth rate vs Q-4"
+    },
+    "product_and_distribution_costs_margin_delta_bps": {
+      "variable": "product_and_distribution_costs",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "product_and_distribution_costs"
+      ],
+      "description": "Product and distribution costs as % of total revenue, delta vs Q-4"
+    },
+    "store_operating_expenses_margin_delta_bps": {
+      "variable": "store_operating_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "store_operating_expenses"
+      ],
+      "description": "Store operating expenses as % of total revenue, delta vs Q-4"
+    },
+    "depreciation_and_amortization_expenses_margin_delta_bps": {
+      "variable": "depreciation_and_amortization_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "depreciation_and_amortization_expenses"
+      ],
+      "description": "Depreciation and amortization expenses as % of total revenue, delta vs Q-4"
+    },
+    "general_and_administrative_expenses_margin_delta_bps": {
+      "variable": "general_and_administrative_expenses",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "general_and_administrative_expenses"
+      ],
+      "description": "G&A expenses as % of total revenue, delta vs Q-4"
+    },
+    "other_revenue_yoy": {
+      "variable": "other_revenue",
+      "type": "yoy",
+      "constituents": [
+        "other_revenue"
+      ],
+      "description": "other_revenue YoY growth rate vs Q-4"
+    },
+    "other_operating_expenses_abs": {
+      "variable": "other_operating_expenses",
+      "type": "absolute",
+      "description": "other_operating_expenses absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "income_from_equity_investees_abs": {
+      "variable": "income_from_equity_investees",
+      "type": "absolute",
+      "description": "income_from_equity_investees absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_income_and_other_net_yoy": {
+      "variable": "interest_income_and_other_net",
+      "type": "yoy",
+      "constituents": [
+        "interest_income_and_other_net"
+      ],
+      "description": "interest_income_and_other_net YoY growth rate vs Q-4"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "net_earnings_attributable_to_noncontrolling_interests_abs": {
+      "variable": "net_earnings_attributable_to_noncontrolling_interests",
+      "type": "absolute",
+      "default": 0.1,
+      "description": "net_earnings_attributable_to_noncontrolling_interests absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.2361,
+      "references": {
+        "last_q": 0.187309,
+        "ttm": 0.259439,
+        "q4": 0.2361
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1139.5,
+      "references": {
+        "last_q": 1139.8,
+        "ttm": 1139.5,
+        "q4": 1138.4
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 0.69,
+    "target_fq_eps": 0.26,
+    "target_fq_pretax": 764.8
+  },
+  "revenue_field": "total_revenue"
+}

@@ -1,0 +1,26 @@
+{
+  "ticker": "BLK",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 10.872703259130436,
+  "revenue_pred": 6698.86,
+  "operating_pred": 2308.38824,
+  "pretax_pred": 2331.3482400000003,
+  "eps_p10": 9.25,
+  "eps_p90": 12.75,
+  "eps_gaap_actual": 7.16,
+  "operating_actual": 1661.0,
+  "pretax_actual": 1607.0,
+  "fundamental_predictions": {
+    "total_revenue_yoy": 0.18,
+    "employee_compensation_margin_delta_bps": 50,
+    "sales_asset_margin_delta_bps": 65,
+    "general_administration_margin_delta_bps": 45,
+    "other_operating_expenses_yoy": 0.55,
+    "non_operating_income_yoy": -0.18,
+    "nci_abs": 5,
+    "shares_abs": 161,
+    "tax_rate": 0.247
+  },
+  "model": "qwen3.5-122b-a10b"
+}

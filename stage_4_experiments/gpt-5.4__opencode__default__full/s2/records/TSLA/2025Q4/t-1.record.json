@@ -1,0 +1,28 @@
+{
+  "ticker": "TSLA",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 0.24935847211894444,
+  "revenue_pred": 24483.04,
+  "operating_pred": 993.4864676982929,
+  "pretax_pred": 1156.366467698293,
+  "eps_p10": 0.15,
+  "eps_p90": 0.36,
+  "eps_gaap_actual": 0.24,
+  "operating_actual": 1409.0,
+  "pretax_actual": 1181.0,
+  "fundamental_predictions": {
+    "automotive_revenue_yoy": -0.135,
+    "energy_generation_and_storage_yoy": 0.25,
+    "services_and_other_yoy": 0.24,
+    "cogs_margin_delta_bps": -70,
+    "opex_margin_delta_bps": 280,
+    "interest_income_yoy": 0.04,
+    "interest_expense_yoy": -0.2,
+    "other_income_net_abs": -220,
+    "net_income_attributable_to_noncontrolling_interests_abs": 18,
+    "shares_abs": 3530,
+    "tax_rate": 0.223226
+  },
+  "model": "gpt-5.4"
+}

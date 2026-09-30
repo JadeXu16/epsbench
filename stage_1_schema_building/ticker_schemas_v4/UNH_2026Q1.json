@@ -1,0 +1,142 @@
+{
+  "ticker": "UNH",
+  "target_fq": "2026Q1",
+  "baseline_fq": "2025Q1",
+  "variables_baseline": {
+    "premiums": 86534.0,
+    "products": 13036.0,
+    "services": 8972.0,
+    "investment_other_income": 1033.0,
+    "medical_costs": 73411.0,
+    "other_operating_costs": 13594.0,
+    "cost_of_products_sold": 12390.0,
+    "depreciation_amortization": 1061.0,
+    "interest_expense": 998.0,
+    "loss_on_sale_subsidiary": 15.0,
+    "tax_rate": 0.2013323464100666,
+    "noncontrolling_interests": 182.0,
+    "shares": 918.0
+  },
+  "formulas": {
+    "non_medical_opex": "other_operating_costs + depreciation_amortization",
+    "total_revenue": "premiums + products + services + investment_other_income",
+    "total_operating_costs": "medical_costs + cost_of_products_sold + non_medical_opex",
+    "operating_income": "total_revenue - total_operating_costs",
+    "pretax_income": "operating_income - interest_expense - loss_on_sale_subsidiary",
+    "tax_provision": "pretax_income * tax_rate",
+    "net_income": "pretax_income - tax_provision",
+    "earnings_to_common": "net_income - noncontrolling_interests",
+    "eps": "earnings_to_common / shares"
+  },
+  "prediction_schema": {
+    "premiums_yoy": {
+      "variable": "premiums",
+      "type": "yoy",
+      "constituents": [
+        "premiums"
+      ],
+      "description": "Premiums revenue YoY growth rate vs 2025Q1"
+    },
+    "products_yoy": {
+      "variable": "products",
+      "type": "yoy",
+      "constituents": [
+        "products"
+      ],
+      "description": "Products revenue YoY growth rate vs 2025Q1"
+    },
+    "services_yoy": {
+      "variable": "services",
+      "type": "yoy",
+      "constituents": [
+        "services"
+      ],
+      "description": "Services revenue YoY growth rate vs 2025Q1"
+    },
+    "medical_cost_ratio_delta_bps": {
+      "variable": "medical_costs",
+      "type": "bps",
+      "anchor": "premiums",
+      "constituents": [
+        "medical_costs"
+      ],
+      "description": "Medical costs as % of premiums, delta vs 2025Q1"
+    },
+    "products_cogs_margin_delta_bps": {
+      "variable": "cost_of_products_sold",
+      "type": "bps",
+      "anchor": "products",
+      "constituents": [
+        "cost_of_products_sold"
+      ],
+      "description": "Cost of products sold as % of products revenue, delta vs 2025Q1"
+    },
+    "opex_margin_delta_bps": {
+      "variable": "non_medical_opex",
+      "type": "bps",
+      "anchor": "total_revenue",
+      "constituents": [
+        "other_operating_costs",
+        "depreciation_amortization"
+      ],
+      "description": "Operating costs excluding medical costs and product COGS as % of total revenue, delta vs 2025Q1"
+    },
+    "investment_other_income_abs": {
+      "variable": "investment_other_income",
+      "type": "absolute",
+      "description": "investment_other_income absolute dollar value for the target quarter (predict the amount directly; 0 if none expected)"
+    },
+    "interest_expense_yoy": {
+      "variable": "interest_expense",
+      "type": "yoy",
+      "constituents": [
+        "interest_expense"
+      ],
+      "description": "interest_expense YoY growth rate vs Q-4"
+    },
+    "loss_on_sale_subsidiary_yoy": {
+      "variable": "loss_on_sale_subsidiary",
+      "type": "yoy",
+      "constituents": [
+        "loss_on_sale_subsidiary"
+      ],
+      "description": "loss_on_sale_subsidiary YoY growth rate vs Q-4"
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.2013323464100666,
+      "references": {
+        "last_q": 1.302778,
+        "ttm": 0.128598,
+        "q4": 0.2013323464100666
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    },
+    "noncontrolling_interests_abs": {
+      "variable": "noncontrolling_interests",
+      "type": "absolute",
+      "default": 182.0,
+      "description": "noncontrolling_interests absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 911.0,
+      "references": {
+        "last_q": 908.0,
+        "ttm": 911.0,
+        "q4": 918.0
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 6.85,
+    "target_fq_eps": 6.9,
+    "target_fq_pretax": 7963.0
+  }
+}

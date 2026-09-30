@@ -1,0 +1,1 @@
+../../stage_2_harness_opencode/.opencode/agents/financial-forecaster-noresearch.md

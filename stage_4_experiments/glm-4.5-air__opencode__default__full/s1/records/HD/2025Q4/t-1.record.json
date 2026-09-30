@@ -1,0 +1,25 @@
+{
+  "ticker": "HD",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.987028891002013,
+  "revenue_pred": 41093.64,
+  "operating_pred": 4533.507720000001,
+  "pretax_pred": 3907.747720000001,
+  "eps_p10": 2.65,
+  "eps_p90": 3.32,
+  "eps_gaap_actual": 2.58,
+  "operating_actual": 3849.0,
+  "pretax_actual": 3298.0,
+  "fundamental_predictions": {
+    "revenue_yoy": 0.035,
+    "cost_of_sales_margin_delta_bps": -20,
+    "sg_and_a_margin_delta_bps": 40,
+    "depreciation_and_amortization_yoy": 0.08,
+    "interest_income_and_other_net_abs": -25,
+    "interest_expense_yoy": 0.02,
+    "shares_abs": 994,
+    "tax_rate": 0.2402
+  },
+  "model": "glm-4.5-air"
+}

@@ -1,0 +1,93 @@
+{
+  "ticker": "C",
+  "target_fq": "2025Q4",
+  "baseline_fq": "2024Q4",
+  "variables_baseline": {
+    "total_revenues": 19581.0,
+    "total_provisions": 2593.0,
+    "total_operating_expenses": 13186.0,
+    "noncontrolling_interests": 34.0,
+    "discontinued_ops_loss": 0.0,
+    "shares": 1940.3,
+    "tax_rate": 0.239874
+  },
+  "formulas": {
+    "pretax_continuing": "total_revenues - total_provisions - total_operating_expenses",
+    "net_income_continuing": "pretax_continuing - tax_provision",
+    "net_income_before_nci": "net_income_continuing - discontinued_ops_loss",
+    "net_income_attributable": "net_income_before_nci - noncontrolling_interests",
+    "eps": "net_income_attributable / shares",
+    "tax_provision": "pretax_continuing * tax_rate"
+  },
+  "prediction_schema": {
+    "total_revenues_yoy": {
+      "variable": "total_revenues",
+      "type": "yoy",
+      "constituents": [
+        "total_revenues"
+      ],
+      "description": "Total revenue (net interest + non-interest) YoY growth rate vs Q-4"
+    },
+    "provisions_margin_delta_bps": {
+      "variable": "total_provisions",
+      "type": "bps",
+      "anchor": "total_revenues",
+      "constituents": [
+        "total_provisions"
+      ],
+      "description": "Total provisions as % of total revenue, delta vs Q-4"
+    },
+    "opex_margin_delta_bps": {
+      "variable": "total_operating_expenses",
+      "type": "bps",
+      "anchor": "total_revenues",
+      "constituents": [
+        "total_operating_expenses"
+      ],
+      "description": "Total operating expenses as % of total revenue, delta vs Q-4"
+    },
+    "noncontrolling_interests_abs": {
+      "variable": "noncontrolling_interests",
+      "type": "absolute",
+      "default": 34.0,
+      "description": "noncontrolling_interests absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "discontinued_ops_loss_abs": {
+      "variable": "discontinued_ops_loss",
+      "type": "absolute",
+      "default": 0.0,
+      "description": "discontinued_ops_loss absolute dollar value for the target quarter (below-pretax line; predict directly, 0 if none expected)."
+    },
+    "shares_abs": {
+      "variable": "shares",
+      "type": "absolute",
+      "default": 1903.9,
+      "references": {
+        "last_q": 1862.6,
+        "ttm": 1903.9,
+        "q4": 1940.3
+      },
+      "description": "shares: diluted weighted-average share count for the target quarter (predict the count directly; drifts slowly with buybacks/issuance)."
+    },
+    "tax_rate": {
+      "variable": "tax_rate",
+      "type": "rate_override",
+      "constituents": [
+        "tax_rate"
+      ],
+      "default": 0.252132,
+      "references": {
+        "last_q": 0.291402,
+        "ttm": 0.252132,
+        "q4": 0.239874
+      },
+      "description": "Effective GAAP tax rate for the target quarter (decimal, e.g. 0.14 = 14%; may be negative in a benefit quarter). Choose from the GAAP historical anchors provided; a discrete tax item can push it far from any of them."
+    }
+  },
+  "_validation": {
+    "baseline_fq_eps": 1.47,
+    "target_fq_eps": 1.36,
+    "target_fq_pretax": 3811.0
+  },
+  "revenue_field": "total_revenues"
+}

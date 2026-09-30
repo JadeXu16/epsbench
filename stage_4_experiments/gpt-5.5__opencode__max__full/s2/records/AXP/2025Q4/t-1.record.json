@@ -1,0 +1,28 @@
+{
+  "ticker": "AXP",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 3.6786096386713405,
+  "revenue_pred": 18876.657734443215,
+  "operating_pred": null,
+  "pretax_pred": 3236.6702649222916,
+  "eps_p10": 3.25,
+  "eps_p90": 4.1,
+  "eps_gaap_actual": 3.53,
+  "operating_actual": null,
+  "pretax_actual": 3090.0,
+  "fundamental_predictions": {
+    "discount_revenue_yoy": 0.085,
+    "net_card_fees_yoy": 0.155,
+    "service_fees_other_revenue_yoy": 0.1,
+    "total_non_interest_revenues_margin_delta_bps": 0,
+    "total_expenses_margin_delta_bps": -80,
+    "provisions_margin_delta_bps": -20,
+    "total_interest_income_yoy": 0.07,
+    "interest_expense_deposits_yoy": -0.04,
+    "interest_expense_long_term_debt_and_other_yoy": 0.1,
+    "shares_abs": 689,
+    "tax_rate": 0.216923
+  },
+  "model": "gpt-5.5"
+}

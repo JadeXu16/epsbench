@@ -1,0 +1,31 @@
+{
+  "ticker": "MS",
+  "fiscal_quarter": "2025Q4",
+  "slice_days_before": 1,
+  "eps_gaap_pred": 2.5006530111982204,
+  "revenue_pred": 17496.010000000002,
+  "operating_pred": null,
+  "pretax_pred": 5435.993493789776,
+  "eps_p10": 2.15,
+  "eps_p90": 2.9,
+  "eps_gaap_actual": 2.68,
+  "operating_actual": null,
+  "pretax_actual": 5760.0,
+  "fundamental_predictions": {
+    "investment_banking_revenue_yoy": 0.08,
+    "trading_revenue_yoy": 0.1,
+    "commissions_and_fees_revenue_yoy": 0.12,
+    "asset_management_revenue_yoy": 0.1,
+    "total_non_interest_expenses_margin_delta_bps": -200,
+    "investments_revenue_abs": 280,
+    "other_revenue_yoy": -0.15,
+    "interest_income_yoy": 0.035,
+    "interest_expense_yoy": 0.045,
+    "provision_for_credit_losses_yoy": -0.15,
+    "net_income_noncontrolling_interests_abs": 40,
+    "preferred_stock_dividends_abs": 155,
+    "shares_abs": 1585,
+    "tax_rate": 0.235
+  },
+  "model": "claude-opus-4-6"
+}
